@@ -13,7 +13,9 @@ const StorageManager = {
         DEPTH_LEVEL: 'selah_depth',
         TOTAL_DAYS: 'selah_total_days',
         COMMITMENTS: 'selah_commitments',
-        BOOKMARKS: 'selah_bookmarks'
+        BOOKMARKS: 'selah_bookmarks',
+        BIBLE_VERSION: 'selah_bible_version',
+        SEARCH_HISTORY: 'selah_search_history'
     },
 
     MAX_HISTORY: 30, // Keep track of last 30 verses to avoid repetition
@@ -271,6 +273,55 @@ const StorageManager = {
         const yesterday = new Date();
         yesterday.setDate(yesterday.getDate() - 1);
         return yesterday.toISOString().split('T')[0];
+    },
+
+    /**
+     * Get Bible version preference (KJV or ESV)
+     * @returns {string} 'KJV' or 'ESV'
+     */
+    getBibleVersion() {
+        return localStorage.getItem(this.KEYS.BIBLE_VERSION) || 'KJV';
+    },
+
+    /**
+     * Set Bible version preference
+     * @param {string} version - 'KJV' or 'ESV'
+     */
+    setBibleVersion(version) {
+        localStorage.setItem(this.KEYS.BIBLE_VERSION, version);
+    },
+
+    /**
+     * Get search history
+     * @returns {Array} Array of recent searches
+     */
+    getSearchHistory() {
+        const stored = localStorage.getItem(this.KEYS.SEARCH_HISTORY);
+        if (!stored) return [];
+        try {
+            return JSON.parse(stored);
+        } catch (e) {
+            return [];
+        }
+    },
+
+    /**
+     * Add to search history
+     * @param {string} query - Search query
+     */
+    addSearchHistory(query) {
+        if (!query || query.length < 2) return;
+
+        let history = this.getSearchHistory();
+        // Remove if exists
+        history = history.filter(h => h.toLowerCase() !== query.toLowerCase());
+        // Add to front
+        history.unshift(query);
+        // Keep last 10
+        if (history.length > 10) {
+            history = history.slice(0, 10);
+        }
+        localStorage.setItem(this.KEYS.SEARCH_HISTORY, JSON.stringify(history));
     },
 
     /**

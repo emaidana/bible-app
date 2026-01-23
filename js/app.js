@@ -8,6 +8,9 @@ const BibleApp = {
     currentVerse: null,
     dailyVerse: null,
     isShowingDaily: true,
+    bibleVersion: 'KJV', // KJV or ESV (English only)
+    isSearching: false,
+    searchDebounceTimer: null,
 
     // Server API base URL (for WhatsApp integration)
     apiBaseUrl: 'http://localhost:3000/api',
@@ -129,6 +132,10 @@ const BibleApp = {
         this.currentTheme = StorageManager.getTheme();
         this.applyTheme(this.currentTheme);
 
+        // Load Bible version preference
+        this.bibleVersion = StorageManager.getBibleVersion();
+        this.updateVersionToggle();
+
         // Update streak on app load
         this.updateStreak();
 
@@ -146,6 +153,40 @@ const BibleApp = {
         this.renderDepthIndicator();
         this.updateBookmarkButton();
         this.checkTodayCommitment();
+    },
+
+    /**
+     * Update version toggle UI
+     */
+    updateVersionToggle() {
+        const versionToggle = document.getElementById('versionToggle');
+        if (!versionToggle) return;
+
+        // Hide toggle for Spanish (only RVR1960 available)
+        if (this.currentLanguage === 'es') {
+            versionToggle.style.display = 'none';
+            return;
+        }
+
+        versionToggle.style.display = 'flex';
+        const buttons = versionToggle.querySelectorAll('.version-btn');
+        buttons.forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.version === this.bibleVersion);
+        });
+    },
+
+    /**
+     * Set Bible version
+     * @param {string} version - 'KJV' or 'ESV'
+     */
+    setBibleVersion(version) {
+        this.bibleVersion = version;
+        StorageManager.setBibleVersion(version);
+        this.updateVersionToggle();
+        // Clear Bible service cache when version changes
+        if (typeof BibleService !== 'undefined') {
+            BibleService.clearCache();
+        }
     },
 
     /**
@@ -404,7 +445,13 @@ const BibleApp = {
      */
     displayVerse(verse) {
         this.currentVerse = verse;
-        this.isShowingDaily = (verse.id === this.dailyVerse.id);
+        this.isShowingDaily = (verse.id === this.dailyVerse?.id);
+
+        // Show analysis sections for local verses
+        if (!verse.isAPIVerse) {
+            this.showAnalysisSections();
+        }
+
         this.renderVerse();
         this.updateDailyBadge();
         this.updateBookmarkButton();
@@ -539,6 +586,17 @@ const BibleApp = {
         const themeToggle = document.getElementById('themeToggle');
         themeToggle.addEventListener('click', () => this.toggleTheme());
 
+        // Version toggle (KJV/ESV)
+        const versionToggle = document.getElementById('versionToggle');
+        if (versionToggle) {
+            versionToggle.addEventListener('click', (e) => {
+                const btn = e.target.closest('.version-btn');
+                if (btn && btn.dataset.version) {
+                    this.setBibleVersion(btn.dataset.version);
+                }
+            });
+        }
+
         // Language toggle
         const languageToggle = document.getElementById('languageToggle');
         languageToggle.addEventListener('click', () => this.toggleLanguage());
@@ -623,10 +681,32 @@ const BibleApp = {
     },
 
     /**
-     * Handle search input
+     * Handle search input with debouncing
      * @param {string} query - Search query
      */
     handleSearch(query) {
+        const suggestions = document.getElementById('searchSuggestions');
+
+        if (!query.trim()) {
+            suggestions.classList.remove('active');
+            return;
+        }
+
+        // Debounce the search
+        if (this.searchDebounceTimer) {
+            clearTimeout(this.searchDebounceTimer);
+        }
+
+        this.searchDebounceTimer = setTimeout(() => {
+            this.performLiveSearch(query);
+        }, 150);
+    },
+
+    /**
+     * Perform live search with API and local data
+     * @param {string} query - Search query
+     */
+    async performLiveSearch(query) {
         const suggestions = document.getElementById('searchSuggestions');
         const lang = this.currentLanguage;
 
@@ -636,7 +716,9 @@ const BibleApp = {
         }
 
         const normalizedQuery = query.toLowerCase().trim();
-        const matches = BibleVerses.filter(verse => {
+
+        // First, check local BibleVerses for analysis-rich content
+        const localMatches = BibleVerses.filter(verse => {
             const bookEn = verse.book.en.toLowerCase();
             const bookEs = verse.book.es.toLowerCase();
             const reference = `${verse.book[lang]} ${verse.chapter}:${verse.verse}`.toLowerCase();
@@ -650,40 +732,95 @@ const BibleApp = {
                    textPreview.includes(normalizedQuery);
         });
 
-        this.renderSuggestions(matches);
+        // Try to get autocomplete suggestions from Bible API
+        let apiSuggestions = [];
+        if (typeof BibleService !== 'undefined') {
+            try {
+                apiSuggestions = await BibleService.getAutocompleteSuggestions(
+                    query,
+                    lang,
+                    this.bibleVersion
+                );
+            } catch (e) {
+                console.warn('API autocomplete error:', e);
+            }
+        }
+
+        // Combine and render suggestions
+        this.renderEnhancedSuggestions(localMatches, apiSuggestions, query);
     },
 
     /**
-     * Render search suggestions
-     * @param {array} matches - Matching verses
+     * Render enhanced search suggestions
+     * @param {array} localMatches - Matches from local BibleVerses
+     * @param {array} apiSuggestions - Suggestions from Bible API
+     * @param {string} query - Original query
      */
-    renderSuggestions(matches) {
+    renderEnhancedSuggestions(localMatches, apiSuggestions, query) {
         const suggestions = document.getElementById('searchSuggestions');
         const lang = this.currentLanguage;
+        let html = '';
 
-        if (matches.length === 0) {
-            suggestions.innerHTML = `<div class="no-results">${this.translations[lang].noResults}</div>`;
-            suggestions.classList.add('active');
-            return;
+        // Local matches with analysis (prioritized)
+        if (localMatches.length > 0) {
+            html += '<div class="suggestion-group"><div class="suggestion-group-label">With Analysis</div>';
+            html += localMatches.slice(0, 5).map(verse => {
+                const reference = `${verse.book[lang]} ${verse.chapter}:${verse.verse}`;
+                const preview = verse.text[lang].substring(0, 50) + '...';
+                return `
+                    <div class="suggestion-item" data-verse-id="${verse.id}" data-source="local">
+                        <span class="suggestion-reference">${reference}</span>
+                        <span class="suggestion-preview">${preview}</span>
+                        <span class="suggestion-badge">Analysis</span>
+                    </div>
+                `;
+            }).join('');
+            html += '</div>';
         }
 
-        suggestions.innerHTML = matches.map(verse => {
-            const reference = `${verse.book[lang]} ${verse.chapter}:${verse.verse}`;
-            const preview = verse.text[lang].substring(0, 50) + '...';
-            return `
-                <div class="suggestion-item" data-verse-id="${verse.id}">
-                    <span class="suggestion-reference">${reference}</span>
-                    <span class="suggestion-preview">${preview}</span>
-                </div>
-            `;
-        }).join('');
+        // API suggestions (full Bible)
+        if (apiSuggestions.length > 0) {
+            const apiItems = apiSuggestions.filter(s =>
+                !localMatches.some(lm => {
+                    const localRef = `${lm.book[lang]} ${lm.chapter}:${lm.verse}`.toLowerCase();
+                    return localRef === s.display?.toLowerCase();
+                })
+            );
 
-        // Add click handlers to suggestions
+            if (apiItems.length > 0) {
+                html += '<div class="suggestion-group"><div class="suggestion-group-label">All Bible</div>';
+                html += apiItems.slice(0, 5).map(item => {
+                    const preview = item.preview || '';
+                    return `
+                        <div class="suggestion-item" data-reference="${item.text}" data-source="api" data-type="${item.type}">
+                            <span class="suggestion-reference">${item.display}</span>
+                            ${preview ? `<span class="suggestion-preview">${preview}</span>` : ''}
+                        </div>
+                    `;
+                }).join('');
+                html += '</div>';
+            }
+        }
+
+        if (!html) {
+            html = `<div class="no-results">${this.translations[lang].noResults}</div>`;
+        }
+
+        suggestions.innerHTML = html;
+
+        // Add click handlers
         suggestions.querySelectorAll('.suggestion-item').forEach(item => {
             item.addEventListener('click', () => {
-                const verseId = item.dataset.verseId;
-                const verse = this.getVerseById(verseId);
-                this.displayVerse(verse);
+                const source = item.dataset.source;
+                if (source === 'local') {
+                    const verseId = item.dataset.verseId;
+                    const verse = this.getVerseById(verseId);
+                    this.displayVerse(verse);
+                } else {
+                    // API result - fetch and display
+                    const reference = item.dataset.reference;
+                    this.fetchAndDisplayVerse(reference);
+                }
                 this.closeSuggestions();
                 document.getElementById('searchInput').value = '';
             });
@@ -693,16 +830,134 @@ const BibleApp = {
     },
 
     /**
+     * Fetch verse from API and display it
+     * @param {string} reference - Verse reference like "John 3:16"
+     */
+    async fetchAndDisplayVerse(reference) {
+        if (!reference || typeof BibleService === 'undefined') return;
+
+        try {
+            // Show loading state
+            const verseCard = document.querySelector('.verse-card');
+            verseCard.classList.add('loading');
+
+            const result = await BibleService.getVerseByReference(
+                reference,
+                this.currentLanguage,
+                this.bibleVersion
+            );
+
+            if (result && result.verses && result.verses.length > 0) {
+                // Check if we have local analysis for this verse
+                const localVerse = this.findLocalVerseByReference(result.reference);
+
+                if (localVerse) {
+                    // Use local verse with analysis
+                    this.displayVerse(localVerse);
+                } else {
+                    // Create a display object from API data
+                    this.displayAPIVerse(result);
+                }
+            }
+        } catch (error) {
+            console.error('Error fetching verse:', error);
+            // Show error message
+            const lang = this.currentLanguage;
+            alert(lang === 'es'
+                ? 'No se pudo encontrar el versículo. Intenta de nuevo.'
+                : 'Could not find the verse. Please try again.');
+        } finally {
+            const verseCard = document.querySelector('.verse-card');
+            verseCard.classList.remove('loading');
+        }
+    },
+
+    /**
+     * Find local verse by parsed reference
+     * @param {object} ref - Parsed reference object
+     * @returns {object|null} Local verse or null
+     */
+    findLocalVerseByReference(ref) {
+        if (!ref) return null;
+
+        return BibleVerses.find(v => {
+            const bookMatch =
+                v.book.en.toLowerCase() === ref.book.toLowerCase() ||
+                v.book.es.toLowerCase() === ref.book.toLowerCase();
+            return bookMatch && v.chapter === ref.chapter && v.verse === ref.verse;
+        }) || null;
+    },
+
+    /**
+     * Display a verse from the API (without local analysis)
+     * @param {object} result - API result with reference and verses
+     */
+    displayAPIVerse(result) {
+        const lang = this.currentLanguage;
+        const ref = result.reference;
+
+        // Create a verse-like object for display
+        const apiVerse = {
+            id: `api-${ref.bookNum}-${ref.chapter}-${ref.verse}`,
+            book: { en: ref.book, es: ref.book },
+            chapter: ref.chapter,
+            verse: ref.verse,
+            text: { en: result.text, es: result.text },
+            isAPIVerse: true, // Flag to indicate no local analysis
+            analysis: null
+        };
+
+        this.currentVerse = apiVerse;
+        this.isShowingDaily = false;
+
+        // Render verse reference and text
+        document.getElementById('verseBook').textContent = ref.book;
+        document.getElementById('verseChapter').textContent = ref.chapter;
+        document.getElementById('verseNumber').textContent = ref.verse;
+        document.getElementById('verseText').textContent = result.text;
+
+        // Hide analysis sections for API verses
+        this.hideAnalysisSections();
+        this.updateDailyBadge();
+
+        // Scroll to verse
+        document.querySelector('.verse-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+        // Add to search history
+        StorageManager.addSearchHistory(`${ref.book} ${ref.chapter}:${ref.verse}`);
+    },
+
+    /**
+     * Hide analysis sections (for API verses without local analysis)
+     */
+    hideAnalysisSections() {
+        const sections = document.querySelectorAll('.context-section, .nudge-section, .science-section');
+        sections.forEach(section => {
+            section.style.display = 'none';
+        });
+    },
+
+    /**
+     * Show analysis sections (for local verses with analysis)
+     */
+    showAnalysisSections() {
+        const sections = document.querySelectorAll('.context-section, .nudge-section, .science-section');
+        sections.forEach(section => {
+            section.style.display = '';
+        });
+    },
+
+    /**
      * Perform search (when clicking button or pressing Enter)
      */
-    performSearch() {
+    async performSearch() {
         const query = document.getElementById('searchInput').value.trim();
         if (!query) return;
 
         const lang = this.currentLanguage;
         const normalizedQuery = query.toLowerCase();
 
-        // Try to find exact match first
+        // Try to find exact match in local data first
         const exactMatch = BibleVerses.find(verse => {
             const reference = `${verse.book[lang]} ${verse.chapter}:${verse.verse}`.toLowerCase();
             const referenceAlt = `${verse.book[lang === 'en' ? 'es' : 'en']} ${verse.chapter}:${verse.verse}`.toLowerCase();
@@ -711,6 +966,14 @@ const BibleApp = {
 
         if (exactMatch) {
             this.displayVerse(exactMatch);
+            this.closeSuggestions();
+            document.getElementById('searchInput').value = '';
+            return;
+        }
+
+        // Try API lookup for full Bible
+        if (typeof BibleService !== 'undefined') {
+            await this.fetchAndDisplayVerse(query);
             this.closeSuggestions();
             document.getElementById('searchInput').value = '';
         }
@@ -791,6 +1054,12 @@ const BibleApp = {
         this.updateUILanguage();
         this.renderVerse();
         this.renderDepthIndicator();
+        this.updateVersionToggle();
+
+        // Clear Bible service cache when language changes
+        if (typeof BibleService !== 'undefined') {
+            BibleService.clearCache();
+        }
 
         // Update language select in WhatsApp modal
         const langSelect = document.getElementById('langSelect');

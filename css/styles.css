@@ -189,6 +189,43 @@ body {
     display: none;
 }
 
+/* Version Toggle (KJV/ESV) */
+.version-toggle {
+    display: flex;
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+.version-btn {
+    padding: var(--space-sm) var(--space-md);
+    background: transparent;
+    border: none;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.version-btn:hover {
+    color: var(--color-text-primary);
+    background: var(--color-bg-accent);
+}
+
+.version-btn.active {
+    background: var(--color-accent-primary);
+    color: white;
+}
+
+/* Hide version toggle when Spanish is selected (only RVR1960 available) */
+.language-toggle[data-active="es"] ~ .version-toggle,
+[data-lang="es"] .version-toggle {
+    display: none;
+}
+
 /* Language Toggle - Enhanced */
 .language-toggle {
     background: var(--color-bg-secondary);
@@ -358,6 +395,69 @@ body {
     color: var(--color-text-muted);
 }
 
+/* Enhanced Search Suggestions */
+.suggestion-group {
+    border-bottom: 1px solid var(--color-border);
+}
+
+.suggestion-group:last-child {
+    border-bottom: none;
+}
+
+.suggestion-group-label {
+    padding: var(--space-sm) var(--space-md);
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+    background: var(--color-bg-accent);
+}
+
+.suggestion-item {
+    position: relative;
+}
+
+.suggestion-badge {
+    position: absolute;
+    right: var(--space-md);
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    padding: 2px 6px;
+    border-radius: 4px;
+    background: var(--color-accent-warm);
+    color: white;
+}
+
+/* Search loading state */
+.search-container.searching .search-btn span {
+    animation: spin 1s linear infinite;
+}
+
+/* Verse card loading state */
+.verse-card.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.verse-card.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    margin: -15px 0 0 -15px;
+    border: 3px solid var(--color-border);
+    border-top-color: var(--color-accent-primary);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
 /* Daily Badge */
 .daily-badge {
     text-align: center;
@@ -386,6 +486,7 @@ body {
 
 /* Verse Card */
 .verse-card {
+    position: relative;
     background: var(--color-bg-secondary);
     border-radius: var(--radius-lg);
     padding: var(--space-xl) var(--space-lg);
@@ -1670,5 +1771,14 @@ body, .app-container, .verse-card, .context-section, .nudge-card,
     .share-icon svg {
         width: 16px;
         height: 16px;
+    }
+
+    .version-toggle {
+        order: -1;
+    }
+
+    .version-btn {
+        padding: var(--space-xs) var(--space-sm);
+        font-size: 0.7rem;
     }
 }
