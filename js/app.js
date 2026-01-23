@@ -1,0 +1,959 @@
+/**
+ * Daily Bible Verse App - Main Application Logic
+ */
+
+const BibleApp = {
+    currentLanguage: 'en',
+    currentTheme: 'light',
+    currentVerse: null,
+    dailyVerse: null,
+    isShowingDaily: true,
+
+    // Server API base URL (for WhatsApp integration)
+    apiBaseUrl: 'http://localhost:3000/api',
+
+    // UI Text translations
+    translations: {
+        en: {
+            appTitle: 'Selah',
+            appTagline: 'Pause. Reflect. Practice.',
+            analysisHeader: 'Understanding This Verse',
+            historicalTitle: 'Historical Context',
+            economicTitle: 'Economic Context',
+            socialTitle: 'Social Context',
+            politicalTitle: 'Political Context',
+            authorTitle: 'Author Background',
+            neuroscienceTitle: 'Neuroscience Connection',
+            behavioralTitle: 'Behavioral Science',
+            nudgeTitle: "Today's Practical Nudge",
+            footerText: 'A new verse every day to guide your path',
+            historyBtn: 'History',
+            historyTitle: 'Previously Viewed Verses',
+            historyEmpty: 'No verses viewed yet. Check back tomorrow!',
+            searchPlaceholder: 'Search verse (e.g., John 3:16, Salmos 23)',
+            searchHint: 'Available verses will appear as you type',
+            todaysVerse: "Today's Verse",
+            backToDaily: '← Back to Today\'s Verse',
+            noResults: 'No matching verses found. Try another search.',
+            viewedOn: 'Viewed on',
+            sourcesLabel: 'Sources',
+            consensusLabel: 'Historical Consensus',
+            debateLabel: 'Scholarly Debate',
+            interpretiveLabel: 'Interpretive',
+            scienceHeader: 'Science Bridge',
+            commitmentLabel: "I'll try this today",
+            depthSeeker: 'Seeker',
+            depthExplorer: 'Explorer',
+            depthScholar: 'Scholar',
+            depthSage: 'Sage',
+            depthDayOf: 'Day {current} of {total}',
+            whatsappBtn: 'Get Daily Verses on WhatsApp',
+            whatsappModalTitle: 'Subscribe to Daily Verses',
+            whatsappModalDesc: 'Receive a daily Bible verse with context and practical applications directly on WhatsApp.',
+            phoneLabel: 'Phone Number',
+            phonePlaceholder: '1 234 567 8900',
+            phoneHint: 'Include country code (e.g., 1 for US)',
+            timeLabel: 'Preferred Time',
+            langLabel: 'Language',
+            subscribeBtn: 'Subscribe',
+            subscribeSuccessTitle: "You're subscribed!",
+            subscribeSuccessMsg: 'Check your WhatsApp for a confirmation message.',
+            whatsappPrivacy: 'Your number is only used for daily verses. Reply STOP anytime to unsubscribe.'
+        },
+        es: {
+            appTitle: 'Selah',
+            appTagline: 'Pausa. Reflexiona. Practica.',
+            analysisHeader: 'Entendiendo Este Versículo',
+            historicalTitle: 'Contexto Histórico',
+            economicTitle: 'Contexto Económico',
+            socialTitle: 'Contexto Social',
+            politicalTitle: 'Contexto Político',
+            authorTitle: 'Trasfondo del Autor',
+            neuroscienceTitle: 'Conexión con Neurociencia',
+            behavioralTitle: 'Ciencia Conductual',
+            nudgeTitle: 'Empujón Práctico de Hoy',
+            footerText: 'Un nuevo versículo cada día para guiar tu camino',
+            historyBtn: 'Historial',
+            historyTitle: 'Versículos Vistos Anteriormente',
+            historyEmpty: '¡Todavía no hay versículos vistos. Volvé mañana!',
+            searchPlaceholder: 'Buscar versículo (ej: Juan 3:16, Psalm 23)',
+            searchHint: 'Los versículos disponibles aparecerán mientras escribís',
+            todaysVerse: 'Versículo de Hoy',
+            backToDaily: '← Volver al Versículo de Hoy',
+            noResults: 'No se encontraron versículos. Probá otra búsqueda.',
+            viewedOn: 'Visto el',
+            sourcesLabel: 'Fuentes',
+            consensusLabel: 'Consenso Histórico',
+            debateLabel: 'Debate Académico',
+            interpretiveLabel: 'Interpretativo',
+            scienceHeader: 'Puente Científico',
+            commitmentLabel: 'Lo intentaré hoy',
+            depthSeeker: 'Buscador',
+            depthExplorer: 'Explorador',
+            depthScholar: 'Erudito',
+            depthSage: 'Sabio',
+            depthDayOf: 'Día {current} de {total}',
+            whatsappBtn: 'Recibir Versículos por WhatsApp',
+            whatsappModalTitle: 'Suscribirse a Versículos Diarios',
+            whatsappModalDesc: 'Recibí un versículo diario con contexto y aplicaciones prácticas directamente en WhatsApp.',
+            phoneLabel: 'Número de Teléfono',
+            phonePlaceholder: '54 9 11 1234 5678',
+            phoneHint: 'Incluí el código de país (ej: 54 para Argentina)',
+            timeLabel: 'Hora Preferida',
+            langLabel: 'Idioma',
+            subscribeBtn: 'Suscribirse',
+            subscribeSuccessTitle: '¡Estás suscrito!',
+            subscribeSuccessMsg: 'Revisá tu WhatsApp para ver el mensaje de confirmación.',
+            whatsappPrivacy: 'Tu número solo se usa para versículos diarios. Respondé STOP en cualquier momento para cancelar.'
+        }
+    },
+
+    // Confidence level labels
+    confidenceLabels: {
+        consensus: { en: 'Historical Consensus', es: 'Consenso Histórico' },
+        'scholarly-debate': { en: 'Scholarly Debate', es: 'Debate Académico' },
+        interpretation: { en: 'Interpretive', es: 'Interpretativo' }
+    },
+
+    // Analysis section IDs
+    analysisSections: ['historical', 'economic', 'social', 'political', 'author', 'neuroscience', 'behavioral', 'nudge'],
+
+    /**
+     * Initialize the application
+     */
+    init() {
+        // Load language preference
+        this.currentLanguage = StorageManager.getLanguage();
+
+        // Load theme preference
+        this.currentTheme = StorageManager.getTheme();
+        this.applyTheme(this.currentTheme);
+
+        // Update streak on app load
+        this.updateStreak();
+
+        // Select and display verse
+        this.loadDailyVerse();
+
+        // Setup event listeners
+        this.setupEventListeners();
+
+        // Update UI language
+        this.updateUILanguage();
+
+        // Render gamification elements
+        this.renderStreakBadge();
+        this.renderDepthIndicator();
+        this.updateBookmarkButton();
+        this.checkTodayCommitment();
+    },
+
+    /**
+     * Apply theme to the document
+     * @param {string} theme - 'light', 'dark', or 'auto'
+     */
+    applyTheme(theme) {
+        if (theme === 'auto') {
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+        } else {
+            document.documentElement.setAttribute('data-theme', theme);
+        }
+    },
+
+    /**
+     * Toggle between light and dark theme
+     */
+    toggleTheme() {
+        this.currentTheme = this.currentTheme === 'light' ? 'dark' : 'light';
+        StorageManager.setTheme(this.currentTheme);
+        this.applyTheme(this.currentTheme);
+    },
+
+    // Depth level definitions
+    depthLevels: [
+        { name: 'Seeker', nameKey: 'depthSeeker', minDays: 0, maxDays: 6, color: 'bronze' },
+        { name: 'Explorer', nameKey: 'depthExplorer', minDays: 7, maxDays: 29, color: 'silver' },
+        { name: 'Scholar', nameKey: 'depthScholar', minDays: 30, maxDays: 89, color: 'gold' },
+        { name: 'Sage', nameKey: 'depthSage', minDays: 90, maxDays: Infinity, color: 'platinum' }
+    ],
+
+    /**
+     * Update streak based on visit pattern
+     */
+    updateStreak() {
+        const lastDate = StorageManager.getStreakLastDate();
+        const today = StorageManager.getTodayString();
+        const yesterday = StorageManager.getYesterdayString();
+
+        if (lastDate === today) {
+            // Already counted today
+            return;
+        }
+
+        if (lastDate === yesterday) {
+            // Consecutive day - increment streak
+            const streak = StorageManager.getStreakCount() + 1;
+            StorageManager.setStreakCount(streak);
+        } else if (!lastDate) {
+            // First time - start streak at 1
+            StorageManager.setStreakCount(1);
+        } else {
+            // Streak broken - reset to 1
+            StorageManager.setStreakCount(1);
+        }
+
+        StorageManager.setStreakLastDate(today);
+        StorageManager.incrementTotalDays();
+    },
+
+    /**
+     * Get current depth level based on total days
+     * @returns {object} Depth level info
+     */
+    getDepthLevel() {
+        const totalDays = StorageManager.getTotalDays();
+        for (let i = this.depthLevels.length - 1; i >= 0; i--) {
+            if (totalDays >= this.depthLevels[i].minDays) {
+                return { ...this.depthLevels[i], currentDays: totalDays };
+            }
+        }
+        return { ...this.depthLevels[0], currentDays: totalDays };
+    },
+
+    /**
+     * Render the streak badge
+     */
+    renderStreakBadge() {
+        const streakCount = StorageManager.getStreakCount();
+        const streakBadge = document.getElementById('streakBadge');
+        const streakCountEl = document.getElementById('streakCount');
+
+        if (streakCount > 0) {
+            streakCountEl.textContent = streakCount;
+            streakBadge.style.display = 'inline-flex';
+        } else {
+            streakBadge.style.display = 'none';
+        }
+    },
+
+    /**
+     * Render the depth indicator
+     */
+    renderDepthIndicator() {
+        const lang = this.currentLanguage;
+        const depthInfo = this.getDepthLevel();
+        const depthIndicator = document.getElementById('depthIndicator');
+        const depthLabel = document.getElementById('depthLabel');
+        const depthDays = document.getElementById('depthDays');
+        const depthFill = document.getElementById('depthFill');
+
+        // Set level name
+        depthLabel.textContent = this.translations[lang][depthInfo.nameKey];
+
+        // Calculate progress within current level
+        const daysInLevel = depthInfo.currentDays - depthInfo.minDays;
+        const levelRange = (depthInfo.maxDays === Infinity) ? 100 : depthInfo.maxDays - depthInfo.minDays + 1;
+        const nextMilestone = depthInfo.maxDays === Infinity ? depthInfo.currentDays : depthInfo.maxDays + 1;
+        const progress = depthInfo.maxDays === Infinity ? 100 : Math.min((daysInLevel / levelRange) * 100, 100);
+
+        // Set progress text
+        const dayText = this.translations[lang].depthDayOf
+            .replace('{current}', depthInfo.currentDays)
+            .replace('{total}', nextMilestone);
+        depthDays.textContent = dayText;
+
+        // Set progress bar
+        depthFill.style.width = `${progress}%`;
+
+        // Set color class
+        depthIndicator.className = `depth-indicator depth-${depthInfo.color}`;
+    },
+
+    /**
+     * Toggle bookmark for current verse
+     */
+    toggleBookmark() {
+        if (!this.currentVerse) return;
+
+        const isNowBookmarked = StorageManager.toggleBookmark(this.currentVerse.id);
+        this.updateBookmarkButton();
+
+        // Visual feedback
+        const btn = document.getElementById('bookmarkBtn');
+        btn.classList.add('pulse');
+        setTimeout(() => btn.classList.remove('pulse'), 300);
+    },
+
+    /**
+     * Update bookmark button state
+     */
+    updateBookmarkButton() {
+        if (!this.currentVerse) return;
+
+        const btn = document.getElementById('bookmarkBtn');
+        const icon = btn.querySelector('.bookmark-icon');
+        const isBookmarked = StorageManager.isBookmarked(this.currentVerse.id);
+
+        if (isBookmarked) {
+            btn.classList.add('active');
+            icon.textContent = '♥';
+        } else {
+            btn.classList.remove('active');
+            icon.textContent = '♡';
+        }
+    },
+
+    /**
+     * Handle commitment checkbox change
+     * @param {boolean} isChecked - Whether checkbox is checked
+     */
+    handleCommitment(isChecked) {
+        if (!isChecked || !this.currentVerse) return;
+
+        const commitment = {
+            verseId: this.currentVerse.id,
+            date: StorageManager.getTodayString(),
+            nudgeText: this.currentVerse.analysis.nudge[this.currentLanguage]
+        };
+
+        StorageManager.addCommitment(commitment);
+
+        // Visual feedback
+        const checkbox = document.getElementById('dailyCommitment');
+        const label = checkbox.closest('.commitment-checkbox');
+        label.classList.add('committed');
+    },
+
+    /**
+     * Check if already committed today
+     */
+    checkTodayCommitment() {
+        const commitments = StorageManager.getCommitments();
+        const today = StorageManager.getTodayString();
+        const checkbox = document.getElementById('dailyCommitment');
+
+        const alreadyCommitted = commitments.some(c =>
+            c.verseId === this.currentVerse?.id && c.date === today
+        );
+
+        if (alreadyCommitted) {
+            checkbox.checked = true;
+            checkbox.closest('.commitment-checkbox').classList.add('committed');
+        } else {
+            checkbox.checked = false;
+            checkbox.closest('.commitment-checkbox').classList.remove('committed');
+        }
+    },
+
+    /**
+     * Load today's verse or select a new one
+     */
+    loadDailyVerse() {
+        const stored = StorageManager.getCurrentVerse();
+
+        if (stored) {
+            // Use today's stored verse
+            this.dailyVerse = this.getVerseById(stored.verseId);
+        } else {
+            // Select a new verse
+            this.dailyVerse = this.selectNewVerse();
+            StorageManager.setCurrentVerse(this.dailyVerse.id);
+            StorageManager.addViewedVerse(this.dailyVerse.id);
+        }
+
+        this.currentVerse = this.dailyVerse;
+        this.isShowingDaily = true;
+        this.renderVerse();
+        this.updateDailyBadge();
+    },
+
+    /**
+     * Get a verse by its ID
+     * @param {string} id - The verse ID
+     * @returns {object|null} The verse object or null
+     */
+    getVerseById(id) {
+        return BibleVerses.find(v => v.id === id) || BibleVerses[0];
+    },
+
+    /**
+     * Select a new verse that hasn't been recently viewed
+     * @returns {object} The selected verse
+     */
+    selectNewVerse() {
+        const viewedIds = StorageManager.getViewedVerses();
+
+        // Filter out recently viewed verses
+        let availableVerses = BibleVerses.filter(v => !viewedIds.includes(v.id));
+
+        // If all verses have been viewed, reset and use all
+        if (availableVerses.length === 0) {
+            StorageManager.resetViewedHistory();
+            availableVerses = BibleVerses;
+        }
+
+        // Random selection
+        const randomIndex = Math.floor(Math.random() * availableVerses.length);
+        return availableVerses[randomIndex];
+    },
+
+    /**
+     * Display a specific verse (from search or history)
+     * @param {object} verse - The verse to display
+     */
+    displayVerse(verse) {
+        this.currentVerse = verse;
+        this.isShowingDaily = (verse.id === this.dailyVerse.id);
+        this.renderVerse();
+        this.updateDailyBadge();
+        this.updateBookmarkButton();
+        this.checkTodayCommitment();
+
+        // Scroll to verse
+        document.querySelector('.verse-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    },
+
+    /**
+     * Return to today's daily verse
+     */
+    backToDaily() {
+        this.currentVerse = this.dailyVerse;
+        this.isShowingDaily = true;
+        this.renderVerse();
+        this.updateDailyBadge();
+    },
+
+    /**
+     * Update the daily badge visibility
+     */
+    updateDailyBadge() {
+        const badge = document.getElementById('dailyBadge');
+        const backBtn = document.getElementById('backToDaily');
+
+        if (this.isShowingDaily) {
+            badge.classList.remove('hidden');
+            backBtn.style.display = 'none';
+        } else {
+            badge.classList.add('hidden');
+            backBtn.style.display = 'inline-block';
+        }
+    },
+
+    /**
+     * Render the current verse to the DOM
+     */
+    renderVerse() {
+        const verse = this.currentVerse;
+        const lang = this.currentLanguage;
+
+        // Verse reference
+        document.getElementById('verseBook').textContent = verse.book[lang];
+        document.getElementById('verseChapter').textContent = verse.chapter;
+        document.getElementById('verseNumber').textContent = verse.verse;
+
+        // Verse text
+        document.getElementById('verseText').textContent = verse.text[lang];
+
+        // Render each analysis section with sources, badges, and disclaimers
+        this.analysisSections.forEach(sectionId => {
+            const section = verse.analysis[sectionId];
+
+            // Content
+            document.getElementById(`${sectionId}Content`).textContent = section[lang];
+
+            // Confidence badge
+            this.renderConfidenceBadge(sectionId, section.confidenceLevel, lang);
+
+            // Sources
+            this.renderAnalysisSources(sectionId, section.sources, lang);
+
+            // Disclaimer
+            this.renderDisclaimer(sectionId, section.disclaimer, lang);
+        });
+    },
+
+    /**
+     * Render sources for an analysis section
+     * @param {string} sectionId - The section identifier
+     * @param {array} sources - Array of source objects
+     * @param {string} lang - Current language
+     */
+    renderAnalysisSources(sectionId, sources, lang) {
+        const container = document.getElementById(`${sectionId}Sources`);
+        if (!sources || sources.length === 0) {
+            container.innerHTML = '';
+            return;
+        }
+
+        const sourceList = sources.map(s => {
+            const citation = lang === 'es' && s.citationEs ? s.citationEs : s.citation;
+            return `<li class="source-item" data-type="${s.type}">${citation}</li>`;
+        }).join('');
+
+        container.innerHTML = `<details class="sources-dropdown">
+            <summary>${this.translations[lang].sourcesLabel}</summary>
+            <ul class="sources-list">${sourceList}</ul>
+        </details>`;
+    },
+
+    /**
+     * Render confidence badge for an analysis section
+     * @param {string} sectionId - The section identifier
+     * @param {string} level - Confidence level
+     * @param {string} lang - Current language
+     */
+    renderConfidenceBadge(sectionId, level, lang) {
+        const badge = document.getElementById(`${sectionId}Confidence`);
+        if (!level || !this.confidenceLabels[level]) {
+            badge.textContent = '';
+            badge.className = 'confidence-badge';
+            return;
+        }
+        badge.textContent = this.confidenceLabels[level][lang];
+        badge.className = `confidence-badge confidence-${level}`;
+    },
+
+    /**
+     * Render disclaimer for an analysis section
+     * @param {string} sectionId - The section identifier
+     * @param {object} disclaimer - Disclaimer object with en/es keys
+     * @param {string} lang - Current language
+     */
+    renderDisclaimer(sectionId, disclaimer, lang) {
+        const el = document.getElementById(`${sectionId}Disclaimer`);
+        if (!disclaimer || !disclaimer[lang]) {
+            el.textContent = '';
+            el.classList.remove('visible');
+            return;
+        }
+        el.textContent = disclaimer[lang];
+        el.classList.add('visible');
+    },
+
+    /**
+     * Setup event listeners
+     */
+    setupEventListeners() {
+        // Theme toggle
+        const themeToggle = document.getElementById('themeToggle');
+        themeToggle.addEventListener('click', () => this.toggleTheme());
+
+        // Language toggle
+        const languageToggle = document.getElementById('languageToggle');
+        languageToggle.addEventListener('click', () => this.toggleLanguage());
+
+        // History button
+        const historyBtn = document.getElementById('historyBtn');
+        historyBtn.addEventListener('click', () => this.openHistory());
+
+        // Close history modal
+        const closeHistory = document.getElementById('closeHistory');
+        closeHistory.addEventListener('click', () => this.closeHistory());
+
+        // Close modal on overlay click
+        const historyModal = document.getElementById('historyModal');
+        historyModal.addEventListener('click', (e) => {
+            if (e.target === historyModal) this.closeHistory();
+        });
+
+        // Back to daily button
+        const backToDaily = document.getElementById('backToDaily');
+        backToDaily.addEventListener('click', () => this.backToDaily());
+
+        // Bookmark button
+        const bookmarkBtn = document.getElementById('bookmarkBtn');
+        bookmarkBtn.addEventListener('click', () => this.toggleBookmark());
+
+        // Commitment checkbox
+        const commitmentCheckbox = document.getElementById('dailyCommitment');
+        commitmentCheckbox.addEventListener('change', (e) => this.handleCommitment(e.target.checked));
+
+        // WhatsApp button
+        const whatsappBtn = document.getElementById('whatsappBtn');
+        whatsappBtn.addEventListener('click', () => this.openWhatsAppModal());
+
+        // Close WhatsApp modal
+        const closeWhatsapp = document.getElementById('closeWhatsapp');
+        closeWhatsapp.addEventListener('click', () => this.closeWhatsAppModal());
+
+        // Close WhatsApp modal on overlay click
+        const whatsappModal = document.getElementById('whatsappModal');
+        whatsappModal.addEventListener('click', (e) => {
+            if (e.target === whatsappModal) this.closeWhatsAppModal();
+        });
+
+        // Subscribe form
+        const subscribeForm = document.getElementById('subscribeForm');
+        subscribeForm.addEventListener('submit', (e) => this.handleSubscribe(e));
+
+        // Share button
+        const shareBtn = document.getElementById('shareBtn');
+        shareBtn.addEventListener('click', () => this.shareToWhatsApp());
+
+        // Search input
+        const searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('input', (e) => this.handleSearch(e.target.value));
+        searchInput.addEventListener('focus', (e) => this.handleSearch(e.target.value));
+
+        // Search button
+        const searchBtn = document.getElementById('searchBtn');
+        searchBtn.addEventListener('click', () => this.performSearch());
+
+        // Enter key in search
+        searchInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') this.performSearch();
+            if (e.key === 'Escape') this.closeSuggestions();
+        });
+
+        // Close suggestions when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.search-section')) {
+                this.closeSuggestions();
+            }
+        });
+
+        // Keyboard shortcut for search (Ctrl/Cmd + K)
+        document.addEventListener('keydown', (e) => {
+            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                e.preventDefault();
+                searchInput.focus();
+            }
+        });
+    },
+
+    /**
+     * Handle search input
+     * @param {string} query - Search query
+     */
+    handleSearch(query) {
+        const suggestions = document.getElementById('searchSuggestions');
+        const lang = this.currentLanguage;
+
+        if (!query.trim()) {
+            suggestions.classList.remove('active');
+            return;
+        }
+
+        const normalizedQuery = query.toLowerCase().trim();
+        const matches = BibleVerses.filter(verse => {
+            const bookEn = verse.book.en.toLowerCase();
+            const bookEs = verse.book.es.toLowerCase();
+            const reference = `${verse.book[lang]} ${verse.chapter}:${verse.verse}`.toLowerCase();
+            const referenceAlt = `${verse.book[lang === 'en' ? 'es' : 'en']} ${verse.chapter}:${verse.verse}`.toLowerCase();
+            const textPreview = verse.text[lang].toLowerCase();
+
+            return bookEn.includes(normalizedQuery) ||
+                   bookEs.includes(normalizedQuery) ||
+                   reference.includes(normalizedQuery) ||
+                   referenceAlt.includes(normalizedQuery) ||
+                   textPreview.includes(normalizedQuery);
+        });
+
+        this.renderSuggestions(matches);
+    },
+
+    /**
+     * Render search suggestions
+     * @param {array} matches - Matching verses
+     */
+    renderSuggestions(matches) {
+        const suggestions = document.getElementById('searchSuggestions');
+        const lang = this.currentLanguage;
+
+        if (matches.length === 0) {
+            suggestions.innerHTML = `<div class="no-results">${this.translations[lang].noResults}</div>`;
+            suggestions.classList.add('active');
+            return;
+        }
+
+        suggestions.innerHTML = matches.map(verse => {
+            const reference = `${verse.book[lang]} ${verse.chapter}:${verse.verse}`;
+            const preview = verse.text[lang].substring(0, 50) + '...';
+            return `
+                <div class="suggestion-item" data-verse-id="${verse.id}">
+                    <span class="suggestion-reference">${reference}</span>
+                    <span class="suggestion-preview">${preview}</span>
+                </div>
+            `;
+        }).join('');
+
+        // Add click handlers to suggestions
+        suggestions.querySelectorAll('.suggestion-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const verseId = item.dataset.verseId;
+                const verse = this.getVerseById(verseId);
+                this.displayVerse(verse);
+                this.closeSuggestions();
+                document.getElementById('searchInput').value = '';
+            });
+        });
+
+        suggestions.classList.add('active');
+    },
+
+    /**
+     * Perform search (when clicking button or pressing Enter)
+     */
+    performSearch() {
+        const query = document.getElementById('searchInput').value.trim();
+        if (!query) return;
+
+        const lang = this.currentLanguage;
+        const normalizedQuery = query.toLowerCase();
+
+        // Try to find exact match first
+        const exactMatch = BibleVerses.find(verse => {
+            const reference = `${verse.book[lang]} ${verse.chapter}:${verse.verse}`.toLowerCase();
+            const referenceAlt = `${verse.book[lang === 'en' ? 'es' : 'en']} ${verse.chapter}:${verse.verse}`.toLowerCase();
+            return reference === normalizedQuery || referenceAlt === normalizedQuery;
+        });
+
+        if (exactMatch) {
+            this.displayVerse(exactMatch);
+            this.closeSuggestions();
+            document.getElementById('searchInput').value = '';
+        }
+    },
+
+    /**
+     * Close search suggestions
+     */
+    closeSuggestions() {
+        document.getElementById('searchSuggestions').classList.remove('active');
+    },
+
+    /**
+     * Open history modal
+     */
+    openHistory() {
+        this.renderHistory();
+        document.getElementById('historyModal').classList.add('active');
+    },
+
+    /**
+     * Close history modal
+     */
+    closeHistory() {
+        document.getElementById('historyModal').classList.remove('active');
+    },
+
+    /**
+     * Render history list
+     */
+    renderHistory() {
+        const historyList = document.getElementById('historyList');
+        const historyEmpty = document.getElementById('historyEmpty');
+        const viewedVerses = StorageManager.getViewedVerses();
+        const lang = this.currentLanguage;
+
+        if (viewedVerses.length === 0) {
+            historyList.innerHTML = '';
+            historyEmpty.classList.remove('hidden');
+            return;
+        }
+
+        historyEmpty.classList.add('hidden');
+
+        historyList.innerHTML = viewedVerses.map(verseId => {
+            const verse = this.getVerseById(verseId);
+            if (!verse) return '';
+
+            const reference = `${verse.book[lang]} ${verse.chapter}:${verse.verse}`;
+            const preview = verse.text[lang].substring(0, 60) + '...';
+
+            return `
+                <li class="history-item" data-verse-id="${verse.id}">
+                    <div class="history-item-reference">${reference}</div>
+                    <div class="history-item-preview">${preview}</div>
+                </li>
+            `;
+        }).join('');
+
+        // Add click handlers
+        historyList.querySelectorAll('.history-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const verseId = item.dataset.verseId;
+                const verse = this.getVerseById(verseId);
+                this.displayVerse(verse);
+                this.closeHistory();
+            });
+        });
+    },
+
+    /**
+     * Toggle between English and Spanish
+     */
+    toggleLanguage() {
+        this.currentLanguage = this.currentLanguage === 'en' ? 'es' : 'en';
+        StorageManager.setLanguage(this.currentLanguage);
+
+        this.updateUILanguage();
+        this.renderVerse();
+        this.renderDepthIndicator();
+
+        // Update language select in WhatsApp modal
+        const langSelect = document.getElementById('langSelect');
+        if (langSelect) langSelect.value = this.currentLanguage;
+    },
+
+    /**
+     * Open WhatsApp subscribe modal
+     */
+    openWhatsAppModal() {
+        // Reset form state
+        document.getElementById('subscribeForm').style.display = 'flex';
+        document.getElementById('subscribeSuccess').style.display = 'none';
+        document.getElementById('subscribeError').style.display = 'none';
+        document.getElementById('phoneInput').value = '';
+
+        // Set language select to current language
+        document.getElementById('langSelect').value = this.currentLanguage;
+
+        // Show modal
+        document.getElementById('whatsappModal').classList.add('active');
+    },
+
+    /**
+     * Close WhatsApp subscribe modal
+     */
+    closeWhatsAppModal() {
+        document.getElementById('whatsappModal').classList.remove('active');
+    },
+
+    /**
+     * Handle subscribe form submission
+     * @param {Event} e - Form submit event
+     */
+    async handleSubscribe(e) {
+        e.preventDefault();
+
+        const phoneInput = document.getElementById('phoneInput');
+        const timeSelect = document.getElementById('timeSelect');
+        const langSelect = document.getElementById('langSelect');
+        const submitBtn = document.getElementById('subscribeSubmit');
+        const btnText = submitBtn.querySelector('.btn-text');
+        const btnLoading = submitBtn.querySelector('.btn-loading');
+        const errorDiv = document.getElementById('subscribeError');
+        const errorMsg = document.getElementById('subscribeErrorMsg');
+
+        // Get values
+        const phone = phoneInput.value.trim();
+        const preferredTime = timeSelect.value;
+        const language = langSelect.value;
+
+        // Basic validation
+        if (!phone) {
+            errorMsg.textContent = this.currentLanguage === 'es'
+                ? 'Por favor ingresa tu número de teléfono.'
+                : 'Please enter your phone number.';
+            errorDiv.style.display = 'block';
+            return;
+        }
+
+        // Show loading state
+        btnText.style.display = 'none';
+        btnLoading.style.display = 'flex';
+        submitBtn.disabled = true;
+        errorDiv.style.display = 'none';
+
+        try {
+            // Detect user's timezone
+            const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone || 'America/New_York';
+
+            const response = await fetch(`${this.apiBaseUrl}/subscribe`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    phone: '+' + phone.replace(/[^\d]/g, ''),
+                    preferredTime,
+                    timezone,
+                    language
+                })
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                // Show success message
+                document.getElementById('subscribeForm').style.display = 'none';
+                document.getElementById('subscribeSuccess').style.display = 'block';
+            } else {
+                // Show error
+                errorMsg.textContent = data.error || (this.currentLanguage === 'es'
+                    ? 'Error al suscribirse. Por favor intenta de nuevo.'
+                    : 'Failed to subscribe. Please try again.');
+                errorDiv.style.display = 'block';
+            }
+        } catch (error) {
+            console.error('Subscribe error:', error);
+            errorMsg.textContent = this.currentLanguage === 'es'
+                ? 'No se pudo conectar al servidor. Verifica que el servidor esté ejecutándose.'
+                : 'Could not connect to server. Make sure the server is running.';
+            errorDiv.style.display = 'block';
+        } finally {
+            // Reset button state
+            btnText.style.display = 'inline';
+            btnLoading.style.display = 'none';
+            submitBtn.disabled = false;
+        }
+    },
+
+    /**
+     * Share current verse to WhatsApp
+     */
+    shareToWhatsApp() {
+        if (!this.currentVerse) return;
+
+        const lang = this.currentLanguage;
+        const verse = this.currentVerse;
+        const reference = `${verse.book[lang]} ${verse.chapter}:${verse.verse}`;
+        const text = verse.text[lang];
+        const nudge = verse.analysis.nudge[lang];
+
+        const shareText = lang === 'es'
+            ? `*${reference}*\n"${text}"\n\n✨ *Consejo:* ${nudge}\n\n— Enviado desde Selah`
+            : `*${reference}*\n"${text}"\n\n✨ *Today's Nudge:* ${nudge}\n\n— Sent from Selah`;
+
+        const url = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
+        window.open(url, '_blank');
+    },
+
+    /**
+     * Update all UI text based on current language
+     */
+    updateUILanguage() {
+        const lang = this.currentLanguage;
+        const texts = this.translations[lang];
+
+        // Update all translatable elements
+        document.querySelectorAll('[data-i18n]').forEach(element => {
+            const key = element.dataset.i18n;
+            if (texts[key]) {
+                element.textContent = texts[key];
+            }
+        });
+
+        // Update placeholder texts
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+            const key = element.dataset.i18nPlaceholder;
+            if (texts[key]) {
+                element.placeholder = texts[key];
+            }
+        });
+
+        // Update language toggle visual state
+        const languageToggle = document.getElementById('languageToggle');
+        languageToggle.setAttribute('data-active', lang);
+
+        // Update document language attribute
+        document.documentElement.lang = lang;
+    }
+};
+
+// Initialize app when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    BibleApp.init();
+});
