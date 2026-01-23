@@ -7,15 +7,18 @@ const StorageManager = {
         VIEWED_VERSES: 'bibleApp_viewedVerses',
         CURRENT_VERSE: 'bibleApp_currentVerse',
         LANGUAGE: 'bibleApp_language',
-        THEME: 'selah_theme',
-        STREAK_COUNT: 'selah_streak',
-        STREAK_LAST_DATE: 'selah_streak_date',
-        DEPTH_LEVEL: 'selah_depth',
-        TOTAL_DAYS: 'selah_total_days',
-        COMMITMENTS: 'selah_commitments',
-        BOOKMARKS: 'selah_bookmarks',
-        BIBLE_VERSION: 'selah_bible_version',
-        SEARCH_HISTORY: 'selah_search_history'
+        THEME: 'praxis_theme',
+        STREAK_COUNT: 'praxis_streak',
+        STREAK_LAST_DATE: 'praxis_streak_date',
+        DEPTH_LEVEL: 'praxis_depth',
+        TOTAL_DAYS: 'praxis_total_days',
+        COMMITMENTS: 'praxis_commitments',
+        BOOKMARKS: 'praxis_bookmarks',
+        BIBLE_VERSION: 'praxis_bible_version',
+        SEARCH_HISTORY: 'praxis_search_history',
+        VERSE_PROGRESS: 'praxis_verse_progress',
+        COMPLETED_VERSES: 'praxis_completed_verses',
+        USER_PROFILE: 'praxis_user_profile'
     },
 
     MAX_HISTORY: 30, // Keep track of last 30 verses to avoid repetition
@@ -331,5 +334,151 @@ const StorageManager = {
         Object.values(this.KEYS).forEach(key => {
             localStorage.removeItem(key);
         });
+    },
+
+    /**
+     * Get progress (completed sections) for a specific verse
+     * @param {string} verseId - The verse ID
+     * @returns {Array} Array of completed section names
+     */
+    getVerseProgress(verseId) {
+        const stored = localStorage.getItem(this.KEYS.VERSE_PROGRESS);
+        if (!stored) return [];
+        try {
+            const progress = JSON.parse(stored);
+            return progress[verseId] || [];
+        } catch (e) {
+            return [];
+        }
+    },
+
+    /**
+     * Save progress (completed sections) for a specific verse
+     * @param {string} verseId - The verse ID
+     * @param {Array} sections - Array of completed section names
+     */
+    saveVerseProgress(verseId, sections) {
+        let progress = {};
+        const stored = localStorage.getItem(this.KEYS.VERSE_PROGRESS);
+        if (stored) {
+            try {
+                progress = JSON.parse(stored);
+            } catch (e) {
+                progress = {};
+            }
+        }
+        progress[verseId] = sections;
+        localStorage.setItem(this.KEYS.VERSE_PROGRESS, JSON.stringify(progress));
+    },
+
+    /**
+     * Record when a verse is fully completed (all sections done)
+     * @param {string} verseId - The verse ID
+     */
+    recordVerseCompletion(verseId) {
+        let completed = this.getCompletedVerses();
+        if (!completed.some(v => v.verseId === verseId)) {
+            completed.unshift({
+                verseId,
+                completedAt: Date.now(),
+                date: this.getTodayString()
+            });
+            localStorage.setItem(this.KEYS.COMPLETED_VERSES, JSON.stringify(completed));
+
+            // Update streak
+            this.updateStreak();
+        }
+    },
+
+    /**
+     * Get all completed verses
+     * @returns {Array} Array of { verseId, completedAt, date }
+     */
+    getCompletedVerses() {
+        const stored = localStorage.getItem(this.KEYS.COMPLETED_VERSES);
+        if (!stored) return [];
+        try {
+            return JSON.parse(stored);
+        } catch (e) {
+            return [];
+        }
+    },
+
+    /**
+     * Check if a verse has been fully completed
+     * @param {string} verseId - The verse ID
+     * @returns {boolean}
+     */
+    isVerseCompleted(verseId) {
+        return this.getCompletedVerses().some(v => v.verseId === verseId);
+    },
+
+    /**
+     * Update streak based on completed verses
+     */
+    updateStreak() {
+        const today = this.getTodayString();
+        const yesterday = this.getYesterdayString();
+        const lastDate = this.getStreakLastDate();
+
+        if (lastDate === today) {
+            // Already updated today
+            return;
+        }
+
+        if (lastDate === yesterday) {
+            // Continuing streak
+            this.setStreakCount(this.getStreakCount() + 1);
+        } else if (lastDate !== today) {
+            // Streak broken, start fresh
+            this.setStreakCount(1);
+        }
+
+        this.setStreakLastDate(today);
+        this.incrementTotalDays();
+    },
+
+    /**
+     * Get user profile data
+     * @returns {object|null} User profile or null
+     */
+    getUserProfile() {
+        const stored = localStorage.getItem(this.KEYS.USER_PROFILE);
+        if (!stored) return null;
+        try {
+            return JSON.parse(stored);
+        } catch (e) {
+            return null;
+        }
+    },
+
+    /**
+     * Save user profile data
+     * @param {object} profile - { email, phone, language, version, deliveryMethod }
+     */
+    saveUserProfile(profile) {
+        localStorage.setItem(this.KEYS.USER_PROFILE, JSON.stringify(profile));
+    },
+
+    /**
+     * Get weekly stats
+     * @returns {object} { completedThisWeek, streak, totalCompleted }
+     */
+    getWeeklyStats() {
+        const completed = this.getCompletedVerses();
+        const now = new Date();
+        const weekStart = new Date(now);
+        weekStart.setDate(now.getDate() - now.getDay()); // Start of week (Sunday)
+        weekStart.setHours(0, 0, 0, 0);
+
+        const completedThisWeek = completed.filter(v => {
+            return new Date(v.completedAt) >= weekStart;
+        }).length;
+
+        return {
+            completedThisWeek,
+            streak: this.getStreakCount(),
+            totalCompleted: completed.length
+        };
     }
 };

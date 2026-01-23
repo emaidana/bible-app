@@ -15,11 +15,17 @@ const BibleApp = {
     // Server API base URL (for WhatsApp integration)
     apiBaseUrl: 'http://localhost:3000/api',
 
+    // Section order for progression
+    sectionOrder: ['historical', 'economic', 'political', 'social', 'author', 'neuroscience', 'behavioral', 'nudge', 'prayer'],
+
+    // Track completed sections for current verse
+    completedSections: new Set(),
+
     // UI Text translations
     translations: {
         en: {
-            appTitle: 'Selah',
-            appTagline: 'Pause. Reflect. Practice.',
+            appTitle: 'Praxis',
+            appTagline: 'The Science of Scripture',
             analysisHeader: 'Understanding This Verse',
             historicalTitle: 'Historical Context',
             economicTitle: 'Economic Context',
@@ -43,8 +49,28 @@ const BibleApp = {
             consensusLabel: 'Historical Consensus',
             debateLabel: 'Scholarly Debate',
             interpretiveLabel: 'Interpretive',
-            scienceHeader: 'Science Bridge',
-            commitmentLabel: "I'll try this today",
+            scienceHeader: 'The Science',
+            nudgeTitle: "This Week's Action",
+            markComplete: "I've read this section",
+            prayerTitle: 'Prayer',
+            prayerScienceTitle: 'Why Prayer Matters (Science)',
+            progressTitle: 'Your Progress',
+            progressIncomplete: 'Complete all sections to finish this verse',
+            progressComplete: 'Congratulations! Verse complete!',
+            verseComplete: 'Verse Complete!',
+            subscribeCta: 'Get Your Weekly Verse',
+            ctaHint: 'Every Monday • Email or WhatsApp • Free forever',
+            registerModalTitle: 'Get Your Weekly Verse',
+            registerModalDesc: 'Every Monday, receive one verse with full context, neuroscience insights, and a clear actionable practice for the week.',
+            emailLabel: 'Email Address',
+            versionLabel: 'Bible Version',
+            versionHint: 'Spanish uses RVR 1960',
+            deliveryLabel: 'Delivery Method',
+            deliveryHint: 'Choose at least one',
+            registerBtn: 'Start My Weekly Verse',
+            registerSuccessTitle: "You're all set!",
+            registerSuccessMsg: 'Your first verse arrives Monday morning. Check your email to confirm.',
+            registerPrivacy: 'One email per week. No spam. Unsubscribe anytime.',
             depthSeeker: 'Seeker',
             depthExplorer: 'Explorer',
             depthScholar: 'Scholar',
@@ -64,8 +90,8 @@ const BibleApp = {
             whatsappPrivacy: 'Your number is only used for daily verses. Reply STOP anytime to unsubscribe.'
         },
         es: {
-            appTitle: 'Selah',
-            appTagline: 'Pausa. Reflexiona. Practica.',
+            appTitle: 'Praxis',
+            appTagline: 'La Ciencia de la Escritura',
             analysisHeader: 'Entendiendo Este Versículo',
             historicalTitle: 'Contexto Histórico',
             economicTitle: 'Contexto Económico',
@@ -89,8 +115,28 @@ const BibleApp = {
             consensusLabel: 'Consenso Histórico',
             debateLabel: 'Debate Académico',
             interpretiveLabel: 'Interpretativo',
-            scienceHeader: 'Puente Científico',
-            commitmentLabel: 'Lo intentaré hoy',
+            scienceHeader: 'La Ciencia',
+            nudgeTitle: 'Acción de Esta Semana',
+            markComplete: 'He leído esta sección',
+            prayerTitle: 'Oración',
+            prayerScienceTitle: 'Por Qué la Oración Importa (Ciencia)',
+            progressTitle: 'Tu Progreso',
+            progressIncomplete: 'Completa todas las secciones para terminar este versículo',
+            progressComplete: '¡Felicitaciones! ¡Versículo completo!',
+            verseComplete: '¡Versículo Completo!',
+            subscribeCta: 'Recibir Tu Versículo Semanal',
+            ctaHint: 'Cada lunes • Email o WhatsApp • Gratis siempre',
+            registerModalTitle: 'Recibir Tu Versículo Semanal',
+            registerModalDesc: 'Cada lunes, recibí un versículo con contexto completo, neurociencia, y una práctica clara para la semana.',
+            emailLabel: 'Correo Electrónico',
+            versionLabel: 'Versión de la Biblia',
+            versionHint: 'Español usa RVR 1960',
+            deliveryLabel: 'Método de Entrega',
+            deliveryHint: 'Elegí al menos uno',
+            registerBtn: 'Comenzar Mi Versículo Semanal',
+            registerSuccessTitle: '¡Todo listo!',
+            registerSuccessMsg: 'Tu primer versículo llega el lunes. Revisá tu email para confirmar.',
+            registerPrivacy: 'Un email por semana. Sin spam. Cancelá cuando quieras.',
             depthSeeker: 'Buscador',
             depthExplorer: 'Explorador',
             depthScholar: 'Erudito',
@@ -119,7 +165,7 @@ const BibleApp = {
     },
 
     // Analysis section IDs
-    analysisSections: ['historical', 'economic', 'social', 'political', 'author', 'neuroscience', 'behavioral', 'nudge'],
+    analysisSections: ['historical', 'economic', 'political', 'social', 'author', 'neuroscience', 'behavioral', 'nudge', 'prayer'],
 
     /**
      * Initialize the application
@@ -450,12 +496,17 @@ const BibleApp = {
         // Show analysis sections for local verses
         if (!verse.isAPIVerse) {
             this.showAnalysisSections();
+            this.initProgressTracking();
+            this.renderPrayerSection();
+        } else {
+            // Hide progress for API verses without full analysis
+            const completionSection = document.getElementById('completionSection');
+            if (completionSection) completionSection.style.display = 'none';
         }
 
         this.renderVerse();
         this.updateDailyBadge();
         this.updateBookmarkButton();
-        this.checkTodayCommitment();
 
         // Scroll to verse
         document.querySelector('.verse-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -627,23 +678,44 @@ const BibleApp = {
         const commitmentCheckbox = document.getElementById('dailyCommitment');
         commitmentCheckbox.addEventListener('change', (e) => this.handleCommitment(e.target.checked));
 
-        // WhatsApp button
-        const whatsappBtn = document.getElementById('whatsappBtn');
-        whatsappBtn.addEventListener('click', () => this.openWhatsAppModal());
+        // Subscribe button
+        const subscribeBtn = document.getElementById('subscribeBtn');
+        if (subscribeBtn) {
+            subscribeBtn.addEventListener('click', () => this.openRegisterModal());
+        }
 
-        // Close WhatsApp modal
-        const closeWhatsapp = document.getElementById('closeWhatsapp');
-        closeWhatsapp.addEventListener('click', () => this.closeWhatsAppModal());
+        // Close register modal
+        const closeRegister = document.getElementById('closeRegister');
+        if (closeRegister) {
+            closeRegister.addEventListener('click', () => this.closeRegisterModal());
+        }
 
-        // Close WhatsApp modal on overlay click
-        const whatsappModal = document.getElementById('whatsappModal');
-        whatsappModal.addEventListener('click', (e) => {
-            if (e.target === whatsappModal) this.closeWhatsAppModal();
+        // Close register modal on overlay click
+        const registerModal = document.getElementById('registerModal');
+        if (registerModal) {
+            registerModal.addEventListener('click', (e) => {
+                if (e.target === registerModal) this.closeRegisterModal();
+            });
+        }
+
+        // Register form
+        const registerForm = document.getElementById('registerForm');
+        if (registerForm) {
+            registerForm.addEventListener('submit', (e) => this.handleRegister(e));
+        }
+
+        // Language select in register form - toggle version visibility
+        const langSelectReg = document.getElementById('langSelect');
+        if (langSelectReg) {
+            langSelectReg.addEventListener('change', () => this.updateVersionVisibility());
+        }
+
+        // Section completion checkboxes
+        document.querySelectorAll('.section-check').forEach(checkbox => {
+            checkbox.addEventListener('change', (e) => {
+                this.handleSectionComplete(e.target.dataset.section, e.target.checked);
+            });
         });
-
-        // Subscribe form
-        const subscribeForm = document.getElementById('subscribeForm');
-        subscribeForm.addEventListener('submit', (e) => this.handleSubscribe(e));
 
         // Share button
         const shareBtn = document.getElementById('shareBtn');
@@ -1167,6 +1239,284 @@ const BibleApp = {
             btnText.style.display = 'inline';
             btnLoading.style.display = 'none';
             submitBtn.disabled = false;
+        }
+    },
+
+    /**
+     * Initialize progress tracking for current verse
+     */
+    initProgressTracking() {
+        this.completedSections = new Set();
+
+        // Load saved progress for this verse
+        if (this.currentVerse) {
+            const savedProgress = StorageManager.getVerseProgress(this.currentVerse.id);
+            if (savedProgress) {
+                savedProgress.forEach(s => this.completedSections.add(s));
+            }
+        }
+
+        // Set up checkboxes
+        document.querySelectorAll('.section-check').forEach(checkbox => {
+            const section = checkbox.dataset.section;
+            checkbox.checked = this.completedSections.has(section);
+
+            // Update status indicator
+            this.updateSectionStatus(section);
+        });
+
+        this.updateProgress();
+    },
+
+    /**
+     * Handle section completion checkbox
+     * @param {string} section - Section ID
+     * @param {boolean} completed - Completion state
+     */
+    handleSectionComplete(section, completed) {
+        if (completed) {
+            this.completedSections.add(section);
+        } else {
+            this.completedSections.delete(section);
+        }
+
+        // Save progress
+        if (this.currentVerse) {
+            StorageManager.saveVerseProgress(this.currentVerse.id, Array.from(this.completedSections));
+        }
+
+        // Update UI
+        this.updateSectionStatus(section);
+        this.updateProgress();
+    },
+
+    /**
+     * Update section status indicator
+     * @param {string} section - Section ID
+     */
+    updateSectionStatus(section) {
+        const statusEl = document.querySelector(`.section-status[data-section="${section}"]`);
+        if (statusEl) {
+            statusEl.classList.toggle('completed', this.completedSections.has(section));
+        }
+    },
+
+    /**
+     * Update overall progress display
+     */
+    updateProgress() {
+        const totalSections = this.sectionOrder.length;
+        const completedCount = this.completedSections.size;
+        const percentage = (completedCount / totalSections) * 100;
+
+        // Update progress text
+        const progressText = document.getElementById('progressText');
+        if (progressText) {
+            progressText.textContent = `${completedCount}/${totalSections}`;
+        }
+
+        // Update progress ring
+        const progressRing = document.getElementById('progressRing');
+        if (progressRing) {
+            const circumference = 2 * Math.PI * 45; // r=45
+            const offset = circumference - (percentage / 100) * circumference;
+            progressRing.style.strokeDashoffset = offset;
+        }
+
+        // Update status text
+        const progressStatus = document.getElementById('progressStatus');
+        const completionBadge = document.getElementById('completionBadge');
+        const lang = this.currentLanguage;
+
+        if (completedCount === totalSections) {
+            if (progressStatus) {
+                progressStatus.textContent = this.translations[lang].progressComplete;
+            }
+            if (completionBadge) {
+                completionBadge.style.display = 'flex';
+            }
+
+            // Record completion
+            if (this.currentVerse) {
+                StorageManager.recordVerseCompletion(this.currentVerse.id);
+            }
+        } else {
+            if (progressStatus) {
+                progressStatus.textContent = this.translations[lang].progressIncomplete;
+            }
+            if (completionBadge) {
+                completionBadge.style.display = 'none';
+            }
+        }
+    },
+
+    /**
+     * Open registration modal
+     */
+    openRegisterModal() {
+        // Reset form state
+        document.getElementById('registerForm').style.display = 'flex';
+        document.getElementById('registerSuccess').style.display = 'none';
+        document.getElementById('registerError').style.display = 'none';
+
+        // Set language select to current language
+        document.getElementById('langSelect').value = this.currentLanguage;
+
+        // Set version select
+        document.getElementById('versionSelect').value = this.bibleVersion;
+
+        // Toggle version visibility based on language
+        this.updateVersionVisibility();
+
+        // Show modal
+        document.getElementById('registerModal').classList.add('active');
+    },
+
+    /**
+     * Close registration modal
+     */
+    closeRegisterModal() {
+        document.getElementById('registerModal').classList.remove('active');
+    },
+
+    /**
+     * Update version selector visibility based on language
+     */
+    updateVersionVisibility() {
+        const versionGroup = document.getElementById('versionGroup');
+        const langSelect = document.getElementById('langSelect');
+        if (versionGroup && langSelect) {
+            versionGroup.style.display = langSelect.value === 'es' ? 'none' : 'block';
+        }
+    },
+
+    /**
+     * Handle registration form submission
+     * @param {Event} e - Form submit event
+     */
+    async handleRegister(e) {
+        e.preventDefault();
+
+        const emailInput = document.getElementById('emailInput');
+        const phoneInput = document.getElementById('phoneInput');
+        const langSelect = document.getElementById('langSelect');
+        const versionSelect = document.getElementById('versionSelect');
+        const deliveryEmail = document.getElementById('deliveryEmail');
+        const deliveryWhatsApp = document.getElementById('deliveryWhatsApp');
+        const submitBtn = document.getElementById('registerSubmit');
+        const btnText = submitBtn.querySelector('.btn-text');
+        const btnLoading = submitBtn.querySelector('.btn-loading');
+        const errorDiv = document.getElementById('registerError');
+        const errorMsg = document.getElementById('registerErrorMsg');
+
+        // Get values
+        const email = emailInput.value.trim();
+        const phone = phoneInput.value.trim();
+        const language = langSelect.value;
+        const version = versionSelect.value;
+        const wantsEmail = deliveryEmail.checked;
+        const wantsWhatsApp = deliveryWhatsApp.checked;
+
+        // Validation
+        if (!email) {
+            errorMsg.textContent = this.currentLanguage === 'es'
+                ? 'Por favor ingresá tu email.'
+                : 'Please enter your email address.';
+            errorDiv.style.display = 'block';
+            return;
+        }
+
+        if (!wantsEmail && !wantsWhatsApp) {
+            errorMsg.textContent = this.currentLanguage === 'es'
+                ? 'Por favor elegí al menos un método de entrega.'
+                : 'Please choose at least one delivery method.';
+            errorDiv.style.display = 'block';
+            return;
+        }
+
+        if (wantsWhatsApp && !phone) {
+            errorMsg.textContent = this.currentLanguage === 'es'
+                ? 'Por favor ingresá tu número de teléfono para WhatsApp.'
+                : 'Please enter your phone number for WhatsApp delivery.';
+            errorDiv.style.display = 'block';
+            return;
+        }
+
+        // Show loading
+        btnText.style.display = 'none';
+        btnLoading.style.display = 'flex';
+        submitBtn.disabled = true;
+        errorDiv.style.display = 'none';
+
+        try {
+            const response = await fetch(`${this.apiBaseUrl}/subscribe`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    email,
+                    phone: phone ? '+' + phone.replace(/[^\d]/g, '') : null,
+                    language,
+                    version,
+                    deliveryEmail: wantsEmail,
+                    deliveryWhatsApp: wantsWhatsApp
+                })
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                document.getElementById('registerForm').style.display = 'none';
+                document.getElementById('registerSuccess').style.display = 'block';
+            } else {
+                errorMsg.textContent = data.error || 'Registration failed. Please try again.';
+                errorDiv.style.display = 'block';
+            }
+        } catch (error) {
+            console.error('Registration error:', error);
+            errorMsg.textContent = this.currentLanguage === 'es'
+                ? 'No se pudo conectar al servidor.'
+                : 'Could not connect to server.';
+            errorDiv.style.display = 'block';
+        } finally {
+            btnText.style.display = 'inline';
+            btnLoading.style.display = 'none';
+            submitBtn.disabled = false;
+        }
+    },
+
+    /**
+     * Render prayer section
+     */
+    renderPrayerSection() {
+        const verse = this.currentVerse;
+        const lang = this.currentLanguage;
+
+        if (!verse || !verse.analysis || !verse.analysis.prayer) {
+            // Hide prayer section if no prayer data
+            const prayerSection = document.querySelector('.prayer-section');
+            if (prayerSection) prayerSection.style.display = 'none';
+            return;
+        }
+
+        const prayerSection = document.querySelector('.prayer-section');
+        if (prayerSection) prayerSection.style.display = '';
+
+        const prayerContent = document.getElementById('prayerContent');
+        const prayerScienceContent = document.getElementById('prayerScienceContent');
+
+        // Prayer text is directly in verse.analysis.prayer[lang]
+        if (prayerContent && verse.analysis.prayer[lang]) {
+            prayerContent.textContent = verse.analysis.prayer[lang];
+        }
+
+        // Science backing is in verse.analysis.prayer.science[lang]
+        if (prayerScienceContent && verse.analysis.prayer.science) {
+            prayerScienceContent.textContent = verse.analysis.prayer.science[lang];
+        }
+
+        // Render sources if available
+        if (verse.analysis.prayer.sources && verse.analysis.prayer.sources.length > 0) {
+            this.renderAnalysisSources('prayer', verse.analysis.prayer.sources, lang);
         }
     },
 
