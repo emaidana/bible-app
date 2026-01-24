@@ -3014,6 +3014,358 @@ body, .app-container, .verse-card, .context-section, .nudge-card,
     margin-top: var(--space-md);
 }
 
+/* Explore Section */
+.explore-section {
+    padding: var(--space-3xl) 0;
+}
+
+.explore-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--space-lg);
+}
+
+.explore-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    text-align: center;
+    position: relative;
+    transition: var(--transition-normal);
+}
+
+.explore-card:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-sage);
+}
+
+.explore-featured {
+    border-color: var(--color-terracotta);
+    box-shadow: var(--shadow-md);
+}
+
+.explore-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-terracotta);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 4px 12px;
+    border-radius: var(--radius-full);
+}
+
+.explore-icon {
+    font-size: 2rem;
+    margin-bottom: var(--space-md);
+}
+
+.explore-title {
+    font-family: var(--font-sans);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-sm);
+}
+
+.explore-desc {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--space-lg);
+}
+
+.explore-btn {
+    width: 100%;
+}
+
+/* Progress Bar */
+.progress-bar-container {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    margin-bottom: var(--space-xl);
+}
+
+.progress-bar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-sm);
+}
+
+.progress-label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--color-text-primary);
+}
+
+.progress-count {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+}
+
+.progress-bar {
+    height: 8px;
+    background: var(--color-border);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--color-sage), var(--color-terracotta));
+    border-radius: var(--radius-full);
+    transition: width 0.4s ease;
+}
+
+/* Section Progress Indicator */
+.section-progress-indicator {
+    margin-left: auto;
+    margin-right: var(--space-sm);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    transition: var(--transition-fast);
+}
+
+.section-progress-indicator.completed {
+    background: var(--color-sage);
+    border-color: var(--color-sage);
+    color: white;
+}
+
+.section-progress-indicator.completed::after {
+    content: '✓';
+}
+
+/* Completion Card */
+.completion-card {
+    background: linear-gradient(135deg, #ffd700 0%, #ffb347 100%);
+    border-radius: var(--radius-xl);
+    padding: var(--space-2xl);
+    text-align: center;
+    color: #5d4e37;
+    animation: badge-appear 0.5s ease;
+}
+
+.completion-icon {
+    font-size: 3rem;
+    margin-bottom: var(--space-md);
+}
+
+.completion-card h3 {
+    font-family: var(--font-sans);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: var(--space-sm);
+}
+
+.completion-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: var(--space-lg);
+}
+
+.completion-stats {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-2xl);
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Insight Source */
+.insight-source {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin-top: var(--space-md);
+    font-style: normal;
+}
+
+/* Pricing Three Columns */
+.pricing-three {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Prayer Card */
+.prayer-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    margin-bottom: var(--space-lg);
+}
+
+.prayer-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-lg);
+}
+
+.prayer-icon {
+    font-size: 1.25rem;
+}
+
+.prayer-header h3 {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    flex: 1;
+}
+
+.prayer-content {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    font-style: italic;
+    line-height: 1.8;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-lg);
+}
+
+.prayer-science {
+    background: var(--color-bg-accent);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    margin-bottom: var(--space-lg);
+}
+
+.prayer-science-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-sm);
+}
+
+.prayer-science-header h4 {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+}
+
+.prayer-science-content {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+}
+
+/* Context Section Details */
+.context-section {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-sm);
+    overflow: hidden;
+}
+
+.context-section[open] {
+    border-color: var(--color-sage);
+}
+
+.context-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-md) var(--space-lg);
+    cursor: pointer;
+    background: var(--color-bg-card);
+    transition: var(--transition-fast);
+    list-style: none;
+}
+
+.context-header::-webkit-details-marker {
+    display: none;
+}
+
+.context-header:hover {
+    background: var(--color-bg-accent);
+}
+
+.context-icon {
+    font-size: 1.1rem;
+}
+
+.context-title {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+}
+
+.expand-icon {
+    font-size: 0.7rem;
+    color: var(--color-text-muted);
+    transition: transform 0.2s ease;
+}
+
+.context-section[open] .expand-icon {
+    transform: rotate(90deg);
+}
+
+.context-content {
+    padding: var(--space-lg);
+    background: var(--color-bg-card);
+    border-top: 1px solid var(--color-border);
+}
+
+.context-content p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-md);
+}
+
+/* History Button */
+.history-btn {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    background: transparent;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-sm) var(--space-md);
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.history-btn:hover {
+    border-color: var(--color-sage);
+    color: var(--color-text-primary);
+}
+
 /* Mobile Responsive for Landing Page */
 @media (max-width: 768px) {
     .nav {

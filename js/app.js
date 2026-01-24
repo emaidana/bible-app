@@ -747,7 +747,8 @@ const BibleApp = {
             document.getElementById('navCtaBtn'),
             document.getElementById('heroCtaBtn'),
             document.getElementById('pricingFreeBtn'),
-            document.getElementById('finalCtaBtn')
+            document.getElementById('finalCtaBtn'),
+            document.getElementById('weeklySubscribeBtn')
         ];
         ctaButtons.forEach(btn => {
             if (btn) {
@@ -1398,31 +1399,40 @@ const BibleApp = {
         const completedCount = this.completedSections.size;
         const percentage = (completedCount / totalSections) * 100;
 
-        // Update progress text
-        const progressText = document.getElementById('progressText');
-        if (progressText) {
-            progressText.textContent = `${completedCount}/${totalSections}`;
+        // Update progress bar
+        const progressBarFill = document.getElementById('progressBarFill');
+        if (progressBarFill) {
+            progressBarFill.style.width = `${percentage}%`;
         }
 
-        // Update progress ring
-        const progressRing = document.getElementById('progressRing');
-        if (progressRing) {
-            const circumference = 2 * Math.PI * 45; // r=45
-            const offset = circumference - (percentage / 100) * circumference;
-            progressRing.style.strokeDashoffset = offset;
+        // Update progress count text
+        const progressCount = document.getElementById('progressCount');
+        if (progressCount) {
+            progressCount.textContent = `${completedCount}/${totalSections} sections`;
         }
 
-        // Update status text
-        const progressStatus = document.getElementById('progressStatus');
-        const completionBadge = document.getElementById('completionBadge');
-        const lang = this.currentLanguage;
+        // Update all section progress indicators
+        this.sectionOrder.forEach(section => {
+            const indicators = document.querySelectorAll(`.section-progress-indicator[data-section="${section}"], .context-section[data-section="${section}"] .section-progress-indicator`);
+            indicators.forEach(indicator => {
+                indicator.classList.toggle('completed', this.completedSections.has(section));
+            });
+        });
 
+        // Handle completion card
+        const completionCard = document.getElementById('completionCard');
         if (completedCount === totalSections) {
-            if (progressStatus) {
-                progressStatus.textContent = this.translations[lang].progressComplete;
-            }
-            if (completionBadge) {
-                completionBadge.style.display = 'flex';
+            if (completionCard) {
+                completionCard.style.display = 'block';
+                // Update stats
+                const totalCompleted = document.getElementById('totalCompleted');
+                const currentStreak = document.getElementById('currentStreak');
+                if (totalCompleted) {
+                    totalCompleted.textContent = StorageManager.getCompletedVerses().length;
+                }
+                if (currentStreak) {
+                    currentStreak.textContent = StorageManager.getStreakCount();
+                }
             }
 
             // Record completion
@@ -1430,11 +1440,8 @@ const BibleApp = {
                 StorageManager.recordVerseCompletion(this.currentVerse.id);
             }
         } else {
-            if (progressStatus) {
-                progressStatus.textContent = this.translations[lang].progressIncomplete;
-            }
-            if (completionBadge) {
-                completionBadge.style.display = 'none';
+            if (completionCard) {
+                completionCard.style.display = 'none';
             }
         }
     },
