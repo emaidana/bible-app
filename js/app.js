@@ -203,12 +203,27 @@ const BibleApp = {
 
         // Update UI language
         this.updateUILanguage();
+        this.updateLanguageToggleLabel();
 
         // Render gamification elements
         this.renderStreakBadge();
-        this.renderDepthIndicator();
         this.updateBookmarkButton();
-        this.checkTodayCommitment();
+
+        // Initialize progress tracking
+        this.initProgressTracking();
+
+        // Render prayer section
+        this.renderPrayerSection();
+    },
+
+    /**
+     * Update language toggle button label
+     */
+    updateLanguageToggleLabel() {
+        const label = document.getElementById('currentLangLabel');
+        if (label) {
+            label.textContent = this.currentLanguage.toUpperCase();
+        }
     },
 
     /**
@@ -335,15 +350,19 @@ const BibleApp = {
     },
 
     /**
-     * Render the depth indicator
+     * Render the depth indicator (if present in layout)
      */
     renderDepthIndicator() {
+        const depthIndicator = document.getElementById('depthIndicator');
+        if (!depthIndicator) return; // Element not in current layout
+
         const lang = this.currentLanguage;
         const depthInfo = this.getDepthLevel();
-        const depthIndicator = document.getElementById('depthIndicator');
         const depthLabel = document.getElementById('depthLabel');
         const depthDays = document.getElementById('depthDays');
         const depthFill = document.getElementById('depthFill');
+
+        if (!depthLabel || !depthDays || !depthFill) return;
 
         // Set level name
         depthLabel.textContent = this.translations[lang][depthInfo.nameKey];
@@ -407,6 +426,7 @@ const BibleApp = {
      */
     handleCommitment(isChecked) {
         if (!isChecked || !this.currentVerse) return;
+        if (!this.currentVerse.analysis || !this.currentVerse.analysis.nudge) return;
 
         const commitment = {
             verseId: this.currentVerse.id,
@@ -418,8 +438,10 @@ const BibleApp = {
 
         // Visual feedback
         const checkbox = document.getElementById('dailyCommitment');
-        const label = checkbox.closest('.commitment-checkbox');
-        label.classList.add('committed');
+        if (checkbox) {
+            const label = checkbox.closest('.commitment-checkbox');
+            if (label) label.classList.add('committed');
+        }
     },
 
     /**
@@ -430,16 +452,20 @@ const BibleApp = {
         const today = StorageManager.getTodayString();
         const checkbox = document.getElementById('dailyCommitment');
 
+        if (!checkbox) return;
+
         const alreadyCommitted = commitments.some(c =>
             c.verseId === this.currentVerse?.id && c.date === today
         );
 
         if (alreadyCommitted) {
             checkbox.checked = true;
-            checkbox.closest('.commitment-checkbox').classList.add('committed');
+            const label = checkbox.closest('.commitment-checkbox');
+            if (label) label.classList.add('committed');
         } else {
             checkbox.checked = false;
-            checkbox.closest('.commitment-checkbox').classList.remove('committed');
+            const label = checkbox.closest('.commitment-checkbox');
+            if (label) label.classList.remove('committed');
         }
     },
 
@@ -536,15 +562,20 @@ const BibleApp = {
      * Update the daily badge visibility
      */
     updateDailyBadge() {
+        // These elements may not exist in the new layout
         const badge = document.getElementById('dailyBadge');
         const backBtn = document.getElementById('backToDaily');
 
-        if (this.isShowingDaily) {
-            badge.classList.remove('hidden');
-            backBtn.style.display = 'none';
-        } else {
-            badge.classList.add('hidden');
-            backBtn.style.display = 'inline-block';
+        if (badge) {
+            if (this.isShowingDaily) {
+                badge.classList.remove('hidden');
+            } else {
+                badge.classList.add('hidden');
+            }
+        }
+
+        if (backBtn) {
+            backBtn.style.display = this.isShowingDaily ? 'none' : 'inline-block';
         }
     },
 
@@ -556,19 +587,29 @@ const BibleApp = {
         const lang = this.currentLanguage;
 
         // Verse reference
-        document.getElementById('verseBook').textContent = verse.book[lang];
-        document.getElementById('verseChapter').textContent = verse.chapter;
-        document.getElementById('verseNumber').textContent = verse.verse;
+        const verseBook = document.getElementById('verseBook');
+        const verseChapter = document.getElementById('verseChapter');
+        const verseNumber = document.getElementById('verseNumber');
+        const verseText = document.getElementById('verseText');
 
-        // Verse text
-        document.getElementById('verseText').textContent = verse.text[lang];
+        if (verseBook) verseBook.textContent = verse.book[lang];
+        if (verseChapter) verseChapter.textContent = verse.chapter;
+        if (verseNumber) verseNumber.textContent = verse.verse;
+        if (verseText) verseText.textContent = verse.text[lang];
+
+        // Only render analysis if verse has analysis data
+        if (!verse.analysis) return;
 
         // Render each analysis section with sources, badges, and disclaimers
         this.analysisSections.forEach(sectionId => {
             const section = verse.analysis[sectionId];
+            if (!section) return;
 
             // Content
-            document.getElementById(`${sectionId}Content`).textContent = section[lang];
+            const contentEl = document.getElementById(`${sectionId}Content`);
+            if (contentEl && section[lang]) {
+                contentEl.textContent = section[lang];
+            }
 
             // Confidence badge
             this.renderConfidenceBadge(sectionId, section.confidenceLevel, lang);
@@ -579,6 +620,9 @@ const BibleApp = {
             // Disclaimer
             this.renderDisclaimer(sectionId, section.disclaimer, lang);
         });
+
+        // Render prayer section separately (it has different structure)
+        this.renderPrayerSection();
     },
 
     /**
@@ -589,6 +633,8 @@ const BibleApp = {
      */
     renderAnalysisSources(sectionId, sources, lang) {
         const container = document.getElementById(`${sectionId}Sources`);
+        if (!container) return;
+
         if (!sources || sources.length === 0) {
             container.innerHTML = '';
             return;
@@ -613,6 +659,8 @@ const BibleApp = {
      */
     renderConfidenceBadge(sectionId, level, lang) {
         const badge = document.getElementById(`${sectionId}Confidence`);
+        if (!badge) return;
+
         if (!level || !this.confidenceLabels[level]) {
             badge.textContent = '';
             badge.className = 'confidence-badge';
@@ -630,6 +678,8 @@ const BibleApp = {
      */
     renderDisclaimer(sectionId, disclaimer, lang) {
         const el = document.getElementById(`${sectionId}Disclaimer`);
+        if (!el) return;
+
         if (!disclaimer || !disclaimer[lang]) {
             el.textContent = '';
             el.classList.remove('visible');
@@ -645,7 +695,9 @@ const BibleApp = {
     setupEventListeners() {
         // Theme toggle
         const themeToggle = document.getElementById('themeToggle');
-        themeToggle.addEventListener('click', () => this.toggleTheme());
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => this.toggleTheme());
+        }
 
         // Version toggle (KJV/ESV)
         const versionToggle = document.getElementById('versionToggle');
@@ -660,39 +712,48 @@ const BibleApp = {
 
         // Language toggle
         const languageToggle = document.getElementById('languageToggle');
-        languageToggle.addEventListener('click', () => this.toggleLanguage());
+        if (languageToggle) {
+            languageToggle.addEventListener('click', () => this.toggleLanguage());
+        }
 
         // History button
         const historyBtn = document.getElementById('historyBtn');
-        historyBtn.addEventListener('click', () => this.openHistory());
+        if (historyBtn) {
+            historyBtn.addEventListener('click', () => this.openHistory());
+        }
 
         // Close history modal
         const closeHistory = document.getElementById('closeHistory');
-        closeHistory.addEventListener('click', () => this.closeHistory());
+        if (closeHistory) {
+            closeHistory.addEventListener('click', () => this.closeHistory());
+        }
 
         // Close modal on overlay click
         const historyModal = document.getElementById('historyModal');
-        historyModal.addEventListener('click', (e) => {
-            if (e.target === historyModal) this.closeHistory();
-        });
-
-        // Back to daily button
-        const backToDaily = document.getElementById('backToDaily');
-        backToDaily.addEventListener('click', () => this.backToDaily());
+        if (historyModal) {
+            historyModal.addEventListener('click', (e) => {
+                if (e.target === historyModal) this.closeHistory();
+            });
+        }
 
         // Bookmark button
         const bookmarkBtn = document.getElementById('bookmarkBtn');
-        bookmarkBtn.addEventListener('click', () => this.toggleBookmark());
-
-        // Commitment checkbox
-        const commitmentCheckbox = document.getElementById('dailyCommitment');
-        commitmentCheckbox.addEventListener('change', (e) => this.handleCommitment(e.target.checked));
-
-        // Subscribe button
-        const subscribeBtn = document.getElementById('subscribeBtn');
-        if (subscribeBtn) {
-            subscribeBtn.addEventListener('click', () => this.openRegisterModal());
+        if (bookmarkBtn) {
+            bookmarkBtn.addEventListener('click', () => this.toggleBookmark());
         }
+
+        // CTA buttons - open register modal
+        const ctaButtons = [
+            document.getElementById('navCtaBtn'),
+            document.getElementById('heroCtaBtn'),
+            document.getElementById('pricingFreeBtn'),
+            document.getElementById('finalCtaBtn')
+        ];
+        ctaButtons.forEach(btn => {
+            if (btn) {
+                btn.addEventListener('click', () => this.openRegisterModal());
+            }
+        });
 
         // Close register modal
         const closeRegister = document.getElementById('closeRegister');
@@ -729,26 +790,24 @@ const BibleApp = {
 
         // Share button
         const shareBtn = document.getElementById('shareBtn');
-        shareBtn.addEventListener('click', () => this.shareToWhatsApp());
+        if (shareBtn) {
+            shareBtn.addEventListener('click', () => this.shareToWhatsApp());
+        }
 
         // Search input
         const searchInput = document.getElementById('searchInput');
-        searchInput.addEventListener('input', (e) => this.handleSearch(e.target.value));
-        searchInput.addEventListener('focus', (e) => this.handleSearch(e.target.value));
-
-        // Search button
-        const searchBtn = document.getElementById('searchBtn');
-        searchBtn.addEventListener('click', () => this.performSearch());
-
-        // Enter key in search
-        searchInput.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') this.performSearch();
-            if (e.key === 'Escape') this.closeSuggestions();
-        });
+        if (searchInput) {
+            searchInput.addEventListener('input', (e) => this.handleSearch(e.target.value));
+            searchInput.addEventListener('focus', (e) => this.handleSearch(e.target.value));
+            searchInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') this.performSearch();
+                if (e.key === 'Escape') this.closeSuggestions();
+            });
+        }
 
         // Close suggestions when clicking outside
         document.addEventListener('click', (e) => {
-            if (!e.target.closest('.search-section')) {
+            if (!e.target.closest('.search-container')) {
                 this.closeSuggestions();
             }
         });
@@ -757,8 +816,20 @@ const BibleApp = {
         document.addEventListener('keydown', (e) => {
             if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
                 e.preventDefault();
-                searchInput.focus();
+                const searchInput = document.getElementById('searchInput');
+                if (searchInput) searchInput.focus();
             }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(anchor.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
         });
     },
 
@@ -1073,14 +1144,16 @@ const BibleApp = {
      */
     openHistory() {
         this.renderHistory();
-        document.getElementById('historyModal').classList.add('active');
+        const modal = document.getElementById('historyModal');
+        if (modal) modal.classList.add('active');
     },
 
     /**
      * Close history modal
      */
     closeHistory() {
-        document.getElementById('historyModal').classList.remove('active');
+        const modal = document.getElementById('historyModal');
+        if (modal) modal.classList.remove('active');
     },
 
     /**
@@ -1134,8 +1207,8 @@ const BibleApp = {
         StorageManager.setLanguage(this.currentLanguage);
 
         this.updateUILanguage();
+        this.updateLanguageToggleLabel();
         this.renderVerse();
-        this.renderDepthIndicator();
         this.updateVersionToggle();
 
         // Clear Bible service cache when language changes
@@ -1143,7 +1216,7 @@ const BibleApp = {
             BibleService.clearCache();
         }
 
-        // Update language select in WhatsApp modal
+        // Update language select in register modal
         const langSelect = document.getElementById('langSelect');
         if (langSelect) langSelect.value = this.currentLanguage;
     },
@@ -1501,15 +1574,16 @@ const BibleApp = {
         const verse = this.currentVerse;
         const lang = this.currentLanguage;
 
+        const prayerCard = document.querySelector('.prayer-card');
+        if (!prayerCard) return;
+
         if (!verse || !verse.analysis || !verse.analysis.prayer) {
-            // Hide prayer section if no prayer data
-            const prayerSection = document.querySelector('.prayer-section');
-            if (prayerSection) prayerSection.style.display = 'none';
+            // Hide prayer card if no prayer data
+            prayerCard.style.display = 'none';
             return;
         }
 
-        const prayerSection = document.querySelector('.prayer-section');
-        if (prayerSection) prayerSection.style.display = '';
+        prayerCard.style.display = '';
 
         const prayerContent = document.getElementById('prayerContent');
         const prayerScienceContent = document.getElementById('prayerScienceContent');
@@ -1525,7 +1599,8 @@ const BibleApp = {
         }
 
         // Render sources if available
-        if (verse.analysis.prayer.sources && verse.analysis.prayer.sources.length > 0) {
+        const sourcesContainer = document.getElementById('prayerSources');
+        if (sourcesContainer && verse.analysis.prayer.sources && verse.analysis.prayer.sources.length > 0) {
             this.renderAnalysisSources('prayer', verse.analysis.prayer.sources, lang);
         }
     },
@@ -1540,11 +1615,18 @@ const BibleApp = {
         const verse = this.currentVerse;
         const reference = `${verse.book[lang]} ${verse.chapter}:${verse.verse}`;
         const text = verse.text[lang];
-        const nudge = verse.analysis.nudge[lang];
 
-        const shareText = lang === 'es'
-            ? `*${reference}*\n"${text}"\n\n✨ *Praxis:* ${nudge}\n\n— Enviado desde Berean`
-            : `*${reference}*\n"${text}"\n\n✨ *This Week's Praxis:* ${nudge}\n\n— Sent from Berean`;
+        let shareText;
+        if (verse.analysis && verse.analysis.nudge && verse.analysis.nudge[lang]) {
+            const nudge = verse.analysis.nudge[lang];
+            shareText = lang === 'es'
+                ? `*${reference}*\n"${text}"\n\n✨ *Praxis:* ${nudge}\n\n— Enviado desde Berean`
+                : `*${reference}*\n"${text}"\n\n✨ *This Week's Praxis:* ${nudge}\n\n— Sent from Berean`;
+        } else {
+            shareText = lang === 'es'
+                ? `*${reference}*\n"${text}"\n\n— Enviado desde Berean`
+                : `*${reference}*\n"${text}"\n\n— Sent from Berean`;
+        }
 
         const url = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
         window.open(url, '_blank');
@@ -1575,7 +1657,9 @@ const BibleApp = {
 
         // Update language toggle visual state
         const languageToggle = document.getElementById('languageToggle');
-        languageToggle.setAttribute('data-active', lang);
+        if (languageToggle) {
+            languageToggle.setAttribute('data-active', lang);
+        }
 
         // Update document language attribute
         document.documentElement.lang = lang;
