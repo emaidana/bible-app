@@ -9,9 +9,10 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <a href="#hero" class="skip-to-main">Skip to main content</a>
     <div class="app-container">
         <!-- Navigation -->
         <nav class="nav">
@@ -20,6 +21,7 @@
             </div>
             <div class="nav-links">
                 <a href="#method" class="nav-link">Method</a>
+                <a href="#kingdom-business" class="nav-link">Kingdom Business</a>
                 <a href="#explore" class="nav-link">Explore</a>
                 <a href="#pricing" class="nav-link">Pricing</a>
                 <button class="history-btn" id="historyBtn" aria-label="View library">
@@ -142,6 +144,157 @@
                     <h3 class="explore-title">Weekly Deep Dive</h3>
                     <p class="explore-desc">Every Monday, receive one verse via email or WhatsApp with complete Berean Protocol analysis.</p>
                     <button class="btn btn-outline explore-btn" id="weeklySubscribeBtn">Subscribe Free</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kingdom Business Section -->
+        <section class="kingdom-business-section" id="kingdom-business">
+            <div class="section-header">
+                <p class="section-eyebrow">Kingdom Business</p>
+                <h2 class="section-title">Biblical Wisdom for the Founder's Journey</h2>
+                <p class="section-subtitle">Business protocols backed by rigorous biblical exegesis, neuroscience, behavioral science, and management research from Harvard and Stanford.</p>
+            </div>
+
+            <!-- Category Filter -->
+            <div class="kb-category-filter">
+                <button class="kb-category-btn active" data-category="all">All</button>
+                <button class="kb-category-btn" data-category="leadership">Leadership</button>
+                <button class="kb-category-btn" data-category="strategy">Strategy</button>
+                <button class="kb-category-btn" data-category="resilience">Resilience</button>
+                <button class="kb-category-btn" data-category="ethics">Ethics</button>
+            </div>
+
+            <!-- Protocol Cards Grid -->
+            <div class="kb-protocols-grid" id="kbProtocolsGrid">
+                <!-- Cards rendered by JavaScript -->
+            </div>
+
+            <!-- Protocol Detail View (Modal/Expanded) -->
+            <div class="kb-protocol-detail" id="kbProtocolDetail" style="display: none;">
+                <button class="kb-back-btn" id="kbBackBtn">
+                    <span>←</span> Back to Protocols
+                </button>
+
+                <div class="kb-detail-header">
+                    <span class="kb-detail-icon" id="kbDetailIcon"></span>
+                    <div class="kb-detail-info">
+                        <h2 class="kb-detail-title" id="kbDetailTitle"></h2>
+                        <span class="kb-detail-category" id="kbDetailCategory"></span>
+                    </div>
+                </div>
+
+                <!-- Scripture -->
+                <div class="kb-detail-scripture" id="kbDetailScripture">
+                    <h3>Scripture Foundation</h3>
+                    <blockquote id="kbScriptureText"></blockquote>
+                    <p class="kb-scripture-refs" id="kbScriptureRefs"></p>
+                </div>
+
+                <!-- Analysis Sections -->
+                <div class="kb-analysis-container">
+                    <details class="kb-analysis-section" data-section="biblicalContext">
+                        <summary class="kb-analysis-header">
+                            <span class="kb-analysis-icon">📜</span>
+                            <span class="kb-analysis-title">Biblical Context</span>
+                            <span class="kb-section-indicator"></span>
+                            <span class="expand-icon">▶</span>
+                        </summary>
+                        <div class="kb-analysis-content" id="kbBiblicalContext"></div>
+                    </details>
+
+                    <details class="kb-analysis-section" data-section="businessContext">
+                        <summary class="kb-analysis-header">
+                            <span class="kb-analysis-icon">💼</span>
+                            <span class="kb-analysis-title">The Business Challenge</span>
+                            <span class="kb-section-indicator"></span>
+                            <span class="expand-icon">▶</span>
+                        </summary>
+                        <div class="kb-analysis-content" id="kbBusinessContext"></div>
+                    </details>
+
+                    <details class="kb-analysis-section" data-section="neuroscience">
+                        <summary class="kb-analysis-header">
+                            <span class="kb-analysis-icon">🧠</span>
+                            <span class="kb-analysis-title">Neuroscience</span>
+                            <span class="kb-section-indicator"></span>
+                            <span class="expand-icon">▶</span>
+                        </summary>
+                        <div class="kb-analysis-content" id="kbNeuroscience"></div>
+                    </details>
+
+                    <details class="kb-analysis-section" data-section="behavioralScience">
+                        <summary class="kb-analysis-header">
+                            <span class="kb-analysis-icon">🔬</span>
+                            <span class="kb-analysis-title">Behavioral Science</span>
+                            <span class="kb-section-indicator"></span>
+                            <span class="expand-icon">▶</span>
+                        </summary>
+                        <div class="kb-analysis-content" id="kbBehavioralScience"></div>
+                    </details>
+
+                    <details class="kb-analysis-section" data-section="managementResearch">
+                        <summary class="kb-analysis-header">
+                            <span class="kb-analysis-icon">📊</span>
+                            <span class="kb-analysis-title">Management Research</span>
+                            <span class="kb-section-indicator"></span>
+                            <span class="expand-icon">▶</span>
+                        </summary>
+                        <div class="kb-analysis-content" id="kbManagementResearch"></div>
+                    </details>
+
+                    <!-- Weekly Protocol -->
+                    <div class="kb-protocol-card" data-section="weeklyProtocol">
+                        <div class="kb-protocol-header">
+                            <span class="kb-protocol-icon">🎯</span>
+                            <h3>Weekly Protocol</h3>
+                            <span class="kb-protocol-badge">Behavioral Experiment</span>
+                            <span class="kb-section-indicator"></span>
+                        </div>
+                        <p class="kb-protocol-content" id="kbWeeklyProtocol"></p>
+                        <div class="section-complete">
+                            <label class="complete-checkbox">
+                                <input type="checkbox" class="kb-section-check" data-section="weeklyProtocol">
+                                <span class="checkbox-custom"></span>
+                                <span>I commit to running this experiment</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Founder Reflection -->
+                    <div class="kb-reflection-card" data-section="founderReflection">
+                        <div class="kb-reflection-header">
+                            <span class="kb-reflection-icon">🧘</span>
+                            <h3>Founder Reflection</h3>
+                            <span class="kb-section-indicator"></span>
+                        </div>
+                        <p class="kb-reflection-content" id="kbFounderReflection"></p>
+                        <div class="section-complete">
+                            <label class="complete-checkbox">
+                                <input type="checkbox" class="kb-section-check" data-section="founderReflection">
+                                <span class="checkbox-custom"></span>
+                                <span>I've reflected on these questions</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="kb-progress-container">
+                    <div class="progress-bar-header">
+                        <span class="progress-label">Protocol Progress</span>
+                        <span class="progress-count" id="kbProgressCount">0/7 sections</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-bar-fill" id="kbProgressBarFill" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <!-- Completion Card -->
+                <div class="kb-completion-card" id="kbCompletionCard" style="display: none;">
+                    <div class="completion-icon">🏆</div>
+                    <h3>Protocol Complete!</h3>
+                    <p>You've mastered this business protocol. Apply this wisdom to build a kingdom-oriented business.</p>
                 </div>
             </div>
         </section>
@@ -447,11 +600,11 @@
                     </div>
                     <p class="pricing-desc">Build the habit. Experience the method.</p>
                     <ul class="pricing-features">
-                        <li>✓ Daily verse with full protocol</li>
-                        <li>✓ 3 verse searches per week</li>
-                        <li>✓ 3 topic searches per week</li>
-                        <li>✓ Weekly email digest</li>
-                        <li>✓ Progress tracking</li>
+                        <li>Daily verse with full protocol</li>
+                        <li>3 verse searches per week</li>
+                        <li>3 topic searches per week</li>
+                        <li>Weekly email digest</li>
+                        <li>Progress tracking</li>
                     </ul>
                     <button class="btn btn-outline pricing-btn" id="pricingFreeBtn">Start Exploring</button>
                 </div>
@@ -467,12 +620,12 @@
                     </div>
                     <p class="pricing-desc">For those serious about daily practice.</p>
                     <ul class="pricing-features">
-                        <li>✓ Everything in Explorer</li>
-                        <li>✓ Unlimited verse searches</li>
-                        <li>✓ 10 topic searches per day</li>
-                        <li>✓ WhatsApp delivery</li>
-                        <li>✓ Personalized weekly summary</li>
-                        <li>✓ Save favorites & notes</li>
+                        <li>Everything in Explorer</li>
+                        <li>Unlimited verse searches</li>
+                        <li>10 topic searches per day</li>
+                        <li>WhatsApp delivery</li>
+                        <li>Personalized weekly summary</li>
+                        <li>Save favorites & notes</li>
                     </ul>
                     <button class="btn btn-primary pricing-btn">Coming Soon</button>
                 </div>
@@ -487,12 +640,12 @@
                     </div>
                     <p class="pricing-desc">Full access for deep study.</p>
                     <ul class="pricing-features">
-                        <li>✓ Everything in Practitioner</li>
-                        <li>✓ Unlimited topic searches</li>
-                        <li>✓ Cross-reference analysis</li>
-                        <li>✓ Export & study tools</li>
-                        <li>✓ Early access to new features</li>
-                        <li>✓ Priority support</li>
+                        <li>Everything in Practitioner</li>
+                        <li>Unlimited topic searches</li>
+                        <li>Cross-reference analysis</li>
+                        <li>Export & study tools</li>
+                        <li>Early access to new features</li>
+                        <li>Priority support</li>
                     </ul>
                     <button class="btn btn-outline pricing-btn">Coming Soon</button>
                 </div>
@@ -606,6 +759,7 @@
     <script src="js/verses.js"></script>
     <script src="js/bibleBooks.js"></script>
     <script src="js/bibleService.js"></script>
+    <script src="js/businessProtocols.js"></script>
     <script src="js/storage.js"></script>
     <script src="js/app.js"></script>
 </body>

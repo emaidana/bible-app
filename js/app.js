@@ -92,7 +92,28 @@ const BibleApp = {
             subscribeBtn: 'Join Berean',
             subscribeSuccessTitle: "You're in!",
             subscribeSuccessMsg: 'Check your WhatsApp for a welcome message.',
-            whatsappPrivacy: 'Weekly wisdom only. Reply STOP anytime.'
+            whatsappPrivacy: 'Weekly wisdom only. Reply STOP anytime.',
+            // Kingdom Business translations
+            kbSectionTitle: 'Kingdom Business',
+            kbSubtitle: 'Biblical Wisdom for the Founder\'s Journey',
+            kbAllCategory: 'All',
+            kbLeadership: 'Leadership',
+            kbStrategy: 'Strategy',
+            kbResilience: 'Resilience',
+            kbEthics: 'Ethics',
+            kbBackToProtocols: '← Back to Protocols',
+            kbScriptureFoundation: 'Scripture Foundation',
+            kbBiblicalContext: 'Biblical Context',
+            kbBusinessChallenge: 'The Business Challenge',
+            kbNeuroscience: 'Neuroscience',
+            kbBehavioralScience: 'Behavioral Science',
+            kbManagementResearch: 'Management Research',
+            kbWeeklyProtocol: 'Weekly Protocol',
+            kbFounderReflection: 'Founder Reflection',
+            kbCommitExperiment: 'I commit to running this experiment',
+            kbReflectedQuestions: 'I\'ve reflected on these questions',
+            kbProtocolComplete: 'Protocol Complete!',
+            kbProtocolCompleteMsg: 'You\'ve mastered this business protocol. Apply this wisdom to build a kingdom-oriented business.'
         },
         es: {
             appTitle: 'Berean',
@@ -163,7 +184,28 @@ const BibleApp = {
             subscribeBtn: 'Unirme a Berean',
             subscribeSuccessTitle: '¡Estás adentro!',
             subscribeSuccessMsg: 'Revisá tu WhatsApp para ver el mensaje de bienvenida.',
-            whatsappPrivacy: 'Solo sabiduría semanal. Respondé STOP cuando quieras.'
+            whatsappPrivacy: 'Solo sabiduría semanal. Respondé STOP cuando quieras.',
+            // Kingdom Business translations
+            kbSectionTitle: 'Reino y Negocios',
+            kbSubtitle: 'Sabiduría Bíblica para el Camino del Fundador',
+            kbAllCategory: 'Todos',
+            kbLeadership: 'Liderazgo',
+            kbStrategy: 'Estrategia',
+            kbResilience: 'Resiliencia',
+            kbEthics: 'Ética',
+            kbBackToProtocols: '← Volver a Protocolos',
+            kbScriptureFoundation: 'Fundamento Bíblico',
+            kbBiblicalContext: 'Contexto Bíblico',
+            kbBusinessChallenge: 'El Desafío de Negocios',
+            kbNeuroscience: 'Neurociencia',
+            kbBehavioralScience: 'Ciencia Conductual',
+            kbManagementResearch: 'Investigación de Gestión',
+            kbWeeklyProtocol: 'Protocolo Semanal',
+            kbFounderReflection: 'Reflexión del Fundador',
+            kbCommitExperiment: 'Me comprometo a realizar este experimento',
+            kbReflectedQuestions: 'He reflexionado sobre estas preguntas',
+            kbProtocolComplete: '¡Protocolo Completado!',
+            kbProtocolCompleteMsg: 'Has dominado este protocolo de negocios. Aplica esta sabiduría para construir un negocio orientado al reino.'
         }
     },
 
@@ -176,6 +218,12 @@ const BibleApp = {
 
     // Analysis section IDs
     analysisSections: ['historical', 'economic', 'political', 'social', 'author', 'neuroscience', 'behavioral', 'nudge', 'prayer'],
+
+    // Kingdom Business properties
+    currentProtocol: null,
+    currentBusinessCategory: 'all',
+    kbCompletedSections: new Set(),
+    kbSectionOrder: ['biblicalContext', 'businessContext', 'neuroscience', 'behavioralScience', 'managementResearch', 'weeklyProtocol', 'founderReflection'],
 
     /**
      * Initialize the application
@@ -214,6 +262,9 @@ const BibleApp = {
 
         // Render prayer section
         this.renderPrayerSection();
+
+        // Initialize Kingdom Business
+        this.initKingdomBusiness();
     },
 
     /**
@@ -1676,6 +1727,290 @@ const BibleApp = {
 
         // Update document language attribute
         document.documentElement.lang = lang;
+    },
+
+    // =====================================================
+    // KINGDOM BUSINESS FUNCTIONALITY
+    // =====================================================
+
+    /**
+     * Initialize Kingdom Business section
+     */
+    initKingdomBusiness() {
+        this.renderBusinessProtocols();
+        this.setupKingdomBusinessListeners();
+    },
+
+    /**
+     * Setup event listeners for Kingdom Business
+     */
+    setupKingdomBusinessListeners() {
+        // Category filter buttons
+        document.querySelectorAll('.kb-category-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                this.filterBusinessProtocols(btn.dataset.category);
+            });
+        });
+
+        // Back button in detail view
+        const backBtn = document.getElementById('kbBackBtn');
+        if (backBtn) {
+            backBtn.addEventListener('click', () => this.hideProtocolDetail());
+        }
+
+        // Section completion checkboxes
+        document.querySelectorAll('.kb-section-check').forEach(checkbox => {
+            checkbox.addEventListener('change', (e) => {
+                this.handleKBSectionComplete(e.target.dataset.section, e.target.checked);
+            });
+        });
+    },
+
+    /**
+     * Filter business protocols by category
+     * @param {string} category - Category to filter by
+     */
+    filterBusinessProtocols(category) {
+        this.currentBusinessCategory = category;
+
+        // Update active button
+        document.querySelectorAll('.kb-category-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.category === category);
+        });
+
+        this.renderBusinessProtocols();
+    },
+
+    /**
+     * Render business protocol cards
+     */
+    renderBusinessProtocols() {
+        const grid = document.getElementById('kbProtocolsGrid');
+        if (!grid || typeof BusinessProtocols === 'undefined') return;
+
+        const lang = this.currentLanguage;
+        const category = this.currentBusinessCategory;
+
+        // Filter protocols
+        const protocols = category === 'all'
+            ? BusinessProtocols
+            : BusinessProtocols.filter(p => p.category === category);
+
+        grid.innerHTML = protocols.map(protocol => {
+            const isCompleted = StorageManager.isProtocolCompleted(protocol.id);
+            const keyScripture = protocol.scriptures.find(s => s.key) || protocol.scriptures[0];
+
+            return `
+                <div class="kb-protocol-card-item ${isCompleted ? 'completed' : ''}"
+                     data-protocol-id="${protocol.id}">
+                    <div class="kb-card-icon">${protocol.icon}</div>
+                    <h3 class="kb-card-title">${protocol.title[lang]}</h3>
+                    <p class="kb-card-scripture">${keyScripture.reference}</p>
+                    <span class="kb-card-category" data-category="${protocol.category}">
+                        ${this.getCategoryLabel(protocol.category)}
+                    </span>
+                </div>
+            `;
+        }).join('');
+
+        // Add click handlers
+        grid.querySelectorAll('.kb-protocol-card-item').forEach(card => {
+            card.addEventListener('click', () => {
+                const protocolId = card.dataset.protocolId;
+                this.showProtocolDetail(protocolId);
+            });
+        });
+    },
+
+    /**
+     * Get localized category label
+     * @param {string} category - Category key
+     * @returns {string} Localized label
+     */
+    getCategoryLabel(category) {
+        const labels = {
+            leadership: { en: 'Leadership', es: 'Liderazgo' },
+            strategy: { en: 'Strategy', es: 'Estrategia' },
+            resilience: { en: 'Resilience', es: 'Resiliencia' },
+            ethics: { en: 'Ethics', es: 'Ética' }
+        };
+        return labels[category]?.[this.currentLanguage] || category;
+    },
+
+    /**
+     * Show protocol detail view
+     * @param {string} protocolId - Protocol ID to display
+     */
+    showProtocolDetail(protocolId) {
+        const protocol = BusinessProtocols.find(p => p.id === protocolId);
+        if (!protocol) return;
+
+        this.currentProtocol = protocol;
+        const lang = this.currentLanguage;
+
+        // Hide grid, show detail
+        document.getElementById('kbProtocolsGrid').style.display = 'none';
+        document.querySelector('.kb-category-filter').style.display = 'none';
+        const detail = document.getElementById('kbProtocolDetail');
+        detail.style.display = 'block';
+
+        // Populate header
+        document.getElementById('kbDetailIcon').textContent = protocol.icon;
+        document.getElementById('kbDetailTitle').textContent = protocol.title[lang];
+        const categoryEl = document.getElementById('kbDetailCategory');
+        categoryEl.textContent = this.getCategoryLabel(protocol.category);
+        categoryEl.setAttribute('data-category', protocol.category);
+        categoryEl.className = `kb-detail-category kb-card-category`;
+        categoryEl.setAttribute('data-category', protocol.category);
+
+        // Populate scripture
+        document.getElementById('kbScriptureText').textContent = protocol.analysis.scriptureText[lang];
+        const refs = protocol.scriptures.map(s => s.reference).join(' | ');
+        document.getElementById('kbScriptureRefs').textContent = refs;
+
+        // Populate analysis sections
+        this.populateKBSection('kbBiblicalContext', protocol.analysis.biblicalContext, lang);
+        this.populateKBSection('kbBusinessContext', protocol.analysis.businessContext, lang);
+        this.populateKBSection('kbNeuroscience', protocol.analysis.neuroscience, lang);
+        this.populateKBSection('kbBehavioralScience', protocol.analysis.behavioralScience, lang);
+        this.populateKBSection('kbManagementResearch', protocol.analysis.managementResearch, lang);
+        document.getElementById('kbWeeklyProtocol').textContent = protocol.analysis.weeklyProtocol[lang];
+        document.getElementById('kbFounderReflection').textContent = protocol.analysis.founderReflection[lang];
+
+        // Initialize progress tracking for this protocol
+        this.initKBProgressTracking();
+
+        // Scroll to top of section
+        document.getElementById('kingdom-business').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    },
+
+    /**
+     * Populate a Kingdom Business analysis section with content and sources
+     * @param {string} elementId - Element ID to populate
+     * @param {object} sectionData - Section data object
+     * @param {string} lang - Current language
+     */
+    populateKBSection(elementId, sectionData, lang) {
+        const el = document.getElementById(elementId);
+        if (!el || !sectionData) return;
+
+        let html = `<p>${sectionData[lang]}</p>`;
+
+        // Add sources if available
+        if (sectionData.sources && sectionData.sources.length > 0) {
+            const sourceList = sectionData.sources.map(s => {
+                const citation = lang === 'es' && s.citationEs ? s.citationEs : s.citation;
+                return `<li class="source-item" data-type="${s.type}">${citation}</li>`;
+            }).join('');
+
+            html += `<div class="card-sources">
+                <details class="sources-dropdown">
+                    <summary>${this.translations[lang].sourcesLabel}</summary>
+                    <ul class="sources-list">${sourceList}</ul>
+                </details>
+            </div>`;
+        }
+
+        el.innerHTML = html;
+    },
+
+    /**
+     * Hide protocol detail view and show grid
+     */
+    hideProtocolDetail() {
+        this.currentProtocol = null;
+        document.getElementById('kbProtocolDetail').style.display = 'none';
+        document.getElementById('kbProtocolsGrid').style.display = 'grid';
+        document.querySelector('.kb-category-filter').style.display = 'flex';
+
+        // Re-render to update completion status
+        this.renderBusinessProtocols();
+    },
+
+    /**
+     * Initialize progress tracking for current business protocol
+     */
+    initKBProgressTracking() {
+        this.kbCompletedSections = new Set();
+
+        if (this.currentProtocol) {
+            const savedProgress = StorageManager.getBusinessProgress(this.currentProtocol.id);
+            if (savedProgress) {
+                savedProgress.forEach(s => this.kbCompletedSections.add(s));
+            }
+        }
+
+        // Set up checkboxes
+        document.querySelectorAll('.kb-section-check').forEach(checkbox => {
+            const section = checkbox.dataset.section;
+            checkbox.checked = this.kbCompletedSections.has(section);
+        });
+
+        this.updateKBProgress();
+    },
+
+    /**
+     * Handle Kingdom Business section completion
+     * @param {string} section - Section ID
+     * @param {boolean} completed - Completion state
+     */
+    handleKBSectionComplete(section, completed) {
+        if (completed) {
+            this.kbCompletedSections.add(section);
+        } else {
+            this.kbCompletedSections.delete(section);
+        }
+
+        // Save progress
+        if (this.currentProtocol) {
+            StorageManager.saveBusinessProgress(this.currentProtocol.id, Array.from(this.kbCompletedSections));
+        }
+
+        this.updateKBProgress();
+    },
+
+    /**
+     * Update Kingdom Business progress display
+     */
+    updateKBProgress() {
+        const totalSections = this.kbSectionOrder.length;
+        const completedCount = this.kbCompletedSections.size;
+        const percentage = (completedCount / totalSections) * 100;
+
+        // Update progress bar
+        const progressBarFill = document.getElementById('kbProgressBarFill');
+        if (progressBarFill) {
+            progressBarFill.style.width = `${percentage}%`;
+        }
+
+        // Update progress count
+        const progressCount = document.getElementById('kbProgressCount');
+        if (progressCount) {
+            progressCount.textContent = `${completedCount}/${totalSections} sections`;
+        }
+
+        // Update section indicators
+        this.kbSectionOrder.forEach(section => {
+            const indicators = document.querySelectorAll(`[data-section="${section}"] .kb-section-indicator`);
+            indicators.forEach(indicator => {
+                indicator.classList.toggle('completed', this.kbCompletedSections.has(section));
+            });
+        });
+
+        // Handle completion
+        const completionCard = document.getElementById('kbCompletionCard');
+        if (completedCount === totalSections) {
+            if (completionCard) {
+                completionCard.style.display = 'block';
+            }
+            if (this.currentProtocol) {
+                StorageManager.recordProtocolCompletion(this.currentProtocol.id);
+            }
+        } else {
+            if (completionCard) {
+                completionCard.style.display = 'none';
+            }
+        }
     }
 };
 

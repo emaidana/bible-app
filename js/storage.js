@@ -18,7 +18,9 @@ const StorageManager = {
         SEARCH_HISTORY: 'berean_search_history',
         VERSE_PROGRESS: 'berean_verse_progress',
         COMPLETED_VERSES: 'berean_completed_verses',
-        USER_PROFILE: 'berean_user_profile'
+        USER_PROFILE: 'berean_user_profile',
+        BUSINESS_PROGRESS: 'berean_business_progress',
+        COMPLETED_PROTOCOLS: 'berean_completed_protocols'
     },
 
     MAX_HISTORY: 30, // Keep track of last 30 verses to avoid repetition
@@ -480,5 +482,83 @@ const StorageManager = {
             streak: this.getStreakCount(),
             totalCompleted: completed.length
         };
+    },
+
+    // =====================================================
+    // KINGDOM BUSINESS PROGRESS TRACKING
+    // =====================================================
+
+    /**
+     * Get progress (completed sections) for a business protocol
+     * @param {string} protocolId - The protocol ID
+     * @returns {Array} Array of completed section names
+     */
+    getBusinessProgress(protocolId) {
+        const stored = localStorage.getItem(this.KEYS.BUSINESS_PROGRESS);
+        if (!stored) return [];
+        try {
+            const progress = JSON.parse(stored);
+            return progress[protocolId] || [];
+        } catch (e) {
+            return [];
+        }
+    },
+
+    /**
+     * Save progress (completed sections) for a business protocol
+     * @param {string} protocolId - The protocol ID
+     * @param {Array} sections - Array of completed section names
+     */
+    saveBusinessProgress(protocolId, sections) {
+        let progress = {};
+        const stored = localStorage.getItem(this.KEYS.BUSINESS_PROGRESS);
+        if (stored) {
+            try {
+                progress = JSON.parse(stored);
+            } catch (e) {
+                progress = {};
+            }
+        }
+        progress[protocolId] = sections;
+        localStorage.setItem(this.KEYS.BUSINESS_PROGRESS, JSON.stringify(progress));
+    },
+
+    /**
+     * Record when a business protocol is fully completed
+     * @param {string} protocolId - The protocol ID
+     */
+    recordProtocolCompletion(protocolId) {
+        let completed = this.getCompletedProtocols();
+        if (!completed.some(p => p.protocolId === protocolId)) {
+            completed.unshift({
+                protocolId,
+                completedAt: Date.now(),
+                date: this.getTodayString()
+            });
+            localStorage.setItem(this.KEYS.COMPLETED_PROTOCOLS, JSON.stringify(completed));
+        }
+    },
+
+    /**
+     * Get all completed business protocols
+     * @returns {Array} Array of { protocolId, completedAt, date }
+     */
+    getCompletedProtocols() {
+        const stored = localStorage.getItem(this.KEYS.COMPLETED_PROTOCOLS);
+        if (!stored) return [];
+        try {
+            return JSON.parse(stored);
+        } catch (e) {
+            return [];
+        }
+    },
+
+    /**
+     * Check if a business protocol has been fully completed
+     * @param {string} protocolId - The protocol ID
+     * @returns {boolean}
+     */
+    isProtocolCompleted(protocolId) {
+        return this.getCompletedProtocols().some(p => p.protocolId === protocolId);
     }
 };
