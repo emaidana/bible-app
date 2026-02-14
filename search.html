@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verse Search - Berean</title>
+    <meta name="description" content="Search any verse in the Bible. Get full Berean analysis with version comparison.">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="product-page">
+    <!-- Navigation -->
+    <nav class="navigation-bar nav-light">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">berean</a>
+            <div class="nav-links">
+                <a href="daily.html">Daily</a>
+                <a href="weekly.html">Weekly</a>
+                <a href="search.html" class="active">Search</a>
+                <a href="topics.html">Topics</a>
+                <a href="founders.html">Founders</a>
+            </div>
+            <div class="nav-actions">
+                <div class="lang-toggle">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="es">ES</button>
+                </div>
+            </div>
+            <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="daily.html">Daily Verse</a>
+        <a href="weekly.html">Weekly Study</a>
+        <a href="search.html" class="active">Verse Search</a>
+        <a href="topics.html">Topics</a>
+        <a href="founders.html">For Founders</a>
+    </div>
+
+    <!-- Product Header with Search -->
+    <header class="product-header search-header">
+        <div class="container">
+            <div class="product-header-content">
+                <div class="product-header-badge">🔍 Verse Search</div>
+                <h1>Study Any Verse</h1>
+                <p>Enter any verse reference. Get the complete Berean analysis. Compare versions.</p>
+            </div>
+
+            <div class="search-box">
+                <input type="text" id="searchInput" class="search-input-large" placeholder="Enter verse (e.g., John 3:16, Romans 8:28, Psalm 23:1)">
+                <button class="search-btn-large" id="searchBtn">
+                    <span>Analyze</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="search-suggestions" id="searchSuggestions"></div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="product-main">
+        <div class="container">
+            <!-- Version Comparison Toggle -->
+            <div class="version-compare-toggle">
+                <label class="compare-switch">
+                    <input type="checkbox" id="compareToggle">
+                    <span class="compare-slider"></span>
+                </label>
+                <span class="compare-label">Compare versions side-by-side</span>
+            </div>
+
+            <!-- Results Area -->
+            <div id="resultsArea" style="display: none;">
+                <!-- Verse Display -->
+                <div class="verse-comparison" id="verseComparison">
+                    <article class="verse-card-large comparison-card">
+                        <div class="verse-version-badge">KJV</div>
+                        <div class="verse-reference" id="verseRefKJV"></div>
+                        <blockquote class="verse-text-large" id="verseTextKJV"></blockquote>
+                    </article>
+
+                    <article class="verse-card-large comparison-card" id="esvCard" style="display: none;">
+                        <div class="verse-version-badge">ESV</div>
+                        <div class="verse-reference" id="verseRefESV"></div>
+                        <blockquote class="verse-text-large" id="verseTextESV"></blockquote>
+                    </article>
+                </div>
+
+                <!-- Analysis -->
+                <div class="analysis-wrapper">
+                    <section class="analysis-section">
+                        <h2 class="analysis-section-title">
+                            <span class="section-icon">🌍</span>
+                            The World Behind the Text
+                        </h2>
+
+                        <div class="analysis-cards">
+                            <details class="analysis-card" open>
+                                <summary>
+                                    <span class="card-icon">📜</span>
+                                    <span class="card-title">Historical Context</span>
+                                    <span class="card-expand">+</span>
+                                </summary>
+                                <div class="card-content" id="historicalContent"></div>
+                            </details>
+
+                            <details class="analysis-card">
+                                <summary>
+                                    <span class="card-icon">💰</span>
+                                    <span class="card-title">Economic Context</span>
+                                    <span class="card-expand">+</span>
+                                </summary>
+                                <div class="card-content" id="economicContent"></div>
+                            </details>
+
+                            <details class="analysis-card">
+                                <summary>
+                                    <span class="card-icon">👥</span>
+                                    <span class="card-title">Social & Cultural</span>
+                                    <span class="card-expand">+</span>
+                                </summary>
+                                <div class="card-content" id="socialContent"></div>
+                            </details>
+
+                            <details class="analysis-card">
+                                <summary>
+                                    <span class="card-icon">🏛️</span>
+                                    <span class="card-title">Political Context</span>
+                                    <span class="card-expand">+</span>
+                                </summary>
+                                <div class="card-content" id="politicalContent"></div>
+                            </details>
+
+                            <details class="analysis-card">
+                                <summary>
+                                    <span class="card-icon">✍️</span>
+                                    <span class="card-title">About the Author</span>
+                                    <span class="card-expand">+</span>
+                                </summary>
+                                <div class="card-content" id="authorContent"></div>
+                            </details>
+                        </div>
+                    </section>
+
+                    <section class="analysis-section">
+                        <h2 class="analysis-section-title">
+                            <span class="section-icon">🧠</span>
+                            The Science
+                        </h2>
+
+                        <div class="analysis-cards">
+                            <details class="analysis-card" open>
+                                <summary>
+                                    <span class="card-icon">🧬</span>
+                                    <span class="card-title">Neuroscience</span>
+                                    <span class="card-expand">+</span>
+                                </summary>
+                                <div class="card-content" id="neuroscienceContent"></div>
+                            </details>
+
+                            <details class="analysis-card">
+                                <summary>
+                                    <span class="card-icon">🔬</span>
+                                    <span class="card-title">Behavioral Science</span>
+                                    <span class="card-expand">+</span>
+                                </summary>
+                                <div class="card-content" id="behavioralContent"></div>
+                            </details>
+                        </div>
+                    </section>
+
+                    <section class="analysis-section">
+                        <h2 class="analysis-section-title">
+                            <span class="section-icon">🎯</span>
+                            Practical Application
+                        </h2>
+
+                        <div class="experiment-card">
+                            <div class="experiment-badge">Behavioral Experiment</div>
+                            <p class="experiment-content" id="nudgeContent"></p>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Share -->
+                <div class="share-cta">
+                    <p>Share this analysis</p>
+                    <div class="share-buttons">
+                        <button class="share-btn share-whatsapp" id="shareWhatsApp">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                            </svg>
+                            WhatsApp
+                        </button>
+                        <button class="share-btn share-email" id="shareEmail">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                            Email
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Empty State / Popular Searches -->
+            <div id="emptyState">
+                <h3>Popular Searches</h3>
+                <div class="popular-searches">
+                    <button class="popular-search" data-verse="John 3:16">John 3:16</button>
+                    <button class="popular-search" data-verse="Romans 8:28">Romans 8:28</button>
+                    <button class="popular-search" data-verse="Philippians 4:13">Philippians 4:13</button>
+                    <button class="popular-search" data-verse="Psalm 23:1">Psalm 23:1</button>
+                    <button class="popular-search" data-verse="Proverbs 3:5-6">Proverbs 3:5-6</button>
+                    <button class="popular-search" data-verse="Jeremiah 29:11">Jeremiah 29:11</button>
+                    <button class="popular-search" data-verse="Isaiah 40:31">Isaiah 40:31</button>
+                    <button class="popular-search" data-verse="Matthew 6:33">Matthew 6:33</button>
+                </div>
+
+                <div class="recent-searches" id="recentSearches">
+                    <h3>Your Recent Searches</h3>
+                    <div class="recent-list" id="recentList"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="product-footer">
+        <div class="container">
+            <a href="index.html" class="footer-logo">berean</a>
+            <p>Live a Superpowered Life</p>
+        </div>
+    </footer>
+
+    <script src="js/verses.js"></script>
+    <script src="js/bibleBooks.js"></script>
+    <script src="js/storage.js"></script>
+    <script>
+        let currentVerse = null;
+        const lang = 'en';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            setupEventListeners();
+            loadRecentSearches();
+        });
+
+        function setupEventListeners() {
+            // Mobile menu
+            document.getElementById('navHamburger').addEventListener('click', () => {
+                document.getElementById('mobileMenu').classList.toggle('active');
+            });
+
+            // Search
+            document.getElementById('searchBtn').addEventListener('click', performSearch);
+            document.getElementById('searchInput').addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') performSearch();
+            });
+
+            // Popular searches
+            document.querySelectorAll('.popular-search').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.getElementById('searchInput').value = btn.dataset.verse;
+                    performSearch();
+                });
+            });
+
+            // Compare toggle
+            document.getElementById('compareToggle').addEventListener('change', (e) => {
+                const esvCard = document.getElementById('esvCard');
+                esvCard.style.display = e.target.checked ? 'block' : 'none';
+                document.getElementById('verseComparison').classList.toggle('comparing', e.target.checked);
+            });
+
+            // Share buttons
+            document.getElementById('shareWhatsApp').addEventListener('click', shareToWhatsApp);
+            document.getElementById('shareEmail').addEventListener('click', shareToEmail);
+
+            // Language toggle
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    // Would reload content in new language
+                });
+            });
+        }
+
+        function performSearch() {
+            const query = document.getElementById('searchInput').value.trim();
+            if (!query) return;
+
+            // Save to recent searches
+            StorageManager.addSearchHistory(query);
+            loadRecentSearches();
+
+            // Try to find in local verses first
+            const localVerse = BibleVerses.find(v => {
+                const ref = `${v.book[lang]} ${v.chapter}:${v.verse}`.toLowerCase();
+                return ref === query.toLowerCase();
+            });
+
+            if (localVerse) {
+                currentVerse = localVerse;
+                displayVerse(localVerse);
+            } else {
+                // Show a sample/placeholder for demo
+                displaySampleVerse(query);
+            }
+
+            document.getElementById('emptyState').style.display = 'none';
+            document.getElementById('resultsArea').style.display = 'block';
+            document.getElementById('resultsArea').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function displayVerse(verse) {
+            document.getElementById('verseRefKJV').textContent =
+                `${verse.book[lang]} ${verse.chapter}:${verse.verse}`;
+            document.getElementById('verseTextKJV').textContent = verse.text[lang];
+
+            // ESV would be different text
+            document.getElementById('verseRefESV').textContent =
+                `${verse.book[lang]} ${verse.chapter}:${verse.verse}`;
+            document.getElementById('verseTextESV').textContent = verse.text[lang]; // Placeholder
+
+            if (verse.analysis) {
+                const a = verse.analysis;
+                if (a.historical) document.getElementById('historicalContent').textContent = a.historical[lang];
+                if (a.economic) document.getElementById('economicContent').textContent = a.economic[lang];
+                if (a.social) document.getElementById('socialContent').textContent = a.social[lang];
+                if (a.political) document.getElementById('politicalContent').textContent = a.political[lang];
+                if (a.author) document.getElementById('authorContent').textContent = a.author[lang];
+                if (a.neuroscience) document.getElementById('neuroscienceContent').textContent = a.neuroscience[lang];
+                if (a.behavioral) document.getElementById('behavioralContent').textContent = a.behavioral[lang];
+                if (a.nudge) document.getElementById('nudgeContent').textContent = a.nudge[lang];
+            }
+        }
+
+        function displaySampleVerse(query) {
+            document.getElementById('verseRefKJV').textContent = query;
+            document.getElementById('verseTextKJV').textContent =
+                "Analysis loading... In the full version, this verse would have complete Berean analysis.";
+            document.getElementById('verseRefESV').textContent = query;
+            document.getElementById('verseTextESV').textContent =
+                "ESV version would appear here for comparison.";
+
+            document.getElementById('historicalContent').textContent =
+                "Historical context would appear here with scholarly sources.";
+            document.getElementById('economicContent').textContent =
+                "Economic context of the time period.";
+            document.getElementById('socialContent').textContent =
+                "Social and cultural context.";
+            document.getElementById('politicalContent').textContent =
+                "Political situation during this writing.";
+            document.getElementById('authorContent').textContent =
+                "Information about the biblical author.";
+            document.getElementById('neuroscienceContent').textContent =
+                "Neuroscience research related to this principle.";
+            document.getElementById('behavioralContent').textContent =
+                "Behavioral science supporting this teaching.";
+            document.getElementById('nudgeContent').textContent =
+                "A specific behavioral experiment to apply this verse.";
+        }
+
+        function loadRecentSearches() {
+            const history = StorageManager.getSearchHistory();
+            const container = document.getElementById('recentSearches');
+            const list = document.getElementById('recentList');
+
+            if (history.length === 0) {
+                container.style.display = 'none';
+                return;
+            }
+
+            container.style.display = 'block';
+            list.innerHTML = history.map(query =>
+                `<button class="recent-search-item" data-verse="${query}">${query}</button>`
+            ).join('');
+
+            list.querySelectorAll('.recent-search-item').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.getElementById('searchInput').value = btn.dataset.verse;
+                    performSearch();
+                });
+            });
+        }
+
+        function shareToWhatsApp() {
+            const ref = document.getElementById('verseRefKJV').textContent;
+            const text = document.getElementById('verseTextKJV').textContent;
+            const msg = `*${ref}*\n\n"${text}"\n\n— Analyzed with Berean | berean.app`;
+            window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
+        function shareToEmail() {
+            const ref = document.getElementById('verseRefKJV').textContent;
+            const text = document.getElementById('verseTextKJV').textContent;
+            const subject = `Bible Study: ${ref}`;
+            const body = `${ref}\n\n"${text}"\n\n— Analyzed with Berean | berean.app`;
+            window.open(`mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`, '_blank');
+        }
+    </script>
+</body>
+</html>

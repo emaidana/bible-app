@@ -62,6 +62,41 @@ const BusinessProtocols = [
             founderReflection: {
                 en: "Where do I seek status over service? What would change if my team saw me as their greatest advocate rather than their boss? How can I lead from behind this week?",
                 es: "¿Dónde busco estatus sobre servicio? ¿Qué cambiaría si mi equipo me viera como su mayor defensor en lugar de su jefe? ¿Cómo puedo liderar desde atrás esta semana?"
+            },
+            teamExercise: {
+                title: { en: "The Service Discovery Circle", es: "El Círculo de Descubrimiento de Servicio" },
+                duration: { en: "20 minutes", es: "20 minutos" },
+                teamSize: { en: "5-15 people", es: "5-15 personas" },
+                description: {
+                    en: "A facilitated discussion where team members share what 'servant leadership' looks like in practice and identify one way they can serve a colleague this week.",
+                    es: "Una discusión facilitada donde los miembros del equipo comparten cómo se ve el 'liderazgo servidor' en la práctica e identifican una forma de servir a un colega esta semana."
+                },
+                steps: {
+                    en: [
+                        "Share the Mark 10:42-45 passage with your team (2 min)",
+                        "Ask: 'What does servant leadership look like in our context?' - let people share examples (5 min)",
+                        "Go around the circle: each person names one colleague and one specific way they'll serve them this week (10 min)",
+                        "Close by having everyone write their commitment on a sticky note to keep visible (3 min)"
+                    ],
+                    es: [
+                        "Comparte el pasaje de Marcos 10:42-45 con tu equipo (2 min)",
+                        "Pregunta: '¿Cómo se ve el liderazgo servidor en nuestro contexto?' - deja que compartan ejemplos (5 min)",
+                        "Den la vuelta al círculo: cada persona nombra un colega y una forma específica de servirle esta semana (10 min)",
+                        "Cierra haciendo que todos escriban su compromiso en un post-it para mantenerlo visible (3 min)"
+                    ]
+                },
+                discussionQuestions: {
+                    en: [
+                        "When have you felt truly served by a leader? What did they do?",
+                        "What's one barrier that prevents us from serving each other more?",
+                        "How can we create a culture where service is celebrated?"
+                    ],
+                    es: [
+                        "¿Cuándo te has sentido verdaderamente servido por un líder? ¿Qué hicieron?",
+                        "¿Cuál es una barrera que nos impide servirnos más unos a otros?",
+                        "¿Cómo podemos crear una cultura donde el servicio sea celebrado?"
+                    ]
+                }
             }
         }
     },
@@ -120,6 +155,43 @@ const BusinessProtocols = [
             founderReflection: {
                 en: "What am I holding onto out of ego rather than necessity? Who on my team is ready for more responsibility but hasn't been given the chance? What would I do with 10 extra hours per week if I delegated effectively?",
                 es: "¿Qué estoy reteniendo por ego en lugar de necesidad? ¿Quién en mi equipo está listo para más responsabilidad pero no ha tenido la oportunidad? ¿Qué haría con 10 horas extra por semana si delegara efectivamente?"
+            },
+            teamExercise: {
+                title: { en: "The Ownership Transfer Workshop", es: "Taller de Transferencia de Propiedad" },
+                duration: { en: "30 minutes", es: "30 minutos" },
+                teamSize: { en: "4-12 people", es: "4-12 personas" },
+                description: {
+                    en: "A structured exercise where team members identify tasks they could take ownership of, and leaders practice delegating outcomes rather than tasks.",
+                    es: "Un ejercicio estructurado donde los miembros del equipo identifican tareas de las que podrían tomar propiedad, y los líderes practican delegar resultados en lugar de tareas."
+                },
+                steps: {
+                    en: [
+                        "Share the Exodus 18 story of Jethro and Moses (3 min)",
+                        "Each person writes down: 'One thing I could take full ownership of if given the chance' (5 min)",
+                        "Go around and share—leaders listen without interrupting (10 min)",
+                        "Leaders respond: 'I'm willing to delegate [X] to [Person]. The outcome I need is [specific result].' (7 min)",
+                        "Agree on check-in timelines (5 min)"
+                    ],
+                    es: [
+                        "Comparte la historia de Jetro y Moisés de Éxodo 18 (3 min)",
+                        "Cada persona escribe: 'Una cosa de la que podría tomar propiedad completa si se me diera la oportunidad' (5 min)",
+                        "Den la vuelta y compartan—los líderes escuchan sin interrumpir (10 min)",
+                        "Los líderes responden: 'Estoy dispuesto a delegar [X] a [Persona]. El resultado que necesito es [resultado específico].' (7 min)",
+                        "Acuerden líneas de tiempo para seguimiento (5 min)"
+                    ]
+                },
+                discussionQuestions: {
+                    en: [
+                        "What's holding us back from delegating more?",
+                        "How can we create a safe space for people to own outcomes (and sometimes fail)?",
+                        "What resources or support would help you take on more ownership?"
+                    ],
+                    es: [
+                        "¿Qué nos está frenando de delegar más?",
+                        "¿Cómo podemos crear un espacio seguro para que las personas sean dueñas de resultados (y a veces fallen)?",
+                        "¿Qué recursos o apoyo te ayudarían a asumir más propiedad?"
+                    ]
+                }
             }
         }
     },
@@ -179,6 +251,45 @@ const BusinessProtocols = [
             founderReflection: {
                 en: "Where am I moving fast without counting costs? What initiative am I avoiding examining closely because I'm afraid of what I'll find? What would a wise advisor tell me to reconsider?",
                 es: "¿Dónde estoy moviéndome rápido sin calcular costos? ¿Qué iniciativa estoy evitando examinar de cerca porque tengo miedo de lo que encontraré? ¿Qué me diría un asesor sabio que reconsidere?"
+            },
+            teamExercise: {
+                title: { en: "The Pre-Mortem Planning Session", es: "Sesión de Planificación Pre-Mortem" },
+                duration: { en: "25 minutes", es: "25 minutos" },
+                teamSize: { en: "4-10 people", es: "4-10 personas" },
+                description: {
+                    en: "A structured exercise where the team imagines a project has failed and works backward to identify potential risks and mitigation strategies.",
+                    es: "Un ejercicio estructurado donde el equipo imagina que un proyecto ha fracasado y trabaja hacia atrás para identificar riesgos potenciales y estrategias de mitigación."
+                },
+                steps: {
+                    en: [
+                        "Share the Luke 14:28-32 passage about counting the cost (2 min)",
+                        "Pick a current project or initiative. Say: 'Imagine it's 6 months from now and this project has completely failed.' (1 min)",
+                        "Each person silently writes 3 reasons WHY it failed (5 min)",
+                        "Go around and share all failure reasons—no judgment, just capture them (10 min)",
+                        "Vote on the top 3 most likely failure points (2 min)",
+                        "For each, brainstorm one mitigation action (5 min)"
+                    ],
+                    es: [
+                        "Comparte el pasaje de Lucas 14:28-32 sobre calcular el costo (2 min)",
+                        "Elige un proyecto o iniciativa actual. Di: 'Imagina que estamos 6 meses en el futuro y este proyecto ha fracasado completamente.' (1 min)",
+                        "Cada persona escribe silenciosamente 3 razones de POR QUÉ fracasó (5 min)",
+                        "Den la vuelta y compartan todas las razones de fracaso—sin juicio, solo captúrenlas (10 min)",
+                        "Voten por los 3 puntos de fracaso más probables (2 min)",
+                        "Para cada uno, hagan lluvia de ideas sobre una acción de mitigación (5 min)"
+                    ]
+                },
+                discussionQuestions: {
+                    en: [
+                        "What risks are we avoiding talking about?",
+                        "Do we have the resources to truly finish what we're starting?",
+                        "What's one thing we should stop doing to ensure this succeeds?"
+                    ],
+                    es: [
+                        "¿Qué riesgos estamos evitando discutir?",
+                        "¿Tenemos los recursos para realmente terminar lo que estamos comenzando?",
+                        "¿Qué cosa deberíamos dejar de hacer para asegurar que esto tenga éxito?"
+                    ]
+                }
             }
         }
     },
@@ -238,6 +349,45 @@ const BusinessProtocols = [
             founderReflection: {
                 en: "Who in my life tells me hard truths? Am I surrounding myself with people who agree with me or people who make me think? What decision am I avoiding counsel on because I already know what I want to do?",
                 es: "¿Quién en mi vida me dice verdades difíciles? ¿Me estoy rodeando de personas que están de acuerdo conmigo o personas que me hacen pensar? ¿En qué decisión estoy evitando buscar consejo porque ya sé lo que quiero hacer?"
+            },
+            teamExercise: {
+                title: { en: "The Devil's Advocate Challenge", es: "El Desafío del Abogado del Diablo" },
+                duration: { en: "20 minutes", es: "20 minutos" },
+                teamSize: { en: "5-12 people", es: "5-12 personas" },
+                description: {
+                    en: "A practice session where team members deliberately challenge a proposed decision to surface blind spots and improve decision quality.",
+                    es: "Una sesión de práctica donde los miembros del equipo desafían deliberadamente una decisión propuesta para revelar puntos ciegos y mejorar la calidad de la decisión."
+                },
+                steps: {
+                    en: [
+                        "Share Proverbs 15:22 about the value of many counselors (2 min)",
+                        "Present a real decision the team is facing (3 min)",
+                        "Assign 2-3 people as 'Devil's Advocates' - their job is to argue AGAINST the decision (2 min)",
+                        "Devil's Advocates present their strongest objections (5 min)",
+                        "The rest of the team responds - either addressing concerns or adjusting the plan (5 min)",
+                        "Close by asking: 'What did we learn from this challenge?' (3 min)"
+                    ],
+                    es: [
+                        "Comparte Proverbios 15:22 sobre el valor de muchos consejeros (2 min)",
+                        "Presenta una decisión real que el equipo está enfrentando (3 min)",
+                        "Asigna 2-3 personas como 'Abogados del Diablo' - su trabajo es argumentar EN CONTRA de la decisión (2 min)",
+                        "Los Abogados del Diablo presentan sus objeciones más fuertes (5 min)",
+                        "El resto del equipo responde - ya sea abordando preocupaciones o ajustando el plan (5 min)",
+                        "Cierra preguntando: '¿Qué aprendimos de este desafío?' (3 min)"
+                    ]
+                },
+                discussionQuestions: {
+                    en: [
+                        "How comfortable did it feel to disagree? What does that say about our culture?",
+                        "What assumption did we not realize we were making?",
+                        "How can we make seeking opposing viewpoints a regular practice?"
+                    ],
+                    es: [
+                        "¿Qué tan cómodo se sintió estar en desacuerdo? ¿Qué dice eso sobre nuestra cultura?",
+                        "¿Qué suposición no nos dimos cuenta de que estábamos haciendo?",
+                        "¿Cómo podemos hacer de buscar puntos de vista opuestos una práctica regular?"
+                    ]
+                }
             }
         }
     },
@@ -296,6 +446,43 @@ const BusinessProtocols = [
             founderReflection: {
                 en: "Where am I digging up seeds to check on them? What long-term investment am I neglecting because it doesn't show immediate returns? How can I celebrate planting, not just harvesting?",
                 es: "¿Dónde estoy desenterrando semillas para verificarlas? ¿Qué inversión a largo plazo estoy descuidando porque no muestra retornos inmediatos? ¿Cómo puedo celebrar la siembra, no solo la cosecha?"
+            },
+            teamExercise: {
+                title: { en: "The Seeds & Patience Inventory", es: "Inventario de Semillas y Paciencia" },
+                duration: { en: "20 minutes", es: "20 minutos" },
+                teamSize: { en: "4-12 people", es: "4-12 personas" },
+                description: {
+                    en: "A reflective exercise where the team identifies long-term initiatives and commits to patient nurturing rather than constant checking.",
+                    es: "Un ejercicio reflexivo donde el equipo identifica iniciativas a largo plazo y se compromete a cuidarlas pacientemente en lugar de verificarlas constantemente."
+                },
+                steps: {
+                    en: [
+                        "Share Mark 4:26-29 about the seed that grows while you sleep (2 min)",
+                        "Each person writes: 'One seed I/we have planted that hasn't shown results yet' (3 min)",
+                        "Share around the room - create a visible list of all 'seeds' (5 min)",
+                        "For each seed, ask: 'Are we nurturing it, or digging it up to check?' (5 min)",
+                        "Commit to one action: 'We will stop checking on [X] and trust the process for [time period]' (5 min)"
+                    ],
+                    es: [
+                        "Comparte Marcos 4:26-29 sobre la semilla que crece mientras duermes (2 min)",
+                        "Cada persona escribe: 'Una semilla que yo/nosotros hemos plantado que aún no ha mostrado resultados' (3 min)",
+                        "Compartan alrededor del salón - creen una lista visible de todas las 'semillas' (5 min)",
+                        "Para cada semilla, pregunten: '¿La estamos cuidando, o desenterrándola para verificar?' (5 min)",
+                        "Comprométanse a una acción: 'Dejaremos de verificar [X] y confiaremos en el proceso por [período de tiempo]' (5 min)"
+                    ]
+                },
+                discussionQuestions: {
+                    en: [
+                        "What makes us impatient for results?",
+                        "How do we know if a seed is growing even when we can't see it?",
+                        "What would change if we celebrated planting as much as harvesting?"
+                    ],
+                    es: [
+                        "¿Qué nos hace impacientes por resultados?",
+                        "¿Cómo sabemos si una semilla está creciendo aunque no podamos verla?",
+                        "¿Qué cambiaría si celebráramos la siembra tanto como la cosecha?"
+                    ]
+                }
             }
         }
     },
@@ -354,6 +541,45 @@ const BusinessProtocols = [
             founderReflection: {
                 en: "How do I typically respond to failure—with analysis or avoidance? What failure am I still carrying shame about that I could reframe as learning? What would I attempt if I knew I could survive the failure?",
                 es: "¿Cómo respondo típicamente al fracaso—con análisis o evasión? ¿Qué fracaso sigo cargando con vergüenza que podría reencuadrar como aprendizaje? ¿Qué intentaría si supiera que puedo sobrevivir al fracaso?"
+            },
+            teamExercise: {
+                title: { en: "The Failure Learning Lab", es: "Laboratorio de Aprendizaje del Fracaso" },
+                duration: { en: "25 minutes", es: "25 minutos" },
+                teamSize: { en: "5-15 people", es: "5-15 personas" },
+                description: {
+                    en: "A blameless retrospective where team members share failures openly and extract learnings in a psychologically safe environment.",
+                    es: "Una retrospectiva sin culpa donde los miembros del equipo comparten fracasos abiertamente y extraen aprendizajes en un ambiente psicológicamente seguro."
+                },
+                steps: {
+                    en: [
+                        "Share Proverbs 24:16 about falling seven times and rising (2 min)",
+                        "Set the ground rule: 'No blame, no judgment—only learning' (1 min)",
+                        "Ask volunteers to share: 'A failure or mistake I learned something important from' (10 min)",
+                        "After each share, the group responds: 'The learning I hear is...' (5 min)",
+                        "Close with: 'One thing I'd attempt if I knew I could survive the failure' (5 min)",
+                        "Commit to celebrating learning, not just success (2 min)"
+                    ],
+                    es: [
+                        "Comparte Proverbios 24:16 sobre caer siete veces y levantarse (2 min)",
+                        "Establece la regla base: 'Sin culpa, sin juicio—solo aprendizaje' (1 min)",
+                        "Pide voluntarios que compartan: 'Un fracaso o error del que aprendí algo importante' (10 min)",
+                        "Después de cada compartir, el grupo responde: 'El aprendizaje que escucho es...' (5 min)",
+                        "Cierra con: 'Una cosa que intentaría si supiera que puedo sobrevivir al fracaso' (5 min)",
+                        "Comprométanse a celebrar el aprendizaje, no solo el éxito (2 min)"
+                    ]
+                },
+                discussionQuestions: {
+                    en: [
+                        "How does our team typically respond to failure?",
+                        "What would change if we celebrated learning from failure?",
+                        "What failure are we avoiding discussing that we should address?"
+                    ],
+                    es: [
+                        "¿Cómo responde típicamente nuestro equipo al fracaso?",
+                        "¿Qué cambiaría si celebráramos aprender del fracaso?",
+                        "¿Qué fracaso estamos evitando discutir que deberíamos abordar?"
+                    ]
+                }
             }
         }
     },
@@ -413,6 +639,43 @@ const BusinessProtocols = [
             founderReflection: {
                 en: "What am I proving by refusing to rest? Whose voice tells me I'm not working hard enough? What would it mean to trust that the business can survive without me for one day?",
                 es: "¿Qué estoy probando al negarme a descansar? ¿La voz de quién me dice que no estoy trabajando lo suficientemente duro? ¿Qué significaría confiar en que el negocio puede sobrevivir sin mí por un día?"
+            },
+            teamExercise: {
+                title: { en: "The Rest Accountability Circle", es: "Círculo de Responsabilidad de Descanso" },
+                duration: { en: "15 minutes", es: "15 minutos" },
+                teamSize: { en: "4-10 people", es: "4-10 personas" },
+                description: {
+                    en: "A commitment session where team members share their rest challenges and commit to specific recovery practices with accountability partners.",
+                    es: "Una sesión de compromiso donde los miembros del equipo comparten sus desafíos de descanso y se comprometen a prácticas específicas de recuperación con compañeros de responsabilidad."
+                },
+                steps: {
+                    en: [
+                        "Share Exodus 20:8-11 and the countercultural command to rest (2 min)",
+                        "Each person shares: 'My biggest barrier to rest is...' (5 min)",
+                        "Each person commits: 'This week, I will protect [specific rest time]' (3 min)",
+                        "Pair up as accountability partners—check in on each other next week (3 min)",
+                        "Close: 'Rest is not weakness—it's strategic infrastructure' (2 min)"
+                    ],
+                    es: [
+                        "Comparte Éxodo 20:8-11 y el mandato contracultural de descansar (2 min)",
+                        "Cada persona comparte: 'Mi mayor barrera para descansar es...' (5 min)",
+                        "Cada persona se compromete: 'Esta semana, protegeré [tiempo específico de descanso]' (3 min)",
+                        "Emparejen como compañeros de responsabilidad—verificar el uno con el otro la próxima semana (3 min)",
+                        "Cierra: 'El descanso no es debilidad—es infraestructura estratégica' (2 min)"
+                    ]
+                },
+                discussionQuestions: {
+                    en: [
+                        "What does our team culture say about rest?",
+                        "How can we protect each other's recovery time?",
+                        "What would change if we modeled healthy rest?"
+                    ],
+                    es: [
+                        "¿Qué dice nuestra cultura de equipo sobre el descanso?",
+                        "¿Cómo podemos proteger el tiempo de recuperación de cada uno?",
+                        "¿Qué cambiaría si modeláramos un descanso saludable?"
+                    ]
+                }
             }
         }
     },
@@ -471,6 +734,45 @@ const BusinessProtocols = [
             founderReflection: {
                 en: "Where have I rationalized a 'false balance'? What would full transparency cost me—and what would it gain? If my business practices were published in the newspaper, what would I want to change?",
                 es: "¿Dónde he racionalizado una 'balanza falsa'? ¿Qué me costaría la transparencia total—y qué ganaría? Si mis prácticas comerciales fueran publicadas en el periódico, ¿qué querría cambiar?"
+            },
+            teamExercise: {
+                title: { en: "The Transparency Audit", es: "Auditoría de Transparencia" },
+                duration: { en: "20 minutes", es: "20 minutos" },
+                teamSize: { en: "4-12 people", es: "4-12 personas" },
+                description: {
+                    en: "A candid team session where you examine business practices through the lens of full transparency and identify areas for greater integrity.",
+                    es: "Una sesión de equipo sincera donde examinan las prácticas comerciales a través del lente de transparencia total e identifican áreas para mayor integridad."
+                },
+                steps: {
+                    en: [
+                        "Share Proverbs 11:1 about honest weights and measures (2 min)",
+                        "Ask: 'If all our practices were fully transparent to customers, investors, and employees, what might concern us?' (2 min)",
+                        "Silent reflection: each person writes one area that could be more honest/transparent (3 min)",
+                        "Share around the room without judgment—just listen and capture (8 min)",
+                        "Vote on one area the team commits to improving this quarter (3 min)",
+                        "Assign an owner and next step (2 min)"
+                    ],
+                    es: [
+                        "Comparte Proverbios 11:1 sobre pesas y medidas honestas (2 min)",
+                        "Pregunta: 'Si todas nuestras prácticas fueran completamente transparentes para clientes, inversores y empleados, ¿qué podría preocuparnos?' (2 min)",
+                        "Reflexión silenciosa: cada persona escribe un área que podría ser más honesta/transparente (3 min)",
+                        "Compartan alrededor del salón sin juicio—solo escuchar y capturar (8 min)",
+                        "Voten por un área a la que el equipo se compromete a mejorar este trimestre (3 min)",
+                        "Asignar un responsable y próximo paso (2 min)"
+                    ]
+                },
+                discussionQuestions: {
+                    en: [
+                        "What's the cost of hiding vs. the cost of transparency?",
+                        "Where do we cut corners that we rationalize as 'normal'?",
+                        "How would our customers feel if they saw everything?"
+                    ],
+                    es: [
+                        "¿Cuál es el costo de ocultar vs. el costo de la transparencia?",
+                        "¿Dónde cortamos esquinas que racionalizamos como 'normal'?",
+                        "¿Cómo se sentirían nuestros clientes si vieran todo?"
+                    ]
+                }
             }
         }
     },
@@ -529,6 +831,43 @@ const BusinessProtocols = [
             founderReflection: {
                 en: "What would change if I truly believed I was managing, not owning, my company? What resources am I hoarding that should be invested? To whom or what am I ultimately accountable?",
                 es: "¿Qué cambiaría si realmente creyera que estoy gestionando, no poseyendo, mi empresa? ¿Qué recursos estoy acaparando que deberían ser invertidos? ¿A quién o a qué soy responsable en última instancia?"
+            },
+            teamExercise: {
+                title: { en: "The Stewardship Reframe", es: "El Reencuadre de Mayordomía" },
+                duration: { en: "20 minutes", es: "20 minutos" },
+                teamSize: { en: "5-15 people", es: "5-15 personas" },
+                description: {
+                    en: "A mindset-shifting exercise where the team explores what would change if they viewed themselves as stewards rather than owners of resources.",
+                    es: "Un ejercicio de cambio de mentalidad donde el equipo explora qué cambiaría si se vieran como mayordomos en lugar de dueños de recursos."
+                },
+                steps: {
+                    en: [
+                        "Share the Parable of the Talents from Matthew 25:14-30 (3 min)",
+                        "Ask: 'What resources (time, money, talent, opportunity) have been entrusted to our team?' - list them (5 min)",
+                        "For each resource, ask: 'Are we investing it wisely or hoarding it safely?' (5 min)",
+                        "Each person answers: 'If I'm a steward, not an owner, one thing I'd do differently is...' (5 min)",
+                        "Commit to one 'investment' the team will make this month (2 min)"
+                    ],
+                    es: [
+                        "Comparte la Parábola de los Talentos de Mateo 25:14-30 (3 min)",
+                        "Pregunta: '¿Qué recursos (tiempo, dinero, talento, oportunidad) han sido confiados a nuestro equipo?' - lístalos (5 min)",
+                        "Para cada recurso, pregunta: '¿Lo estamos invirtiendo sabiamente o atesorándolo de forma segura?' (5 min)",
+                        "Cada persona responde: 'Si soy un mayordomo, no un dueño, una cosa que haría diferente es...' (5 min)",
+                        "Comprométanse a una 'inversión' que el equipo hará este mes (2 min)"
+                    ]
+                },
+                discussionQuestions: {
+                    en: [
+                        "How does thinking like a steward change our risk tolerance?",
+                        "What resources are we hoarding that should be deployed?",
+                        "Who are we ultimately accountable to?"
+                    ],
+                    es: [
+                        "¿Cómo cambia nuestra tolerancia al riesgo pensar como mayordomos?",
+                        "¿Qué recursos estamos atesorando que deberían ser desplegados?",
+                        "¿A quién somos responsables en última instancia?"
+                    ]
+                }
             }
         }
     }

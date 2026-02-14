@@ -3,764 +3,901 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Berean - Science-Backed Biblical Protocols for Modern Life</title>
-    <meta name="description" content="Transform ancient wisdom into actionable protocols. Neuroscience meets Scripture for optimized living.">
-    <meta name="keywords" content="bible, neuroscience, protocols, mental models, behavioral science, optimization">
+    <title>Berean - Live a Superpowered Life</title>
+    <meta name="description" content="Apply the Bible to your life. Understand context. See behavioral change. Live superpowered.">
+    <meta name="keywords" content="bible, behavioral change, neuroscience, habits, peak performance, transformation">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <a href="#hero" class="skip-to-main">Skip to main content</a>
-    <div class="app-container">
-        <!-- Navigation -->
-        <nav class="nav">
-            <div class="nav-brand">
-                <h1 class="nav-logo">Berean</h1>
-            </div>
+    <!-- Page Wrapper - Light gray background like Superpower -->
+    <div class="page-wrapper">
+
+    <!-- Floating Pill Navigation -->
+    <nav class="navigation-bar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">berean</a>
             <div class="nav-links">
-                <a href="#method" class="nav-link">Method</a>
-                <a href="#kingdom-business" class="nav-link">Kingdom Business</a>
-                <a href="#explore" class="nav-link">Explore</a>
-                <a href="#pricing" class="nav-link">Pricing</a>
-                <button class="history-btn" id="historyBtn" aria-label="View library">
-                    <span class="history-icon">📚</span>
-                    <span>Library</span>
-                </button>
-                <button class="nav-cta" id="navCtaBtn">Start Free</button>
+                <a href="#how-it-works" data-en="How it Works" data-es="Cómo Funciona">How it Works</a>
+                <a href="#products" data-en="What's Included" data-es="Qué Incluye">What's Included</a>
+                <a href="#impact" data-en="Reviews" data-es="Reseñas">Reviews</a>
+                <a href="#pricing" data-en="Pricing" data-es="Precios">Pricing</a>
+                <a href="founders.html" target="_blank" data-en="For Founders" data-es="Para Fundadores">For Founders</a>
             </div>
-            <div class="nav-controls">
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-                    <span class="theme-icon" data-theme="light">☀️</span>
-                    <span class="theme-icon" data-theme="dark">🌙</span>
-                </button>
-                <button class="language-toggle" id="languageToggle" aria-label="Toggle language">
-                    <span class="current-lang" id="currentLangLabel">EN</span>
-                </button>
+            <div class="nav-actions">
+                <div class="lang-toggle-nav">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <span class="lang-divider">|</span>
+                    <button class="lang-btn" data-lang="es">ES</button>
+                </div>
+                <button class="nav-cta" id="navCtaBtn" data-en="Start Free" data-es="Comenzar Gratis">Start Free</button>
             </div>
-        </nav>
+            <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
 
-        <!-- Hero Section -->
-        <section class="hero" id="hero">
-            <div class="hero-content">
-                <p class="hero-eyebrow">Neuroscience-Backed Biblical Protocols</p>
-                <h1 class="hero-title">Ancient Wisdom.<br><span class="hero-highlight">Modern Protocols.</span></h1>
-                <p class="hero-subtitle">We decode Scripture through the lens of neuroscience and behavioral psychology—giving you actionable protocols to optimize your mind, relationships, and daily performance.</p>
-                <div class="hero-cta">
-                    <button class="btn btn-primary" id="heroCtaBtn">Get Your First Protocol</button>
-                    <a href="#method" class="btn btn-secondary">See The Science</a>
-                </div>
-                <p class="hero-note">Weekly protocols • Peer-reviewed sources • Free forever</p>
-            </div>
-        </section>
-
-        <!-- Insight Section -->
-        <section class="insight-section">
-            <div class="insight-card">
-                <p class="insight-text">"The same neural pathways that fire during meditation activate when engaging with contemplative Scripture reading—but with the added benefit of narrative structure and meaning-making."</p>
-                <p class="insight-source">— Based on research from Newberg, A. (2009). How God Changes Your Brain</p>
-            </div>
-        </section>
-
-        <!-- The Berean Method -->
-        <section class="method-section" id="method">
-            <div class="section-header">
-                <p class="section-eyebrow">The Berean Protocol</p>
-                <h2 class="section-title">Six Layers of Deep Processing</h2>
-                <p class="section-subtitle">Each verse goes through our systematic framework—activating different brain regions for maximum retention and behavioral change.</p>
-            </div>
-
-            <div class="method-grid">
-                <div class="method-step">
-                    <span class="method-number">01</span>
-                    <div class="method-icon">📜</div>
-                    <h3 class="method-title">The Text</h3>
-                    <p class="method-desc">Original verse in context. Your prefrontal cortex engages with the semantic content.</p>
-                </div>
-                <div class="method-step">
-                    <span class="method-number">02</span>
-                    <div class="method-icon">🌍</div>
-                    <h3 class="method-title">World Behind</h3>
-                    <p class="method-desc">Historical, economic, social context. Activates hippocampal memory consolidation through narrative.</p>
-                </div>
-                <div class="method-step">
-                    <span class="method-number">03</span>
-                    <div class="method-icon">💎</div>
-                    <h3 class="method-title">Core Principle</h3>
-                    <p class="method-desc">One timeless truth extracted. Creates neural schema for pattern recognition across life domains.</p>
-                </div>
-                <div class="method-step">
-                    <span class="method-number">04</span>
-                    <div class="method-icon">🧠</div>
-                    <h3 class="method-title">Neural Mechanism</h3>
-                    <p class="method-desc">The neuroscience behind why this works. Understanding mechanism increases implementation.</p>
-                </div>
-                <div class="method-step">
-                    <span class="method-number">05</span>
-                    <div class="method-icon">⚡</div>
-                    <h3 class="method-title">Modern Application</h3>
-                    <p class="method-desc">What this looks like today—in work, relationships, health, and daily habits.</p>
-                </div>
-                <div class="method-step">
-                    <span class="method-number">06</span>
-                    <div class="method-icon">🎯</div>
-                    <h3 class="method-title">Weekly Protocol</h3>
-                    <p class="method-desc">A specific behavioral experiment. Small actions compound into transformed neural pathways.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Four Ways to Explore -->
-        <section class="explore-section" id="explore">
-            <div class="section-header">
-                <p class="section-eyebrow">Choose Your Entry Point</p>
-                <h2 class="section-title">Four Ways to Engage</h2>
-                <p class="section-subtitle">Whether you want to explore a topic, search for a specific verse, or receive curated wisdom—we've got you covered.</p>
-            </div>
-
-            <div class="explore-grid">
-                <div class="explore-card" id="exploreTopics">
-                    <div class="explore-icon">🗂️</div>
-                    <h3 class="explore-title">Browse Topics</h3>
-                    <p class="explore-desc">Explore curated collections: Stress & Anxiety, Focus & Productivity, Relationships, Sleep, Purpose, Leadership, and more.</p>
-                    <button class="btn btn-outline explore-btn">Coming Soon</button>
-                </div>
-                <div class="explore-card" id="exploreSearch">
-                    <div class="explore-icon">🔍</div>
-                    <h3 class="explore-title">Search Any Verse</h3>
-                    <p class="explore-desc">Look up any verse in the Bible. Get full Berean Protocol analysis with neuroscience backing.</p>
-                    <a href="#verse" class="btn btn-outline explore-btn">Search Now</a>
-                </div>
-                <div class="explore-card explore-featured" id="exploreDaily">
-                    <div class="explore-badge">Today's Pick</div>
-                    <div class="explore-icon">✨</div>
-                    <h3 class="explore-title">Daily Protocol</h3>
-                    <p class="explore-desc">A new verse each day, randomly selected by Berean. Full analysis with actionable protocol.</p>
-                    <a href="#verse" class="btn btn-primary explore-btn">View Today's</a>
-                </div>
-                <div class="explore-card" id="exploreWeekly">
-                    <div class="explore-icon">📬</div>
-                    <h3 class="explore-title">Weekly Deep Dive</h3>
-                    <p class="explore-desc">Every Monday, receive one verse via email or WhatsApp with complete Berean Protocol analysis.</p>
-                    <button class="btn btn-outline explore-btn" id="weeklySubscribeBtn">Subscribe Free</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Kingdom Business Section -->
-        <section class="kingdom-business-section" id="kingdom-business">
-            <div class="section-header">
-                <p class="section-eyebrow">Kingdom Business</p>
-                <h2 class="section-title">Biblical Wisdom for the Founder's Journey</h2>
-                <p class="section-subtitle">Business protocols backed by rigorous biblical exegesis, neuroscience, behavioral science, and management research from Harvard and Stanford.</p>
-            </div>
-
-            <!-- Category Filter -->
-            <div class="kb-category-filter">
-                <button class="kb-category-btn active" data-category="all">All</button>
-                <button class="kb-category-btn" data-category="leadership">Leadership</button>
-                <button class="kb-category-btn" data-category="strategy">Strategy</button>
-                <button class="kb-category-btn" data-category="resilience">Resilience</button>
-                <button class="kb-category-btn" data-category="ethics">Ethics</button>
-            </div>
-
-            <!-- Protocol Cards Grid -->
-            <div class="kb-protocols-grid" id="kbProtocolsGrid">
-                <!-- Cards rendered by JavaScript -->
-            </div>
-
-            <!-- Protocol Detail View (Modal/Expanded) -->
-            <div class="kb-protocol-detail" id="kbProtocolDetail" style="display: none;">
-                <button class="kb-back-btn" id="kbBackBtn">
-                    <span>←</span> Back to Protocols
-                </button>
-
-                <div class="kb-detail-header">
-                    <span class="kb-detail-icon" id="kbDetailIcon"></span>
-                    <div class="kb-detail-info">
-                        <h2 class="kb-detail-title" id="kbDetailTitle"></h2>
-                        <span class="kb-detail-category" id="kbDetailCategory"></span>
-                    </div>
-                </div>
-
-                <!-- Scripture -->
-                <div class="kb-detail-scripture" id="kbDetailScripture">
-                    <h3>Scripture Foundation</h3>
-                    <blockquote id="kbScriptureText"></blockquote>
-                    <p class="kb-scripture-refs" id="kbScriptureRefs"></p>
-                </div>
-
-                <!-- Analysis Sections -->
-                <div class="kb-analysis-container">
-                    <details class="kb-analysis-section" data-section="biblicalContext">
-                        <summary class="kb-analysis-header">
-                            <span class="kb-analysis-icon">📜</span>
-                            <span class="kb-analysis-title">Biblical Context</span>
-                            <span class="kb-section-indicator"></span>
-                            <span class="expand-icon">▶</span>
-                        </summary>
-                        <div class="kb-analysis-content" id="kbBiblicalContext"></div>
-                    </details>
-
-                    <details class="kb-analysis-section" data-section="businessContext">
-                        <summary class="kb-analysis-header">
-                            <span class="kb-analysis-icon">💼</span>
-                            <span class="kb-analysis-title">The Business Challenge</span>
-                            <span class="kb-section-indicator"></span>
-                            <span class="expand-icon">▶</span>
-                        </summary>
-                        <div class="kb-analysis-content" id="kbBusinessContext"></div>
-                    </details>
-
-                    <details class="kb-analysis-section" data-section="neuroscience">
-                        <summary class="kb-analysis-header">
-                            <span class="kb-analysis-icon">🧠</span>
-                            <span class="kb-analysis-title">Neuroscience</span>
-                            <span class="kb-section-indicator"></span>
-                            <span class="expand-icon">▶</span>
-                        </summary>
-                        <div class="kb-analysis-content" id="kbNeuroscience"></div>
-                    </details>
-
-                    <details class="kb-analysis-section" data-section="behavioralScience">
-                        <summary class="kb-analysis-header">
-                            <span class="kb-analysis-icon">🔬</span>
-                            <span class="kb-analysis-title">Behavioral Science</span>
-                            <span class="kb-section-indicator"></span>
-                            <span class="expand-icon">▶</span>
-                        </summary>
-                        <div class="kb-analysis-content" id="kbBehavioralScience"></div>
-                    </details>
-
-                    <details class="kb-analysis-section" data-section="managementResearch">
-                        <summary class="kb-analysis-header">
-                            <span class="kb-analysis-icon">📊</span>
-                            <span class="kb-analysis-title">Management Research</span>
-                            <span class="kb-section-indicator"></span>
-                            <span class="expand-icon">▶</span>
-                        </summary>
-                        <div class="kb-analysis-content" id="kbManagementResearch"></div>
-                    </details>
-
-                    <!-- Weekly Protocol -->
-                    <div class="kb-protocol-card" data-section="weeklyProtocol">
-                        <div class="kb-protocol-header">
-                            <span class="kb-protocol-icon">🎯</span>
-                            <h3>Weekly Protocol</h3>
-                            <span class="kb-protocol-badge">Behavioral Experiment</span>
-                            <span class="kb-section-indicator"></span>
-                        </div>
-                        <p class="kb-protocol-content" id="kbWeeklyProtocol"></p>
-                        <div class="section-complete">
-                            <label class="complete-checkbox">
-                                <input type="checkbox" class="kb-section-check" data-section="weeklyProtocol">
-                                <span class="checkbox-custom"></span>
-                                <span>I commit to running this experiment</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- Founder Reflection -->
-                    <div class="kb-reflection-card" data-section="founderReflection">
-                        <div class="kb-reflection-header">
-                            <span class="kb-reflection-icon">🧘</span>
-                            <h3>Founder Reflection</h3>
-                            <span class="kb-section-indicator"></span>
-                        </div>
-                        <p class="kb-reflection-content" id="kbFounderReflection"></p>
-                        <div class="section-complete">
-                            <label class="complete-checkbox">
-                                <input type="checkbox" class="kb-section-check" data-section="founderReflection">
-                                <span class="checkbox-custom"></span>
-                                <span>I've reflected on these questions</span>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Progress Bar -->
-                <div class="kb-progress-container">
-                    <div class="progress-bar-header">
-                        <span class="progress-label">Protocol Progress</span>
-                        <span class="progress-count" id="kbProgressCount">0/7 sections</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-bar-fill" id="kbProgressBarFill" style="width: 0%"></div>
-                    </div>
-                </div>
-
-                <!-- Completion Card -->
-                <div class="kb-completion-card" id="kbCompletionCard" style="display: none;">
-                    <div class="completion-icon">🏆</div>
-                    <h3>Protocol Complete!</h3>
-                    <p>You've mastered this business protocol. Apply this wisdom to build a kingdom-oriented business.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Today's Verse Section -->
-        <section class="verse-section" id="verse">
-            <div class="section-header">
-                <p class="section-eyebrow">Today's Protocol</p>
-                <h2 class="section-title">Experience The Method</h2>
-            </div>
-
-            <!-- Search -->
-            <div class="search-section">
-                <div class="search-container">
-                    <input type="text" id="searchInput" class="search-input" placeholder="Search any verse (e.g., John 3:16) or topic..." autocomplete="off">
-                    <button class="search-btn" id="searchBtn" aria-label="Search">
-                        <span>🔍</span>
-                    </button>
-                </div>
-                <div class="search-suggestions" id="searchSuggestions"></div>
-            </div>
-
-            <!-- Verse Card -->
-            <article class="verse-card">
-                <div class="verse-card-header">
-                    <div class="verse-meta">
-                        <div class="version-toggle" id="versionToggle">
-                            <button class="version-btn active" data-version="KJV">KJV</button>
-                            <button class="version-btn" data-version="ESV">ESV</button>
-                        </div>
-                    </div>
-                    <div class="verse-actions">
-                        <div class="streak-badge" id="streakBadge">
-                            <span class="streak-flame">🔥</span>
-                            <span class="streak-count" id="streakCount">1</span>
-                        </div>
-                        <button class="action-btn" id="shareBtn" aria-label="Share" title="Share to WhatsApp">
-                            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                            </svg>
-                        </button>
-                        <button class="action-btn" id="bookmarkBtn" aria-label="Bookmark">
-                            <span class="bookmark-icon">♡</span>
-                        </button>
-                    </div>
-                </div>
-                <div class="verse-reference">
-                    <span id="verseBook"></span> <span id="verseChapter"></span>:<span id="verseNumber"></span>
-                </div>
-                <blockquote class="verse-text" id="verseText"></blockquote>
-            </article>
-
-            <!-- Progress Bar -->
-            <div class="progress-bar-container">
-                <div class="progress-bar-header">
-                    <span class="progress-label">Protocol Progress</span>
-                    <span class="progress-count" id="progressCount">0/9 sections</span>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-bar-fill" id="progressBarFill" style="width: 0%"></div>
-                </div>
-            </div>
-
-            <!-- Analysis Sections with Dynamic Progress -->
-            <div class="analysis-container">
-                <!-- The World Behind the Text -->
-                <div class="analysis-group">
-                    <h3 class="analysis-group-title">
-                        <span class="group-icon">🌍</span>
-                        Layer 2: The World Behind the Text
-                    </h3>
-
-                    <details class="context-section" data-section="historical">
-                        <summary class="context-header">
-                            <span class="context-icon">📜</span>
-                            <span class="context-title">Historical Context</span>
-                            <span class="section-progress-indicator"></span>
-                            <span class="expand-icon">▶</span>
-                        </summary>
-                        <div class="context-content">
-                            <p id="historicalContent"></p>
-                            <div class="card-sources" id="historicalSources"></div>
-                            <div class="section-complete">
-                                <label class="complete-checkbox">
-                                    <input type="checkbox" class="section-check" data-section="historical">
-                                    <span class="checkbox-custom"></span>
-                                    <span>I've processed this section</span>
-                                </label>
-                            </div>
-                        </div>
-                    </details>
-
-                    <details class="context-section" data-section="economic">
-                        <summary class="context-header">
-                            <span class="context-icon">💰</span>
-                            <span class="context-title">Economic Context</span>
-                            <span class="section-progress-indicator"></span>
-                            <span class="expand-icon">▶</span>
-                        </summary>
-                        <div class="context-content">
-                            <p id="economicContent"></p>
-                            <div class="card-sources" id="economicSources"></div>
-                            <div class="section-complete">
-                                <label class="complete-checkbox">
-                                    <input type="checkbox" class="section-check" data-section="economic">
-                                    <span class="checkbox-custom"></span>
-                                    <span>I've processed this section</span>
-                                </label>
-                            </div>
-                        </div>
-                    </details>
-
-                    <details class="context-section" data-section="social">
-                        <summary class="context-header">
-                            <span class="context-icon">👥</span>
-                            <span class="context-title">Social & Cultural Context</span>
-                            <span class="section-progress-indicator"></span>
-                            <span class="expand-icon">▶</span>
-                        </summary>
-                        <div class="context-content">
-                            <p id="socialContent"></p>
-                            <div class="card-sources" id="socialSources"></div>
-                            <div class="section-complete">
-                                <label class="complete-checkbox">
-                                    <input type="checkbox" class="section-check" data-section="social">
-                                    <span class="checkbox-custom"></span>
-                                    <span>I've processed this section</span>
-                                </label>
-                            </div>
-                        </div>
-                    </details>
-
-                    <details class="context-section" data-section="political">
-                        <summary class="context-header">
-                            <span class="context-icon">🏛️</span>
-                            <span class="context-title">Political Context</span>
-                            <span class="section-progress-indicator"></span>
-                            <span class="expand-icon">▶</span>
-                        </summary>
-                        <div class="context-content">
-                            <p id="politicalContent"></p>
-                            <div class="card-sources" id="politicalSources"></div>
-                            <div class="section-complete">
-                                <label class="complete-checkbox">
-                                    <input type="checkbox" class="section-check" data-section="political">
-                                    <span class="checkbox-custom"></span>
-                                    <span>I've processed this section</span>
-                                </label>
-                            </div>
-                        </div>
-                    </details>
-
-                    <details class="context-section" data-section="author">
-                        <summary class="context-header">
-                            <span class="context-icon">✍️</span>
-                            <span class="context-title">About the Author</span>
-                            <span class="section-progress-indicator"></span>
-                            <span class="expand-icon">▶</span>
-                        </summary>
-                        <div class="context-content">
-                            <p id="authorContent"></p>
-                            <div class="card-sources" id="authorSources"></div>
-                            <div class="section-complete">
-                                <label class="complete-checkbox">
-                                    <input type="checkbox" class="section-check" data-section="author">
-                                    <span class="checkbox-custom"></span>
-                                    <span>I've processed this section</span>
-                                </label>
-                            </div>
-                        </div>
-                    </details>
-                </div>
-
-                <!-- The Neural Mechanism -->
-                <div class="analysis-group">
-                    <h3 class="analysis-group-title">
-                        <span class="group-icon">🧠</span>
-                        Layer 4: The Neural Mechanism
-                    </h3>
-
-                    <details class="context-section" data-section="neuroscience">
-                        <summary class="context-header">
-                            <span class="context-icon">🧬</span>
-                            <span class="context-title">Neuroscience</span>
-                            <span class="section-progress-indicator"></span>
-                            <span class="expand-icon">▶</span>
-                        </summary>
-                        <div class="context-content">
-                            <p id="neuroscienceContent"></p>
-                            <div class="card-sources" id="neuroscienceSources"></div>
-                            <div class="section-complete">
-                                <label class="complete-checkbox">
-                                    <input type="checkbox" class="section-check" data-section="neuroscience">
-                                    <span class="checkbox-custom"></span>
-                                    <span>I've processed this section</span>
-                                </label>
-                            </div>
-                        </div>
-                    </details>
-
-                    <details class="context-section" data-section="behavioral">
-                        <summary class="context-header">
-                            <span class="context-icon">🔬</span>
-                            <span class="context-title">Behavioral Science</span>
-                            <span class="section-progress-indicator"></span>
-                            <span class="expand-icon">▶</span>
-                        </summary>
-                        <div class="context-content">
-                            <p id="behavioralContent"></p>
-                            <div class="card-sources" id="behavioralSources"></div>
-                            <div class="section-complete">
-                                <label class="complete-checkbox">
-                                    <input type="checkbox" class="section-check" data-section="behavioral">
-                                    <span class="checkbox-custom"></span>
-                                    <span>I've processed this section</span>
-                                </label>
-                            </div>
-                        </div>
-                    </details>
-                </div>
-
-                <!-- Weekly Protocol -->
-                <div class="praxis-card" data-section="nudge">
-                    <div class="praxis-header">
-                        <span class="praxis-icon">🎯</span>
-                        <h3>Layer 6: This Week's Protocol</h3>
-                        <span class="praxis-badge">Behavioral Experiment</span>
-                        <span class="section-progress-indicator" data-section="nudge"></span>
-                    </div>
-                    <p class="praxis-content" id="nudgeContent"></p>
-                    <div class="card-sources" id="nudgeSources"></div>
-                    <div class="section-complete">
-                        <label class="complete-checkbox">
-                            <input type="checkbox" class="section-check" data-section="nudge">
-                            <span class="checkbox-custom"></span>
-                            <span>I commit to running this experiment</span>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- Prayer/Contemplation -->
-                <div class="prayer-card" data-section="prayer">
-                    <div class="prayer-header">
-                        <span class="prayer-icon">🧘</span>
-                        <h3>Contemplative Practice</h3>
-                        <span class="section-progress-indicator" data-section="prayer"></span>
-                    </div>
-                    <p class="prayer-content" id="prayerContent"></p>
-
-                    <div class="prayer-science">
-                        <div class="prayer-science-header">
-                            <span>🧠</span>
-                            <h4>The Neuroscience of Contemplative Practice</h4>
-                        </div>
-                        <p class="prayer-science-content" id="prayerScienceContent"></p>
-                        <div class="card-sources" id="prayerSources"></div>
-                    </div>
-
-                    <div class="section-complete">
-                        <label class="complete-checkbox">
-                            <input type="checkbox" class="section-check" data-section="prayer">
-                            <span class="checkbox-custom"></span>
-                            <span>I've completed this practice</span>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- Completion Card -->
-                <div class="completion-card" id="completionCard" style="display: none;">
-                    <div class="completion-icon">🏆</div>
-                    <h3>Protocol Complete!</h3>
-                    <p>You've processed all layers. Research shows that multi-modal engagement like this increases retention by up to 65% compared to passive reading.</p>
-                    <div class="completion-stats">
-                        <div class="stat">
-                            <span class="stat-number" id="totalCompleted">1</span>
-                            <span class="stat-label">Protocols Completed</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number" id="currentStreak">1</span>
-                            <span class="stat-label">Day Streak</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Pricing Section -->
-        <section class="pricing-section" id="pricing">
-            <div class="section-header">
-                <p class="section-eyebrow">Simple Pricing</p>
-                <h2 class="section-title">Choose Your Protocol Level</h2>
-                <p class="section-subtitle">Start free. Upgrade when you want deeper access and personalized protocols.</p>
-            </div>
-
-            <div class="pricing-grid pricing-three">
-                <div class="pricing-card">
-                    <div class="pricing-header">
-                        <h3 class="pricing-name">Explorer</h3>
-                        <div class="pricing-price">
-                            <span class="price-amount">$0</span>
-                            <span class="price-period">/forever</span>
-                        </div>
-                    </div>
-                    <p class="pricing-desc">Build the habit. Experience the method.</p>
-                    <ul class="pricing-features">
-                        <li>Daily verse with full protocol</li>
-                        <li>3 verse searches per week</li>
-                        <li>3 topic searches per week</li>
-                        <li>Weekly email digest</li>
-                        <li>Progress tracking</li>
-                    </ul>
-                    <button class="btn btn-outline pricing-btn" id="pricingFreeBtn">Start Exploring</button>
-                </div>
-
-                <div class="pricing-card pricing-featured">
-                    <div class="pricing-badge">Most Popular</div>
-                    <div class="pricing-header">
-                        <h3 class="pricing-name">Practitioner</h3>
-                        <div class="pricing-price">
-                            <span class="price-amount">$10</span>
-                            <span class="price-period">/month</span>
-                        </div>
-                    </div>
-                    <p class="pricing-desc">For those serious about daily practice.</p>
-                    <ul class="pricing-features">
-                        <li>Everything in Explorer</li>
-                        <li>Unlimited verse searches</li>
-                        <li>10 topic searches per day</li>
-                        <li>WhatsApp delivery</li>
-                        <li>Personalized weekly summary</li>
-                        <li>Save favorites & notes</li>
-                    </ul>
-                    <button class="btn btn-primary pricing-btn">Coming Soon</button>
-                </div>
-
-                <div class="pricing-card">
-                    <div class="pricing-header">
-                        <h3 class="pricing-name">Scholar</h3>
-                        <div class="pricing-price">
-                            <span class="price-amount">$25</span>
-                            <span class="price-period">/month</span>
-                        </div>
-                    </div>
-                    <p class="pricing-desc">Full access for deep study.</p>
-                    <ul class="pricing-features">
-                        <li>Everything in Practitioner</li>
-                        <li>Unlimited topic searches</li>
-                        <li>Cross-reference analysis</li>
-                        <li>Export & study tools</li>
-                        <li>Early access to new features</li>
-                        <li>Priority support</li>
-                    </ul>
-                    <button class="btn btn-outline pricing-btn">Coming Soon</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Final CTA -->
-        <section class="cta-section">
-            <h2 class="cta-title">Ready to Optimize Your Mental Operating System?</h2>
-            <p class="cta-subtitle">Join thousands using science-backed biblical protocols for better thinking, better relationships, and better living.</p>
-            <button class="btn btn-primary btn-large" id="finalCtaBtn">Get Your First Protocol Free</button>
-        </section>
-
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="footer-brand">
-                <h3 class="footer-logo">Berean</h3>
-                <p class="footer-tagline">Neuroscience-Backed Biblical Protocols</p>
-            </div>
-            <div class="footer-about">
-                <h4>About</h4>
-                <p>Berean translates ancient wisdom into modern protocols. We combine rigorous biblical scholarship with peer-reviewed neuroscience and behavioral psychology—giving you actionable tools to upgrade your mental operating system.</p>
-                <p class="footer-founder">Built by a cognitive science researcher and C-level operator.</p>
-            </div>
-            <div class="footer-links">
-                <a href="#method">Method</a>
-                <a href="#pricing">Pricing</a>
-                <a href="mailto:hello@berean.app">Contact</a>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Berean. Transform information into implementation.</p>
-            </div>
-        </footer>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#how-it-works" data-en="How it Works" data-es="Cómo Funciona">How it Works</a>
+        <a href="#products" data-en="What's Included" data-es="Qué Incluye">What's Included</a>
+        <a href="#impact" data-en="Reviews" data-es="Reseñas">Reviews</a>
+        <a href="#pricing" data-en="Pricing" data-es="Precios">Pricing</a>
+        <a href="founders.html" target="_blank" data-en="For Founders" data-es="Para Fundadores">For Founders</a>
+        <div class="mobile-lang-toggle">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <span class="lang-divider">|</span>
+            <button class="lang-btn" data-lang="es">ES</button>
+        </div>
+        <button class="btn btn-primary" id="mobileCtaBtn" data-en="Start Free" data-es="Comenzar Gratis">Start Free</button>
     </div>
 
-    <!-- Registration Modal -->
-    <div class="modal-overlay" id="registerModal">
-        <div class="modal-content">
-            <button class="modal-close" id="closeRegister">×</button>
-            <div class="modal-header">
-                <h2>Join Berean</h2>
-                <p>Every Monday, receive one verse with complete protocol analysis—neuroscience, context, and actionable experiment.</p>
+    <!-- Hero Section - Superpower Style with White Border Card -->
+    <section class="hero" id="hero">
+        <div class="hero-background-slider">
+            <!-- Slide 1: Modern abstract - Warm gradient, flowing shapes -->
+            <div class="hero-slide active" data-color="orange" style="background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=2500&q=90&fit=crop')"></div>
+            <!-- Slide 2: Abstract - Cool tones, geometric light -->
+            <div class="hero-slide" data-color="teal" style="background-image: url('https://images.unsplash.com/photo-1557682250-33bd709cbe85?w=2500&q=90&fit=crop')"></div>
+            <!-- Slide 3: Modern aesthetic - Warm earthy abstract -->
+            <div class="hero-slide" data-color="brown" style="background-image: url('https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=2500&q=90&fit=crop')"></div>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-headline" data-en="Live your<br>superpowered life" data-es="Vive tu vida<br>superpotenciada">
+                Live your<br>superpowered life
+            </h1>
+            <p class="hero-subheadline" data-en="Ancient wisdom meets modern science. Transform Scripture into<br>behavioral change with measurable results." data-es="Sabiduría antigua encuentra ciencia moderna. Transforma las Escrituras en<br>cambio conductual con resultados medibles.">
+                Ancient wisdom meets modern science. Transform Scripture into<br>
+                behavioral change with measurable results.
+            </p>
+            <button class="hero-cta" id="heroCtaBtn" data-en="Start Your Journey" data-es="Comienza Tu Viaje">
+                Start Your Journey
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </button>
+            <div class="hero-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                    <path d="M9 12l2 2 4-4"/>
+                    <circle cx="12" cy="12" r="10"/>
+                </svg>
+                <span data-en="Track your progress monthly" data-es="Rastrea tu progreso mensualmente">Track your progress monthly</span>
             </div>
-            <form id="registerForm" class="register-form">
-                <div class="form-group">
-                    <label for="emailInput">Email Address</label>
-                    <input type="email" id="emailInput" placeholder="you@example.com" required>
+        </div>
+    </section>
+
+    </div><!-- End page-wrapper -->
+
+    <!-- Stats Section (like Superpower's 63%, 44%, 70%) -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">87%</div>
+                    <div class="stat-label" data-en="of members report improved focus and clarity" data-es="de miembros reportan mejor enfoque y claridad">of members report improved focus and clarity</div>
                 </div>
-                <div class="form-group">
-                    <label for="phoneInput">Phone (for WhatsApp) <span class="optional">Optional</span></label>
-                    <input type="tel" id="phoneInput" placeholder="+1 234 567 8900">
+                <div class="stat-card">
+                    <div class="stat-number">92%</div>
+                    <div class="stat-label" data-en="successfully complete weekly behavioral experiments" data-es="completan exitosamente experimentos conductuales semanales">successfully complete weekly behavioral experiments</div>
                 </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="langSelect">Language</label>
-                        <select id="langSelect">
-                            <option value="en">English</option>
-                            <option value="es">Español</option>
-                        </select>
+                <div class="stat-card">
+                    <div class="stat-number">78%</div>
+                    <div class="stat-label" data-en="maintain new positive habits after 3 months" data-es="mantienen nuevos hábitos positivos después de 3 meses">maintain new positive habits after 3 months</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Problem -->
+    <section class="problem-section">
+        <div class="container">
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="32" height="32">
+                            <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                        </svg>
                     </div>
-                    <div class="form-group" id="versionGroup">
-                        <label for="versionSelect">Bible Version</label>
-                        <select id="versionSelect">
-                            <option value="KJV">KJV</option>
-                            <option value="ESV">ESV</option>
-                        </select>
+                    <h3>You Read the Bible</h3>
+                    <p>But reading isn't enough. Your mom reads it every day. She's still struggling.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="32" height="32">
+                            <path d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3>You Don't Understand Context</h3>
+                    <p>Written 2000+ years ago. Different culture. Different economy. Different everything.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="32" height="32">
+                            <path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                        </svg>
+                    </div>
+                    <h3>Nothing Changes</h3>
+                    <p>Same verses. Same life. No transformation. No measurable impact.</p>
+                </div>
+            </div>
+            <div class="problem-solution">
+                <h2>It's time to actually <span class="text-orange">apply</span> it.</h2>
+                <p>Berean bridges the gap between ancient wisdom and modern transformation. Full context. Real behavioral change. Measurable results.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Five Products -->
+    <section class="products-section" id="products">
+        <div class="container">
+            <div class="section-header-center">
+                <h2 class="section-heading" data-en="What's included" data-es="Qué incluye">What's included</h2>
+                <p class="section-subheading" data-en="Choose how you want to engage. Each path leads to the same destination: a superpowered life." data-es="Elige cómo quieres participar. Cada camino lleva al mismo destino: una vida superpotenciada.">Choose how you want to engage. Each path leads to the same destination: a superpowered life.</p>
+            </div>
+
+            <div class="products-grid">
+                <!-- Product 1: Daily Verse -->
+                <a href="daily.html" target="_blank" class="product-card product-daily">
+                    <div class="product-badge">Daily</div>
+                    <div class="product-icon">☀️</div>
+                    <h3 class="product-title">Daily Verse</h3>
+                    <p class="product-description">
+                        One verse. Full analysis. Every morning. Start your day superpowered with a randomly selected verse, complete with historical context, neuroscience, and one actionable practice.
+                    </p>
+                    <ul class="product-features">
+                        <li>Push notification at your preferred time</li>
+                        <li>Complete Berean analysis</li>
+                        <li>Share via WhatsApp & Email</li>
+                        <li>Track your streak</li>
+                    </ul>
+                    <div class="product-cta">
+                        <span>Open Daily Verse</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- Product 2: Weekly Study -->
+                <a href="weekly.html" target="_blank" class="product-card product-weekly">
+                    <div class="product-badge">Weekly Series</div>
+                    <div class="product-icon">📚</div>
+                    <h3 class="product-title">Weekly Deep Dive</h3>
+                    <p class="product-description">
+                        66-day behavioral transformation cycles. One topic per cycle. Every Sunday at 7pm, receive a deep dive that builds on the previous week. By the end, you've changed.
+                    </p>
+                    <ul class="product-features">
+                        <li>Based on habit formation science</li>
+                        <li>Delivered Sundays 7pm your time</li>
+                        <li>WhatsApp or Email delivery</li>
+                        <li>Progressive behavioral change</li>
+                    </ul>
+                    <div class="product-cta">
+                        <span>Open Weekly Study</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- Product 3: Search -->
+                <a href="search.html" target="_blank" class="product-card product-search">
+                    <div class="product-badge">Deep Study</div>
+                    <div class="product-icon">🔍</div>
+                    <h3 class="product-title">Verse Search</h3>
+                    <p class="product-description">
+                        Any verse. Full Berean analysis. Compare KJV and ESV side-by-side. Perfect for preachers, teachers, or anyone who wants to go deep on a specific passage.
+                    </p>
+                    <ul class="product-features">
+                        <li>Search any verse in the Bible</li>
+                        <li>Compare versions (KJV/ESV)</li>
+                        <li>English & Spanish</li>
+                        <li>Complete contextual analysis</li>
+                    </ul>
+                    <div class="product-cta">
+                        <span>Open Search</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- Product 4: Topics -->
+                <a href="topics.html" target="_blank" class="product-card product-topics">
+                    <div class="product-badge">Explore</div>
+                    <div class="product-icon">🧭</div>
+                    <h3 class="product-title">Topic Explorer</h3>
+                    <p class="product-description">
+                        Never read the Bible? Start here. Explore what God says about Anxiety, Focus, Relationships, Sleep, Purpose, Leadership, and more. No prior knowledge needed.
+                    </p>
+                    <ul class="product-features">
+                        <li>Interest survey to personalize</li>
+                        <li>Curated verse collections</li>
+                        <li>One verse at a time</li>
+                        <li>Share discoveries</li>
+                    </ul>
+                    <div class="product-cta">
+                        <span>Explore Topics</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- Product 5: For Founders -->
+                <a href="founders.html" target="_blank" class="product-card product-founders">
+                    <div class="product-badge">Peak Performance</div>
+                    <div class="product-icon">🚀</div>
+                    <h3 class="product-title">For Founders</h3>
+                    <p class="product-description">
+                        Biblical wisdom for building unicorns. Leadership, strategy, resilience, ethics—backed by management research, neuroscience, and Scripture. For the ambitious.
+                    </p>
+                    <ul class="product-features">
+                        <li>Protocols for high-performers</li>
+                        <li>Management science integration</li>
+                        <li>Weekly behavioral experiments</li>
+                        <li>Founder reflections</li>
+                    </ul>
+                    <div class="product-cta">
+                        <span>Open Founder Protocols</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                        </svg>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-section" id="how-it-works">
+        <div class="container">
+            <div class="section-header-center">
+                <h2 class="section-heading" data-en="How it works" data-es="Cómo funciona">How it works</h2>
+                <p class="section-subheading" data-en="Every verse goes through our complete analysis framework." data-es="Cada versículo pasa por nuestro marco de análisis completo.">Every verse goes through our complete analysis framework.</p>
+            </div>
+
+            <div class="method-steps">
+                <div class="method-step-card">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <h3>Full Context</h3>
+                        <p>Historical, economic, political, social, and authorial context. Understand what the verse meant to its original audience.</p>
                     </div>
                 </div>
+                <div class="method-step-card">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <h3>Core Principle</h3>
+                        <p>Extract the timeless truth. What's the mental model that transcends time and culture?</p>
+                    </div>
+                </div>
+                <div class="method-step-card">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <h3>Science Backing</h3>
+                        <p>Neuroscience and behavioral science research that explains why this principle works at a biological level.</p>
+                    </div>
+                </div>
+                <div class="method-step-card">
+                    <div class="step-number">04</div>
+                    <div class="step-content">
+                        <h3>Modern Application</h3>
+                        <p>What does this look like in your life today? At work, in relationships, in health.</p>
+                    </div>
+                </div>
+                <div class="method-step-card">
+                    <div class="step-number">05</div>
+                    <div class="step-content">
+                        <h3>Behavioral Experiment</h3>
+                        <p>One specific action to take this week. Small, measurable, transformative.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact / Social Proof -->
+    <section class="impact-section" id="impact">
+        <div class="container">
+            <div class="section-header-center">
+                <h2 class="section-heading" data-en="Berean is transforming lives" data-es="Berean está transformando vidas">Berean is transforming lives</h2>
+                <p class="section-subheading" data-en="What changes when you actually apply Scripture to your life?" data-es="¿Qué cambia cuando realmente aplicas las Escrituras a tu vida?">What changes when you actually apply Scripture to your life?</p>
+            </div>
+
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-quote">
+                        "I've read the Bible for 40 years. Berean helped me finally understand it and apply it. I'm sleeping better, less anxious, and more focused at work."
+                    </div>
+                    <div class="impact-author">
+                        <div class="impact-avatar">M</div>
+                        <div class="impact-info">
+                            <div class="impact-name">María, 58</div>
+                            <div class="impact-role">House Cleaner, Los Angeles</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="impact-card">
+                    <div class="impact-quote">
+                        "The Founder protocols are insane. I used the Jethro Principle to finally delegate and it freed up 15 hours a week. My team is more engaged than ever."
+                    </div>
+                    <div class="impact-author">
+                        <div class="impact-avatar">J</div>
+                        <div class="impact-info">
+                            <div class="impact-name">Jason, 34</div>
+                            <div class="impact-role">Founder & CEO, Series B Startup</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="impact-card">
+                    <div class="impact-quote">
+                        "Never really understood the Bible. Started with Topics, explored 'Purpose', and it completely shifted my career direction. Now I wake up excited."
+                    </div>
+                    <div class="impact-author">
+                        <div class="impact-avatar">S</div>
+                        <div class="impact-info">
+                            <div class="impact-name">Sarah, 28</div>
+                            <div class="impact-role">Product Manager, Tech</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="impact-metrics">
+                <div class="metric">
+                    <div class="metric-number">87%</div>
+                    <div class="metric-label">Report improved focus</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-number">72%</div>
+                    <div class="metric-label">Reduced anxiety</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-number">94%</div>
+                    <div class="metric-label">Apply learnings same week</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-number">3.2x</div>
+                    <div class="metric-label">More likely to stick to habits</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Track Your Transformation Section -->
+    <section class="tracking-section" id="tracking">
+        <div class="container">
+            <div class="section-header-center">
+                <h2 class="section-heading" data-en="See your progress, monthly" data-es="Observa tu progreso, mensualmente">See your progress, monthly</h2>
+                <p class="section-subheading" data-en="Every month, receive a comprehensive report tracking your behavioral changes, verses studied, and real-world impact." data-es="Cada mes, recibe un informe completo rastreando tus cambios conductuales, versículos estudiados e impacto real.">Every month, receive a comprehensive report tracking your behavioral changes, verses studied, and real-world impact.</p>
+            </div>
+
+            <div class="tracking-features-grid">
+                <div class="tracking-feature">
+                    <div class="tracking-feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28">
+                            <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
+                    </div>
+                    <h3>Behavioral Metrics</h3>
+                    <p>Track habits formed, experiments completed, and daily streaks</p>
+                </div>
+                <div class="tracking-feature">
+                    <div class="tracking-feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28">
+                            <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                        </svg>
+                    </div>
+                    <h3>Verses Mastered</h3>
+                    <p>See which verses you've studied and applied to your life</p>
+                </div>
+                <div class="tracking-feature">
+                    <div class="tracking-feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28">
+                            <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                    </div>
+                    <h3>Impact Report</h3>
+                    <p>Measure your progress: focus, discipline, clarity, and purpose</p>
+                </div>
+                <div class="tracking-feature">
+                    <div class="tracking-feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28">
+                            <path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                        </svg>
+                    </div>
+                    <h3>ROI Analysis</h3>
+                    <p>Quantify the return on your investment in wisdom</p>
+                </div>
+            </div>
+
+            <div class="report-showcase">
+                <div class="report-showcase-content">
+                    <h3>Delivered to your inbox and WhatsApp</h3>
+                    <p>Every 30 days, receive a personalized report showing your transformation. Data-driven insights on your behavioral changes, spiritual growth, and real-world impact.</p>
+                    <ul class="report-includes">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                                <path d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Verses studied and applied
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                                <path d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Behavioral experiments completed
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                                <path d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Habits formed and maintained
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                                <path d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Personal growth metrics
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                                <path d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Next month's focus areas
+                        </li>
+                    </ul>
+                </div>
+                <div class="report-preview">
+                    <div class="report-card">
+                        <div class="report-header">
+                            <span class="report-logo">berean</span>
+                            <span class="report-month">January 2026 Report</span>
+                        </div>
+                        <div class="report-stats">
+                            <div class="report-stat">
+                                <span class="report-stat-number">31</span>
+                                <span class="report-stat-label">Daily Verses</span>
+                            </div>
+                            <div class="report-stat">
+                                <span class="report-stat-number">4</span>
+                                <span class="report-stat-label">Weekly Studies</span>
+                            </div>
+                            <div class="report-stat">
+                                <span class="report-stat-number">28</span>
+                                <span class="report-stat-label">Day Streak</span>
+                            </div>
+                        </div>
+                        <div class="report-highlight">
+                            <span class="report-highlight-label">Current Cycle</span>
+                            <span class="report-highlight-value">Patience & Perseverance</span>
+                            <div class="report-progress">
+                                <div class="report-progress-fill" style="width: 45%"></div>
+                            </div>
+                            <span class="report-progress-label">Day 30 of 66</span>
+                        </div>
+                        <div class="report-metrics">
+                            <div class="report-metric">
+                                <span class="report-metric-label">Focus Score</span>
+                                <span class="report-metric-value">+23%</span>
+                            </div>
+                            <div class="report-metric">
+                                <span class="report-metric-label">Consistency</span>
+                                <span class="report-metric-value">94%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing-section" id="pricing">
+        <div class="container">
+            <div class="section-header-center">
+                <h2 class="section-heading" data-en="Invest in Transformation" data-es="Invierte en Transformación">Invest in Transformation</h2>
+                <p class="section-subheading" data-en="What's the ROI of a superpowered life?" data-es="¿Cuál es el ROI de una vida superpotenciada?">What's the ROI of a superpowered life?</p>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="pricing-card pricing-free">
+                    <div class="pricing-tier">Free</div>
+                    <div class="pricing-price">
+                        <span class="price-amount">$0</span>
+                        <span class="price-period">/forever</span>
+                    </div>
+                    <p class="pricing-description">Get started with daily transformation</p>
+                    <ul class="pricing-features">
+                        <li>Daily Verse (limited analysis)</li>
+                        <li>Topic Explorer (3 topics)</li>
+                        <li>Basic progress tracking</li>
+                        <li>Community access</li>
+                    </ul>
+                    <button class="btn btn-secondary btn-full" id="pricingFreeBtn">Start Free</button>
+                </div>
+
+                <div class="pricing-card pricing-pro">
+                    <div class="pricing-popular">Most Popular</div>
+                    <div class="pricing-tier">Superpowered</div>
+                    <div class="pricing-price">
+                        <span class="price-amount">$20</span>
+                        <span class="price-period">/month</span>
+                    </div>
+                    <p class="pricing-description">Full access to all transformation tools</p>
+                    <ul class="pricing-features">
+                        <li>Full Daily Verse analysis</li>
+                        <li>Weekly Deep Dive series</li>
+                        <li>Unlimited Verse Search</li>
+                        <li>All Topics unlocked</li>
+                        <li>For Founders protocols</li>
+                        <li>Monthly transformation reports</li>
+                        <li>Version comparison (KJV/ESV)</li>
+                        <li>WhatsApp & Email delivery</li>
+                    </ul>
+                    <button class="btn btn-primary btn-full" id="pricingProBtn">Start 7-Day Free Trial</button>
+                    <p class="pricing-note">Cancel anytime. Billed annually at $240.</p>
+                </div>
+
+                <div class="pricing-card pricing-team">
+                    <div class="pricing-tier">Teams</div>
+                    <div class="pricing-price">
+                        <span class="price-amount">Custom</span>
+                    </div>
+                    <p class="pricing-description">For churches, companies, and organizations</p>
+                    <ul class="pricing-features">
+                        <li>Everything in Superpowered</li>
+                        <li>Team dashboards</li>
+                        <li>Admin controls</li>
+                        <li>Custom topics</li>
+                        <li>Dedicated support</li>
+                        <li>API access</li>
+                    </ul>
+                    <button class="btn btn-secondary btn-full" id="pricingTeamBtn">Contact Us</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Hero Section -->
+    <section class="footer-hero">
+        <div class="footer-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80')"></div>
+        <div class="footer-hero-overlay"></div>
+        <div class="container">
+            <h2 class="footer-hero-text" data-en="Wisdom is your greatest superpower.<br>It's time to unlock it." data-es="La sabiduría es tu mayor superpoder.<br>Es hora de desbloquearla.">Wisdom is your greatest superpower.<br>It's time to unlock it.</h2>
+            <button class="btn btn-primary btn-large" id="finalCtaBtn" data-en="Start Your Journey" data-es="Comienza Tu Viaje">Start Your Journey</button>
+        </div>
+    </section>
+
+    <!-- Footer Main -->
+    <footer class="footer-main">
+        <div class="container">
+            <div class="footer-logo-giant">berean</div>
+
+            <div class="footer-links-grid">
+                <div class="footer-column">
+                    <h4>Berean</h4>
+                    <a href="#how-it-works" data-en="How it Works" data-es="Cómo Funciona">How it Works</a>
+                    <a href="#products" data-en="What's Included" data-es="Qué Incluye">What's Included</a>
+                    <a href="#" data-en="Membership Login" data-es="Iniciar Sesión">Membership Login</a>
+                    <a href="#" data-en="Gift Berean" data-es="Regala Berean">Gift Berean</a>
+                </div>
+
+                <div class="footer-column">
+                    <h4 data-en="Company" data-es="Empresa">Company</h4>
+                    <a href="#" data-en="Our Why" data-es="Nuestro Por Qué">Our Why</a>
+                    <a href="#" data-en="Join the Team" data-es="Únete al Equipo">Join the Team</a>
+                    <a href="#" data-en="Berean Labs" data-es="Berean Labs">Berean Labs</a>
+                    <a href="#" data-en="Contact Us" data-es="Contáctanos">Contact Us</a>
+                    <a href="#" data-en="FAQs" data-es="Preguntas Frecuentes">FAQs</a>
+                </div>
+
+                <div class="footer-column">
+                    <h4 data-en="Compare" data-es="Comparar">Compare</h4>
+                    <a href="#" data-en="Berean vs Bible Apps" data-es="Berean vs Apps de Biblia">Berean vs Bible Apps</a>
+                    <a href="#" data-en="Berean vs Devotionals" data-es="Berean vs Devocionales">Berean vs Devotionals</a>
+                    <a href="#" data-en="Others" data-es="Otros">Others</a>
+                </div>
+
+                <div class="footer-column">
+                    <h4 data-en="Library" data-es="Biblioteca">Library</h4>
+                    <a href="#" data-en="Guide to Applied Wisdom" data-es="Guía de Sabiduría Aplicada">Guide to Applied Wisdom</a>
+                    <a href="#" data-en="Behavioral Science" data-es="Ciencia Conductual">Behavioral Science</a>
+                    <a href="#" data-en="Mental Models" data-es="Modelos Mentales">Mental Models</a>
+                    <a href="#" data-en="Neuroscience Insights" data-es="Insights de Neurociencia">Neuroscience Insights</a>
+                </div>
+
+                <div class="footer-column">
+                    <h4 data-en="Partnerships" data-es="Alianzas">Partnerships</h4>
+                    <a href="#" data-en="For Creators" data-es="Para Creadores">For Creators</a>
+                    <a href="#" data-en="For Partners" data-es="Para Socios">For Partners</a>
+                    <a href="founders.html" target="_blank" data-en="For Founders" data-es="Para Fundadores">For Founders</a>
+                </div>
+
+                <div class="footer-column">
+                    <h4 data-en="Connect" data-es="Conecta">Connect</h4>
+                    <a href="#">X/Twitter</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="footer-bottom">
+        <div class="container">
+            <p>2026 Berean. <span data-en="All rights reserved" data-es="Todos los derechos reservados">All rights reserved</span></p>
+            <div class="footer-legal">
+                <a href="#" data-en="Terms" data-es="Términos">Terms</a>
+                <a href="#" data-en="Privacy policy" data-es="Política de privacidad">Privacy policy</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- NPS Survey Modal -->
+    <div class="modal-overlay" id="npsModal">
+        <div class="modal-content nps-modal">
+            <button class="modal-close" id="closeNps">&times;</button>
+            <div class="nps-content">
+                <h3>How likely are you to recommend Berean to a friend?</h3>
+                <div class="nps-scale">
+                    <button class="nps-btn" data-score="0">0</button>
+                    <button class="nps-btn" data-score="1">1</button>
+                    <button class="nps-btn" data-score="2">2</button>
+                    <button class="nps-btn" data-score="3">3</button>
+                    <button class="nps-btn" data-score="4">4</button>
+                    <button class="nps-btn" data-score="5">5</button>
+                    <button class="nps-btn" data-score="6">6</button>
+                    <button class="nps-btn" data-score="7">7</button>
+                    <button class="nps-btn" data-score="8">8</button>
+                    <button class="nps-btn" data-score="9">9</button>
+                    <button class="nps-btn" data-score="10">10</button>
+                </div>
+                <div class="nps-labels">
+                    <span>Not likely</span>
+                    <span>Very likely</span>
+                </div>
+                <div class="nps-feedback" id="npsFeedback" style="display: none;">
+                    <textarea id="npsFeedbackText" placeholder="What's the main reason for your score?"></textarea>
+                    <button class="btn btn-primary btn-full" id="submitNps">Submit</button>
+                </div>
+                <div class="nps-thanks" id="npsThanks" style="display: none;">
+                    <div class="nps-thanks-icon">🙏</div>
+                    <h4>Thank you!</h4>
+                    <p>Your feedback helps us improve.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Subscribe Modal -->
+    <div class="modal-overlay" id="subscribeModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeSubscribe">&times;</button>
+            <div class="modal-header">
+                <h2>Start Your Transformation</h2>
+                <p>Get daily verse notifications and your monthly transformation report.</p>
+            </div>
+            <form id="subscribeForm" class="subscribe-form">
                 <div class="form-group">
-                    <label>Delivery Method</label>
+                    <label for="subEmail">Email Address</label>
+                    <input type="email" id="subEmail" placeholder="you@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="subPhone">Phone (for WhatsApp) <span class="optional">Optional</span></label>
+                    <input type="tel" id="subPhone" placeholder="+1 234 567 8900">
+                </div>
+                <div class="form-group">
+                    <label>Delivery Preference</label>
                     <div class="delivery-options">
                         <label class="delivery-option">
-                            <input type="checkbox" id="deliveryEmail" checked>
-                            <span>📧 Email</span>
+                            <input type="checkbox" id="deliverEmail" checked>
+                            <span>Email</span>
                         </label>
                         <label class="delivery-option">
-                            <input type="checkbox" id="deliveryWhatsApp">
-                            <span>💬 WhatsApp</span>
+                            <input type="checkbox" id="deliverWhatsApp">
+                            <span>WhatsApp</span>
                         </label>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary btn-full" id="registerSubmit">
-                    <span class="btn-text">Get My First Protocol</span>
-                    <span class="btn-loading" style="display: none;"><span class="spinner"></span> Processing...</span>
+                <button type="submit" class="btn btn-primary btn-full">
+                    <span class="btn-text">Start Free</span>
+                    <span class="btn-loading" style="display: none;"><span class="spinner"></span></span>
                 </button>
-                <div class="register-error" id="registerError" style="display: none;">
-                    <p id="registerErrorMsg"></p>
-                </div>
-                <p class="form-privacy">One protocol per week. No spam. Unsubscribe anytime.</p>
+                <p class="form-privacy">No spam. Unsubscribe anytime.</p>
             </form>
-            <div class="register-success" id="registerSuccess" style="display: none;">
-                <div class="success-icon">✓</div>
+            <div class="subscribe-success" id="subscribeSuccess" style="display: none;">
+                <div class="success-icon">⚡</div>
                 <h3>You're In!</h3>
-                <p>Your first protocol arrives Monday morning. Get ready to upgrade your mental operating system.</p>
+                <p>Check your inbox for your first transformation.</p>
             </div>
         </div>
     </div>
 
-    <!-- History Modal -->
-    <div class="modal-overlay" id="historyModal">
-        <div class="modal-content">
-            <button class="modal-close" id="closeHistory">×</button>
-            <div class="modal-header">
-                <h2>Your Protocol Library</h2>
-            </div>
-            <ul class="history-list" id="historyList"></ul>
-            <p class="history-empty" id="historyEmpty">Your completed protocols will appear here.</p>
-        </div>
-    </div>
-
-    <script src="js/verses.js"></script>
-    <script src="js/bibleBooks.js"></script>
-    <script src="js/bibleService.js"></script>
-    <script src="js/businessProtocols.js"></script>
     <script src="js/storage.js"></script>
-    <script src="js/app.js"></script>
+    <script>
+        // Language state
+        let currentLang = localStorage.getItem('berean_lang') || 'en';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initLanguage();
+        });
+
+        function initLanguage() {
+            // Set active language button
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === currentLang);
+            });
+            // Apply translations
+            translatePage(currentLang);
+        }
+
+        function translatePage(lang) {
+            document.querySelectorAll('[data-en]').forEach(el => {
+                const text = el.getAttribute(`data-${lang}`);
+                if (text) {
+                    // Preserve SVG icons by only changing text content
+                    if (el.querySelector('svg')) {
+                        const svg = el.querySelector('svg').outerHTML;
+                        el.innerHTML = text + ' ' + svg;
+                    } else if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        el.placeholder = text;
+                    } else {
+                        el.innerHTML = text;
+                    }
+                }
+            });
+        }
+
+        // Language toggle
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                currentLang = btn.dataset.lang;
+                localStorage.setItem('berean_lang', currentLang);
+                document.querySelectorAll('.lang-btn').forEach(b => {
+                    b.classList.toggle('active', b.dataset.lang === currentLang);
+                });
+                translatePage(currentLang);
+            });
+        });
+
+        // Mobile menu
+        document.getElementById('navHamburger').addEventListener('click', () => {
+            document.getElementById('mobileMenu').classList.toggle('active');
+        });
+
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobileMenu').classList.remove('active');
+            });
+        });
+
+        // Subscribe modal
+        const subscribeModal = document.getElementById('subscribeModal');
+        const openSubscribe = () => subscribeModal.classList.add('active');
+        const closeSubscribe = () => subscribeModal.classList.remove('active');
+
+        document.getElementById('closeSubscribe').addEventListener('click', closeSubscribe);
+        subscribeModal.addEventListener('click', (e) => {
+            if (e.target === subscribeModal) closeSubscribe();
+        });
+
+        // CTA buttons open subscribe modal
+        ['navCtaBtn', 'heroCtaBtn', 'mobileCtaBtn', 'pricingFreeBtn', 'pricingProBtn', 'finalCtaBtn'].forEach(id => {
+            const btn = document.getElementById(id);
+            if (btn) btn.addEventListener('click', openSubscribe);
+        });
+
+        // Subscribe form
+        document.getElementById('subscribeForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = e.target.querySelector('button[type="submit"]');
+            const btnText = btn.querySelector('.btn-text');
+            const btnLoading = btn.querySelector('.btn-loading');
+
+            btnText.style.display = 'none';
+            btnLoading.style.display = 'flex';
+
+            // Simulate API call
+            await new Promise(r => setTimeout(r, 1500));
+
+            document.getElementById('subscribeForm').style.display = 'none';
+            document.getElementById('subscribeSuccess').style.display = 'block';
+
+            // Store subscription
+            const email = document.getElementById('subEmail').value;
+            const phone = document.getElementById('subPhone').value;
+            StorageManager.saveUserProfile({ email, phone });
+        });
+
+        // NPS Survey
+        const npsModal = document.getElementById('npsModal');
+        let npsScore = null;
+
+        // Show NPS after 3 page views or 2 minutes
+        const pageViews = parseInt(localStorage.getItem('berean_pageviews') || '0') + 1;
+        localStorage.setItem('berean_pageviews', pageViews);
+
+        if (pageViews >= 3 && !localStorage.getItem('berean_nps_shown')) {
+            setTimeout(() => {
+                npsModal.classList.add('active');
+                localStorage.setItem('berean_nps_shown', 'true');
+            }, 5000);
+        }
+
+        document.getElementById('closeNps').addEventListener('click', () => {
+            npsModal.classList.remove('active');
+        });
+
+        document.querySelectorAll('.nps-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                npsScore = parseInt(btn.dataset.score);
+                document.querySelectorAll('.nps-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                document.getElementById('npsFeedback').style.display = 'block';
+            });
+        });
+
+        document.getElementById('submitNps').addEventListener('click', () => {
+            const feedback = document.getElementById('npsFeedbackText').value;
+            // Store NPS
+            localStorage.setItem('berean_nps', JSON.stringify({ score: npsScore, feedback, date: new Date().toISOString() }));
+            document.getElementById('npsFeedback').style.display = 'none';
+            document.getElementById('npsThanks').style.display = 'block';
+            setTimeout(() => npsModal.classList.remove('active'), 2000);
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(anchor.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Hero Background Slider Animation
+        const heroSlides = document.querySelectorAll('.hero-slide');
+        let currentHeroSlide = 0;
+
+        function changeHeroSlide() {
+            heroSlides[currentHeroSlide].classList.remove('active');
+            currentHeroSlide = (currentHeroSlide + 1) % heroSlides.length;
+            heroSlides[currentHeroSlide].classList.add('active');
+        }
+
+        // Change slide every 5 seconds
+        setInterval(changeHeroSlide, 5000);
+    </script>
 </body>
 </html>
