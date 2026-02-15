@@ -37,12 +37,8 @@
                 <span class="journey-date" id="todayDate"></span>
             </div>
             <div class="journey-nav-actions">
-                <button class="help-btn" id="helpBtn" title="How it works">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
-                        <line x1="12" y1="17" x2="12.01" y2="17"></line>
-                    </svg>
+                <button class="guide-btn" id="helpBtn">
+                    <span data-en="Guide" data-es="Guía">Guide</span>
                 </button>
                 <div class="lang-toggle">
                     <button class="lang-btn active" data-lang="en">EN</button>
@@ -65,18 +61,63 @@
             </div>
 
             <!-- First Visit Onboarding -->
-            <div class="onboarding-tooltip" id="onboardingTooltip">
-                <button class="onboarding-close" id="closeOnboarding">&times;</button>
-                <h4 data-en="5 minutes to transform your day" data-es="5 minutos para transformar tu día">5 minutes to transform your day</h4>
-                <p data-en="Go beyond reading — truly understand and live the Word:" data-es="Ve más allá de leer — entiende y vive la Palabra:">Go beyond reading — truly understand and live the Word:</p>
-                <ol class="onboarding-steps">
-                    <li><span class="step-icon">📖</span> <span data-en="Read today's verse" data-es="Lee el versículo de hoy">Read today's verse</span></li>
-                    <li><span class="step-icon">🌍</span> <span data-en="Understand the context" data-es="Entiende el contexto">Understand the context</span></li>
-                    <li><span class="step-icon">🧠</span> <span data-en="Discover why it works" data-es="Descubre por qué funciona">Discover why it works</span></li>
-                    <li><span class="step-icon">⚡</span> <span data-en="Take action" data-es="Toma acción">Take action</span></li>
-                    <li><span class="step-icon">🙏</span> <span data-en="Close in prayer" data-es="Cierra en oración">Close in prayer</span></li>
-                </ol>
-                <button class="onboarding-start" id="startJourney" data-en="Let's begin" data-es="Comencemos">Let's begin</button>
+            <div class="onboarding-overlay" id="onboardingTooltip">
+                <div class="onboarding-card">
+                    <div class="onboarding-header">
+                        <span class="onboarding-badge" data-en="5 MIN DAILY" data-es="5 MIN DIARIOS">5 MIN DAILY</span>
+                        <h3 data-en="Scripture as your operating system" data-es="Las Escrituras como tu sistema operativo">Scripture as your operating system</h3>
+                        <p data-en="Not just reading — understanding, applying, and living the Word." data-es="No solo leer — entender, aplicar y vivir la Palabra.">Not just reading — understanding, applying, and living the Word.</p>
+                    </div>
+                    <div class="onboarding-journey">
+                        <div class="journey-step-item">
+                            <div class="step-num">1</div>
+                            <div class="step-info">
+                                <strong data-en="Read" data-es="Lee">Read</strong>
+                                <span data-en="Today's verse" data-es="El versículo de hoy">Today's verse</span>
+                            </div>
+                        </div>
+                        <div class="journey-step-item">
+                            <div class="step-num">2</div>
+                            <div class="step-info">
+                                <strong data-en="Understand" data-es="Entiende">Understand</strong>
+                                <span data-en="Historical context" data-es="Contexto histórico">Historical context</span>
+                            </div>
+                        </div>
+                        <div class="journey-step-item">
+                            <div class="step-num">3</div>
+                            <div class="step-info">
+                                <strong data-en="Discover" data-es="Descubre">Discover</strong>
+                                <span data-en="The science behind it" data-es="La ciencia detrás">The science behind it</span>
+                            </div>
+                        </div>
+                        <div class="journey-step-item">
+                            <div class="step-num">4</div>
+                            <div class="step-info">
+                                <strong data-en="Act" data-es="Actúa">Act</strong>
+                                <span data-en="One action today" data-es="Una acción hoy">One action today</span>
+                            </div>
+                        </div>
+                        <div class="journey-step-item">
+                            <div class="step-num">5</div>
+                            <div class="step-info">
+                                <strong data-en="Pray" data-es="Ora">Pray</strong>
+                                <span data-en="Close with intention" data-es="Cierra con intención">Close with intention</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="onboarding-start" id="startJourney" data-en="Start today's journey" data-es="Comenzar el viaje de hoy">Start today's journey</button>
+                    <button class="onboarding-skip" id="closeOnboarding" data-en="Skip intro" data-es="Saltar intro">Skip intro</button>
+                </div>
+            </div>
+
+            <!-- Back to Full Journey (for verse-only mode) -->
+            <div class="expand-journey-bar" id="expandBar">
+                <button class="expand-journey-btn" id="expandJourney">
+                    <span data-en="See full journey" data-es="Ver viaje completo">See full journey</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                </button>
             </div>
 
             <!-- STEP 1: TODAY'S VERSE -->
@@ -415,6 +456,22 @@
             document.getElementById('journeyProgress').style.display = 'none';
             document.querySelector('.continue-btn[data-next="2"]').style.display = 'none';
             document.getElementById('step1').classList.add('verse-only-mode');
+            document.querySelector('.journey-hero').style.display = 'none';
+            // Show expand bar
+            document.getElementById('expandBar').classList.add('show');
+        }
+
+        function expandJourney() {
+            // Show all sections again
+            document.querySelectorAll('.journey-section').forEach(section => {
+                section.style.display = '';
+            });
+            document.getElementById('journeyProgress').style.display = '';
+            document.querySelector('.continue-btn[data-next="2"]').style.display = '';
+            document.getElementById('step1').classList.remove('verse-only-mode');
+            document.querySelector('.journey-hero').style.display = '';
+            // Hide expand bar
+            document.getElementById('expandBar').classList.remove('show');
         }
 
         function setTodayDate() {
@@ -571,6 +628,7 @@
             document.getElementById('closeOnboarding').addEventListener('click', dismissOnboarding);
             document.getElementById('startJourney').addEventListener('click', dismissOnboarding);
             document.getElementById('skipToVerse').addEventListener('click', skipToVerseOnly);
+            document.getElementById('expandJourney').addEventListener('click', expandJourney);
             document.getElementById('helpBtn').addEventListener('click', () => {
                 document.getElementById('onboardingTooltip').classList.add('show');
             });
