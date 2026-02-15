@@ -223,6 +223,409 @@ ul, ol {
     opacity: 0.7;
 }
 
+.nav-title {
+    font-size: 15px;
+    font-weight: var(--weight-semibold);
+    color: var(--color-white);
+    opacity: 0.9;
+}
+
+/* 3 Steps Section - Premium Silicon Valley Design */
+.steps-section {
+    padding: var(--space-8) 0;
+    background: linear-gradient(180deg, #FAFAFA 0%, #FFFFFF 100%);
+    border-bottom: 1px solid var(--color-gray-light);
+}
+
+.steps-header {
+    text-align: center;
+    margin-bottom: var(--space-6);
+}
+
+.steps-eyebrow {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: var(--weight-bold);
+    letter-spacing: 0.1em;
+    color: var(--color-orange-primary);
+    margin-bottom: var(--space-2);
+}
+
+.steps-title {
+    font-size: 28px;
+    font-weight: var(--weight-bold);
+    color: var(--color-charcoal-dark);
+    margin: 0;
+}
+
+.steps-grid {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.step-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--space-4);
+    position: relative;
+}
+
+.step-icon-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--space-3);
+    position: relative;
+}
+
+.step-icon {
+    width: 64px;
+    height: 64px;
+    background: var(--color-white);
+    border: 2px solid var(--color-gray-light);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-charcoal-dark);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    position: relative;
+    z-index: 2;
+}
+
+.step-card:hover .step-icon {
+    border-color: var(--color-orange-primary);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(255, 99, 66, 0.15);
+}
+
+.step-icon-accent {
+    background: linear-gradient(135deg, var(--color-orange-primary) 0%, #FF8066 100%);
+    border-color: var(--color-orange-primary);
+    color: var(--color-white);
+}
+
+.step-card:hover .step-icon-accent {
+    box-shadow: 0 8px 24px rgba(255, 99, 66, 0.3);
+}
+
+.step-connector {
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-gray-light) 0%, var(--color-gray-light) 50%, transparent 100%);
+    z-index: 1;
+}
+
+.step-connector::before {
+    content: '';
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid var(--color-gray-light);
+    border-top: 2px solid var(--color-gray-light);
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.step-card-last .step-connector {
+    display: none;
+}
+
+.step-content {
+    text-align: center;
+    max-width: 240px;
+}
+
+.step-label {
+    font-size: 11px;
+    font-weight: var(--weight-bold);
+    letter-spacing: 0.05em;
+    color: var(--color-gray-medium);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+.step-card h3 {
+    font-size: 20px;
+    font-weight: var(--weight-bold);
+    color: var(--color-charcoal-dark);
+    margin-bottom: 4px;
+}
+
+.step-subtitle {
+    font-size: 14px;
+    font-weight: var(--weight-semibold);
+    color: var(--color-orange-primary);
+    margin-bottom: var(--space-2);
+}
+
+.step-description {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--color-gray-medium);
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .steps-section {
+        padding: var(--space-6) 0;
+    }
+
+    .steps-title {
+        font-size: 24px;
+    }
+
+    .steps-grid {
+        flex-direction: column;
+        gap: var(--space-2);
+        padding: 0 var(--space-2);
+    }
+
+    .step-card {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: var(--space-3);
+        padding: var(--space-3);
+        background: var(--color-white);
+        border-radius: var(--radius-lg);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+
+    .step-icon-wrapper {
+        margin-bottom: 0;
+        flex-shrink: 0;
+    }
+
+    .step-icon {
+        width: 52px;
+        height: 52px;
+        border-radius: 12px;
+    }
+
+    .step-connector {
+        display: none;
+    }
+
+    .step-content {
+        text-align: left;
+        max-width: none;
+    }
+
+    .step-card h3 {
+        font-size: 17px;
+    }
+
+    .step-subtitle {
+        font-size: 13px;
+    }
+
+    .step-description {
+        font-size: 13px;
+    }
+}
+
+/* Listen FAB Button */
+.listen-fab {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--color-orange-primary);
+    color: var(--color-white);
+    padding: 14px 24px;
+    border-radius: var(--radius-full);
+    border: none;
+    font-size: 15px;
+    font-weight: var(--weight-semibold);
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(255, 99, 66, 0.4);
+    transition: all var(--transition-normal);
+    z-index: 100;
+}
+
+.listen-fab:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(255, 99, 66, 0.5);
+}
+
+.listen-fab.hidden {
+    display: none;
+}
+
+.listen-fab svg {
+    flex-shrink: 0;
+}
+
+/* Floating Audio Player - Spotify/Headspace inspired */
+.audio-player {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--color-charcoal-dark);
+    color: var(--color-white);
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    z-index: 200;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.audio-player.active {
+    transform: translateY(0);
+}
+
+.audio-player-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.audio-section-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 100px;
+}
+
+.audio-section-label {
+    font-size: 14px;
+    font-weight: var(--weight-semibold);
+    color: var(--color-white);
+}
+
+.audio-progress {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.audio-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.audio-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    color: var(--color-white);
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all var(--transition-fast);
+}
+
+.audio-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.audio-btn:active {
+    transform: scale(0.95);
+}
+
+.audio-play-pause {
+    width: 56px;
+    height: 56px;
+    background: var(--color-orange-primary);
+    border-radius: 50%;
+}
+
+.audio-play-pause:hover {
+    background: var(--color-orange-hover);
+    transform: scale(1.05);
+}
+
+.audio-prev, .audio-next {
+    opacity: 0.8;
+}
+
+.audio-prev:hover, .audio-next:hover {
+    opacity: 1;
+}
+
+.audio-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all var(--transition-fast);
+}
+
+.audio-close:hover {
+    color: var(--color-white);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.audio-progress-bar {
+    height: 3px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.audio-progress-fill {
+    height: 100%;
+    background: var(--color-orange-primary);
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+/* Mobile adjustments for audio player */
+@media (max-width: 480px) {
+    .listen-fab {
+        bottom: 16px;
+        right: 16px;
+        padding: 12px 20px;
+    }
+
+    .listen-fab span {
+        display: none;
+    }
+
+    .listen-fab {
+        padding: 14px;
+        border-radius: 50%;
+    }
+
+    .audio-player-content {
+        padding: 12px 16px;
+    }
+
+    .audio-section-info {
+        min-width: 80px;
+    }
+
+    .audio-section-label {
+        font-size: 13px;
+    }
+
+    .audio-play-pause {
+        width: 48px;
+        height: 48px;
+    }
+}
+
 .nav-actions {
     display: flex;
     gap: 16px;
@@ -4273,6 +4676,157 @@ section {
     border-top: 1px solid rgba(255, 99, 66, 0.2);
 }
 
+/* Key Point Card */
+.key-point-card {
+    background: linear-gradient(135deg, #E8F4FD 0%, #F0F8FF 100%);
+    border: 2px solid rgba(59, 130, 246, 0.2);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4);
+}
+
+.key-point-content {
+    font-size: 18px;
+    font-weight: var(--weight-medium);
+    line-height: var(--line-relaxed);
+    color: var(--color-charcoal-dark);
+    text-align: center;
+    margin: 0;
+}
+
+/* Prayer Card */
+.prayer-card {
+    background: linear-gradient(135deg, #F3E8FF 0%, #FAF5FF 100%);
+    border: 2px solid rgba(147, 51, 234, 0.2);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4);
+}
+
+.prayer-text {
+    font-family: var(--font-verse);
+    font-size: 17px;
+    font-style: italic;
+    line-height: var(--line-loose);
+    color: var(--color-charcoal-dark);
+    margin: 0 0 var(--space-3) 0;
+    padding: 0;
+    border: none;
+}
+
+.prayer-science-details {
+    background: var(--color-white);
+    border: 1px solid rgba(147, 51, 234, 0.15);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    margin-top: var(--space-2);
+}
+
+.prayer-science-details summary {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-3);
+    cursor: pointer;
+    list-style: none;
+    transition: background var(--transition-fast);
+}
+
+.prayer-science-details summary::-webkit-details-marker {
+    display: none;
+}
+
+.prayer-science-details summary:hover {
+    background: var(--color-gray-lightest);
+}
+
+.prayer-science-details .card-icon {
+    font-size: 1rem;
+}
+
+.prayer-science-details .card-title {
+    flex: 1;
+    font-size: 14px;
+    font-weight: var(--weight-medium);
+    color: var(--color-charcoal-dark);
+}
+
+.prayer-science-details .card-expand {
+    font-size: 1rem;
+    color: var(--color-gray-medium);
+    transition: transform var(--transition-fast);
+}
+
+.prayer-science-details[open] .card-expand {
+    transform: rotate(45deg);
+}
+
+.prayer-science-details .card-content {
+    padding: 0 var(--space-3) var(--space-3);
+    font-size: 14px;
+    line-height: var(--line-relaxed);
+    color: var(--color-gray-medium);
+}
+
+/* Reflection Card */
+.reflection-card {
+    background: linear-gradient(135deg, #ECFDF5 0%, #F0FDF4 100%);
+    border: 2px solid rgba(16, 185, 129, 0.2);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4);
+}
+
+.reflection-content {
+    font-size: 17px;
+    font-weight: var(--weight-medium);
+    line-height: var(--line-relaxed);
+    color: var(--color-charcoal-dark);
+    margin: 0 0 var(--space-3) 0;
+}
+
+.reflection-card textarea {
+    width: 100%;
+    min-height: 120px;
+    padding: var(--space-3);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    border-radius: var(--radius-md);
+    font-family: var(--font-primary);
+    font-size: 15px;
+    line-height: var(--line-relaxed);
+    color: var(--color-charcoal-dark);
+    background: var(--color-white);
+    resize: vertical;
+    margin-bottom: var(--space-3);
+}
+
+.reflection-card textarea:focus {
+    outline: none;
+    border-color: rgba(16, 185, 129, 0.6);
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.reflection-card textarea::placeholder {
+    color: var(--color-gray-medium);
+}
+
+.save-reflection-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background: #10B981;
+    color: var(--color-white);
+    border: none;
+    border-radius: var(--radius-full);
+    font-size: 14px;
+    font-weight: var(--weight-semibold);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.save-reflection-btn:hover {
+    background: #059669;
+    transform: translateY(-1px);
+}
+
 /* Share CTA */
 .share-cta {
     text-align: center;
@@ -6139,4 +6693,2221 @@ section {
 
 .exercise-actions .btn-primary:hover {
     background: #2563EB;
+}
+
+/* =====================================================
+   BEREAN DAILY VERSE - PREMIUM UX REFINEMENTS
+   Structural improvements with original Superpower colors
+   ===================================================== */
+
+.berean-design {
+    background: #F9F9F9;
+    font-family: "Inter", -apple-system, sans-serif;
+    color: var(--color-charcoal-dark);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ==================== NAVIGATION ==================== */
+.berean-design .navigation-bar {
+    top: 12px;
+}
+
+.berean-design .nav-container {
+    background: var(--color-charcoal);
+    height: 52px;
+    padding: 0 20px;
+    border-radius: 26px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+}
+
+.berean-design .nav-logo {
+    font-size: 17px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.01em;
+}
+
+.berean-design .nav-title {
+    display: none;
+}
+
+/* FIX: Language Toggle - High Contrast */
+.berean-design .lang-toggle-nav {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 4px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.berean-design .lang-toggle-nav .lang-btn {
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.7);
+    border-radius: 16px;
+    transition: all 0.2s ease;
+}
+
+.berean-design .lang-toggle-nav .lang-btn.active {
+    background: #fff;
+    color: var(--color-charcoal);
+}
+
+.berean-design .lang-toggle-nav .lang-btn:hover:not(.active) {
+    color: #fff;
+}
+
+.berean-design .lang-toggle-nav .lang-divider {
+    display: none;
+}
+
+.berean-design .nav-cta {
+    background: var(--color-orange-primary);
+    height: 34px;
+    padding: 0 18px;
+    border-radius: 17px;
+    font-size: 13px;
+    font-weight: 600;
+    box-shadow: none;
+}
+
+.berean-design .nav-cta:hover {
+    background: var(--color-orange-hover);
+}
+
+/* ==================== HERO - MINIMAL ==================== */
+.berean-design .product-header {
+    background: #F9F9F9;
+    padding: 100px 20px 32px;
+    text-align: center;
+}
+
+.berean-design .product-header-content {
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+.berean-design .product-header-badge {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-orange-primary);
+    letter-spacing: 0.05em;
+    margin-bottom: 12px;
+}
+
+.berean-design .product-header h1 {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    color: var(--color-charcoal-dark);
+    margin-bottom: 12px;
+}
+
+.berean-design .product-header p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--color-gray-medium);
+    margin-bottom: 20px;
+}
+
+.berean-design .streak-display {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--color-orange-light);
+    padding: 8px 16px;
+    border-radius: 20px;
+}
+
+.berean-design .streak-flame {
+    font-size: 14px;
+}
+
+.berean-design .streak-number {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--color-orange-primary);
+}
+
+.berean-design .streak-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--color-gray-medium);
+}
+
+/* ==================== STEPS SECTION - VISIBLE ==================== */
+.berean-design .steps-section {
+    padding: 60px 0 40px;
+    background: #fff;
+}
+
+/* ==================== MAIN CONTENT - TIGHT SPACING ==================== */
+.berean-design .product-main {
+    padding: 0 20px 40px;
+    background: #F9F9F9;
+}
+
+.berean-design .analysis-wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ==================== VERSE CARD - WARM DARK ==================== */
+.berean-design .verse-card-large {
+    background: linear-gradient(145deg, #3D3632 0%, #2D2824 100%);
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: 0 8px 32px rgba(45, 40, 36, 0.25);
+    border: none;
+    margin-bottom: 20px;
+}
+
+.berean-design .verse-card-header {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.berean-design .version-toggle {
+    display: flex;
+    gap: 4px;
+}
+
+.berean-design .version-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: rgba(255, 255, 255, 0.6);
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 11px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.berean-design .version-btn.active {
+    background: var(--color-orange-primary);
+    color: #fff;
+}
+
+.berean-design .action-btn {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 18px;
+}
+
+.berean-design .action-btn:hover {
+    color: #fff;
+}
+
+.berean-design .verse-reference {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-orange-primary);
+    margin-bottom: 12px;
+    opacity: 0.9;
+}
+
+.berean-design .verse-text-large {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 22px;
+    line-height: 1.55;
+    color: #fff;
+    font-style: italic;
+    margin: 0;
+    border: none;
+    padding: 0;
+}
+
+/* ==================== SECTION TITLES - COMPACT ==================== */
+.berean-design .analysis-section {
+    margin-bottom: 16px;
+}
+
+.berean-design .analysis-section-title {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-gray-medium);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.berean-design .section-icon {
+    font-size: 16px;
+    opacity: 0.7;
+}
+
+/* ==================== ANALYSIS CARDS - COMPACT ==================== */
+.berean-design .analysis-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.berean-design .analysis-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: none;
+    transition: all 0.15s ease;
+}
+
+.berean-design .analysis-card:hover {
+    border-color: var(--sage);
+}
+
+.berean-design .analysis-card summary {
+    padding: 14px 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.berean-design .analysis-card .card-icon {
+    font-size: 16px;
+    opacity: 0.6;
+}
+
+.berean-design .analysis-card .card-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-charcoal-dark);
+    flex: 1;
+}
+
+.berean-design .analysis-card .card-expand {
+    color: var(--color-gray-medium);
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.berean-design .analysis-card[open] .card-expand {
+    transform: rotate(45deg);
+}
+
+.berean-design .analysis-card .card-content {
+    padding: 0 16px 16px;
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--color-gray-medium);
+}
+
+/* ==================== SPECIAL CARDS - WELLNESS COLORS ==================== */
+
+/* Key Insight - Sage */
+.berean-design .key-point-section {
+    margin-bottom: 16px;
+}
+
+.berean-design .key-point-card {
+    background: var(--sage-light);
+    border: none;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: none;
+}
+
+.berean-design .key-point-content {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--color-charcoal-dark);
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* Prayer - Cream */
+.berean-design .prayer-section {
+    margin-bottom: 16px;
+}
+
+.berean-design .prayer-card {
+    background: var(--cream-dark);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: none;
+}
+
+.berean-design .prayer-text {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--color-charcoal-dark);
+    font-style: italic;
+    margin: 0 0 16px 0;
+    border: none;
+    padding: 0;
+}
+
+.berean-design .prayer-science-details {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-top: 12px;
+}
+
+.berean-design .prayer-science-details summary {
+    padding: 12px 14px;
+    font-size: 13px;
+}
+
+.berean-design .prayer-science-details .card-content {
+    padding: 0 14px 14px;
+    font-size: 13px;
+}
+
+/* Experiment - Terracotta tint */
+.berean-design .experiment-card {
+    background: var(--color-orange-light);
+    border: none;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: none;
+}
+
+.berean-design .experiment-badge {
+    display: inline-block;
+    background: var(--color-orange-primary);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+}
+
+.berean-design .experiment-content {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--color-charcoal-dark);
+    margin-bottom: 16px;
+}
+
+.berean-design .experiment-commitment {
+    border-top: 1px solid rgba(196, 114, 95, 0.2);
+    padding-top: 16px;
+}
+
+.berean-design .commitment-checkbox {
+    font-size: 14px;
+    color: var(--color-gray-medium);
+}
+
+/* Reflection - White */
+.berean-design .reflection-section {
+    margin-bottom: 16px;
+}
+
+.berean-design .reflection-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: none;
+}
+
+.berean-design .reflection-content {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-charcoal-dark);
+    line-height: 1.5;
+    margin-bottom: 16px;
+}
+
+.berean-design .reflection-card textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 14px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--color-charcoal-dark);
+    background: #F9F9F9;
+    resize: vertical;
+    margin-bottom: 12px;
+}
+
+.berean-design .reflection-card textarea:focus {
+    outline: none;
+    border-color: var(--sage);
+}
+
+.berean-design .reflection-card textarea::placeholder {
+    color: var(--color-gray-medium);
+}
+
+.berean-design .save-reflection-btn {
+    background: var(--sage);
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 24px;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.berean-design .save-reflection-btn:hover {
+    background: #97A68F;
+}
+
+/* ==================== PROGRESS - MINIMAL ==================== */
+.berean-design .daily-progress {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.berean-design .progress-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.berean-design .progress-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-charcoal-dark);
+}
+
+.berean-design .progress-count {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--color-orange-primary);
+}
+
+.berean-design .progress-bar {
+    background: var(--cream-dark);
+    border-radius: 4px;
+    height: 6px;
+    overflow: hidden;
+}
+
+.berean-design .progress-fill {
+    background: var(--color-orange-primary);
+    border-radius: 4px;
+    height: 100%;
+}
+
+/* ==================== SHARE - MINIMAL ==================== */
+.berean-design .share-cta {
+    background: var(--cream-dark);
+    border: none;
+    border-radius: 16px;
+    padding: 24px;
+    text-align: center;
+    margin-top: 8px;
+}
+
+.berean-design .share-cta p {
+    font-size: 14px;
+    color: var(--color-gray-medium);
+    margin-bottom: 16px;
+}
+
+.berean-design .share-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.berean-design .share-btn {
+    background: #fff;
+    border: 1px solid var(--border);
+    color: var(--color-charcoal-dark);
+    padding: 10px 18px;
+    border-radius: 24px;
+    font-size: 13px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+}
+
+.berean-design .share-btn:hover {
+    border-color: var(--color-orange-primary);
+    color: var(--color-orange-primary);
+}
+
+.berean-design .share-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* ==================== FOOTER - MINIMAL ==================== */
+.berean-design .product-footer {
+    background: var(--color-charcoal);
+    padding: 32px 20px;
+    margin: 20px;
+    border-radius: 16px;
+    text-align: center;
+}
+
+.berean-design .product-footer .footer-logo {
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 4px;
+}
+
+.berean-design .product-footer p {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 13px;
+}
+
+/* ==================== AUDIO PLAYER - WELLNESS ==================== */
+.berean-design .listen-fab {
+    background: var(--color-orange-primary);
+    color: #fff;
+    padding: 14px 24px;
+    border-radius: 28px;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 8px 24px rgba(196, 114, 95, 0.3);
+    transition: all 0.2s ease;
+    bottom: 20px;
+    right: 20px;
+}
+
+.berean-design .listen-fab:hover {
+    background: var(--color-orange-hover);
+    transform: translateY(-2px);
+}
+
+.berean-design .audio-player {
+    background: var(--color-charcoal);
+    border-radius: 16px 16px 0 0;
+}
+
+.berean-design .audio-play-pause {
+    background: var(--color-orange-primary);
+    width: 52px;
+    height: 52px;
+}
+
+.berean-design .audio-play-pause:hover {
+    background: var(--color-orange-hover);
+}
+
+.berean-design .audio-progress-fill {
+    background: var(--color-orange-primary);
+}
+
+.berean-design .audio-section-label {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* ==================== MOBILE ==================== */
+@media (max-width: 640px) {
+    .berean-design .product-header {
+        padding: 90px 16px 24px;
+    }
+
+    .berean-design .product-header h1 {
+        font-size: 26px;
+    }
+
+    .berean-design .product-header p {
+        font-size: 14px;
+    }
+
+    .berean-design .product-main {
+        padding: 0 16px 32px;
+    }
+
+    .berean-design .verse-card-large {
+        padding: 22px;
+        border-radius: 16px;
+    }
+
+    .berean-design .verse-text-large {
+        font-size: 19px;
+    }
+
+    .berean-design .analysis-card summary {
+        padding: 12px 14px;
+    }
+
+    .berean-design .key-point-card,
+    .berean-design .prayer-card,
+    .berean-design .experiment-card,
+    .berean-design .reflection-card {
+        padding: 20px;
+    }
+
+    .berean-design .key-point-content {
+        font-size: 16px;
+    }
+
+    .berean-design .product-footer {
+        margin: 16px;
+        padding: 24px 16px;
+    }
+
+    .berean-design .listen-fab {
+        padding: 12px 20px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 380px) {
+    .berean-design .listen-fab span {
+        display: none;
+    }
+
+    .berean-design .listen-fab {
+        padding: 14px;
+        border-radius: 50%;
+        width: 52px;
+        height: 52px;
+        justify-content: center;
+    }
+}
+
+/* ==================== MODAL FIX ==================== */
+.berean-design .modal-overlay {
+    background: rgba(45, 45, 45, 0.6);
+    backdrop-filter: blur(4px);
+}
+
+.berean-design .modal-content {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+.berean-design .share-modal h3 {
+    color: var(--color-charcoal-dark);
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.berean-design .share-option {
+    background: #F9F9F9;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--color-charcoal-dark);
+    font-weight: 600;
+}
+
+.berean-design .share-option:hover {
+    border-color: var(--color-orange-primary);
+}
+
+/* =====================================================
+   TAB-BASED UX - PREMIUM NAVIGATION
+   ===================================================== */
+
+.berean-design .tab-navigation {
+    display: flex;
+    gap: 4px;
+    background: #fff;
+    padding: 6px;
+    border-radius: 16px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.berean-design .tab-btn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 12px 8px;
+    background: transparent;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-gray-medium);
+}
+
+.berean-design .tab-btn:hover {
+    background: var(--color-gray-lightest);
+}
+
+.berean-design .tab-btn.active {
+    background: var(--color-charcoal);
+    color: #fff;
+}
+
+.berean-design .tab-btn .tab-icon {
+    font-size: 18px;
+    line-height: 1;
+}
+
+.berean-design .tab-btn.active .tab-icon {
+    transform: scale(1.1);
+}
+
+/* Tab Panels */
+.berean-design .tab-panels {
+    min-height: 300px;
+}
+
+.berean-design .tab-panel {
+    display: none;
+    animation: tabFadeIn 0.3s ease;
+}
+
+.berean-design .tab-panel.active {
+    display: block;
+}
+
+@keyframes tabFadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Insight Card - Tab 1 */
+.berean-design .insight-card {
+    background: linear-gradient(135deg, #FFF8E7 0%, #FFF4DC 100%);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 16px;
+    border: 1px solid rgba(255, 200, 100, 0.3);
+}
+
+.berean-design .insight-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #B8860B;
+    margin-bottom: 12px;
+}
+
+.berean-design .insight-content {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--color-charcoal-dark);
+    font-weight: 500;
+    margin: 0;
+}
+
+/* Prayer Card - Tab 1 */
+.berean-design .prayer-card {
+    background: linear-gradient(135deg, #F8F4FF 0%, #F0EBFF 100%);
+    border-radius: 16px;
+    padding: 24px;
+    border: 1px solid rgba(150, 130, 200, 0.2);
+}
+
+.berean-design .prayer-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #6B5B95;
+    margin-bottom: 12px;
+}
+
+.berean-design .prayer-text {
+    font-family: 'Crimson Pro', Georgia, serif;
+    font-size: 17px;
+    line-height: 1.7;
+    font-style: italic;
+    color: var(--color-charcoal-dark);
+    margin: 0 0 16px 0;
+    padding: 0;
+    border: none;
+}
+
+.berean-design .prayer-science-details {
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 12px;
+    margin-top: 16px;
+}
+
+.berean-design .prayer-science-details summary {
+    padding: 12px 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-gray-medium);
+    list-style: none;
+}
+
+.berean-design .prayer-science-details summary::-webkit-details-marker {
+    display: none;
+}
+
+.berean-design .prayer-science-details .card-content {
+    padding: 0 16px 16px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--color-gray-medium);
+}
+
+/* Analysis Cards - Tabs 2 & 3 */
+.berean-design .analysis-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.berean-design .analysis-card {
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid var(--color-gray-light);
+    overflow: hidden;
+    transition: all 0.2s ease;
+}
+
+.berean-design .analysis-card:hover {
+    border-color: var(--color-orange-primary);
+}
+
+.berean-design .analysis-card summary {
+    padding: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    list-style: none;
+}
+
+.berean-design .analysis-card summary::-webkit-details-marker {
+    display: none;
+}
+
+.berean-design .analysis-card .card-icon {
+    font-size: 20px;
+}
+
+.berean-design .analysis-card .card-title {
+    flex: 1;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--color-charcoal-dark);
+}
+
+.berean-design .analysis-card .card-expand {
+    font-size: 18px;
+    color: var(--color-gray-medium);
+    transition: transform 0.2s ease;
+}
+
+.berean-design .analysis-card[open] .card-expand {
+    transform: rotate(45deg);
+}
+
+.berean-design .analysis-card .card-content {
+    padding: 0 16px 16px;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--color-gray-medium);
+}
+
+/* Experiment Card - Tab 4 */
+.berean-design .experiment-card {
+    background: linear-gradient(135deg, #E8F5E9 0%, #E0F2E1 100%);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 16px;
+    border: 1px solid rgba(100, 180, 100, 0.2);
+}
+
+.berean-design .experiment-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #2E7D32;
+    margin-bottom: 12px;
+}
+
+.berean-design .experiment-content {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--color-charcoal-dark);
+    margin: 0 0 20px 0;
+}
+
+.berean-design .experiment-commitment {
+    padding-top: 16px;
+    border-top: 1px solid rgba(100, 180, 100, 0.2);
+}
+
+.berean-design .commitment-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-charcoal-dark);
+}
+
+.berean-design .commitment-checkbox input {
+    width: 20px;
+    height: 20px;
+    accent-color: #2E7D32;
+}
+
+/* Reflection Card - Tab 4 */
+.berean-design .reflection-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px;
+    border: 1px solid var(--color-gray-light);
+    margin-bottom: 16px;
+}
+
+.berean-design .reflection-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-gray-medium);
+    margin-bottom: 12px;
+}
+
+.berean-design .reflection-content {
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--color-charcoal-dark);
+    font-weight: 500;
+    margin: 0 0 16px 0;
+}
+
+.berean-design .reflection-card textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 16px;
+    border: 1px solid var(--color-gray-light);
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 15px;
+    line-height: 1.6;
+    resize: vertical;
+    margin-bottom: 12px;
+    transition: border-color 0.2s ease;
+}
+
+.berean-design .reflection-card textarea:focus {
+    outline: none;
+    border-color: var(--color-orange-primary);
+}
+
+.berean-design .save-reflection-btn {
+    background: var(--color-charcoal);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.berean-design .save-reflection-btn:hover {
+    background: var(--color-charcoal-dark);
+}
+
+/* Progress Card - Tab 4 */
+.berean-design .daily-progress {
+    background: var(--color-gray-lightest);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.berean-design .progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.berean-design .progress-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-gray-medium);
+}
+
+.berean-design .progress-count {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--color-charcoal-dark);
+}
+
+.berean-design .progress-bar {
+    height: 8px;
+    background: var(--color-gray-light);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.berean-design .progress-fill {
+    height: 100%;
+    background: var(--color-orange-primary);
+    border-radius: 4px;
+    width: 0%;
+    transition: width 0.5s ease;
+}
+
+/* Mobile Responsive Tabs */
+@media (max-width: 480px) {
+    .berean-design .tab-btn {
+        padding: 10px 6px;
+        font-size: 11px;
+    }
+
+    .berean-design .tab-btn .tab-icon {
+        font-size: 16px;
+    }
+
+    .berean-design .insight-card,
+    .berean-design .prayer-card,
+    .berean-design .experiment-card,
+    .berean-design .reflection-card {
+        padding: 20px;
+    }
+
+    .berean-design .insight-content {
+        font-size: 16px;
+    }
+}
+
+/* =====================================================
+   BEREAN JOURNEY - GUIDED DAILY EXPERIENCE
+   Inspired by Headspace, Duolingo, Calm
+   ===================================================== */
+
+.berean-journey {
+    background: #FAFAFA;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #1A1A1A;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+}
+
+/* Sticky Progress Bar */
+.journey-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: #fff;
+    padding: 12px 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.journey-progress-inner {
+    max-width: 600px;
+    margin: 0 auto 8px;
+    height: 6px;
+    background: #E5E5E5;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.journey-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #FF6342 0%, #FF8A65 100%);
+    border-radius: 3px;
+    width: 0%;
+    transition: width 0.5s ease;
+}
+
+.journey-progress-steps {
+    display: flex;
+    justify-content: space-between;
+    max-width: 600px;
+    margin: 0 auto 6px;
+    padding: 0 20px;
+}
+
+.journey-step-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #E5E5E5;
+    transition: all 0.3s ease;
+}
+
+.journey-step-dot.active {
+    background: #FF6342;
+    transform: scale(1.2);
+}
+
+/* Removed green .completed - using only orange .active for visual consistency */
+
+.journey-progress-label {
+    display: flex;
+    justify-content: space-between;
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 12px;
+}
+
+.journey-current-step {
+    color: #666;
+    font-weight: 500;
+}
+
+.journey-step-name {
+    color: #FF6342;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Navigation */
+.journey-nav {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background: rgba(250, 250, 250, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #E5E5E5;
+}
+
+.journey-nav-inner {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.journey-logo {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1A1A1A;
+    letter-spacing: -0.02em;
+    text-decoration: none;
+}
+
+.journey-date {
+    font-size: 13px;
+    color: #666;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.lang-toggle {
+    display: flex;
+    gap: 4px;
+    background: #F0F0F0;
+    padding: 3px;
+    border-radius: 8px;
+}
+
+.lang-toggle .lang-btn {
+    padding: 6px 10px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #666;
+    background: transparent;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.lang-toggle .lang-btn.active {
+    background: #fff;
+    color: #1A1A1A;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Main Container */
+.journey-main {
+    padding: 140px 20px 60px;
+}
+
+.journey-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Journey Sections */
+.journey-section {
+    margin-bottom: 40px;
+    scroll-margin-top: 150px;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.step-label {
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    color: #1A1A1A;
+    text-transform: uppercase;
+}
+
+.step-check {
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    min-height: 24px;
+    flex-shrink: 0;
+    border: 2px solid #E5E5E5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+    transition: all 0.3s ease;
+}
+
+.step-check.checked {
+    background: #4CAF50;
+    border-color: #4CAF50;
+    color: #fff;
+}
+
+.step-check svg {
+    width: 14px;
+    height: 14px;
+}
+
+.section-intro {
+    font-size: 15px;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+/* Verse Card */
+.verse-card {
+    background: linear-gradient(145deg, #2C2C2C 0%, #1A1A1A 100%);
+    border-radius: 20px;
+    padding: 28px;
+    margin-bottom: 20px;
+}
+
+.verse-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.verse-reference {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #FF6342;
+}
+
+.verse-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.verse-action-btn {
+    width: 36px;
+    height: 36px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 50%;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.verse-action-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+.verse-text {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 22px;
+    line-height: 1.6;
+    color: #fff;
+    font-style: italic;
+    margin: 0 0 24px 0;
+    padding: 0;
+    border: none;
+}
+
+.verse-insight {
+    display: flex;
+    gap: 12px;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    align-items: flex-start;
+}
+
+.insight-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.insight-text {
+    font-size: 15px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+}
+
+/* Continue Button */
+.continue-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px 24px;
+    background: #1A1A1A;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.continue-btn:hover {
+    background: #333;
+    transform: translateY(-1px);
+}
+
+/* Context Cards */
+.context-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.context-card {
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #E5E5E5;
+    overflow: hidden;
+}
+
+.context-card summary {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    cursor: pointer;
+    list-style: none;
+}
+
+.context-card summary::-webkit-details-marker {
+    display: none;
+}
+
+.context-card .card-icon {
+    font-size: 18px;
+}
+
+.context-card .card-title {
+    flex: 1;
+    font-size: 15px;
+    font-weight: 600;
+    color: #1A1A1A;
+}
+
+.context-card .card-toggle {
+    font-size: 18px;
+    color: #999;
+    transition: transform 0.2s ease;
+}
+
+.context-card[open] .card-toggle {
+    transform: rotate(45deg);
+}
+
+.context-card .card-body {
+    padding: 0 16px 16px;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #666;
+}
+
+/* Science Cards */
+.science-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.science-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px;
+    border: 1px solid #E5E5E5;
+}
+
+.science-card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.science-card .card-icon {
+    font-size: 20px;
+}
+
+.science-card .card-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1A1A1A;
+}
+
+.science-card .card-body {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #666;
+    margin: 0;
+}
+
+/* Action Card - Your Move */
+.action-card {
+    background: linear-gradient(135deg, #1A1A1A 0%, #2D2D2D 100%);
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 16px;
+}
+
+.action-text {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #fff;
+    font-weight: 500;
+    margin: 0 0 24px 0;
+}
+
+.action-commit {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    cursor: pointer;
+    padding: 16px 20px;
+    background: linear-gradient(135deg, #4CAF50 0%, #43A047 100%);
+    border-radius: 12px;
+    transition: all 0.2s ease;
+}
+
+.action-commit:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(76, 175, 80, 0.3);
+}
+
+.action-commit input {
+    display: none;
+}
+
+.commit-checkbox {
+    width: 24px;
+    height: 24px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    background: transparent;
+}
+
+.action-commit input:checked + .commit-checkbox {
+    background: #fff;
+    border-color: #fff;
+}
+
+.action-commit input:checked + .commit-checkbox::after {
+    content: '✓';
+    color: #2E7D32;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.commit-text {
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.02em;
+}
+
+/* Reflection Card */
+.reflection-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px;
+    border: 1px solid #E5E5E5;
+    margin-bottom: 20px;
+}
+
+.reflection-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.reflection-header .card-icon {
+    font-size: 20px;
+}
+
+.reflection-header .card-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1A1A1A;
+}
+
+.reflection-question {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #1A1A1A;
+    font-weight: 500;
+    margin: 0 0 16px 0;
+}
+
+.reflection-input {
+    width: 100%;
+    min-height: 100px;
+    padding: 16px;
+    border: 1px solid #E5E5E5;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 15px;
+    line-height: 1.6;
+    resize: vertical;
+    transition: border-color 0.2s ease;
+}
+
+.reflection-input:focus {
+    outline: none;
+    border-color: #FF6342;
+}
+
+/* Prayer Card */
+.prayer-card {
+    background: linear-gradient(135deg, #FFF8F5 0%, #FFF0EB 100%);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 99, 66, 0.1);
+}
+
+.prayer-text {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #1A1A1A;
+    font-style: italic;
+    margin: 0 0 20px 0;
+    padding: 0;
+    border: none;
+}
+
+.prayer-science {
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 12px;
+}
+
+.prayer-science summary {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 16px;
+    cursor: pointer;
+    list-style: none;
+}
+
+.prayer-science summary::-webkit-details-marker {
+    display: none;
+}
+
+.prayer-science .card-icon {
+    font-size: 16px;
+}
+
+.prayer-science .card-title {
+    flex: 1;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1A1A1A;
+}
+
+.prayer-science .card-toggle {
+    font-size: 16px;
+    color: #FF6342;
+    transition: transform 0.2s ease;
+}
+
+.prayer-science[open] .card-toggle {
+    transform: rotate(45deg);
+}
+
+.prayer-science .card-body {
+    padding: 0 16px 16px;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #666;
+}
+
+/* Complete Button */
+.complete-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 18px 24px;
+    background: linear-gradient(135deg, #FF6342 0%, #FF8A65 100%);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 16px rgba(255, 99, 66, 0.3);
+}
+
+.complete-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 99, 66, 0.4);
+}
+
+/* Journey Hero Intro */
+.journey-hero {
+    text-align: center;
+    padding: 20px 0 40px;
+    margin-bottom: 20px;
+}
+
+.journey-hero h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #1A1A1A;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+}
+
+.journey-hero .hero-subtitle {
+    font-size: 17px;
+    color: #1A1A1A;
+    font-weight: 500;
+    line-height: 1.6;
+    max-width: 320px;
+    margin: 0 auto 8px;
+}
+
+.journey-hero .hero-time {
+    font-size: 14px;
+    color: #FF6342;
+    font-weight: 600;
+    margin: 0 auto 16px;
+}
+
+/* Skip to Verse Link */
+.skip-link {
+    display: inline-block;
+    background: none;
+    border: none;
+    color: #888;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 8px 16px;
+    transition: color 0.2s ease;
+}
+
+.skip-link:hover {
+    color: #FF6342;
+}
+
+/* Onboarding Tooltip */
+.onboarding-tooltip {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    border-radius: 20px;
+    padding: 32px;
+    max-width: 340px;
+    width: 90%;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    z-index: 2000;
+    text-align: left;
+}
+
+.onboarding-tooltip.show {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+.onboarding-tooltip::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+.onboarding-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #999;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.onboarding-close:hover {
+    color: #333;
+}
+
+.onboarding-tooltip h4 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1A1A1A;
+    margin: 0 0 8px;
+}
+
+.onboarding-tooltip > p {
+    font-size: 14px;
+    color: #666;
+    margin: 0 0 16px;
+}
+
+.onboarding-steps {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px;
+    counter-reset: step;
+}
+
+.onboarding-steps li {
+    position: relative;
+    padding-left: 36px;
+    padding-bottom: 12px;
+    font-size: 14px;
+    color: #333;
+    counter-increment: step;
+}
+
+.onboarding-steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 24px;
+    height: 24px;
+    background: #FFF0EB;
+    color: #FF6342;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.onboarding-start {
+    width: 100%;
+    padding: 14px 24px;
+    background: linear-gradient(135deg, #FF6342 0%, #FF8A65 100%);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.onboarding-start:hover {
+    transform: translateY(-2px);
+}
+
+/* Verse Only Mode */
+.verse-only-mode {
+    min-height: calc(100vh - 200px);
+}
+
+.verse-only-mode .continue-btn {
+    display: none;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translate(-50%, -50%) scale(0.95); }
+    to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+/* Journey Complete - SUPERPOWERED */
+.journey-complete {
+    display: none;
+    text-align: center;
+    padding: 60px 20px;
+    margin-top: 20px;
+    background: linear-gradient(180deg, #FFF5F2 0%, #FFEBE5 100%);
+    border-radius: 24px;
+    border: 2px solid rgba(255, 99, 66, 0.15);
+}
+
+.journey-complete.show {
+    display: block;
+    animation: superpoweredIn 0.6s ease;
+}
+
+@keyframes superpoweredIn {
+    0% { opacity: 0; transform: scale(0.9); }
+    50% { transform: scale(1.02); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+.complete-icon {
+    font-size: 72px;
+    margin-bottom: 16px;
+    animation: pulse 2s ease infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.journey-complete h2 {
+    font-size: 32px;
+    font-weight: 900;
+    color: #FF6342;
+    letter-spacing: 0.1em;
+    margin-bottom: 16px;
+}
+
+.complete-tagline {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1A1A1A;
+    margin: 0 0 4px 0 !important;
+}
+
+.complete-cta {
+    font-size: 16px;
+    color: #666;
+    font-style: italic;
+    margin: 0 0 24px 0 !important;
+}
+
+.streak-display {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #FFF3E0;
+    padding: 12px 24px;
+    border-radius: 50px;
+    margin-bottom: 24px;
+}
+
+.streak-flame {
+    font-size: 20px;
+}
+
+.streak-count {
+    font-size: 24px;
+    font-weight: 700;
+    color: #E65100;
+}
+
+.streak-label {
+    font-size: 14px;
+    color: #666;
+}
+
+.complete-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.share-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: #1A1A1A;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.review-btn {
+    padding: 12px 24px;
+    background: transparent;
+    color: #666;
+    border: 1px solid #E5E5E5;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Audio Player */
+.audio-player {
+    position: fixed;
+    bottom: -100px;
+    left: 20px;
+    right: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+    background: #1A1A1A;
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    transition: bottom 0.3s ease;
+    z-index: 1001;
+}
+
+.audio-player.active {
+    bottom: 20px;
+}
+
+.audio-player-content {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.audio-info {
+    flex: 1;
+}
+
+.audio-section {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.audio-progress {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.audio-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.audio-btn {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 50%;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.audio-btn.audio-play {
+    width: 48px;
+    height: 48px;
+    background: #FF6342;
+}
+
+.audio-close {
+    width: 32px;
+    height: 32px;
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.audio-progress-bar {
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    margin-top: 12px;
+    overflow: hidden;
+}
+
+.audio-progress-fill {
+    height: 100%;
+    background: #FF6342;
+    border-radius: 2px;
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+/* Modal */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    padding: 20px;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal-content {
+    background: #fff;
+    border-radius: 20px;
+    padding: 32px;
+    max-width: 400px;
+    width: 100%;
+    position: relative;
+}
+
+.modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 32px;
+    height: 32px;
+    background: #F0F0F0;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.modal-content h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.share-preview {
+    background: #F5F5F5;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 20px;
+}
+
+.share-preview strong {
+    display: block;
+    font-size: 13px;
+    color: #FF6342;
+    margin-bottom: 8px;
+}
+
+.share-preview p {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+}
+
+.share-options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.share-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    background: #F5F5F5;
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #1A1A1A;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.share-option:hover {
+    background: #E5E5E5;
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+    .journey-progress-bar {
+        padding: 10px 16px;
+    }
+
+    .journey-nav-inner {
+        padding: 10px 16px;
+    }
+
+    .journey-main {
+        padding: 130px 16px 60px;
+    }
+
+    .verse-card {
+        padding: 24px 20px;
+    }
+
+    .verse-text {
+        font-size: 20px;
+    }
+
+    .journey-complete h2 {
+        font-size: 24px;
+    }
+
+    .complete-actions {
+        flex-direction: column;
+    }
 }

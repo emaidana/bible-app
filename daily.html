@@ -8,238 +8,362 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 </head>
-<body class="product-page">
+<body class="berean-journey">
+    <!-- Sticky Progress Bar -->
+    <div class="journey-progress-bar" id="journeyProgress">
+        <div class="journey-progress-inner">
+            <div class="journey-progress-fill" id="journeyFill"></div>
+        </div>
+        <div class="journey-progress-steps">
+            <div class="journey-step-dot active" data-step="1"></div>
+            <div class="journey-step-dot" data-step="2"></div>
+            <div class="journey-step-dot" data-step="3"></div>
+            <div class="journey-step-dot" data-step="4"></div>
+            <div class="journey-step-dot" data-step="5"></div>
+        </div>
+        <div class="journey-progress-label">
+            <span class="journey-current-step" id="currentStepLabel" data-en="Step 1 of 5" data-es="Paso 1 de 5">Step 1 of 5</span>
+            <span class="journey-step-name" id="currentStepName" data-en="Read" data-es="Leer">Read</span>
+        </div>
+    </div>
+
     <!-- Navigation -->
-    <nav class="navigation-bar nav-light">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">berean</a>
-            <div class="nav-links">
-                <a href="daily.html" class="active">Daily</a>
-                <a href="weekly.html">Weekly</a>
-                <a href="search.html">Search</a>
-                <a href="topics.html">Topics</a>
-                <a href="founders.html">Founders</a>
+    <nav class="journey-nav">
+        <div class="journey-nav-inner">
+            <a href="index.html" class="journey-logo">berean</a>
+            <div class="journey-nav-center">
+                <span class="journey-date" id="todayDate"></span>
             </div>
-            <div class="nav-actions">
-                <button class="nav-cta" id="shareBtn">Share</button>
+            <div class="journey-nav-actions">
+                <div class="lang-toggle">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="es">ES</button>
+                </div>
             </div>
-            <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
         </div>
     </nav>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-        <a href="daily.html" class="active">Daily Verse</a>
-        <a href="weekly.html">Weekly Study</a>
-        <a href="search.html">Verse Search</a>
-        <a href="topics.html">Topics</a>
-        <a href="founders.html">For Founders</a>
-    </div>
+    <!-- Main Journey Container -->
+    <main class="journey-main">
+        <div class="journey-container">
 
-    <!-- Product Header -->
-    <header class="product-header">
-        <div class="container">
-            <div class="product-header-content">
-                <div class="product-header-badge">☀️ Daily Verse</div>
-                <h1>Today's Superpowered Verse</h1>
-                <p>One verse. Complete analysis. Actionable experiment. Start your day transformed.</p>
-                <div class="streak-display">
-                    <span class="streak-flame">🔥</span>
-                    <span class="streak-number" id="streakNumber">0</span>
-                    <span class="streak-label">day streak</span>
-                </div>
+            <!-- Hero Intro -->
+            <div class="journey-hero">
+                <h1 data-en="Living Superpowered" data-es="Viviendo Superpotenciado">Living Superpowered</h1>
+                <p class="hero-subtitle" data-en="One verse. Deeply understood. Actually lived." data-es="Un versículo. Profundamente entendido. Realmente vivido.">One verse. Deeply understood. Actually lived.</p>
+                <p class="hero-time" data-en="5 minutes to transform your day" data-es="5 minutos para transformar tu día">5 minutes to transform your day</p>
+                <button class="skip-link" id="skipToVerse" data-en="Just show me the verse →" data-es="Solo muéstrame el versículo →">Just show me the verse →</button>
             </div>
-        </div>
-    </header>
 
-    <!-- Main Content -->
-    <main class="product-main">
-        <div class="container">
-            <!-- Verse Card -->
-            <article class="verse-card-large">
-                <div class="verse-card-header">
-                    <div class="version-toggle" id="versionToggle">
-                        <button class="version-btn active" data-version="KJV">KJV</button>
-                        <button class="version-btn" data-version="ESV">ESV</button>
+            <!-- First Visit Onboarding -->
+            <div class="onboarding-tooltip" id="onboardingTooltip">
+                <button class="onboarding-close" id="closeOnboarding">&times;</button>
+                <h4 data-en="How it works" data-es="Cómo funciona">How it works</h4>
+                <p data-en="5 steps to truly understand and live today's verse:" data-es="5 pasos para entender y vivir el versículo de hoy:">5 steps to truly understand and live today's verse:</p>
+                <ol class="onboarding-steps">
+                    <li data-en="Read today's verse" data-es="Lee el versículo de hoy">Read today's verse</li>
+                    <li data-en="Understand the context" data-es="Entiende el contexto">Understand the context</li>
+                    <li data-en="Discover why it works" data-es="Descubre por qué funciona">Discover why it works</li>
+                    <li data-en="Take action" data-es="Toma acción">Take action</li>
+                    <li data-en="Close in prayer" data-es="Cierra en oración">Close in prayer</li>
+                </ol>
+                <button class="onboarding-start" id="startJourney" data-en="Let's begin" data-es="Comencemos">Let's begin</button>
+            </div>
+
+            <!-- STEP 1: TODAY'S VERSE -->
+            <section class="journey-section" data-journey-step="1" id="step1">
+                <div class="section-header">
+                    <span class="step-label" data-en="TODAY'S VERSE" data-es="VERSÍCULO DE HOY">TODAY'S VERSE</span>
+                    <div class="step-check" id="check1">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
                     </div>
-                    <div class="verse-actions">
-                        <button class="action-btn" id="bookmarkBtn" aria-label="Bookmark">
-                            <span class="bookmark-icon">♡</span>
+                </div>
+
+                <div class="verse-card">
+                    <div class="verse-header">
+                        <div class="verse-reference" id="verseReference">Loading...</div>
+                        <div class="verse-actions">
+                            <button class="verse-action-btn" id="bookmarkBtn">
+                                <span class="bookmark-icon">♡</span>
+                            </button>
+                            <button class="verse-action-btn" id="listenBtn">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <blockquote class="verse-text" id="verseText"></blockquote>
+                    <div class="verse-insight">
+                        <span class="insight-icon">💡</span>
+                        <p class="insight-text" id="keyPointContent"></p>
+                    </div>
+                </div>
+
+                <button class="continue-btn" data-next="2">
+                    <span data-en="Continue to Context" data-es="Continuar al Contexto">Continue to Context</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </section>
+
+            <!-- STEP 2: THE CONTEXT -->
+            <section class="journey-section" data-journey-step="2" id="step2">
+                <div class="section-header">
+                    <span class="step-label" data-en="THE CONTEXT" data-es="EL CONTEXTO">THE CONTEXT</span>
+                    <div class="step-check" id="check2">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </div>
+                </div>
+
+                <p class="section-intro" data-en="What the original audience knew that we don't." data-es="Lo que la audiencia original sabía y nosotros no.">What the original audience knew that we don't.</p>
+
+                <div class="context-cards">
+                    <details class="context-card" open>
+                        <summary>
+                            <span class="card-icon">📜</span>
+                            <span class="card-title" data-en="Historical" data-es="Histórico">Historical</span>
+                            <span class="card-toggle">+</span>
+                        </summary>
+                        <div class="card-body" id="historicalContent"></div>
+                    </details>
+
+                    <details class="context-card">
+                        <summary>
+                            <span class="card-icon">💰</span>
+                            <span class="card-title" data-en="Economic" data-es="Económico">Economic</span>
+                            <span class="card-toggle">+</span>
+                        </summary>
+                        <div class="card-body" id="economicContent"></div>
+                    </details>
+
+                    <details class="context-card">
+                        <summary>
+                            <span class="card-icon">👥</span>
+                            <span class="card-title" data-en="Social & Cultural" data-es="Social y Cultural">Social & Cultural</span>
+                            <span class="card-toggle">+</span>
+                        </summary>
+                        <div class="card-body" id="socialContent"></div>
+                    </details>
+
+                    <details class="context-card">
+                        <summary>
+                            <span class="card-icon">🏛️</span>
+                            <span class="card-title" data-en="Political" data-es="Político">Political</span>
+                            <span class="card-toggle">+</span>
+                        </summary>
+                        <div class="card-body" id="politicalContent"></div>
+                    </details>
+
+                    <details class="context-card">
+                        <summary>
+                            <span class="card-icon">✍️</span>
+                            <span class="card-title" data-en="The Author" data-es="El Autor">The Author</span>
+                            <span class="card-toggle">+</span>
+                        </summary>
+                        <div class="card-body" id="authorContent"></div>
+                    </details>
+                </div>
+
+                <button class="continue-btn" data-next="3">
+                    <span data-en="Continue to Science" data-es="Continuar a la Ciencia">Continue to Science</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </section>
+
+            <!-- STEP 3: WHY IT WORKS -->
+            <section class="journey-section" data-journey-step="3" id="step3">
+                <div class="section-header">
+                    <span class="step-label" data-en="WHY IT WORKS" data-es="POR QUÉ FUNCIONA">WHY IT WORKS</span>
+                    <div class="step-check" id="check3">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </div>
+                </div>
+
+                <p class="section-intro" data-en="The science behind why this ancient wisdom actually works." data-es="La ciencia detrás de por qué esta antigua sabiduría realmente funciona.">The science behind why this ancient wisdom actually works.</p>
+
+                <div class="context-cards">
+                    <details class="context-card" open>
+                        <summary>
+                            <span class="card-icon">🧠</span>
+                            <span class="card-title" data-en="Neuroscience" data-es="Neurociencia">Neuroscience</span>
+                            <span class="card-toggle">+</span>
+                        </summary>
+                        <div class="card-body" id="neuroscienceContent"></div>
+                    </details>
+
+                    <details class="context-card">
+                        <summary>
+                            <span class="card-icon">🔬</span>
+                            <span class="card-title" data-en="Behavioral Science" data-es="Ciencia del Comportamiento">Behavioral Science</span>
+                            <span class="card-toggle">+</span>
+                        </summary>
+                        <div class="card-body" id="behavioralContent"></div>
+                    </details>
+                </div>
+
+                <button class="continue-btn" data-next="4">
+                    <span data-en="Continue to Action" data-es="Continuar a la Acción">Continue to Action</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </section>
+
+            <!-- STEP 4: YOUR ACTION -->
+            <section class="journey-section" data-journey-step="4" id="step4">
+                <div class="section-header">
+                    <span class="step-label" data-en="YOUR ACTION" data-es="TU ACCIÓN">YOUR ACTION</span>
+                    <div class="step-check" id="check4">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </div>
+                </div>
+
+                <p class="section-intro" data-en="One small action to put today's truth into practice." data-es="Una pequeña acción para poner en práctica la verdad de hoy.">One small action to put today's truth into practice.</p>
+
+                <div class="action-card">
+                    <p class="action-text" id="nudgeContent"></p>
+                    <label class="action-commit">
+                        <input type="checkbox" id="commitCheckbox">
+                        <span class="commit-checkbox"></span>
+                        <span class="commit-text" data-en="I'm in" data-es="Voy">I'm in</span>
+                    </label>
+                </div>
+
+                <div class="reflection-card">
+                    <div class="reflection-header">
+                        <span class="card-icon">💭</span>
+                        <span class="card-title" data-en="Reflection" data-es="Reflexión">Reflection</span>
+                    </div>
+                    <p class="reflection-question" id="reflectionContent"></p>
+                    <textarea class="reflection-input" id="reflectionAnswer" placeholder="Write your thoughts..." data-en="Write your thoughts..." data-es="Escribe tus pensamientos..."></textarea>
+                </div>
+
+                <button class="continue-btn" data-next="5">
+                    <span data-en="Continue to Prayer" data-es="Continuar a la Oración">Continue to Prayer</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </section>
+
+            <!-- STEP 5: CLOSE IN PRAYER -->
+            <section class="journey-section" data-journey-step="5" id="step5">
+                <div class="section-header">
+                    <span class="step-label" data-en="CLOSE IN PRAYER" data-es="CIERRA EN ORACIÓN">CLOSE IN PRAYER</span>
+                    <div class="step-check" id="check5">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="prayer-card">
+                    <blockquote class="prayer-text" id="prayerContent"></blockquote>
+                    <details class="prayer-science">
+                        <summary>
+                            <span class="card-icon">🧬</span>
+                            <span class="card-title" data-en="Science of Prayer" data-es="Ciencia de la Oración">Science of Prayer</span>
+                            <span class="card-toggle">+</span>
+                        </summary>
+                        <div class="card-body" id="prayerScienceContent"></div>
+                    </details>
+                </div>
+
+                <button class="complete-btn" id="completeJourney">
+                    <span data-en="Complete Today" data-es="Completar Hoy">Complete Today</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                </button>
+            </section>
+
+            <!-- COMPLETION STATE -->
+            <section class="journey-complete" id="journeyComplete">
+                <div class="complete-content">
+                    <div class="complete-icon">⚡</div>
+                    <h2 data-en="SUPERPOWERED" data-es="SUPERPOTENCIADO">SUPERPOWERED</h2>
+                    <p class="complete-tagline" data-en="You were built for more." data-es="Fuiste creado para más.">You were built for more.</p>
+                    <p class="complete-cta" data-en="Now go live it." data-es="Ahora ve y vívelo.">Now go live it.</p>
+                    <div class="streak-display">
+                        <span class="streak-flame">🔥</span>
+                        <span class="streak-count" id="streakNumber">0</span>
+                        <span class="streak-label" data-en="day streak" data-es="días seguidos">day streak</span>
+                    </div>
+                    <div class="complete-actions">
+                        <button class="share-btn" id="shareComplete">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+                                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+                            </svg>
+                            <span data-en="Share" data-es="Compartir">Share</span>
+                        </button>
+                        <button class="review-btn" id="reviewJourney">
+                            <span data-en="Review" data-es="Revisar">Review</span>
                         </button>
                     </div>
                 </div>
-                <div class="verse-reference" id="verseReference">Loading...</div>
-                <blockquote class="verse-text-large" id="verseText"></blockquote>
-            </article>
+            </section>
 
-            <!-- Analysis Sections -->
-            <div class="analysis-wrapper">
-                <!-- Context Section -->
-                <section class="analysis-section">
-                    <h2 class="analysis-section-title">
-                        <span class="section-icon">🌍</span>
-                        The World Behind the Text
-                    </h2>
-
-                    <div class="analysis-cards">
-                        <details class="analysis-card" open>
-                            <summary>
-                                <span class="card-icon">📜</span>
-                                <span class="card-title">Historical Context</span>
-                                <span class="card-expand">+</span>
-                            </summary>
-                            <div class="card-content" id="historicalContent"></div>
-                        </details>
-
-                        <details class="analysis-card">
-                            <summary>
-                                <span class="card-icon">💰</span>
-                                <span class="card-title">Economic Context</span>
-                                <span class="card-expand">+</span>
-                            </summary>
-                            <div class="card-content" id="economicContent"></div>
-                        </details>
-
-                        <details class="analysis-card">
-                            <summary>
-                                <span class="card-icon">👥</span>
-                                <span class="card-title">Social & Cultural</span>
-                                <span class="card-expand">+</span>
-                            </summary>
-                            <div class="card-content" id="socialContent"></div>
-                        </details>
-
-                        <details class="analysis-card">
-                            <summary>
-                                <span class="card-icon">🏛️</span>
-                                <span class="card-title">Political Context</span>
-                                <span class="card-expand">+</span>
-                            </summary>
-                            <div class="card-content" id="politicalContent"></div>
-                        </details>
-
-                        <details class="analysis-card">
-                            <summary>
-                                <span class="card-icon">✍️</span>
-                                <span class="card-title">About the Author</span>
-                                <span class="card-expand">+</span>
-                            </summary>
-                            <div class="card-content" id="authorContent"></div>
-                        </details>
-                    </div>
-                </section>
-
-                <!-- Science Section -->
-                <section class="analysis-section">
-                    <h2 class="analysis-section-title">
-                        <span class="section-icon">🧠</span>
-                        The Science
-                    </h2>
-
-                    <div class="analysis-cards">
-                        <details class="analysis-card" open>
-                            <summary>
-                                <span class="card-icon">🧬</span>
-                                <span class="card-title">Neuroscience</span>
-                                <span class="card-expand">+</span>
-                            </summary>
-                            <div class="card-content" id="neuroscienceContent"></div>
-                        </details>
-
-                        <details class="analysis-card">
-                            <summary>
-                                <span class="card-icon">🔬</span>
-                                <span class="card-title">Behavioral Science</span>
-                                <span class="card-expand">+</span>
-                            </summary>
-                            <div class="card-content" id="behavioralContent"></div>
-                        </details>
-                    </div>
-                </section>
-
-                <!-- Action Section -->
-                <section class="analysis-section">
-                    <h2 class="analysis-section-title">
-                        <span class="section-icon">🎯</span>
-                        Today's Experiment
-                    </h2>
-
-                    <div class="experiment-card">
-                        <div class="experiment-badge">Behavioral Experiment</div>
-                        <p class="experiment-content" id="nudgeContent"></p>
-                        <div class="experiment-commitment">
-                            <label class="commitment-checkbox">
-                                <input type="checkbox" id="commitCheckbox">
-                                <span class="checkbox-custom"></span>
-                                <span>I commit to running this experiment today</span>
-                            </label>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Progress -->
-                <div class="daily-progress">
-                    <div class="progress-header">
-                        <span class="progress-title">Your Progress</span>
-                        <span class="progress-count" id="progressCount">0/7</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" id="progressFill"></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Share CTA -->
-            <div class="share-cta">
-                <p>Found this transformative? Share it with someone who needs it.</p>
-                <div class="share-buttons">
-                    <button class="share-btn share-whatsapp" id="shareWhatsApp">
-                        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                        </svg>
-                        Share on WhatsApp
-                    </button>
-                    <button class="share-btn share-email" id="shareEmail">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                            <polyline points="22,6 12,13 2,6"/>
-                        </svg>
-                        Share via Email
-                    </button>
-                </div>
-            </div>
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="product-footer">
-        <div class="container">
-            <a href="index.html" class="footer-logo">berean</a>
-            <p>Live a Superpowered Life</p>
+    <!-- Floating Audio Player -->
+    <div class="audio-player" id="audioPlayer">
+        <div class="audio-player-content">
+            <div class="audio-info">
+                <span class="audio-section" id="audioSectionLabel">Verse</span>
+                <span class="audio-progress" id="audioProgress">1/5</span>
+            </div>
+            <div class="audio-controls">
+                <button class="audio-btn" id="audioPrev">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
+                </button>
+                <button class="audio-btn audio-play" id="audioPlayPause">
+                    <svg class="play-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                    <svg class="pause-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                </button>
+                <button class="audio-btn" id="audioNext">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
+                </button>
+            </div>
+            <button class="audio-close" id="audioClose">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+            </button>
         </div>
-    </footer>
+        <div class="audio-progress-bar">
+            <div class="audio-progress-fill" id="audioProgressFill"></div>
+        </div>
+    </div>
 
     <!-- Share Modal -->
     <div class="modal-overlay" id="shareModal">
-        <div class="modal-content share-modal">
+        <div class="modal-content">
             <button class="modal-close" id="closeShare">&times;</button>
-            <h3>Share Today's Verse</h3>
+            <h3 data-en="Share Today's Verse" data-es="Compartir el Versículo de Hoy">Share Today's Verse</h3>
             <div class="share-preview" id="sharePreview"></div>
             <div class="share-options">
-                <button class="share-option" id="copyLink">
-                    <span>📋</span> Copy Link
-                </button>
                 <button class="share-option" id="shareWA">
                     <span>💬</span> WhatsApp
                 </button>
                 <button class="share-option" id="shareEM">
                     <span>📧</span> Email
+                </button>
+                <button class="share-option" id="copyLink">
+                    <span>📋</span> <span data-en="Copy Link" data-es="Copiar Enlace">Copy Link</span>
                 </button>
             </div>
         </div>
@@ -249,24 +373,78 @@
     <script src="js/storage.js"></script>
     <script>
         let currentVerse = null;
-        const lang = 'en';
+        let currentLang = localStorage.getItem('berean_lang') || 'es';
+        let currentStep = 1;
+        let completedSteps = new Set();
 
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
+            initLanguage();
             loadDailyVerse();
             updateStreak();
             setupEventListeners();
+            setTodayDate();
+            updateJourneyProgress();
+            checkFirstVisit();
         });
+
+        function checkFirstVisit() {
+            const hasVisited = localStorage.getItem('berean_onboarded');
+            if (!hasVisited) {
+                document.getElementById('onboardingTooltip').classList.add('show');
+            }
+        }
+
+        function dismissOnboarding() {
+            localStorage.setItem('berean_onboarded', 'true');
+            document.getElementById('onboardingTooltip').classList.remove('show');
+        }
+
+        function skipToVerseOnly() {
+            // Hide all sections except step 1 (verse)
+            document.querySelectorAll('.journey-section').forEach((section, index) => {
+                if (index > 0) section.style.display = 'none';
+            });
+            document.getElementById('journeyProgress').style.display = 'none';
+            document.querySelector('.continue-btn[data-next="2"]').style.display = 'none';
+            document.getElementById('step1').classList.add('verse-only-mode');
+        }
+
+        function setTodayDate() {
+            const options = { weekday: 'long', month: 'short', day: 'numeric' };
+            const locale = currentLang === 'es' ? 'es-ES' : 'en-US';
+            document.getElementById('todayDate').textContent = new Date().toLocaleDateString(locale, options);
+        }
+
+        // Language functions
+        function initLanguage() {
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === currentLang);
+            });
+            translatePage(currentLang);
+        }
+
+        function translatePage(lang) {
+            document.querySelectorAll('[data-en]').forEach(el => {
+                const text = el.getAttribute(`data-${lang}`);
+                if (text) {
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        el.placeholder = text;
+                    } else {
+                        el.textContent = text;
+                    }
+                }
+            });
+            setTodayDate();
+            if (currentVerse) renderVerse();
+        }
 
         function loadDailyVerse() {
             const stored = StorageManager.getCurrentVerse();
-
             if (stored) {
                 currentVerse = BibleVerses.find(v => v.id === stored.verseId);
             }
-
             if (!currentVerse) {
-                // Select random verse
                 const viewedIds = StorageManager.getViewedVerses();
                 let available = BibleVerses.filter(v => !viewedIds.includes(v.id));
                 if (available.length === 0) {
@@ -277,27 +455,32 @@
                 StorageManager.setCurrentVerse(currentVerse.id);
                 StorageManager.addViewedVerse(currentVerse.id);
             }
-
             renderVerse();
         }
 
         function renderVerse() {
             if (!currentVerse) return;
+            const a = currentVerse.analysis;
 
             document.getElementById('verseReference').textContent =
-                `${currentVerse.book[lang]} ${currentVerse.chapter}:${currentVerse.verse}`;
-            document.getElementById('verseText').textContent = currentVerse.text[lang];
+                `${currentVerse.book[currentLang]} ${currentVerse.chapter}:${currentVerse.verse}`;
+            document.getElementById('verseText').textContent = currentVerse.text[currentLang];
 
-            if (currentVerse.analysis) {
-                const a = currentVerse.analysis;
-                if (a.historical) document.getElementById('historicalContent').textContent = a.historical[lang];
-                if (a.economic) document.getElementById('economicContent').textContent = a.economic[lang];
-                if (a.social) document.getElementById('socialContent').textContent = a.social[lang];
-                if (a.political) document.getElementById('politicalContent').textContent = a.political[lang];
-                if (a.author) document.getElementById('authorContent').textContent = a.author[lang];
-                if (a.neuroscience) document.getElementById('neuroscienceContent').textContent = a.neuroscience[lang];
-                if (a.behavioral) document.getElementById('behavioralContent').textContent = a.behavioral[lang];
-                if (a.nudge) document.getElementById('nudgeContent').textContent = a.nudge[lang];
+            if (a) {
+                if (a.keyPoint) document.getElementById('keyPointContent').textContent = a.keyPoint[currentLang];
+                if (a.historical) document.getElementById('historicalContent').textContent = a.historical[currentLang];
+                if (a.economic) document.getElementById('economicContent').textContent = a.economic[currentLang];
+                if (a.social) document.getElementById('socialContent').textContent = a.social[currentLang];
+                if (a.political) document.getElementById('politicalContent').textContent = a.political[currentLang];
+                if (a.author) document.getElementById('authorContent').textContent = a.author[currentLang];
+                if (a.neuroscience) document.getElementById('neuroscienceContent').textContent = a.neuroscience[currentLang];
+                if (a.behavioral) document.getElementById('behavioralContent').textContent = a.behavioral[currentLang];
+                if (a.nudge) document.getElementById('nudgeContent').textContent = a.nudge[currentLang];
+                if (a.reflectionQuestion) document.getElementById('reflectionContent').textContent = a.reflectionQuestion[currentLang];
+                if (a.prayer) {
+                    document.getElementById('prayerContent').textContent = a.prayer[currentLang];
+                    if (a.prayer.science) document.getElementById('prayerScienceContent').textContent = a.prayer.science[currentLang];
+                }
             }
         }
 
@@ -306,16 +489,100 @@
             document.getElementById('streakNumber').textContent = streak;
         }
 
-        function setupEventListeners() {
-            // Mobile menu
-            document.getElementById('navHamburger').addEventListener('click', () => {
-                document.getElementById('mobileMenu').classList.toggle('active');
+        function updateJourneyProgress() {
+            const progressFill = document.getElementById('journeyFill');
+            // Progress bar fills based on current step (not completed steps)
+            const percentage = ((currentStep - 1) / 4) * 100; // 0%, 25%, 50%, 75%, 100%
+            progressFill.style.width = percentage + '%';
+
+            // Update dots - all use same color (orange), just filled or not
+            document.querySelectorAll('.journey-step-dot').forEach(dot => {
+                const step = parseInt(dot.dataset.step);
+                dot.classList.toggle('active', step <= currentStep);
             });
 
-            // Share buttons
-            document.getElementById('shareWhatsApp').addEventListener('click', shareToWhatsApp);
-            document.getElementById('shareEmail').addEventListener('click', shareToEmail);
-            document.getElementById('shareBtn').addEventListener('click', () => {
+            // Update step label
+            const stepNames = {
+                en: ["Today's Verse", 'The Context', 'Why It Works', 'Your Action', 'Close in Prayer'],
+                es: ['Versículo de Hoy', 'El Contexto', 'Por Qué Funciona', 'Tu Acción', 'Cierra en Oración']
+            };
+            document.getElementById('currentStepLabel').textContent =
+                currentLang === 'en' ? `Step ${currentStep} of 5` : `Paso ${currentStep} de 5`;
+            document.getElementById('currentStepName').textContent = stepNames[currentLang][currentStep - 1];
+        }
+
+        function markStepComplete(stepNum) {
+            completedSteps.add(stepNum);
+            document.getElementById(`check${stepNum}`).classList.add('checked');
+            updateJourneyProgress();
+        }
+
+        function goToStep(stepNum) {
+            // Mark current step as complete
+            markStepComplete(currentStep);
+            currentStep = stepNum;
+
+            // Scroll to next section
+            const nextSection = document.getElementById(`step${stepNum}`);
+            if (nextSection) {
+                nextSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+            updateJourneyProgress();
+        }
+
+        function completeJourney() {
+            markStepComplete(5);
+            currentStep = 6; // Mark as fully complete
+            updateJourneyProgress();
+
+            document.getElementById('journeyComplete').classList.add('show');
+
+            // Scroll to the SUPERPOWERED completion state
+            setTimeout(() => {
+                document.getElementById('journeyComplete').scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 100);
+
+            // Update streak using the correct StorageManager method
+            StorageManager.updateStreak();
+            updateStreak();
+        }
+
+        function setupEventListeners() {
+            // Language toggle
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    currentLang = btn.dataset.lang;
+                    localStorage.setItem('berean_lang', currentLang);
+                    document.querySelectorAll('.lang-btn').forEach(b => {
+                        b.classList.toggle('active', b.dataset.lang === currentLang);
+                    });
+                    translatePage(currentLang);
+                });
+            });
+
+            // Onboarding
+            document.getElementById('closeOnboarding').addEventListener('click', dismissOnboarding);
+            document.getElementById('startJourney').addEventListener('click', dismissOnboarding);
+            document.getElementById('skipToVerse').addEventListener('click', skipToVerseOnly);
+
+            // Continue buttons
+            document.querySelectorAll('.continue-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const nextStep = parseInt(btn.dataset.next);
+                    goToStep(nextStep);
+                });
+            });
+
+            // Complete journey
+            document.getElementById('completeJourney').addEventListener('click', completeJourney);
+
+            // Review journey
+            document.getElementById('reviewJourney').addEventListener('click', () => {
+                document.getElementById('step1').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+
+            // Share
+            document.getElementById('shareComplete').addEventListener('click', () => {
                 document.getElementById('shareModal').classList.add('active');
                 updateSharePreview();
             });
@@ -328,26 +595,6 @@
             document.getElementById('shareEM').addEventListener('click', shareToEmail);
             document.getElementById('copyLink').addEventListener('click', copyLink);
 
-            // Commitment checkbox
-            document.getElementById('commitCheckbox').addEventListener('change', (e) => {
-                if (e.target.checked && currentVerse) {
-                    StorageManager.addCommitment({
-                        verseId: currentVerse.id,
-                        date: StorageManager.getTodayString(),
-                        nudgeText: currentVerse.analysis?.nudge?.[lang] || ''
-                    });
-                }
-            });
-
-            // Version toggle
-            document.querySelectorAll('.version-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    document.querySelectorAll('.version-btn').forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                    // Would reload verse with new version
-                });
-            });
-
             // Bookmark
             document.getElementById('bookmarkBtn').addEventListener('click', () => {
                 if (currentVerse) {
@@ -355,38 +602,185 @@
                     document.querySelector('.bookmark-icon').textContent = isBookmarked ? '♥' : '♡';
                 }
             });
+
+            // Audio
+            document.getElementById('listenBtn').addEventListener('click', openAudioPlayer);
+            document.getElementById('audioPlayPause').addEventListener('click', togglePlayPause);
+            document.getElementById('audioPrev').addEventListener('click', playPrevSection);
+            document.getElementById('audioNext').addEventListener('click', playNextSection);
+            document.getElementById('audioClose').addEventListener('click', closeAudioPlayer);
+
+            // Commitment
+            document.getElementById('commitCheckbox').addEventListener('change', (e) => {
+                if (e.target.checked && currentVerse) {
+                    StorageManager.addCommitment({
+                        verseId: currentVerse.id,
+                        date: StorageManager.getTodayString(),
+                        nudgeText: currentVerse.analysis?.nudge?.[currentLang] || ''
+                    });
+                }
+            });
+
+            // Scroll spy for progress
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const step = parseInt(entry.target.dataset.journeyStep);
+                        if (step && step !== currentStep) {
+                            currentStep = step;
+                            updateJourneyProgress();
+                        }
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            document.querySelectorAll('.journey-section').forEach(section => {
+                observer.observe(section);
+            });
         }
 
         function shareToWhatsApp() {
             if (!currentVerse) return;
-            const ref = `${currentVerse.book[lang]} ${currentVerse.chapter}:${currentVerse.verse}`;
-            const text = `*${ref}*\n\n"${currentVerse.text[lang]}"\n\n🎯 *Today's Experiment:* ${currentVerse.analysis?.nudge?.[lang] || ''}\n\n— via Berean | Live Superpowered`;
+            const ref = `${currentVerse.book[currentLang]} ${currentVerse.chapter}:${currentVerse.verse}`;
+            const text = `*${ref}*\n\n"${currentVerse.text[currentLang]}"\n\n💡 ${currentVerse.analysis?.keyPoint?.[currentLang] || ''}\n\n— via Berean`;
             window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
         }
 
         function shareToEmail() {
             if (!currentVerse) return;
-            const ref = `${currentVerse.book[lang]} ${currentVerse.chapter}:${currentVerse.verse}`;
-            const subject = `Today's Superpowered Verse: ${ref}`;
-            const body = `${ref}\n\n"${currentVerse.text[lang]}"\n\nToday's Experiment: ${currentVerse.analysis?.nudge?.[lang] || ''}\n\n— via Berean | berean.app`;
+            const ref = `${currentVerse.book[currentLang]} ${currentVerse.chapter}:${currentVerse.verse}`;
+            const subject = `${ref} — Berean Daily`;
+            const body = `${ref}\n\n"${currentVerse.text[currentLang]}"\n\n💡 ${currentVerse.analysis?.keyPoint?.[currentLang] || ''}`;
             window.open(`mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`, '_blank');
         }
 
         function copyLink() {
             navigator.clipboard.writeText(window.location.href);
-            document.getElementById('copyLink').innerHTML = '<span>✓</span> Copied!';
-            setTimeout(() => {
-                document.getElementById('copyLink').innerHTML = '<span>📋</span> Copy Link';
-            }, 2000);
+            const btn = document.getElementById('copyLink');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<span>✓</span> ' + (currentLang === 'en' ? 'Copied!' : '¡Copiado!');
+            setTimeout(() => btn.innerHTML = originalText, 2000);
         }
 
         function updateSharePreview() {
             if (!currentVerse) return;
-            const ref = `${currentVerse.book[lang]} ${currentVerse.chapter}:${currentVerse.verse}`;
+            const ref = `${currentVerse.book[currentLang]} ${currentVerse.chapter}:${currentVerse.verse}`;
             document.getElementById('sharePreview').innerHTML = `
                 <strong>${ref}</strong>
-                <p>"${currentVerse.text[lang].substring(0, 100)}..."</p>
+                <p>"${currentVerse.text[currentLang].substring(0, 80)}..."</p>
             `;
+        }
+
+        // Audio Player
+        let synth = window.speechSynthesis;
+        let audioSections = [];
+        let currentSectionIndex = 0;
+        let isPlaying = false;
+        let voices = [];
+
+        function loadVoices() { voices = synth.getVoices(); }
+        loadVoices();
+        if (synth.onvoiceschanged !== undefined) synth.onvoiceschanged = loadVoices;
+
+        function getVoice(lang) {
+            const langCode = lang === 'es' ? 'es' : 'en';
+            const preferred = lang === 'es'
+                ? ['Mónica', 'Monica', 'Paulina', 'Jorge', 'Google español']
+                : ['Samantha', 'Karen', 'Daniel', 'Google US English'];
+            for (const p of preferred) {
+                const found = voices.find(v => v.lang.startsWith(langCode) && v.name.includes(p));
+                if (found) return found;
+            }
+            return voices.find(v => v.lang.startsWith(langCode));
+        }
+
+        function buildAudioSections() {
+            if (!currentVerse) return [];
+            const a = currentVerse.analysis;
+            const L = currentLang === 'es' ?
+                { verse: 'Versículo', context: 'Contexto', science: 'Ciencia', action: 'Acción', prayer: 'Oración' } :
+                { verse: 'Verse', context: 'Context', science: 'Science', action: 'Action', prayer: 'Prayer' };
+
+            const sections = [];
+            sections.push({ label: L.verse, text: currentVerse.text[currentLang] });
+            if (a?.historical) sections.push({ label: L.context, text: a.historical[currentLang] });
+            if (a?.neuroscience) sections.push({ label: L.science, text: a.neuroscience[currentLang] });
+            if (a?.nudge) sections.push({ label: L.action, text: a.nudge[currentLang] });
+            if (a?.prayer) sections.push({ label: L.prayer, text: a.prayer[currentLang] });
+            return sections;
+        }
+
+        function openAudioPlayer() {
+            audioSections = buildAudioSections();
+            currentSectionIndex = 0;
+            document.getElementById('audioPlayer').classList.add('active');
+            updateAudioUI();
+            startPlaying();
+        }
+
+        function closeAudioPlayer() {
+            synth.cancel();
+            isPlaying = false;
+            document.getElementById('audioPlayer').classList.remove('active');
+        }
+
+        function togglePlayPause() {
+            if (isPlaying) { synth.cancel(); isPlaying = false; }
+            else { isPlaying = true; speakCurrentSection(); }
+            updatePlayPauseButton();
+        }
+
+        function startPlaying() {
+            isPlaying = true;
+            updatePlayPauseButton();
+            speakCurrentSection();
+        }
+
+        function speakCurrentSection() {
+            if (!isPlaying || currentSectionIndex >= audioSections.length) {
+                if (currentSectionIndex >= audioSections.length) closeAudioPlayer();
+                return;
+            }
+            synth.cancel();
+            const section = audioSections[currentSectionIndex];
+            const utterance = new SpeechSynthesisUtterance(section.text);
+            const voice = getVoice(currentLang);
+            if (voice) utterance.voice = voice;
+            utterance.lang = currentLang === 'es' ? 'es-MX' : 'en-US';
+            utterance.rate = 0.9;
+            utterance.pitch = 1.0;
+            utterance.onend = () => {
+                if (isPlaying) {
+                    currentSectionIndex++;
+                    updateAudioUI();
+                    // Add pause between sections for natural flow
+                    setTimeout(() => {
+                        if (isPlaying) speakCurrentSection();
+                    }, 800);
+                }
+            };
+            synth.speak(utterance);
+            updateAudioUI();
+        }
+
+        function playPrevSection() {
+            if (currentSectionIndex > 0) { currentSectionIndex--; if (isPlaying) speakCurrentSection(); updateAudioUI(); }
+        }
+
+        function playNextSection() {
+            if (currentSectionIndex < audioSections.length - 1) { currentSectionIndex++; if (isPlaying) speakCurrentSection(); updateAudioUI(); }
+        }
+
+        function updateAudioUI() {
+            if (!audioSections.length) return;
+            document.getElementById('audioSectionLabel').textContent = audioSections[currentSectionIndex].label;
+            document.getElementById('audioProgress').textContent = `${currentSectionIndex + 1}/${audioSections.length}`;
+            document.getElementById('audioProgressFill').style.width = ((currentSectionIndex + 1) / audioSections.length * 100) + '%';
+        }
+
+        function updatePlayPauseButton() {
+            document.querySelector('.play-icon').style.display = isPlaying ? 'none' : 'block';
+            document.querySelector('.pause-icon').style.display = isPlaying ? 'block' : 'none';
         }
     </script>
 </body>

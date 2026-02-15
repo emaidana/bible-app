@@ -121,6 +121,14 @@ const BibleVerses = [
                 sources: [
                     { type: "peer-reviewed", citation: "Newberg, A. & Waldman, M.R. (2009). How God Changes Your Brain. Ballantine Books.", citationEs: "Newberg, A. & Waldman, M.R. (2009). Cómo Dios Cambia Tu Cerebro. Ballantine Books." }
                 ]
+            },
+            keyPoint: {
+                en: "God's love isn't a reward for the worthy—it's a gift for everyone who believes.",
+                es: "El amor de Dios no es una recompensa para los dignos—es un regalo para todo el que cree."
+            },
+            reflectionQuestion: {
+                en: "Who in your life needs to experience unconditional love from you today?",
+                es: "¿Quién en tu vida necesita experimentar amor incondicional de tu parte hoy?"
             }
         }
     },
@@ -236,6 +244,14 @@ const BibleVerses = [
                 sources: [
                     { type: "peer-reviewed", citation: "Inzlicht, M. & Schmeichel, B.J. (2012). What Is Ego Depletion? Perspectives on Psychological Science, 7(5).", citationEs: "Inzlicht, M. & Schmeichel, B.J. (2012). ¿Qué Es el Agotamiento del Ego? Perspectives on Psychological Science, 7(5)." }
                 ]
+            },
+            keyPoint: {
+                en: "True strength isn't about willpower—it's about tapping into a source beyond yourself.",
+                es: "La verdadera fortaleza no se trata de fuerza de voluntad—se trata de conectar con una fuente más allá de ti mismo."
+            },
+            reflectionQuestion: {
+                en: "What challenge have you been avoiding because you're trying to face it alone?",
+                es: "¿Qué desafío has estado evitando porque intentas enfrentarlo solo?"
             }
         }
     },
@@ -352,6 +368,14 @@ const BibleVerses = [
                 sources: [
                     { type: "peer-reviewed", citation: "Carleton, R.N. (2016). Into the unknown: A review of uncertainty, anxiety, and fear. Journal of Anxiety Disorders, 39.", citationEs: "Carleton, R.N. (2016). Hacia lo desconocido: Una revisión de incertidumbre, ansiedad y miedo. Journal of Anxiety Disorders, 39." }
                 ]
+            },
+            keyPoint: {
+                en: "God's plans include prosperity in unexpected places—even in exile, there's purpose.",
+                es: "Los planes de Dios incluyen prosperidad en lugares inesperados—incluso en el exilio, hay propósito."
+            },
+            reflectionQuestion: {
+                en: "What 'exile' in your life might actually be preparation for something greater?",
+                es: "¿Qué 'exilio' en tu vida podría ser en realidad preparación para algo mayor?"
             }
         }
     },
@@ -470,6 +494,14 @@ const BibleVerses = [
                 sources: [
                     { type: "peer-reviewed", citation: "Rozenblit, L. & Keil, F. (2002). The misunderstood limits of folk science. Cognitive Science, 26(5).", citationEs: "Rozenblit, L. & Keil, F. (2002). Los límites incomprendidos de la ciencia popular. Cognitive Science, 26(5)." }
                 ]
+            },
+            keyPoint: {
+                en: "Humility isn't weakness—it's the strategic advantage of knowing your limits.",
+                es: "La humildad no es debilidad—es la ventaja estratégica de conocer tus límites."
+            },
+            reflectionQuestion: {
+                en: "What decision are you facing where you need to seek wisdom beyond your own?",
+                es: "¿Qué decisión estás enfrentando donde necesitas buscar sabiduría más allá de la tuya?"
             }
         }
     },
@@ -586,6 +618,14 @@ const BibleVerses = [
                 sources: [
                     { type: "peer-reviewed", citation: "Tedeschi, R.G. & Calhoun, L.G. (2004). Posttraumatic Growth: Conceptual Foundations. Psychological Inquiry, 15(1).", citationEs: "Tedeschi, R.G. & Calhoun, L.G. (2004). Crecimiento Postraumático: Fundamentos Conceptuales. Psychological Inquiry, 15(1)." }
                 ]
+            },
+            keyPoint: {
+                en: "Nothing is wasted—even your pain is being woven into something purposeful.",
+                es: "Nada se desperdicia—incluso tu dolor está siendo tejido en algo con propósito."
+            },
+            reflectionQuestion: {
+                en: "Looking back, what difficult experience has unexpectedly shaped you for good?",
+                es: "Mirando atrás, ¿qué experiencia difícil te ha moldeado inesperadamente para bien?"
             }
         }
     },
@@ -702,6 +742,14 @@ const BibleVerses = [
                 sources: [
                     { type: "peer-reviewed", citation: "Coan, J.A. et al. (2006). Lending a hand: Social regulation of the neural response to threat. Psychological Science, 17(12).", citationEs: "Coan, J.A. et al. (2006). Dar una mano: Regulación social de la respuesta neural a la amenaza. Psychological Science, 17(12)." }
                 ]
+            },
+            keyPoint: {
+                en: "In life's darkest valleys, you're never walking alone—presence overcomes fear.",
+                es: "En los valles más oscuros de la vida, nunca caminas solo—la presencia vence al miedo."
+            },
+            reflectionQuestion: {
+                en: "What fear would diminish if you truly believed you weren't facing it alone?",
+                es: "¿Qué miedo disminuiría si realmente creyeras que no lo enfrentas solo?"
             }
         }
     },
@@ -818,6 +866,14 @@ const BibleVerses = [
                 sources: [
                     { type: "peer-reviewed", citation: "Vohs, K.D. et al. (2008). Making choices impairs subsequent self-control. Journal of Personality and Social Psychology, 94(5).", citationEs: "Vohs, K.D. et al. (2008). Hacer elecciones deteriora el autocontrol posterior. Journal of Personality and Social Psychology, 94(5)." }
                 ]
+            },
+            keyPoint: {
+                en: "When you get your priorities right, the lesser things find their proper place.",
+                es: "Cuando ordenas tus prioridades correctamente, las cosas menores encuentran su lugar apropiado."
+            },
+            reflectionQuestion: {
+                en: "What 'lesser thing' has been consuming energy that belongs to your highest priority?",
+                es: "¿Qué 'cosa menor' ha estado consumiendo energía que pertenece a tu prioridad más alta?"
             }
         }
     },
@@ -934,6 +990,14 @@ const BibleVerses = [
                 sources: [
                     { type: "peer-reviewed", citation: "Lieberman, M.D. et al. (2007). Putting feelings into words: Affect labeling disrupts amygdala activity. Psychological Science, 18(5).", citationEs: "Lieberman, M.D. et al. (2007). Poniendo sentimientos en palabras: El etiquetado afectivo interrumpe la actividad de la amígdala. Psychological Science, 18(5)." }
                 ]
+            },
+            keyPoint: {
+                en: "Fear loses its power when you name it and bring it into the light of divine presence.",
+                es: "El miedo pierde su poder cuando lo nombras y lo traes a la luz de la presencia divina."
+            },
+            reflectionQuestion: {
+                en: "What fear have you been hiding that needs to be brought into the light today?",
+                es: "¿Qué miedo has estado escondiendo que necesita ser traído a la luz hoy?"
             }
         }
     },
@@ -1047,6 +1111,14 @@ const BibleVerses = [
                 sources: [
                     { type: "peer-reviewed", citation: "Lally, P. et al. (2010). How are habits formed: Modelling habit formation in the real world. European Journal of Social Psychology, 40(6).", citationEs: "Lally, P. et al. (2010). Cómo se forman los hábitos: Modelando la formación de hábitos en el mundo real. European Journal of Social Psychology, 40(6)." }
                 ]
+            },
+            keyPoint: {
+                en: "Character isn't manufactured by willpower—it's fruit that grows from a rooted connection.",
+                es: "El carácter no se fabrica con fuerza de voluntad—es fruto que crece de una conexión arraigada."
+            },
+            reflectionQuestion: {
+                en: "Which fruit of the Spirit is most underdeveloped in your life right now?",
+                es: "¿Cuál fruto del Espíritu está menos desarrollado en tu vida ahora mismo?"
             }
         }
     },
@@ -1160,6 +1232,14 @@ const BibleVerses = [
                 sources: [
                     { type: "peer-reviewed", citation: "Gottman, J.M. (1994). What Predicts Divorce? Lawrence Erlbaum Associates.", citationEs: "Gottman, J.M. (1994). ¿Qué Predice el Divorcio? Lawrence Erlbaum Associates." }
                 ]
+            },
+            keyPoint: {
+                en: "Love isn't a feeling you fall into—it's a set of behaviors you choose every day.",
+                es: "El amor no es un sentimiento en el que caes—es un conjunto de comportamientos que eliges cada día."
+            },
+            reflectionQuestion: {
+                en: "Which aspect of love described here is hardest for you to practice consistently?",
+                es: "¿Qué aspecto del amor descrito aquí es más difícil para ti practicar consistentemente?"
             }
         }
     }
