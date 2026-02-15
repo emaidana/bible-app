@@ -8460,167 +8460,99 @@ section {
     color: #FF6342;
 }
 
+/* Nav Actions */
+.journey-nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
 /* Guide Button */
 .guide-btn {
-    background: #F5F5F5;
+    width: 28px;
+    height: 28px;
+    background: #F0F0F0;
     border: none;
     color: #666;
     cursor: pointer;
-    padding: 6px 12px;
-    border-radius: 6px;
-    font-size: 12px;
+    border-radius: 50%;
+    font-size: 13px;
     font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: all 0.2s ease;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    padding: 0;
 }
 
 .guide-btn:hover {
-    background: #FF6342;
-    color: #fff;
+    background: #E5E5E5;
+    color: #333;
 }
 
-/* Onboarding Overlay */
-.onboarding-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.85);
-    z-index: 2000;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
+/* Guide Steps */
+.guide-steps {
+    margin-bottom: 24px;
 }
 
-.onboarding-overlay.show {
-    display: flex;
-    animation: fadeIn 0.3s ease;
-}
-
-.onboarding-card {
-    background: #fff;
-    border-radius: 24px;
-    max-width: 380px;
-    width: 100%;
-    overflow: hidden;
-}
-
-.onboarding-header {
-    background: linear-gradient(135deg, #1A1A1A 0%, #2D2D2D 100%);
-    padding: 32px 28px;
-    text-align: center;
-}
-
-.onboarding-badge {
-    display: inline-block;
-    background: #FF6342;
-    color: #fff;
-    font-size: 11px;
-    font-weight: 700;
-    padding: 4px 10px;
-    border-radius: 20px;
-    letter-spacing: 0.5px;
-    margin-bottom: 16px;
-}
-
-.onboarding-header h3 {
-    color: #fff;
-    font-size: 22px;
-    font-weight: 700;
-    margin: 0 0 8px;
-    line-height: 1.3;
-}
-
-.onboarding-header p {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 14px;
-    margin: 0;
-    line-height: 1.5;
-}
-
-.onboarding-journey {
-    padding: 24px 28px;
-}
-
-.journey-step-item {
+.guide-step {
     display: flex;
     align-items: center;
-    gap: 16px;
-    padding: 12px 0;
+    gap: 14px;
+    padding: 10px 0;
     border-bottom: 1px solid #F0F0F0;
 }
 
-.journey-step-item:last-child {
+.guide-step:last-child {
     border-bottom: none;
 }
 
-.step-num {
-    width: 32px;
-    height: 32px;
-    background: linear-gradient(135deg, #FF6342 0%, #FF8A65 100%);
-    color: #fff;
+.guide-step-num {
+    width: 24px;
+    height: 24px;
+    background: #F0F0F0;
+    color: #888;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 14px;
-    font-weight: 700;
+    font-size: 12px;
+    font-weight: 600;
     flex-shrink: 0;
 }
 
-.step-info {
+.guide-step-info {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 1px;
 }
 
-.step-info strong {
-    font-size: 15px;
+.guide-step-info strong {
+    font-size: 14px;
     font-weight: 600;
     color: #1A1A1A;
 }
 
-.step-info span {
+.guide-step-info span {
     font-size: 13px;
     color: #888;
 }
 
-.onboarding-start {
-    width: calc(100% - 56px);
-    margin: 0 28px 12px;
-    padding: 16px 24px;
-    background: linear-gradient(135deg, #FF6342 0%, #FF8A65 100%);
-    color: #fff;
+.guide-got-it {
+    width: 100%;
+    padding: 14px;
+    background: #F5F5F5;
+    color: #333;
     border: none;
     border-radius: 12px;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 600;
     cursor: pointer;
-    transition: transform 0.2s ease;
+    transition: background 0.2s ease;
 }
 
-.onboarding-start:hover {
-    transform: translateY(-2px);
-}
-
-.onboarding-skip {
-    width: calc(100% - 56px);
-    margin: 0 28px 24px;
-    padding: 12px 24px;
-    background: none;
-    color: #888;
-    border: none;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: color 0.2s ease;
-}
-
-.onboarding-skip:hover {
-    color: #333;
+.guide-got-it:hover {
+    background: #EBEBEB;
 }
 
 /* Expand Journey Bar */
@@ -8630,9 +8562,11 @@ section {
     bottom: 0;
     left: 0;
     right: 0;
-    background: #fff;
-    padding: 16px 20px;
-    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+    background: rgba(250, 250, 250, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 14px 20px;
+    border-top: 1px solid #E5E5E5;
     z-index: 100;
 }
 
@@ -8647,24 +8581,23 @@ section {
 }
 
 .expand-journey-btn {
-    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    padding: 14px 24px;
-    background: linear-gradient(135deg, #FF6342 0%, #FF8A65 100%);
-    color: #fff;
+    gap: 6px;
+    margin: 0 auto;
+    padding: 8px 16px;
+    background: none;
+    color: #666;
     border: none;
-    border-radius: 12px;
-    font-size: 15px;
-    font-weight: 600;
+    font-size: 14px;
+    font-weight: 500;
     cursor: pointer;
-    transition: transform 0.2s ease;
+    transition: color 0.2s ease;
 }
 
 .expand-journey-btn:hover {
-    transform: translateY(-2px);
+    color: #1A1A1A;
 }
 
 /* Verse Only Mode */
@@ -9005,5 +8938,77 @@ section {
 
     .complete-actions {
         flex-direction: column;
+    }
+
+    /* Guide button - slightly smaller on mobile */
+    .guide-btn {
+        width: 26px;
+        height: 26px;
+        font-size: 12px;
+    }
+
+    .journey-nav-actions {
+        gap: 6px;
+    }
+
+    /* Guide modal - tighter padding on mobile */
+    #guideModal .modal-content {
+        padding: 24px;
+    }
+
+    #guideModal .modal-content h3 {
+        font-size: 18px;
+    }
+
+    .guide-step {
+        gap: 12px;
+        padding: 8px 0;
+    }
+
+    .guide-step-num {
+        width: 22px;
+        height: 22px;
+        font-size: 11px;
+    }
+
+    .guide-step-info strong {
+        font-size: 13px;
+    }
+
+    .guide-step-info span {
+        font-size: 12px;
+    }
+
+    .guide-got-it {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    /* Expand bar - compact on mobile */
+    .expand-journey-bar {
+        padding: 10px 16px;
+    }
+
+    .expand-journey-btn {
+        font-size: 13px;
+        gap: 5px;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 380px) {
+    .journey-nav-actions {
+        gap: 4px;
+    }
+
+    .guide-btn {
+        width: 24px;
+        height: 24px;
+        font-size: 11px;
+    }
+
+    .lang-btn {
+        font-size: 11px;
+        padding: 4px 6px;
     }
 }

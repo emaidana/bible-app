@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daily Verse - Berean</title>
     <meta name="description" content="Start your day superpowered with one verse, full analysis, and actionable practice.">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css?v=20260215">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
@@ -37,9 +37,7 @@
                 <span class="journey-date" id="todayDate"></span>
             </div>
             <div class="journey-nav-actions">
-                <button class="guide-btn" id="helpBtn">
-                    <span data-en="Guide" data-es="Guía">Guide</span>
-                </button>
+                <button class="guide-btn" id="helpBtn">?</button>
                 <div class="lang-toggle">
                     <button class="lang-btn active" data-lang="en">EN</button>
                     <button class="lang-btn" data-lang="es">ES</button>
@@ -60,62 +58,58 @@
                 <button class="skip-link" id="skipToVerse" data-en="Just show me the verse →" data-es="Solo muéstrame el versículo →">Just show me the verse →</button>
             </div>
 
-            <!-- First Visit Onboarding -->
-            <div class="onboarding-overlay" id="onboardingTooltip">
-                <div class="onboarding-card">
-                    <div class="onboarding-header">
-                        <span class="onboarding-badge" data-en="5 MIN DAILY" data-es="5 MIN DIARIOS">5 MIN DAILY</span>
-                        <h3 data-en="Scripture as your operating system" data-es="Las Escrituras como tu sistema operativo">Scripture as your operating system</h3>
-                        <p data-en="Not just reading — understanding, applying, and living the Word." data-es="No solo leer — entender, aplicar y vivir la Palabra.">Not just reading — understanding, applying, and living the Word.</p>
-                    </div>
-                    <div class="onboarding-journey">
-                        <div class="journey-step-item">
-                            <div class="step-num">1</div>
-                            <div class="step-info">
+            <!-- Guide Modal -->
+            <div class="modal-overlay" id="guideModal">
+                <div class="modal-content">
+                    <button class="modal-close" id="closeGuide">&times;</button>
+                    <h3 data-en="How it works" data-es="Cómo funciona">How it works</h3>
+                    <div class="guide-steps">
+                        <div class="guide-step">
+                            <span class="guide-step-num">1</span>
+                            <div class="guide-step-info">
                                 <strong data-en="Read" data-es="Lee">Read</strong>
                                 <span data-en="Today's verse" data-es="El versículo de hoy">Today's verse</span>
                             </div>
                         </div>
-                        <div class="journey-step-item">
-                            <div class="step-num">2</div>
-                            <div class="step-info">
+                        <div class="guide-step">
+                            <span class="guide-step-num">2</span>
+                            <div class="guide-step-info">
                                 <strong data-en="Understand" data-es="Entiende">Understand</strong>
                                 <span data-en="Historical context" data-es="Contexto histórico">Historical context</span>
                             </div>
                         </div>
-                        <div class="journey-step-item">
-                            <div class="step-num">3</div>
-                            <div class="step-info">
+                        <div class="guide-step">
+                            <span class="guide-step-num">3</span>
+                            <div class="guide-step-info">
                                 <strong data-en="Discover" data-es="Descubre">Discover</strong>
                                 <span data-en="The science behind it" data-es="La ciencia detrás">The science behind it</span>
                             </div>
                         </div>
-                        <div class="journey-step-item">
-                            <div class="step-num">4</div>
-                            <div class="step-info">
+                        <div class="guide-step">
+                            <span class="guide-step-num">4</span>
+                            <div class="guide-step-info">
                                 <strong data-en="Act" data-es="Actúa">Act</strong>
                                 <span data-en="One action today" data-es="Una acción hoy">One action today</span>
                             </div>
                         </div>
-                        <div class="journey-step-item">
-                            <div class="step-num">5</div>
-                            <div class="step-info">
+                        <div class="guide-step">
+                            <span class="guide-step-num">5</span>
+                            <div class="guide-step-info">
                                 <strong data-en="Pray" data-es="Ora">Pray</strong>
                                 <span data-en="Close with intention" data-es="Cierra con intención">Close with intention</span>
                             </div>
                         </div>
                     </div>
-                    <button class="onboarding-start" id="startJourney" data-en="Start today's journey" data-es="Comenzar el viaje de hoy">Start today's journey</button>
-                    <button class="onboarding-skip" id="closeOnboarding" data-en="Skip intro" data-es="Saltar intro">Skip intro</button>
+                    <button class="guide-got-it" id="closeGuideBtn" data-en="Got it" data-es="Entendido">Got it</button>
                 </div>
             </div>
 
             <!-- Back to Full Journey (for verse-only mode) -->
             <div class="expand-journey-bar" id="expandBar">
                 <button class="expand-journey-btn" id="expandJourney">
-                    <span data-en="See full journey" data-es="Ver viaje completo">See full journey</span>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M6 9l6 6 6-6"/>
+                    <span data-en="Continue reading" data-es="Seguir leyendo">Continue reading</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 15l-6-6-6 6"/>
                     </svg>
                 </button>
             </div>
@@ -439,13 +433,13 @@
         function checkFirstVisit() {
             const hasVisited = localStorage.getItem('berean_onboarded');
             if (!hasVisited) {
-                document.getElementById('onboardingTooltip').classList.add('show');
+                document.getElementById('guideModal').classList.add('active');
             }
         }
 
         function dismissOnboarding() {
             localStorage.setItem('berean_onboarded', 'true');
-            document.getElementById('onboardingTooltip').classList.remove('show');
+            document.getElementById('guideModal').classList.remove('active');
         }
 
         function skipToVerseOnly() {
@@ -624,13 +618,13 @@
                 });
             });
 
-            // Onboarding
-            document.getElementById('closeOnboarding').addEventListener('click', dismissOnboarding);
-            document.getElementById('startJourney').addEventListener('click', dismissOnboarding);
+            // Guide modal
+            document.getElementById('closeGuide').addEventListener('click', dismissOnboarding);
+            document.getElementById('closeGuideBtn').addEventListener('click', dismissOnboarding);
             document.getElementById('skipToVerse').addEventListener('click', skipToVerseOnly);
             document.getElementById('expandJourney').addEventListener('click', expandJourney);
             document.getElementById('helpBtn').addEventListener('click', () => {
-                document.getElementById('onboardingTooltip').classList.add('show');
+                document.getElementById('guideModal').classList.add('active');
             });
 
             // Continue buttons
