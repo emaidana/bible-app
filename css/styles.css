@@ -8522,37 +8522,49 @@ section {
     margin: 0 0 16px;
 }
 
+/* Help Button */
+.help-btn {
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.help-btn:hover {
+    background: #F5F5F5;
+    color: #FF6342;
+}
+
 .onboarding-steps {
     list-style: none;
     padding: 0;
     margin: 0 0 24px;
-    counter-reset: step;
 }
 
 .onboarding-steps li {
-    position: relative;
-    padding-left: 36px;
-    padding-bottom: 12px;
-    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 14px;
+    font-size: 15px;
     color: #333;
-    counter-increment: step;
 }
 
-.onboarding-steps li::before {
-    content: counter(step);
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 24px;
-    height: 24px;
-    background: #FFF0EB;
-    color: #FF6342;
-    border-radius: 50%;
-    font-size: 12px;
-    font-weight: 700;
+.onboarding-steps .step-icon {
+    font-size: 20px;
+    width: 32px;
+    height: 32px;
     display: flex;
     align-items: center;
     justify-content: center;
+    background: #FFF5F2;
+    border-radius: 8px;
 }
 
 .onboarding-start {

@@ -37,6 +37,13 @@
                 <span class="journey-date" id="todayDate"></span>
             </div>
             <div class="journey-nav-actions">
+                <button class="help-btn" id="helpBtn" title="How it works">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                        <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                    </svg>
+                </button>
                 <div class="lang-toggle">
                     <button class="lang-btn active" data-lang="en">EN</button>
                     <button class="lang-btn" data-lang="es">ES</button>
@@ -60,14 +67,14 @@
             <!-- First Visit Onboarding -->
             <div class="onboarding-tooltip" id="onboardingTooltip">
                 <button class="onboarding-close" id="closeOnboarding">&times;</button>
-                <h4 data-en="How it works" data-es="Cómo funciona">How it works</h4>
-                <p data-en="5 steps to truly understand and live today's verse:" data-es="5 pasos para entender y vivir el versículo de hoy:">5 steps to truly understand and live today's verse:</p>
+                <h4 data-en="5 minutes to transform your day" data-es="5 minutos para transformar tu día">5 minutes to transform your day</h4>
+                <p data-en="Go beyond reading — truly understand and live the Word:" data-es="Ve más allá de leer — entiende y vive la Palabra:">Go beyond reading — truly understand and live the Word:</p>
                 <ol class="onboarding-steps">
-                    <li data-en="Read today's verse" data-es="Lee el versículo de hoy">Read today's verse</li>
-                    <li data-en="Understand the context" data-es="Entiende el contexto">Understand the context</li>
-                    <li data-en="Discover why it works" data-es="Descubre por qué funciona">Discover why it works</li>
-                    <li data-en="Take action" data-es="Toma acción">Take action</li>
-                    <li data-en="Close in prayer" data-es="Cierra en oración">Close in prayer</li>
+                    <li><span class="step-icon">📖</span> <span data-en="Read today's verse" data-es="Lee el versículo de hoy">Read today's verse</span></li>
+                    <li><span class="step-icon">🌍</span> <span data-en="Understand the context" data-es="Entiende el contexto">Understand the context</span></li>
+                    <li><span class="step-icon">🧠</span> <span data-en="Discover why it works" data-es="Descubre por qué funciona">Discover why it works</span></li>
+                    <li><span class="step-icon">⚡</span> <span data-en="Take action" data-es="Toma acción">Take action</span></li>
+                    <li><span class="step-icon">🙏</span> <span data-en="Close in prayer" data-es="Cierra en oración">Close in prayer</span></li>
                 </ol>
                 <button class="onboarding-start" id="startJourney" data-en="Let's begin" data-es="Comencemos">Let's begin</button>
             </div>
@@ -564,6 +571,9 @@
             document.getElementById('closeOnboarding').addEventListener('click', dismissOnboarding);
             document.getElementById('startJourney').addEventListener('click', dismissOnboarding);
             document.getElementById('skipToVerse').addEventListener('click', skipToVerseOnly);
+            document.getElementById('helpBtn').addEventListener('click', () => {
+                document.getElementById('onboardingTooltip').classList.add('show');
+            });
 
             // Continue buttons
             document.querySelectorAll('.continue-btn').forEach(btn => {
