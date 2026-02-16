@@ -95,8 +95,8 @@
                         <div class="guide-step">
                             <span class="guide-step-num">5</span>
                             <div class="guide-step-info">
-                                <strong data-en="Pray" data-es="Ora">Pray</strong>
-                                <span data-en="Close with intention" data-es="Cierra con intención">Close with intention</span>
+                                <strong data-en="Intend" data-es="Intención">Intend</strong>
+                                <span data-en="Set your intention" data-es="Establece tu intención">Set your intention</span>
                             </div>
                         </div>
                     </div>
@@ -305,7 +305,7 @@
             <!-- STEP 5: CLOSE IN PRAYER -->
             <section class="journey-section" data-journey-step="5" id="step5">
                 <div class="section-header">
-                    <span class="step-label" data-en="CLOSE IN PRAYER" data-es="CIERRA EN ORACIÓN">CLOSE IN PRAYER</span>
+                    <span class="step-label" data-en="SET YOUR INTENTION" data-es="ESTABLECE TU INTENCIÓN">SET YOUR INTENTION</span>
                     <div class="step-check" id="check5">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
                             <polyline points="20 6 9 17 4 12"></polyline>
@@ -313,12 +313,14 @@
                     </div>
                 </div>
 
+                <p class="section-intro" data-en="Ground today's truth in a moment of stillness." data-es="Anclá la verdad de hoy en un momento de quietud.">Ground today's truth in a moment of stillness.</p>
+
                 <div class="prayer-card">
                     <blockquote class="prayer-text" id="prayerContent"></blockquote>
                     <details class="prayer-science">
                         <summary>
                             <span class="card-icon">🧬</span>
-                            <span class="card-title" data-en="Science of Prayer" data-es="Ciencia de la Oración">Science of Prayer</span>
+                            <span class="card-title" data-en="The Research" data-es="La Investigación">The Research</span>
                             <span class="card-toggle">+</span>
                         </summary>
                         <div class="card-body" id="prayerScienceContent"></div>
@@ -345,6 +347,7 @@
                     <h2 data-en="Superpowered" data-es="Superpotenciado">Superpowered</h2>
                     <p class="complete-cta" data-en="Now go live it." data-es="Ahora ve y vívelo.">Now go live it.</p>
                     <div class="streak-display">
+                        <span class="streak-flame">🔥</span>
                         <span class="streak-count" id="streakNumber">0</span>
                         <span class="streak-label" data-en="day streak" data-es="días seguidos">day streak</span>
                     </div>
@@ -590,8 +593,8 @@
 
             // Update step label
             const stepNames = {
-                en: ["Today's Verse", 'The Context', 'Why It Works', 'Your Action', 'Close in Prayer'],
-                es: ['Versículo de Hoy', 'El Contexto', 'Por Qué Funciona', 'Tu Acción', 'Cierra en Oración']
+                en: ["Today's Verse", 'The Context', 'Why It Works', 'Your Action', 'Set Your Intention'],
+                es: ['Versículo de Hoy', 'El Contexto', 'Por Qué Funciona', 'Tu Acción', 'Tu Intención']
             };
             document.getElementById('currentStepLabel').textContent =
                 currentLang === 'en' ? `Step ${currentStep} of 5` : `Paso ${currentStep} de 5`;
