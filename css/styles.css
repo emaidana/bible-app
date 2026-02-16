@@ -8324,19 +8324,20 @@ section {
 
 /* Prayer Card */
 .prayer-card {
-    background: linear-gradient(135deg, #FFF8F5 0%, #FFF0EB 100%);
+    background: #FFFFFF;
     border-radius: 16px;
     padding: 24px;
     margin-bottom: 20px;
-    border: 1px solid rgba(255, 99, 66, 0.1);
+    border-left: 3px solid #FF6342;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 .prayer-text {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 18px;
-    line-height: 1.7;
+    font-family: 'Crimson Pro', Georgia, serif;
+    font-size: 17px;
+    line-height: 1.8;
     color: #1A1A1A;
-    font-style: italic;
+    font-style: normal;
     margin: 0 0 20px 0;
     padding: 0;
     border: none;
@@ -8396,7 +8397,7 @@ section {
     justify-content: center;
     gap: 10px;
     padding: 18px 24px;
-    background: linear-gradient(135deg, #FF6342 0%, #FF8A65 100%);
+    background: #FF6342;
     color: #fff;
     border: none;
     border-radius: 12px;
@@ -8404,12 +8405,11 @@ section {
     font-weight: 700;
     cursor: pointer;
     transition: all 0.2s ease;
-    box-shadow: 0 4px 16px rgba(255, 99, 66, 0.3);
 }
 
 .complete-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255, 99, 66, 0.4);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(255, 99, 66, 0.25);
 }
 
 /* Journey Hero Intro */
@@ -8621,9 +8621,9 @@ section {
     text-align: center;
     padding: 60px 20px;
     margin-top: 20px;
-    background: linear-gradient(180deg, #FFF5F2 0%, #FFEBE5 100%);
+    background: #FFFFFF;
     border-radius: 24px;
-    border: 2px solid rgba(255, 99, 66, 0.15);
+    border: 1px solid #F0F0F0;
 }
 
 .journey-complete.show {
@@ -8638,29 +8638,35 @@ section {
 }
 
 .complete-icon {
-    font-size: 72px;
     margin-bottom: 16px;
-    animation: pulse 2s ease infinite;
 }
 
-@keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
+.checkmark-svg .checkmark-circle {
+    stroke-dasharray: 189;
+    stroke-dashoffset: 189;
+    animation: drawCircle 0.6s ease forwards;
+}
+
+.checkmark-svg .checkmark-check {
+    stroke-dasharray: 40;
+    stroke-dashoffset: 40;
+    animation: drawCheck 0.4s ease 0.5s forwards;
+}
+
+@keyframes drawCircle {
+    to { stroke-dashoffset: 0; }
+}
+
+@keyframes drawCheck {
+    to { stroke-dashoffset: 0; }
 }
 
 .journey-complete h2 {
-    font-size: 32px;
-    font-weight: 900;
-    color: #FF6342;
-    letter-spacing: 0.1em;
-    margin-bottom: 16px;
-}
-
-.complete-tagline {
-    font-size: 18px;
+    font-size: 24px;
     font-weight: 600;
-    color: #1A1A1A;
-    margin: 0 0 4px 0 !important;
+    color: #FF6342;
+    letter-spacing: 0;
+    margin-bottom: 16px;
 }
 
 .complete-cta {
@@ -8674,20 +8680,16 @@ section {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: #FFF3E0;
+    background: #F5F5F5;
     padding: 12px 24px;
     border-radius: 50px;
     margin-bottom: 24px;
 }
 
-.streak-flame {
-    font-size: 20px;
-}
-
 .streak-count {
     font-size: 24px;
     font-weight: 700;
-    color: #E65100;
+    color: #1A1A1A;
 }
 
 .streak-label {
@@ -8706,24 +8708,36 @@ section {
     align-items: center;
     gap: 8px;
     padding: 12px 24px;
-    background: #1A1A1A;
-    color: #fff;
-    border: none;
+    background: #FFFFFF;
+    color: #1A1A1A;
+    border: 1px solid #E0E0E0;
     border-radius: 10px;
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.share-btn:hover {
+    border-color: #FF6342;
+    color: #FF6342;
 }
 
 .review-btn {
     padding: 12px 24px;
-    background: transparent;
-    color: #666;
-    border: 1px solid #E5E5E5;
+    background: #FFFFFF;
+    color: #1A1A1A;
+    border: 1px solid #E0E0E0;
     border-radius: 10px;
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.review-btn:hover {
+    border-color: #FF6342;
+    color: #FF6342;
 }
 
 /* Audio Player */

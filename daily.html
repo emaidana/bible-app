@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/styles.css?v=20260215">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 </head>
 <body class="berean-journey">
     <!-- Sticky Progress Bar -->
@@ -52,7 +52,7 @@
 
             <!-- Hero Intro -->
             <div class="journey-hero">
-                <h1 data-en="Living Superpowered" data-es="Viviendo Superpotenciado">Living Superpowered</h1>
+                <h1 data-en="Live Superpowered" data-es="Viví Superpotenciado">Live Superpowered</h1>
                 <p class="hero-subtitle" data-en="One verse. Deeply understood. Actually lived." data-es="Un versículo. Profundamente entendido. Realmente vivido.">One verse. Deeply understood. Actually lived.</p>
                 <p class="hero-time" data-en="5 minutes to transform your day" data-es="5 minutos para transformar tu día">5 minutes to transform your day</p>
                 <button class="skip-link" id="skipToVerse" data-en="Just show me the verse →" data-es="Solo muéstrame el versículo →">Just show me the verse →</button>
@@ -168,7 +168,7 @@
                 <p class="section-intro" data-en="What the original audience knew that we don't." data-es="Lo que la audiencia original sabía y nosotros no.">What the original audience knew that we don't.</p>
 
                 <div class="context-cards">
-                    <details class="context-card" open>
+                    <details class="context-card">
                         <summary>
                             <span class="card-icon">📜</span>
                             <span class="card-title" data-en="Historical" data-es="Histórico">Historical</span>
@@ -236,7 +236,7 @@
                 <p class="section-intro" data-en="The science behind why this ancient wisdom actually works." data-es="La ciencia detrás de por qué esta antigua sabiduría realmente funciona.">The science behind why this ancient wisdom actually works.</p>
 
                 <div class="context-cards">
-                    <details class="context-card" open>
+                    <details class="context-card">
                         <summary>
                             <span class="card-icon">🧠</span>
                             <span class="card-title" data-en="Neuroscience" data-es="Neurociencia">Neuroscience</span>
@@ -336,12 +336,15 @@
             <!-- COMPLETION STATE -->
             <section class="journey-complete" id="journeyComplete">
                 <div class="complete-content">
-                    <div class="complete-icon">⚡</div>
-                    <h2 data-en="SUPERPOWERED" data-es="SUPERPOTENCIADO">SUPERPOWERED</h2>
-                    <p class="complete-tagline" data-en="You were built for more." data-es="Fuiste creado para más.">You were built for more.</p>
+                    <div class="complete-icon">
+                        <svg class="checkmark-svg" width="72" height="72" viewBox="0 0 72 72" fill="none">
+                            <circle class="checkmark-circle" cx="36" cy="36" r="30" stroke="#FF6342" stroke-width="3" stroke-linecap="round"/>
+                            <polyline class="checkmark-check" points="24,37 33,46 48,28" stroke="#FF6342" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                        </svg>
+                    </div>
+                    <h2 data-en="Superpowered" data-es="Superpotenciado">Superpowered</h2>
                     <p class="complete-cta" data-en="Now go live it." data-es="Ahora ve y vívelo.">Now go live it.</p>
                     <div class="streak-display">
-                        <span class="streak-flame">🔥</span>
                         <span class="streak-count" id="streakNumber">0</span>
                         <span class="streak-label" data-en="day streak" data-es="días seguidos">day streak</span>
                     </div>
@@ -707,6 +710,19 @@
                         nudgeText: currentVerse.analysis?.nudge?.[currentLang] || ''
                     });
                 }
+            });
+
+            // Accordion auto-close: only one open per group
+            document.querySelectorAll('.context-cards').forEach(container => {
+                container.querySelectorAll('details').forEach(detail => {
+                    detail.addEventListener('toggle', () => {
+                        if (detail.open) {
+                            container.querySelectorAll('details').forEach(sibling => {
+                                if (sibling !== detail && sibling.open) sibling.open = false;
+                            });
+                        }
+                    });
+                });
             });
 
             // Scroll spy for progress
