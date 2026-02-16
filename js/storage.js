@@ -20,10 +20,12 @@ const StorageManager = {
         COMPLETED_VERSES: 'berean_completed_verses',
         USER_PROFILE: 'berean_user_profile',
         BUSINESS_PROGRESS: 'berean_business_progress',
-        COMPLETED_PROTOCOLS: 'berean_completed_protocols'
+        COMPLETED_PROTOCOLS: 'berean_completed_protocols',
+        VERSE_CACHE: 'berean_verse_cache',
+        VERSE_INDEX_CACHE: 'berean_verse_index'
     },
 
-    MAX_HISTORY: 30, // Keep track of last 30 verses to avoid repetition
+    MAX_HISTORY: 400, // Keep track of last 400 verses to avoid repetition
 
     /**
      * Get the current language preference
@@ -560,5 +562,100 @@ const StorageManager = {
      */
     isProtocolCompleted(protocolId) {
         return this.getCompletedProtocols().some(p => p.protocolId === protocolId);
+    },
+
+    // =====================================================
+    // VERSE DATA CACHING (for on-demand loading)
+    // =====================================================
+
+    /**
+     * Cache a verse's full data in localStorage
+     * @param {string} verseId - The verse ID
+     * @param {object} data - The full verse data object
+     */
+    cacheVerse(verseId, data) {
+        try {
+            const cache = this._getVerseCache();
+            cache[verseId] = { data, cachedAt: Date.now() };
+            localStorage.setItem(this.KEYS.VERSE_CACHE, JSON.stringify(cache));
+        } catch (e) {
+            // localStorage might be full — evict oldest entries
+            this._evictOldestCachedVerses(5);
+            try {
+                const cache = this._getVerseCache();
+                cache[verseId] = { data, cachedAt: Date.now() };
+                localStorage.setItem(this.KEYS.VERSE_CACHE, JSON.stringify(cache));
+            } catch (e2) {
+                // Silent fail — verse will be fetched again next time
+            }
+        }
+    },
+
+    /**
+     * Get a cached verse's data from localStorage
+     * @param {string} verseId - The verse ID
+     * @returns {object|null} The verse data or null if not cached
+     */
+    getCachedVerse(verseId) {
+        const cache = this._getVerseCache();
+        const entry = cache[verseId];
+        return entry ? entry.data : null;
+    },
+
+    /**
+     * Get the full verse cache object
+     * @returns {object}
+     */
+    _getVerseCache() {
+        const stored = localStorage.getItem(this.KEYS.VERSE_CACHE);
+        if (!stored) return {};
+        try {
+            return JSON.parse(stored);
+        } catch (e) {
+            return {};
+        }
+    },
+
+    /**
+     * Evict oldest cached verses to free space
+     * @param {number} count - Number of entries to evict
+     */
+    _evictOldestCachedVerses(count) {
+        const cache = this._getVerseCache();
+        const entries = Object.entries(cache).sort((a, b) => a[1].cachedAt - b[1].cachedAt);
+        for (let i = 0; i < Math.min(count, entries.length); i++) {
+            delete cache[entries[i][0]];
+        }
+        try {
+            localStorage.setItem(this.KEYS.VERSE_CACHE, JSON.stringify(cache));
+        } catch (e) {
+            localStorage.removeItem(this.KEYS.VERSE_CACHE);
+        }
+    },
+
+    /**
+     * Cache the verse index
+     * @param {Array} index - The verse index array
+     */
+    cacheVerseIndex(index) {
+        try {
+            localStorage.setItem(this.KEYS.VERSE_INDEX_CACHE, JSON.stringify(index));
+        } catch (e) {
+            // Silent fail
+        }
+    },
+
+    /**
+     * Get cached verse index
+     * @returns {Array|null}
+     */
+    getCachedVerseIndex() {
+        const stored = localStorage.getItem(this.KEYS.VERSE_INDEX_CACHE);
+        if (!stored) return null;
+        try {
+            return JSON.parse(stored);
+        } catch (e) {
+            return null;
+        }
     }
 };

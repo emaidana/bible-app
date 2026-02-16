@@ -420,9 +420,9 @@
         let completedSteps = new Set();
 
         // Initialize
-        document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('DOMContentLoaded', async () => {
             initLanguage();
-            loadDailyVerse();
+            await loadDailyVerse();
             updateStreak();
             setupEventListeners();
             setTodayDate();
@@ -497,23 +497,49 @@
             if (currentVerse) renderVerse();
         }
 
-        function loadDailyVerse() {
-            const stored = StorageManager.getCurrentVerse();
-            if (stored) {
-                currentVerse = BibleVerses.find(v => v.id === stored.verseId);
-            }
-            if (!currentVerse) {
-                const viewedIds = StorageManager.getViewedVerses();
-                let available = BibleVerses.filter(v => !viewedIds.includes(v.id));
-                if (available.length === 0) {
-                    StorageManager.resetViewedHistory();
-                    available = BibleVerses;
+        async function loadDailyVerse() {
+            // Show loading state
+            const verseRef = document.getElementById('verseReference');
+            const verseText = document.getElementById('verseText');
+            if (verseRef) verseRef.textContent = currentLang === 'es' ? 'Cargando...' : 'Loading...';
+            if (verseText) verseText.textContent = '';
+
+            try {
+                // Check if we already have today's verse stored
+                const stored = StorageManager.getCurrentVerse();
+                if (stored) {
+                    try {
+                        currentVerse = await VerseLoader.loadVerse(stored.verseId);
+                    } catch (e) {
+                        currentVerse = null;
+                    }
                 }
-                currentVerse = available[Math.floor(Math.random() * available.length)];
-                StorageManager.setCurrentVerse(currentVerse.id);
-                StorageManager.addViewedVerse(currentVerse.id);
+
+                if (!currentVerse) {
+                    // Deterministic daily selection — same verse for all users on same day
+                    const entry = await VerseLoader.getVerseEntryForToday();
+                    currentVerse = await VerseLoader.loadVerse(entry.id);
+                    StorageManager.setCurrentVerse(currentVerse.id);
+                    StorageManager.addViewedVerse(currentVerse.id);
+                }
+
+                renderVerse();
+            } catch (e) {
+                // Offline fallback: try to display any cached verse
+                const cachedId = StorageManager.getCurrentVerse();
+                if (cachedId) {
+                    const cached = StorageManager.getCachedVerse(cachedId.verseId);
+                    if (cached) {
+                        currentVerse = cached;
+                        renderVerse();
+                        return;
+                    }
+                }
+                if (verseRef) verseRef.textContent = currentLang === 'es' ? 'Sin conexión' : 'Offline';
+                if (verseText) verseText.textContent = currentLang === 'es'
+                    ? 'No se pudo cargar el versículo. Verificá tu conexión e intentá de nuevo.'
+                    : 'Could not load verse. Check your connection and try again.';
             }
-            renderVerse();
         }
 
         function renderVerse() {
