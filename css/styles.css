@@ -8324,12 +8324,11 @@ section {
 
 /* Prayer Card */
 .prayer-card {
-    background: #FFFFFF;
+    background: #fff;
     border-radius: 16px;
-    padding: 24px;
+    padding: 28px;
     margin-bottom: 20px;
-    border-left: 3px solid #FF6342;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    border: 1px solid #E5E5E5;
 }
 
 .prayer-text {
@@ -8344,15 +8343,16 @@ section {
 }
 
 .prayer-science {
-    background: rgba(255, 255, 255, 0.5);
+    background: #F8F8F8;
     border-radius: 12px;
+    border: 1px solid #E5E5E5;
 }
 
 .prayer-science summary {
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 14px 16px;
+    gap: 12px;
+    padding: 16px;
     cursor: pointer;
     list-style: none;
 }
@@ -8362,19 +8362,19 @@ section {
 }
 
 .prayer-science .card-icon {
-    font-size: 16px;
+    font-size: 18px;
 }
 
 .prayer-science .card-title {
     flex: 1;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 600;
     color: #1A1A1A;
 }
 
 .prayer-science .card-toggle {
-    font-size: 16px;
-    color: #FF6342;
+    font-size: 18px;
+    color: #999;
     transition: transform 0.2s ease;
 }
 
@@ -8384,7 +8384,7 @@ section {
 
 .prayer-science .card-body {
     padding: 0 16px 16px;
-    font-size: 14px;
+    font-size: 15px;
     line-height: 1.7;
     color: #666;
 }
@@ -8396,20 +8396,20 @@ section {
     align-items: center;
     justify-content: center;
     gap: 10px;
-    padding: 18px 24px;
+    padding: 16px 24px;
     background: #FF6342;
     color: #fff;
     border: none;
     border-radius: 12px;
-    font-size: 16px;
-    font-weight: 700;
+    font-size: 15px;
+    font-weight: 600;
     cursor: pointer;
     transition: all 0.2s ease;
 }
 
 .complete-btn:hover {
+    background: #E5573A;
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(255, 99, 66, 0.25);
 }
 
 /* Journey Hero Intro */
@@ -8619,11 +8619,11 @@ section {
 .journey-complete {
     display: none;
     text-align: center;
-    padding: 60px 20px;
+    padding: 48px 24px;
     margin-top: 20px;
-    background: #FFFFFF;
-    border-radius: 24px;
-    border: 1px solid #F0F0F0;
+    background: #fff;
+    border-radius: 20px;
+    border: 1px solid #E5E5E5;
 }
 
 .journey-complete.show {
@@ -8663,16 +8663,16 @@ section {
 
 .journey-complete h2 {
     font-size: 24px;
-    font-weight: 600;
-    color: #FF6342;
-    letter-spacing: 0;
-    margin-bottom: 16px;
+    font-weight: 700;
+    color: #1A1A1A;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
 }
 
 .complete-cta {
-    font-size: 16px;
+    font-size: 15px;
     color: #666;
-    font-style: italic;
+    font-style: normal;
     margin: 0 0 24px 0 !important;
 }
 
@@ -8693,7 +8693,7 @@ section {
 .streak-count {
     font-size: 24px;
     font-weight: 700;
-    color: #E65100;
+    color: #1A1A1A;
 }
 
 .streak-label {
@@ -8711,11 +8711,11 @@ section {
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 12px 24px;
-    background: #FFFFFF;
+    padding: 12px 20px;
+    background: #fff;
     color: #1A1A1A;
-    border: 1px solid #E0E0E0;
-    border-radius: 10px;
+    border: 1px solid #E5E5E5;
+    border-radius: 12px;
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
@@ -8723,16 +8723,15 @@ section {
 }
 
 .share-btn:hover {
-    border-color: #FF6342;
-    color: #FF6342;
+    background: #F5F5F5;
 }
 
 .review-btn {
-    padding: 12px 24px;
-    background: #FFFFFF;
+    padding: 12px 20px;
+    background: #fff;
     color: #1A1A1A;
-    border: 1px solid #E0E0E0;
-    border-radius: 10px;
+    border: 1px solid #E5E5E5;
+    border-radius: 12px;
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
@@ -8740,8 +8739,7 @@ section {
 }
 
 .review-btn:hover {
-    border-color: #FF6342;
-    color: #FF6342;
+    background: #F5F5F5;
 }
 
 /* Audio Player */
