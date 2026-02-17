@@ -8287,11 +8287,11 @@ section {
 }
 
 .reflection-header .card-icon {
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .reflection-header .card-title {
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 600;
     color: #1A1A1A;
 }
@@ -8343,16 +8343,15 @@ section {
 }
 
 .prayer-science {
-    background: #F8F8F8;
-    border-radius: 12px;
-    border: 1px solid #E5E5E5;
+    border-top: 1px solid #E5E5E5;
+    margin-top: 4px;
 }
 
 .prayer-science summary {
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 16px;
+    gap: 10px;
+    padding: 14px 0 0;
     cursor: pointer;
     list-style: none;
 }
@@ -8362,18 +8361,18 @@ section {
 }
 
 .prayer-science .card-icon {
-    font-size: 18px;
+    font-size: 14px;
 }
 
 .prayer-science .card-title {
     flex: 1;
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 600;
-    color: #1A1A1A;
+    color: #888;
 }
 
 .prayer-science .card-toggle {
-    font-size: 18px;
+    font-size: 14px;
     color: #999;
     transition: transform 0.2s ease;
 }
@@ -8383,8 +8382,8 @@ section {
 }
 
 .prayer-science .card-body {
-    padding: 0 16px 16px;
-    font-size: 15px;
+    padding: 12px 0 0;
+    font-size: 14px;
     line-height: 1.7;
     color: #666;
 }
@@ -8619,7 +8618,7 @@ section {
 .journey-complete {
     display: none;
     text-align: center;
-    padding: 48px 24px;
+    padding: 40px 24px;
     margin-top: 20px;
     background: #fff;
     border-radius: 20px;
@@ -8638,18 +8637,18 @@ section {
 }
 
 .complete-icon {
-    margin-bottom: 16px;
+    margin-bottom: 12px;
 }
 
 .checkmark-svg .checkmark-circle {
-    stroke-dasharray: 189;
-    stroke-dashoffset: 189;
+    stroke-dasharray: 126;
+    stroke-dashoffset: 126;
     animation: drawCircle 0.6s ease forwards;
 }
 
 .checkmark-svg .checkmark-check {
-    stroke-dasharray: 40;
-    stroke-dashoffset: 40;
+    stroke-dasharray: 28;
+    stroke-dashoffset: 28;
     animation: drawCheck 0.4s ease 0.5s forwards;
 }
 
@@ -8662,61 +8661,61 @@ section {
 }
 
 .journey-complete h2 {
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 700;
     color: #1A1A1A;
     letter-spacing: -0.02em;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
 }
 
 .complete-cta {
-    font-size: 15px;
+    font-size: 14px;
     color: #666;
     font-style: normal;
-    margin: 0 0 24px 0 !important;
+    margin: 0 0 20px 0 !important;
 }
 
 .streak-display {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     background: #F5F5F5;
-    padding: 12px 24px;
+    padding: 8px 16px;
     border-radius: 50px;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
 }
 
 .streak-flame {
-    font-size: 20px;
+    font-size: 14px;
 }
 
 .streak-count {
-    font-size: 24px;
+    font-size: 16px;
     font-weight: 700;
     color: #1A1A1A;
 }
 
 .streak-label {
-    font-size: 14px;
+    font-size: 12px;
     color: #666;
 }
 
 .complete-actions {
     display: flex;
-    gap: 12px;
+    gap: 10px;
     justify-content: center;
 }
 
 .share-btn {
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 12px 20px;
+    gap: 6px;
+    padding: 10px 16px;
     background: #fff;
     color: #1A1A1A;
     border: 1px solid #E5E5E5;
     border-radius: 12px;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.2s ease;
@@ -8726,13 +8725,18 @@ section {
     background: #F5F5F5;
 }
 
+.share-btn svg {
+    width: 14px;
+    height: 14px;
+}
+
 .review-btn {
-    padding: 12px 20px;
+    padding: 10px 16px;
     background: #fff;
     color: #1A1A1A;
     border: 1px solid #E5E5E5;
     border-radius: 12px;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.2s ease;
@@ -8946,10 +8950,6 @@ section {
 
     .verse-text {
         font-size: 20px;
-    }
-
-    .journey-complete h2 {
-        font-size: 24px;
     }
 
     .complete-actions {
