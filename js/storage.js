@@ -3,6 +3,8 @@
  */
 
 const StorageManager = {
+    CACHE_VERSION: '20260220',
+
     KEYS: {
         VIEWED_VERSES: 'bibleApp_viewedVerses',
         CURRENT_VERSE: 'bibleApp_currentVerse',
@@ -597,9 +599,22 @@ const StorageManager = {
      * @returns {object|null} The verse data or null if not cached
      */
     getCachedVerse(verseId) {
+        this._checkCacheVersion();
         const cache = this._getVerseCache();
         const entry = cache[verseId];
         return entry ? entry.data : null;
+    },
+
+    /**
+     * Check if cache version matches. If not, clear verse cache.
+     */
+    _checkCacheVersion() {
+        const storedVersion = localStorage.getItem('berean_cache_version');
+        if (storedVersion !== this.CACHE_VERSION) {
+            localStorage.removeItem(this.KEYS.VERSE_CACHE);
+            localStorage.removeItem(this.KEYS.VERSE_INDEX_CACHE);
+            localStorage.setItem('berean_cache_version', this.CACHE_VERSION);
+        }
     },
 
     /**
