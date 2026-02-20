@@ -1,9 +1,17 @@
 {
   "id": "john-3-16",
-  "book": { "en": "John", "es": "Juan" },
+  "book": {
+    "en": "John",
+    "es": "Juan"
+  },
   "chapter": 3,
   "verse": "16",
-  "themes": ["love", "salvation", "grace", "sacrifice"],
+  "themes": [
+    "love",
+    "salvation",
+    "grace",
+    "sacrifice"
+  ],
   "text": {
     "en": "For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.",
     "es": "Porque de tal manera amó Dios al mundo, que ha dado a su Hijo unigénito, para que todo aquel que en él cree, no se pierda, mas tenga vida eterna."
@@ -13,57 +21,102 @@
       "en": "Jesus spoke these words to Nicodemus around 27-30 AD during the early Roman occupation of Judea. Nicodemus was a Pharisee and member of the Sanhedrin who came to Jesus at night, likely fearing social repercussions. This conversation took place in Jerusalem, possibly during or near the Passover festival. The night visit suggests Nicodemus risked his reputation and status among the religious elite to seek truth.",
       "es": "Jesús pronunció estas palabras a Nicodemo alrededor del año 27-30 d.C. durante la ocupación romana temprana de Judea. Nicodemo era un fariseo y miembro del Sanedrín que vino a Jesús de noche, probablemente temiendo repercusiones sociales. Esta conversación tuvo lugar en Jerusalén, posiblemente durante o cerca de la fiesta de Pascua. La visita nocturna sugiere que Nicodemo arriesgó su reputación y estatus entre la élite religiosa para buscar la verdad.",
       "sources": [
-        { "type": "academic", "citation": "Brown, R.E. (1966). The Gospel According to John I-XII. Anchor Bible Commentary." },
-        { "type": "academic", "citation": "Keener, C.S. (2003). The Gospel of John: A Commentary. Hendrickson Publishers." }
+        {
+          "type": "academic",
+          "citation": "Brown, R.E. (1966). The Gospel According to John I-XII. Anchor Bible Commentary."
+        },
+        {
+          "type": "academic",
+          "citation": "Keener, C.S. (2003). The Gospel of John: A Commentary. Hendrickson Publishers."
+        }
       ]
     },
     "economic": {
       "en": "First-century Palestine had stark economic divisions. The concept of 'giving' one's son would resonate with an agrarian society where children represented economic security and future labor. The universal offer ('whosoever') was radical — salvation wasn't reserved for the wealthy who could afford temple sacrifices or the educated who mastered Torah. This democratization of access to God bypassed the entire economic gatekeeping system of the temple.",
       "es": "La Palestina del siglo I tenía divisiones económicas marcadas. El concepto de 'dar' al hijo resonaría en una sociedad agraria donde los hijos representaban seguridad económica y mano de obra futura. La oferta universal ('todo aquel') era radical — la salvación no estaba reservada para los ricos que podían costear sacrificios en el templo ni para los educados que dominaban la Torá. Esta democratización del acceso a Dios eludió todo el sistema de control económico del templo.",
       "sources": [
-        { "type": "academic", "citation": "Hanson, K.C. & Oakman, D. (1998). Palestine in the Time of Jesus. Fortress Press." },
-        { "type": "academic", "citation": "Fiensy, D.A. (2007). Jesus the Galilean: Soundings in a First Century Life. Gorgias Press." }
+        {
+          "type": "academic",
+          "citation": "Hanson, K.C. & Oakman, D. (1998). Palestine in the Time of Jesus. Fortress Press."
+        },
+        {
+          "type": "academic",
+          "citation": "Fiensy, D.A. (2007). Jesus the Galilean: Soundings in a First Century Life. Gorgias Press."
+        }
       ]
     },
     "social": {
       "en": "Jewish society was highly stratified. Nicodemus, as a Pharisee, belonged to the educated elite. Yet Jesus offered the same promise to everyone — revolutionary for a culture where religious knowledge was gatekept by scholars. The phrase 'the world' broke ethnic and social barriers, extending God's love beyond Israel to include Gentiles, Samaritans, and all peoples.",
       "es": "La sociedad judía estaba muy estratificada. Nicodemo, como fariseo, pertenecía a la élite educada. Sin embargo, Jesús ofreció la misma promesa a todos — revolucionario para una cultura donde el conocimiento religioso era controlado por los eruditos. La frase 'el mundo' rompía barreras étnicas y sociales, extendiendo el amor de Dios más allá de Israel para incluir a gentiles, samaritanos y todos los pueblos.",
       "sources": [
-        { "type": "academic", "citation": "Sanders, E.P. (1992). Judaism: Practice and Belief, 63 BCE–66 CE. SCM Press." },
-        { "type": "academic", "citation": "Saldarini, A.J. (1988). Pharisees, Scribes and Sadducees in Palestinian Society. Eerdmans." }
+        {
+          "type": "academic",
+          "citation": "Sanders, E.P. (1992). Judaism: Practice and Belief, 63 BCE–66 CE. SCM Press."
+        },
+        {
+          "type": "academic",
+          "citation": "Saldarini, A.J. (1988). Pharisees, Scribes and Sadducees in Palestinian Society. Eerdmans."
+        }
       ]
     },
     "political": {
       "en": "Rome ruled Judea through client kings and prefects. The Jewish people longed for a political messiah to overthrow Rome. Jesus redefined messiahship — offering spiritual rather than political liberation. The universal scope of 'the world' implicitly challenged both Roman imperial ideology and Jewish ethnocentrism.",
       "es": "Roma gobernaba Judea a través de reyes vasallos y prefectos. El pueblo judío anhelaba un mesías político que derrocara a Roma. Jesús redefinió el concepto de mesías — ofreciendo liberación espiritual en lugar de política. El alcance universal de 'el mundo' desafiaba implícitamente tanto la ideología imperial romana como el etnocentrismo judío.",
       "sources": [
-        { "type": "academic", "citation": "Horsley, R.A. (2003). Jesus and Empire: The Kingdom of God and the New World Disorder. Fortress Press." },
-        { "type": "academic", "citation": "Goodman, M. (2007). Rome and Jerusalem: The Clash of Ancient Civilizations. Penguin." }
+        {
+          "type": "academic",
+          "citation": "Horsley, R.A. (2003). Jesus and Empire: The Kingdom of God and the New World Disorder. Fortress Press."
+        },
+        {
+          "type": "academic",
+          "citation": "Goodman, M. (2007). Rome and Jerusalem: The Clash of Ancient Civilizations. Penguin."
+        }
       ]
     },
     "author": {
       "en": "John, the 'beloved disciple,' wrote his gospel likely between 85-95 AD. He was a fisherman from Galilee who became part of Jesus's inner circle. Writing decades after the events, John crafted a theological narrative emphasizing Jesus's divine nature. This verse encapsulates his core message — God's initiative in salvation through sacrificial love.",
       "es": "Juan, el 'discípulo amado,' escribió su evangelio probablemente entre el 85-95 d.C. Era un pescador de Galilea que se convirtió en parte del círculo íntimo de Jesús. Escribiendo décadas después de los eventos, Juan elaboró una narrativa teológica enfatizando la naturaleza divina de Jesús. Este versículo encapsula su mensaje central — la iniciativa de Dios en la salvación a través del amor sacrificial.",
       "sources": [
-        { "type": "academic", "citation": "Brown, R.E. (1979). The Community of the Beloved Disciple. Paulist Press." },
-        { "type": "academic", "citation": "Bauckham, R. (2006). Jesus and the Eyewitnesses. Eerdmans." }
+        {
+          "type": "academic",
+          "citation": "Brown, R.E. (1979). The Community of the Beloved Disciple. Paulist Press."
+        },
+        {
+          "type": "academic",
+          "citation": "Bauckham, R. (2006). Jesus and the Eyewitnesses. Eerdmans."
+        }
       ]
     },
     "neuroscience": {
-      "en": "Think about the last time someone didn't just say they loved you — they proved it at a cost. A friend who showed up when it was inconvenient. A parent who gave up something they wanted so you could have what you needed. You felt that differently than a text saying 'thinking of you.' That's not sentimentality — that's neuroscience. 'Loved' (amó) — The word 'loved' activates your brain's ventral tegmental area (VTA), the same dopaminergic circuit that fires during deep attachment. Even hearing about being loved by an abstract source triggers oxytocin release in the hypothalamus, measurably reducing your blood pressure and cortisol (Bartels & Zeki, 2004). 'Gave' (dio) — When you process the concept of sacrificial giving, your temporoparietal junction (TPJ) lights up — the region responsible for understanding others' intentions and generating empathy. This is why costly gifts move you more than expensive ones. 'Not perish' (no se pierda) — This negation of loss directly engages your amygdala's threat-detection system, but in reverse — it signals safety. Your brain processes safety cues 40% faster when they follow a named threat (LeDoux, 2015). This means the verse is doing something to your nervous system as you read it: naming a threat (perishing), then immediately providing safety (not perish), then anchoring that safety in demonstrated love (gave). It's not just theology — it's a neurological sequence designed to move you from fear to trust.",
+      "en": "Think about the last time someone didn't just say they loved you — they proved it at a cost. A friend who showed up when it was inconvenient. A parent who gave up something they wanted so you could have what you needed. You felt that differently than a text saying 'thinking of you.' That's not sentimentality — that's neuroscience. 'Loved' — The word 'loved' activates your brain's ventral tegmental area (VTA), the same dopaminergic circuit that fires during deep attachment. Even hearing about being loved by an abstract source triggers oxytocin release in the hypothalamus, measurably reducing your blood pressure and cortisol (Bartels & Zeki, 2004). 'Gave' (dio) — When you process the concept of sacrificial giving, your temporoparietal junction (TPJ) lights up — the region responsible for understanding others' intentions and generating empathy. This is why costly gifts move you more than expensive ones. 'Not perish' (no se pierda) — This negation of loss directly engages your amygdala's threat-detection system, but in reverse — it signals safety. Your brain processes safety cues 40% faster when they follow a named threat (LeDoux, 2015). This means the verse is doing something to your nervous system as you read it: naming a threat (perishing), then immediately providing safety (not perish), then anchoring that safety in demonstrated love (gave). It's not just theology — it's a neurological sequence designed to move you from fear to trust.",
       "es": "Pensá en la última vez que alguien no solo te dijo que te quería — lo demostró a un costo. Un amigo que apareció cuando no le convenía. Un padre que renunció a algo que quería para que vos pudieras tener lo que necesitabas. Lo sentiste diferente a un mensaje diciendo 'te quiero.' Eso no es sentimentalismo — es neurociencia. 'Amó' — La palabra 'amó' activa el área tegmental ventral (ATV) de tu cerebro, el mismo circuito dopaminérgico que se dispara durante el apego profundo. Incluso escuchar sobre ser amado por una fuente abstracta desencadena liberación de oxitocina en el hipotálamo, reduciendo mediblemente tu presión arterial y cortisol (Bartels & Zeki, 2004). 'Dio' — Cuando procesás el concepto de dar sacrificialmente, tu unión temporoparietal (UTP) se ilumina — la región responsable de entender las intenciones de otros y generar empatía. Por eso los regalos costosos te conmueven más que los caros. 'No se pierda' — Esta negación de la pérdida involucra directamente el sistema de detección de amenazas de tu amígdala, pero al revés — señala seguridad. Tu cerebro procesa señales de seguridad un 40% más rápido cuando siguen a una amenaza nombrada (LeDoux, 2015). Esto significa que el versículo está haciéndole algo a tu sistema nervioso mientras lo leés: nombra una amenaza (perderse), luego inmediatamente provee seguridad (no se pierda), y ancla esa seguridad en amor demostrado (dio). No es solo teología — es una secuencia neurológica diseñada para moverte del miedo a la confianza.",
       "sources": [
-        { "type": "peer-reviewed", "citation": "Bartels, A. & Zeki, S. (2004). The neural correlates of maternal and romantic love. NeuroImage, 21(3), 1155-1166." },
-        { "type": "peer-reviewed", "citation": "LeDoux, J. (2015). Anxious: Using the Brain to Understand and Treat Fear and Anxiety. Viking." },
-        { "type": "peer-reviewed", "citation": "Eisenberger, N.I. (2012). The neural bases of social pain. Psychosomatic Medicine, 74(2), 126-135." }
+        {
+          "type": "peer-reviewed",
+          "citation": "Bartels, A. & Zeki, S. (2004). The neural correlates of maternal and romantic love. NeuroImage, 21(3), 1155-1166."
+        },
+        {
+          "type": "peer-reviewed",
+          "citation": "LeDoux, J. (2015). Anxious: Using the Brain to Understand and Treat Fear and Anxiety. Viking."
+        },
+        {
+          "type": "peer-reviewed",
+          "citation": "Eisenberger, N.I. (2012). The neural bases of social pain. Psychosomatic Medicine, 74(2), 126-135."
+        }
       ]
     },
     "behavioral": {
       "en": "You've experienced this principle without knowing its name. When someone does something generous for you — buys dinner, covers your shift, helps you move — you feel a pull to reciprocate. That's not just manners. It's one of the most powerful drivers of human behavior. This verse activates that same circuit. The psychological principle of reciprocity — God gave first, inviting response — creates an internal pull toward action (Cialdini, 2009). The universal framing ('whosoever') uses inclusive language that reduces psychological barriers to belonging; you don't have to earn your way in. And the promise of avoiding loss ('not perish') taps into loss aversion, which Kahneman and Tversky's research shows is twice as motivating as the prospect of gain. The sequential structure — love, gift, belief, life — mirrors 'behavioral chaining,' where each step naturally motivates the next. In other words, this verse isn't asking you to make a massive leap of faith. It's giving you a chain of small, psychologically natural steps: feel loved → receive a gift → trust the giver → live differently.",
       "es": "Ya experimentaste este principio sin saber su nombre. Cuando alguien hace algo generoso por vos — te invita a cenar, te cubre un turno, te ayuda con una mudanza — sentís un impulso de devolver el gesto. Eso no son solo modales. Es uno de los motores más poderosos del comportamiento humano. Este versículo activa ese mismo circuito. El principio psicológico de reciprocidad — Dios dio primero, invitando una respuesta — crea un impulso interno hacia la acción (Cialdini, 2009). El marco universal ('todo aquel') usa lenguaje inclusivo que reduce las barreras psicológicas de pertenencia; no tenés que ganarte tu lugar. Y la promesa de evitar la pérdida ('no se pierda') apela a la aversión a la pérdida, que la investigación de Kahneman y Tversky muestra es el doble de motivante que la perspectiva de ganancia. La estructura secuencial — amor, regalo, creencia, vida — refleja el 'encadenamiento conductual,' donde cada paso motiva naturalmente al siguiente. En otras palabras, este versículo no te pide un salto de fe gigante. Te da una cadena de pasos pequeños, psicológicamente naturales: sentirte amado → recibir un regalo → confiar en el dador → vivir diferente.",
       "sources": [
-        { "type": "peer-reviewed", "citation": "Cialdini, R.B. (2009). Influence: Science and Practice (5th ed.). Pearson." },
-        { "type": "peer-reviewed", "citation": "Kahneman, D. & Tversky, A. (1979). Prospect Theory: An Analysis of Decision under Risk. Econometrica, 47(2), 263-291." }
+        {
+          "type": "peer-reviewed",
+          "citation": "Cialdini, R.B. (2009). Influence: Science and Practice (5th ed.). Pearson."
+        },
+        {
+          "type": "peer-reviewed",
+          "citation": "Kahneman, D. & Tversky, A. (1979). Prospect Theory: An Analysis of Decision under Risk. Econometrica, 47(2), 263-291."
+        }
       ]
     },
     "keyPoint": {
@@ -74,7 +127,10 @@
       "en": "In the next 10 minutes, send a voice note to one person telling them something specific you appreciate about them — not 'you're great' but a concrete moment: 'When you did X last week, it made me feel Y.' Hearing a familiar voice activates oxytocin release at 3x the rate of reading a text message (Seltzer et al., 2012). You're practicing the verse's pattern: love expressed through a costly gift (your vulnerability).",
       "es": "En los próximos 10 minutos, enviá un audio a una persona diciéndole algo específico que apreciás de ella — no 'sos genial' sino un momento concreto: 'Cuando hiciste X la semana pasada, me hizo sentir Y.' Escuchar una voz familiar activa la liberación de oxitocina a 3 veces la tasa de leer un mensaje de texto (Seltzer et al., 2012). Estás practicando el patrón del versículo: amor expresado a través de un regalo costoso (tu vulnerabilidad).",
       "sources": [
-        { "type": "peer-reviewed", "citation": "Seltzer, L.J., Prososki, A.R., Ziegler, T.E., & Pollak, S.D. (2012). Instant messages vs. speech: hormones and why we still need to hear each other. Evolution and Human Behavior, 33(1), 42-45." }
+        {
+          "type": "peer-reviewed",
+          "citation": "Seltzer, L.J., Prososki, A.R., Ziegler, T.E., & Pollak, S.D. (2012). Instant messages vs. speech: hormones and why we still need to hear each other. Evolution and Human Behavior, 33(1), 42-45."
+        }
       ]
     },
     "prayer": {
@@ -85,7 +141,10 @@
         "es": "La oración dirigida activa la corteza prefrontal medial — la misma región involucrada durante la toma de perspectiva empática. Cuando la oración incluye una intención específica ('mostrame una persona'), activa redes neuronales dirigidas a metas que aumentan la sensibilidad perceptual a señales sociales relevantes durante todo el día (Newberg & Waldman, 2009)."
       },
       "sources": [
-        { "type": "peer-reviewed", "citation": "Newberg, A. & Waldman, M.R. (2009). How God Changes Your Brain. Ballantine Books." }
+        {
+          "type": "peer-reviewed",
+          "citation": "Newberg, A. & Waldman, M.R. (2009). How God Changes Your Brain. Ballantine Books."
+        }
       ]
     },
     "reflectionQuestion": {

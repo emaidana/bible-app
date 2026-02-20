@@ -8344,17 +8344,25 @@ section {
 }
 
 .prayer-science {
-    border-top: 1px solid #E5E5E5;
-    margin-top: 4px;
+    background: #FAFAFA;
+    border-radius: 12px;
+    margin-top: 16px;
+    border: 1px solid #F0F0F0;
 }
 
 .prayer-science summary {
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 14px 0 0;
+    padding: 14px 16px;
     cursor: pointer;
     list-style: none;
+    transition: background 0.2s ease;
+    border-radius: 12px;
+}
+
+.prayer-science summary:hover {
+    background: #F5F5F5;
 }
 
 .prayer-science summary::-webkit-details-marker {
@@ -8370,6 +8378,7 @@ section {
     font-size: 13px;
     font-weight: 600;
     color: #888;
+    letter-spacing: 0.01em;
 }
 
 .prayer-science .card-toggle {
@@ -8383,7 +8392,7 @@ section {
 }
 
 .prayer-science .card-body {
-    padding: 12px 0 0;
+    padding: 0 16px 16px;
     font-size: 14px;
     line-height: 1.7;
     color: #666;

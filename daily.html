@@ -611,6 +611,9 @@
             markStepComplete(currentStep);
             currentStep = stepNum;
 
+            // Close all open accordions
+            document.querySelectorAll('details[open]').forEach(d => d.open = false);
+
             // Scroll to next section
             const nextSection = document.getElementById(`step${stepNum}`);
             if (nextSection) {
