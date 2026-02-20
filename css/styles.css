@@ -8329,6 +8329,7 @@ section {
     padding: 28px;
     margin-bottom: 20px;
     border: 1px solid #E5E5E5;
+    border-left: 3px solid #FF6342;
 }
 
 .prayer-text {
@@ -8683,10 +8684,6 @@ section {
     padding: 8px 16px;
     border-radius: 50px;
     margin-bottom: 20px;
-}
-
-.streak-flame {
-    font-size: 14px;
 }
 
 .streak-count {
