@@ -61,43 +61,31 @@
             <!-- Guide Modal -->
             <div class="modal-overlay" id="guideModal">
                 <div class="modal-content">
-                    <button class="modal-close" id="closeGuide">&times;</button>
-                    <h3 data-en="How it works" data-es="Cómo funciona">How it works</h3>
+                    <button class="modal-close" id="closeGuide">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                    </button>
+                    <p class="modal-eyebrow" data-en="YOUR DAILY JOURNEY" data-es="TU RECORRIDO DIARIO">YOUR DAILY JOURNEY</p>
+                    <h3 data-en="5 minutes. 5 steps." data-es="5 minutos. 5 pasos.">5 minutes. 5 steps.</h3>
                     <div class="guide-steps">
                         <div class="guide-step">
-                            <span class="guide-step-num">1</span>
-                            <div class="guide-step-info">
-                                <strong data-en="Read" data-es="Lee">Read</strong>
-                                <span data-en="Today's verse" data-es="El versículo de hoy">Today's verse</span>
-                            </div>
+                            <span class="guide-step-label">Read</span>
+                            <span class="guide-step-desc" data-en="Today's verse" data-es="El versículo de hoy">Today's verse</span>
                         </div>
                         <div class="guide-step">
-                            <span class="guide-step-num">2</span>
-                            <div class="guide-step-info">
-                                <strong data-en="Understand" data-es="Entiende">Understand</strong>
-                                <span data-en="Historical context" data-es="Contexto histórico">Historical context</span>
-                            </div>
+                            <span class="guide-step-label">Understand</span>
+                            <span class="guide-step-desc" data-en="Historical context" data-es="Contexto histórico">Historical context</span>
                         </div>
                         <div class="guide-step">
-                            <span class="guide-step-num">3</span>
-                            <div class="guide-step-info">
-                                <strong data-en="Discover" data-es="Descubre">Discover</strong>
-                                <span data-en="The science behind it" data-es="La ciencia detrás">The science behind it</span>
-                            </div>
+                            <span class="guide-step-label">Discover</span>
+                            <span class="guide-step-desc" data-en="The science behind it" data-es="La ciencia detrás">The science behind it</span>
                         </div>
                         <div class="guide-step">
-                            <span class="guide-step-num">4</span>
-                            <div class="guide-step-info">
-                                <strong data-en="Act" data-es="Actúa">Act</strong>
-                                <span data-en="One action today" data-es="Una acción hoy">One action today</span>
-                            </div>
+                            <span class="guide-step-label">Act</span>
+                            <span class="guide-step-desc" data-en="One action today" data-es="Una acción hoy">One action today</span>
                         </div>
                         <div class="guide-step">
-                            <span class="guide-step-num">5</span>
-                            <div class="guide-step-info">
-                                <strong data-en="Pray" data-es="Ora">Pray</strong>
-                                <span data-en="Close with intention" data-es="Cierra con intención">Close with intention</span>
-                            </div>
+                            <span class="guide-step-label">Pray</span>
+                            <span class="guide-step-desc" data-en="Close with intention" data-es="Cierra con intención">Close with intention</span>
                         </div>
                     </div>
                     <button class="guide-got-it" id="closeGuideBtn" data-en="Got it" data-es="Entendido">Got it</button>
@@ -392,18 +380,21 @@
     <!-- Share Modal -->
     <div class="modal-overlay" id="shareModal">
         <div class="modal-content">
-            <button class="modal-close" id="closeShare">&times;</button>
-            <h3 data-en="Share Today's Verse" data-es="Compartir el Versículo de Hoy">Share Today's Verse</h3>
+            <button class="modal-close" id="closeShare">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            </button>
+            <p class="modal-eyebrow" data-en="SHARE" data-es="COMPARTIR">SHARE</p>
+            <h3 data-en="Send today's verse" data-es="Enviá el versículo de hoy">Send today's verse</h3>
             <div class="share-preview" id="sharePreview"></div>
             <div class="share-options">
                 <button class="share-option" id="shareWA">
-                    <span>💬</span> WhatsApp
+                    <span>WhatsApp</span>
                 </button>
                 <button class="share-option" id="shareEM">
-                    <span>📧</span> Email
+                    <span>Email</span>
                 </button>
                 <button class="share-option" id="copyLink">
-                    <span>📋</span> <span data-en="Copy Link" data-es="Copiar Enlace">Copy Link</span>
+                    <span data-en="Copy Link" data-es="Copiar Enlace">Copy Link</span>
                 </button>
             </div>
         </div>
