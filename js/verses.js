@@ -9,6 +9,7 @@ const VerseLoader = {
     index: null,
     cache: new Map(),
     _indexPromise: null,
+    CONTENT_VERSION: '20260220',
 
     /**
      * Load the verse index (lightweight list of all verses with metadata).
@@ -21,7 +22,7 @@ const VerseLoader = {
 
         this._indexPromise = (async () => {
             try {
-                const resp = await fetch('data/verse-index.json');
+                const resp = await fetch(`data/verse-index.json?v=${this.CONTENT_VERSION}`);
                 if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
                 this.index = await resp.json();
                 StorageManager.cacheVerseIndex(this.index);
@@ -74,7 +75,7 @@ const VerseLoader = {
 
         // Fetch from server
         try {
-            const resp = await fetch(`data/verses/${id}.json`);
+            const resp = await fetch(`data/verses/${id}.json?v=${this.CONTENT_VERSION}`);
             if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
             const verse = await resp.json();
             this.cache.set(id, verse);

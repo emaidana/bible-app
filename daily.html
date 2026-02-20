@@ -400,8 +400,8 @@
         </div>
     </div>
 
-    <script src="js/verses.js"></script>
-    <script src="js/storage.js"></script>
+    <script src="js/storage.js?v=20260220"></script>
+    <script src="js/verses.js?v=20260220"></script>
     <script>
         let currentVerse = null;
         let currentLang = localStorage.getItem('berean_lang') || 'es';
@@ -410,6 +410,8 @@
 
         // Initialize
         document.addEventListener('DOMContentLoaded', async () => {
+            // Clear stale caches immediately
+            StorageManager._checkCacheVersion();
             initLanguage();
             await loadDailyVerse();
             updateStreak();
