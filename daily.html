@@ -141,7 +141,7 @@
                     </div>
                     <blockquote class="verse-text" id="verseText"></blockquote>
                     <div class="verse-insight">
-                        <span class="insight-icon">💡</span>
+                        <span class="insight-label">KEY INSIGHT</span>
                         <p class="insight-text" id="keyPointContent"></p>
                     </div>
                 </div>
@@ -170,7 +170,6 @@
                 <div class="context-cards">
                     <details class="context-card">
                         <summary>
-                            <span class="card-icon">📜</span>
                             <span class="card-title" data-en="Historical" data-es="Histórico">Historical</span>
                             <span class="card-toggle">+</span>
                         </summary>
@@ -179,7 +178,6 @@
 
                     <details class="context-card">
                         <summary>
-                            <span class="card-icon">💰</span>
                             <span class="card-title" data-en="Economic" data-es="Económico">Economic</span>
                             <span class="card-toggle">+</span>
                         </summary>
@@ -188,7 +186,6 @@
 
                     <details class="context-card">
                         <summary>
-                            <span class="card-icon">👥</span>
                             <span class="card-title" data-en="Social & Cultural" data-es="Social y Cultural">Social & Cultural</span>
                             <span class="card-toggle">+</span>
                         </summary>
@@ -197,7 +194,6 @@
 
                     <details class="context-card">
                         <summary>
-                            <span class="card-icon">🏛️</span>
                             <span class="card-title" data-en="Political" data-es="Político">Political</span>
                             <span class="card-toggle">+</span>
                         </summary>
@@ -206,7 +202,6 @@
 
                     <details class="context-card">
                         <summary>
-                            <span class="card-icon">✍️</span>
                             <span class="card-title" data-en="The Author" data-es="El Autor">The Author</span>
                             <span class="card-toggle">+</span>
                         </summary>
@@ -238,7 +233,6 @@
                 <div class="context-cards">
                     <details class="context-card">
                         <summary>
-                            <span class="card-icon">🧠</span>
                             <span class="card-title" data-en="Neuroscience" data-es="Neurociencia">Neuroscience</span>
                             <span class="card-toggle">+</span>
                         </summary>
@@ -247,7 +241,6 @@
 
                     <details class="context-card">
                         <summary>
-                            <span class="card-icon">🔬</span>
                             <span class="card-title" data-en="Behavioral Science" data-es="Ciencia del Comportamiento">Behavioral Science</span>
                             <span class="card-toggle">+</span>
                         </summary>
@@ -287,11 +280,10 @@
 
                 <div class="reflection-card">
                     <div class="reflection-header">
-                        <span class="card-icon">💭</span>
                         <span class="card-title" data-en="Reflection" data-es="Reflexión">Reflection</span>
                     </div>
                     <p class="reflection-question" id="reflectionContent"></p>
-                    <textarea class="reflection-input" id="reflectionAnswer" placeholder="Write your thoughts..." data-en="Write your thoughts..." data-es="Escribe tus pensamientos..."></textarea>
+                    <textarea class="reflection-input" id="reflectionAnswer" placeholder="What came up for you?" data-en="What came up for you?" data-es="¿Qué te surgió?"></textarea>
                 </div>
 
                 <button class="continue-btn" data-next="5">
@@ -347,6 +339,7 @@
                     <h2 data-en="Superpowered" data-es="Superpotenciado">Superpowered</h2>
                     <p class="complete-cta" data-en="Now go live it." data-es="Ahora ve y vívelo.">Now go live it.</p>
                     <div class="streak-display">
+                        <span class="streak-flame">🔥</span>
                         <span class="streak-count" id="streakNumber">0</span>
                         <span class="streak-label" data-en="day streak" data-es="días seguidos">day streak</span>
                     </div>
@@ -745,6 +738,21 @@
 
             document.querySelectorAll('.journey-section').forEach(section => {
                 observer.observe(section);
+            });
+
+            // Fade-in on scroll
+            const fadeObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        fadeObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+            document.querySelectorAll('.journey-section, .verse-card, .context-card, .action-card, .reflection-card, .prayer-card').forEach(el => {
+                el.classList.add('fade-in');
+                fadeObserver.observe(el);
             });
         }
 

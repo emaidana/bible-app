@@ -8006,11 +8006,23 @@ section {
     margin-bottom: 16px;
 }
 
+/* Fade-in on scroll */
+.fade-in {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* Verse Card */
 .verse-card {
     background: linear-gradient(145deg, #2C2C2C 0%, #1A1A1A 100%);
     border-radius: 20px;
-    padding: 28px;
+    padding: 36px;
     margin-bottom: 20px;
 }
 
@@ -8055,33 +8067,35 @@ section {
 
 .verse-text {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: 22px;
-    line-height: 1.6;
+    font-size: 24px;
+    line-height: 1.65;
     color: #fff;
     font-style: italic;
-    margin: 0 0 24px 0;
+    margin: 0 0 28px 0;
     padding: 0;
     border: none;
 }
 
 .verse-insight {
-    display: flex;
-    gap: 12px;
-    padding: 16px;
-    background: rgba(255, 255, 255, 0.08);
+    padding: 18px;
+    background: rgba(255, 255, 255, 0.06);
     border-radius: 12px;
-    align-items: flex-start;
+    border-left: 2px solid rgba(255, 99, 66, 0.5);
 }
 
-.insight-icon {
-    font-size: 20px;
-    flex-shrink: 0;
+.insight-label {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 8px;
 }
 
 .insight-text {
     font-size: 15px;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.85);
     margin: 0;
 }
 
@@ -8119,25 +8133,26 @@ section {
 .context-card {
     background: #fff;
     border-radius: 12px;
-    border: 1px solid #E5E5E5;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
     overflow: hidden;
+    transition: box-shadow 0.2s ease;
+}
+
+.context-card:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .context-card summary {
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 16px;
+    padding: 16px 18px;
     cursor: pointer;
     list-style: none;
 }
 
 .context-card summary::-webkit-details-marker {
     display: none;
-}
-
-.context-card .card-icon {
-    font-size: 18px;
 }
 
 .context-card .card-title {
@@ -8275,7 +8290,7 @@ section {
     background: #fff;
     border-radius: 16px;
     padding: 24px;
-    border: 1px solid #E5E5E5;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
     margin-bottom: 20px;
 }
 
@@ -8286,14 +8301,12 @@ section {
     margin-bottom: 12px;
 }
 
-.reflection-header .card-icon {
-    font-size: 18px;
-}
-
 .reflection-header .card-title {
-    font-size: 15px;
-    font-weight: 600;
-    color: #1A1A1A;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #999;
 }
 
 .reflection-question {
@@ -8326,9 +8339,9 @@ section {
 .prayer-card {
     background: #fff;
     border-radius: 16px;
-    padding: 28px;
+    padding: 32px;
     margin-bottom: 20px;
-    border: 1px solid #E5E5E5;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
     border-left: 3px solid #FF6342;
 }
 
@@ -8400,20 +8413,22 @@ section {
     align-items: center;
     justify-content: center;
     gap: 10px;
-    padding: 16px 24px;
+    padding: 18px 24px;
     background: #FF6342;
     color: #fff;
     border: none;
-    border-radius: 12px;
-    font-size: 15px;
-    font-weight: 600;
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: 700;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 12px rgba(255, 99, 66, 0.25);
 }
 
 .complete-btn:hover {
     background: #E5573A;
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(255, 99, 66, 0.35);
 }
 
 /* Journey Hero Intro */
@@ -8690,6 +8705,10 @@ section {
     margin-bottom: 20px;
 }
 
+.streak-flame {
+    font-size: 14px;
+}
+
 .streak-count {
     font-size: 16px;
     font-weight: 700;
@@ -8946,11 +8965,11 @@ section {
     }
 
     .verse-card {
-        padding: 24px 20px;
+        padding: 28px 22px;
     }
 
     .verse-text {
-        font-size: 20px;
+        font-size: 22px;
     }
 
     .complete-actions {
