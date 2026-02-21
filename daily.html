@@ -20,11 +20,9 @@
             <div class="journey-step-dot active" data-step="1"></div>
             <div class="journey-step-dot" data-step="2"></div>
             <div class="journey-step-dot" data-step="3"></div>
-            <div class="journey-step-dot" data-step="4"></div>
-            <div class="journey-step-dot" data-step="5"></div>
         </div>
         <div class="journey-progress-label">
-            <span class="journey-current-step" id="currentStepLabel" data-en="Step 1 of 5" data-es="Paso 1 de 5">Step 1 of 5</span>
+            <span class="journey-current-step" id="currentStepLabel" data-en="Step 1 of 3" data-es="Paso 1 de 3">Step 1 of 3</span>
             <span class="journey-step-name" id="currentStepName" data-en="Read" data-es="Leer">Read</span>
         </div>
     </div>
@@ -35,6 +33,7 @@
             <a href="index.html" class="journey-logo">berean</a>
             <div class="journey-nav-center">
                 <span class="journey-date" id="todayDate"></span>
+                <a href="founders.html" class="founders-nav-link" data-en="For Founders" data-es="Para Fundadores">For Founders</a>
             </div>
             <div class="journey-nav-actions">
                 <button class="guide-btn" id="helpBtn">?</button>
@@ -54,8 +53,7 @@
             <div class="journey-hero">
                 <h1 data-en="Live Superpowered" data-es="Viví Superpotenciado">Live Superpowered</h1>
                 <p class="hero-subtitle" data-en="One verse. Deeply understood. Actually lived." data-es="Un versículo. Profundamente entendido. Realmente vivido.">One verse. Deeply understood. Actually lived.</p>
-                <p class="hero-time" data-en="5 minutes to transform your day" data-es="5 minutos para transformar tu día">5 minutes to transform your day</p>
-                <button class="skip-link" id="skipToVerse" data-en="Just show me the verse →" data-es="Solo muéstrame el versículo →">Just show me the verse →</button>
+                <p class="hero-time" data-en="3 minutes to transform your day" data-es="3 minutos para transformar tu día">3 minutes to transform your day</p>
             </div>
 
             <!-- Guide Modal -->
@@ -65,19 +63,11 @@
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
                     </button>
                     <p class="modal-eyebrow" data-en="YOUR DAILY JOURNEY" data-es="TU RECORRIDO DIARIO">YOUR DAILY JOURNEY</p>
-                    <h3 data-en="5 minutes. 5 steps." data-es="5 minutos. 5 pasos.">5 minutes. 5 steps.</h3>
+                    <h3 data-en="3 minutes. 3 steps." data-es="3 minutos. 3 pasos.">3 minutes. 3 steps.</h3>
                     <div class="guide-steps">
                         <div class="guide-step">
                             <span class="guide-step-label">Read</span>
                             <span class="guide-step-desc" data-en="Today's verse" data-es="El versículo de hoy">Today's verse</span>
-                        </div>
-                        <div class="guide-step">
-                            <span class="guide-step-label">Understand</span>
-                            <span class="guide-step-desc" data-en="Historical context" data-es="Contexto histórico">Historical context</span>
-                        </div>
-                        <div class="guide-step">
-                            <span class="guide-step-label">Discover</span>
-                            <span class="guide-step-desc" data-en="The science behind it" data-es="La ciencia detrás">The science behind it</span>
                         </div>
                         <div class="guide-step">
                             <span class="guide-step-label">Act</span>
@@ -92,15 +82,6 @@
                 </div>
             </div>
 
-            <!-- Back to Full Journey (for verse-only mode) -->
-            <div class="expand-journey-bar" id="expandBar">
-                <button class="expand-journey-btn" id="expandJourney">
-                    <span data-en="Continue reading" data-es="Seguir leyendo">Continue reading</span>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M18 15l-6-6-6 6"/>
-                    </svg>
-                </button>
-            </div>
 
             <!-- STEP 1: TODAY'S VERSE -->
             <section class="journey-section" data-journey-step="1" id="step1">
@@ -134,109 +115,14 @@
                     </div>
                 </div>
 
+                <button class="go-deeper-btn" id="goDeeper">
+                    <span data-en="Go deeper" data-es="Profundizar">Go deeper</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                </button>
+
                 <button class="continue-btn" data-next="2">
-                    <span data-en="Continue to Context" data-es="Continuar al Contexto">Continue to Context</span>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </button>
-            </section>
-
-            <!-- STEP 2: THE CONTEXT -->
-            <section class="journey-section" data-journey-step="2" id="step2">
-                <div class="section-header">
-                    <span class="step-label" data-en="THE CONTEXT" data-es="EL CONTEXTO">THE CONTEXT</span>
-                    <div class="step-check" id="check2">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg>
-                    </div>
-                </div>
-
-                <p class="section-intro" data-en="What the original audience knew that we don't." data-es="Lo que la audiencia original sabía y nosotros no.">What the original audience knew that we don't.</p>
-
-                <div class="context-cards">
-                    <details class="context-card">
-                        <summary>
-                            <span class="card-title" data-en="Historical" data-es="Histórico">Historical</span>
-                            <span class="card-toggle">+</span>
-                        </summary>
-                        <div class="card-body" id="historicalContent"></div>
-                    </details>
-
-                    <details class="context-card">
-                        <summary>
-                            <span class="card-title" data-en="Economic" data-es="Económico">Economic</span>
-                            <span class="card-toggle">+</span>
-                        </summary>
-                        <div class="card-body" id="economicContent"></div>
-                    </details>
-
-                    <details class="context-card">
-                        <summary>
-                            <span class="card-title" data-en="Social & Cultural" data-es="Social y Cultural">Social & Cultural</span>
-                            <span class="card-toggle">+</span>
-                        </summary>
-                        <div class="card-body" id="socialContent"></div>
-                    </details>
-
-                    <details class="context-card">
-                        <summary>
-                            <span class="card-title" data-en="Political" data-es="Político">Political</span>
-                            <span class="card-toggle">+</span>
-                        </summary>
-                        <div class="card-body" id="politicalContent"></div>
-                    </details>
-
-                    <details class="context-card">
-                        <summary>
-                            <span class="card-title" data-en="The Author" data-es="El Autor">The Author</span>
-                            <span class="card-toggle">+</span>
-                        </summary>
-                        <div class="card-body" id="authorContent"></div>
-                    </details>
-                </div>
-
-                <button class="continue-btn" data-next="3">
-                    <span data-en="Continue to Science" data-es="Continuar a la Ciencia">Continue to Science</span>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </button>
-            </section>
-
-            <!-- STEP 3: WHY IT WORKS -->
-            <section class="journey-section" data-journey-step="3" id="step3">
-                <div class="section-header">
-                    <span class="step-label" data-en="WHY IT WORKS" data-es="POR QUÉ FUNCIONA">WHY IT WORKS</span>
-                    <div class="step-check" id="check3">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg>
-                    </div>
-                </div>
-
-                <p class="section-intro" data-en="The science behind why this ancient wisdom actually works." data-es="La ciencia detrás de por qué esta antigua sabiduría realmente funciona.">The science behind why this ancient wisdom actually works.</p>
-
-                <div class="context-cards">
-                    <details class="context-card">
-                        <summary>
-                            <span class="card-title" data-en="Neuroscience" data-es="Neurociencia">Neuroscience</span>
-                            <span class="card-toggle">+</span>
-                        </summary>
-                        <div class="card-body" id="neuroscienceContent"></div>
-                    </details>
-
-                    <details class="context-card">
-                        <summary>
-                            <span class="card-title" data-en="Behavioral Science" data-es="Ciencia del Comportamiento">Behavioral Science</span>
-                            <span class="card-toggle">+</span>
-                        </summary>
-                        <div class="card-body" id="behavioralContent"></div>
-                    </details>
-                </div>
-
-                <button class="continue-btn" data-next="4">
                     <span data-en="Continue to Action" data-es="Continuar a la Acción">Continue to Action</span>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -244,11 +130,113 @@
                 </button>
             </section>
 
-            <!-- STEP 4: YOUR ACTION -->
-            <section class="journey-section" data-journey-step="4" id="step4">
+            <!-- DEEPER SECTIONS (Context + Science) — revealed by "Go deeper" -->
+            <div class="deeper-sections" id="deeperSections" style="display: none;">
+                <!-- THE CONTEXT -->
+                <section class="journey-section" id="deeperContext">
+                    <div class="section-header">
+                        <span class="step-label" data-en="THE CONTEXT" data-es="EL CONTEXTO">THE CONTEXT</span>
+                    </div>
+
+                    <p class="section-intro" data-en="What the original audience knew that we don't." data-es="Lo que la audiencia original sabía y nosotros no.">What the original audience knew that we don't.</p>
+
+                    <div class="context-cards">
+                        <details class="context-card">
+                            <summary>
+                                <span class="card-title" data-en="Historical" data-es="Histórico">Historical</span>
+                                <span class="card-toggle">+</span>
+                            </summary>
+                            <div class="card-body" id="historicalContent"></div>
+                            <div class="card-sources" id="historicalSources"></div>
+                        </details>
+
+                        <details class="context-card">
+                            <summary>
+                                <span class="card-title" data-en="Economic" data-es="Económico">Economic</span>
+                                <span class="card-toggle">+</span>
+                            </summary>
+                            <div class="card-body" id="economicContent"></div>
+                            <div class="card-sources" id="economicSources"></div>
+                        </details>
+
+                        <details class="context-card">
+                            <summary>
+                                <span class="card-title" data-en="Social & Cultural" data-es="Social y Cultural">Social & Cultural</span>
+                                <span class="card-toggle">+</span>
+                            </summary>
+                            <div class="card-body" id="socialContent"></div>
+                            <div class="card-sources" id="socialSources"></div>
+                        </details>
+
+                        <details class="context-card">
+                            <summary>
+                                <span class="card-title" data-en="Political" data-es="Político">Political</span>
+                                <span class="card-toggle">+</span>
+                            </summary>
+                            <div class="card-body" id="politicalContent"></div>
+                            <div class="card-sources" id="politicalSources"></div>
+                        </details>
+
+                        <details class="context-card">
+                            <summary>
+                                <span class="card-title" data-en="The Author" data-es="El Autor">The Author</span>
+                                <span class="card-toggle">+</span>
+                            </summary>
+                            <div class="card-body" id="authorContent"></div>
+                            <div class="card-sources" id="authorSources"></div>
+                        </details>
+                    </div>
+
+                    <button class="continue-btn deeper-continue" id="deeperToScience">
+                        <span data-en="Continue to Science" data-es="Continuar a la Ciencia">Continue to Science</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </section>
+
+                <!-- WHY IT WORKS -->
+                <section class="journey-section" id="deeperScience">
+                    <div class="section-header">
+                        <span class="step-label" data-en="WHY IT WORKS" data-es="POR QUÉ FUNCIONA">WHY IT WORKS</span>
+                    </div>
+
+                    <p class="section-intro" data-en="The science behind why this ancient wisdom actually works." data-es="La ciencia detrás de por qué esta antigua sabiduría realmente funciona.">The science behind why this ancient wisdom actually works.</p>
+
+                    <div class="context-cards">
+                        <details class="context-card">
+                            <summary>
+                                <span class="card-title" data-en="Neuroscience" data-es="Neurociencia">Neuroscience</span>
+                                <span class="card-toggle">+</span>
+                            </summary>
+                            <div class="card-body" id="neuroscienceContent"></div>
+                            <div class="card-sources" id="neuroscienceSources"></div>
+                        </details>
+
+                        <details class="context-card">
+                            <summary>
+                                <span class="card-title" data-en="Behavioral Science" data-es="Ciencia del Comportamiento">Behavioral Science</span>
+                                <span class="card-toggle">+</span>
+                            </summary>
+                            <div class="card-body" id="behavioralContent"></div>
+                            <div class="card-sources" id="behavioralSources"></div>
+                        </details>
+                    </div>
+
+                    <button class="continue-btn deeper-continue" data-next="2">
+                        <span data-en="Continue to Action" data-es="Continuar a la Acción">Continue to Action</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </section>
+            </div>
+
+            <!-- STEP 2: YOUR ACTION -->
+            <section class="journey-section" data-journey-step="2" id="step2">
                 <div class="section-header">
                     <span class="step-label" data-en="YOUR ACTION" data-es="TU ACCIÓN">YOUR ACTION</span>
-                    <div class="step-check" id="check4">
+                    <div class="step-check" id="check2">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
                             <polyline points="20 6 9 17 4 12"></polyline>
                         </svg>
@@ -274,7 +262,7 @@
                     <textarea class="reflection-input" id="reflectionAnswer" placeholder="What came up for you?" data-en="What came up for you?" data-es="¿Qué te surgió?"></textarea>
                 </div>
 
-                <button class="continue-btn" data-next="5">
+                <button class="continue-btn" data-next="3">
                     <span data-en="Continue to Prayer" data-es="Continuar a la Oración">Continue to Prayer</span>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -282,11 +270,11 @@
                 </button>
             </section>
 
-            <!-- STEP 5: CLOSE IN PRAYER -->
-            <section class="journey-section" data-journey-step="5" id="step5">
+            <!-- STEP 3: CLOSE IN PRAYER -->
+            <section class="journey-section" data-journey-step="3" id="step3">
                 <div class="section-header">
                     <span class="step-label" data-en="CLOSE IN PRAYER" data-es="CIERRA EN ORACIÓN">CLOSE IN PRAYER</span>
-                    <div class="step-check" id="check5">
+                    <div class="step-check" id="check3">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
                             <polyline points="20 6 9 17 4 12"></polyline>
                         </svg>
@@ -404,7 +392,12 @@
     <script src="js/verses.js?v=20260220"></script>
     <script>
         let currentVerse = null;
-        let currentLang = localStorage.getItem('berean_lang') || 'es';
+        // One-time reset: default everyone to English
+        if (!localStorage.getItem('berean_lang_v2')) {
+            localStorage.setItem('berean_lang', 'en');
+            localStorage.setItem('berean_lang_v2', '1');
+        }
+        let currentLang = localStorage.getItem('berean_lang') || 'en';
         let currentStep = 1;
         let completedSteps = new Set();
 
@@ -431,32 +424,6 @@
         function dismissOnboarding() {
             localStorage.setItem('berean_onboarded', 'true');
             document.getElementById('guideModal').classList.remove('active');
-        }
-
-        function skipToVerseOnly() {
-            // Hide all sections except step 1 (verse)
-            document.querySelectorAll('.journey-section').forEach((section, index) => {
-                if (index > 0) section.style.display = 'none';
-            });
-            document.getElementById('journeyProgress').style.display = 'none';
-            document.querySelector('.continue-btn[data-next="2"]').style.display = 'none';
-            document.getElementById('step1').classList.add('verse-only-mode');
-            document.querySelector('.journey-hero').style.display = 'none';
-            // Show expand bar
-            document.getElementById('expandBar').classList.add('show');
-        }
-
-        function expandJourney() {
-            // Show all sections again
-            document.querySelectorAll('.journey-section').forEach(section => {
-                section.style.display = '';
-            });
-            document.getElementById('journeyProgress').style.display = '';
-            document.querySelector('.continue-btn[data-next="2"]').style.display = '';
-            document.getElementById('step1').classList.remove('verse-only-mode');
-            document.querySelector('.journey-hero').style.display = '';
-            // Hide expand bar
-            document.getElementById('expandBar').classList.remove('show');
         }
 
         function setTodayDate() {
@@ -551,6 +518,22 @@
                 if (a.neuroscience) document.getElementById('neuroscienceContent').textContent = a.neuroscience[currentLang];
                 if (a.behavioral) document.getElementById('behavioralContent').textContent = a.behavioral[currentLang];
                 if (a.nudge) document.getElementById('nudgeContent').textContent = a.nudge[currentLang];
+
+                // Render sources for each analysis section
+                const sourcesLabel = currentLang === 'es' ? 'Fuentes' : 'Sources';
+                ['historical', 'economic', 'social', 'political', 'author', 'neuroscience', 'behavioral'].forEach(function(sectionId) {
+                    const container = document.getElementById(sectionId + 'Sources');
+                    if (!container) return;
+                    const section = a[sectionId];
+                    if (!section || !section.sources || section.sources.length === 0) {
+                        container.innerHTML = '';
+                        return;
+                    }
+                    const sourceList = section.sources.map(function(s) {
+                        return '<li class="source-item" data-type="' + s.type + '">' + s.citation + '</li>';
+                    }).join('');
+                    container.innerHTML = '<details class="sources-dropdown"><summary>' + sourcesLabel + '</summary><ul class="sources-list">' + sourceList + '</ul></details>';
+                });
                 if (a.reflectionQuestion) document.getElementById('reflectionContent').textContent = a.reflectionQuestion[currentLang];
                 if (a.prayer) {
                     document.getElementById('prayerContent').textContent = a.prayer[currentLang];
@@ -566,24 +549,35 @@
 
         function updateJourneyProgress() {
             const progressFill = document.getElementById('journeyFill');
-            // Progress bar fills based on current step (not completed steps)
-            const percentage = ((currentStep - 1) / 4) * 100; // 0%, 25%, 50%, 75%, 100%
+            const progressBar = document.getElementById('journeyProgress');
+            const isComplete = currentStep > 3;
+
+            // Progress bar fills based on current step
+            const percentage = isComplete ? 100 : ((currentStep - 1) / 2) * 100;
             progressFill.style.width = percentage + '%';
 
-            // Update dots - all use same color (orange), just filled or not
+            // Update dots
             document.querySelectorAll('.journey-step-dot').forEach(dot => {
                 const step = parseInt(dot.dataset.step);
                 dot.classList.toggle('active', step <= currentStep);
             });
 
             // Update step label
-            const stepNames = {
-                en: ["Today's Verse", 'The Context', 'Why It Works', 'Your Action', 'Close in Prayer'],
-                es: ['Versículo de Hoy', 'El Contexto', 'Por Qué Funciona', 'Tu Acción', 'Cierra en Oración']
-            };
-            document.getElementById('currentStepLabel').textContent =
-                currentLang === 'en' ? `Step ${currentStep} of 5` : `Paso ${currentStep} de 5`;
-            document.getElementById('currentStepName').textContent = stepNames[currentLang][currentStep - 1];
+            if (isComplete) {
+                document.getElementById('currentStepLabel').textContent = '';
+                document.getElementById('currentStepName').textContent =
+                    currentLang === 'en' ? 'Superpowered' : 'Superpotenciado';
+                progressBar.classList.add('journey-complete-bar');
+            } else {
+                const stepNames = {
+                    en: ["Today's Verse", 'Your Action', 'Close in Prayer'],
+                    es: ['Versículo de Hoy', 'Tu Acción', 'Cierra en Oración']
+                };
+                document.getElementById('currentStepLabel').textContent =
+                    currentLang === 'en' ? `Step ${currentStep} of 3` : `Paso ${currentStep} de 3`;
+                document.getElementById('currentStepName').textContent = stepNames[currentLang][currentStep - 1];
+                progressBar.classList.remove('journey-complete-bar');
+            }
         }
 
         function markStepComplete(stepNum) {
@@ -609,8 +603,8 @@
         }
 
         function completeJourney() {
-            markStepComplete(5);
-            currentStep = 6; // Mark as fully complete
+            markStepComplete(3);
+            currentStep = 4; // Mark as fully complete
             updateJourneyProgress();
 
             document.getElementById('journeyComplete').classList.add('show');
@@ -641,17 +635,36 @@
             // Guide modal
             document.getElementById('closeGuide').addEventListener('click', dismissOnboarding);
             document.getElementById('closeGuideBtn').addEventListener('click', dismissOnboarding);
-            document.getElementById('skipToVerse').addEventListener('click', skipToVerseOnly);
-            document.getElementById('expandJourney').addEventListener('click', expandJourney);
             document.getElementById('helpBtn').addEventListener('click', () => {
                 document.getElementById('guideModal').classList.add('active');
             });
 
-            // Continue buttons
-            document.querySelectorAll('.continue-btn').forEach(btn => {
+            // "Go deeper" button — reveals Context + Science sections
+            document.getElementById('goDeeper').addEventListener('click', () => {
+                const deeper = document.getElementById('deeperSections');
+                deeper.style.display = '';
+                deeper.querySelector('.journey-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                document.getElementById('goDeeper').style.display = 'none';
+            });
+
+            // Deeper section internal navigation: Context → Science
+            document.getElementById('deeperToScience').addEventListener('click', () => {
+                document.getElementById('deeperScience').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+
+            // Continue buttons (main flow steps only)
+            document.querySelectorAll('.continue-btn:not(.deeper-continue)').forEach(btn => {
                 btn.addEventListener('click', () => {
                     const nextStep = parseInt(btn.dataset.next);
-                    goToStep(nextStep);
+                    if (nextStep) goToStep(nextStep);
+                });
+            });
+
+            // Deeper "Continue to Action" button (has data-next="2" but is inside deeper sections)
+            document.querySelectorAll('.deeper-continue[data-next]').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const nextStep = parseInt(btn.dataset.next);
+                    if (nextStep) goToStep(nextStep);
                 });
             });
 
@@ -729,11 +742,12 @@
                 });
             }, { threshold: 0.5 });
 
-            document.querySelectorAll('.journey-section').forEach(section => {
+            // Only observe main steps (with data-journey-step) for scroll spy
+            document.querySelectorAll('.journey-section[data-journey-step]').forEach(section => {
                 observer.observe(section);
             });
 
-            // Fade-in on scroll
+            // Fade-in on scroll — include deeper sections too
             const fadeObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -743,7 +757,7 @@
                 });
             }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-            document.querySelectorAll('.journey-section, .verse-card, .context-card, .action-card, .reflection-card, .prayer-card').forEach(el => {
+            document.querySelectorAll('.journey-section, .deeper-sections .journey-section, .verse-card, .context-card, .action-card, .reflection-card, .prayer-card').forEach(el => {
                 el.classList.add('fade-in');
                 fadeObserver.observe(el);
             });
@@ -893,5 +907,7 @@
             document.querySelector('.pause-icon').style.display = isPlaying ? 'block' : 'none';
         }
     </script>
+<script defer src="/_vercel/insights/script.js"></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
 </body>
 </html>

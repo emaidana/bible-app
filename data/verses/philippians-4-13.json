@@ -1,9 +1,17 @@
 {
   "id": "philippians-4-13",
-  "book": { "en": "Philippians", "es": "Filipenses" },
+  "book": {
+    "en": "Philippians",
+    "es": "Filipenses"
+  },
   "chapter": 4,
   "verse": "13",
-  "themes": ["strength", "perseverance", "contentment", "faith"],
+  "themes": [
+    "strength",
+    "perseverance",
+    "contentment",
+    "faith"
+  ],
   "text": {
     "en": "I can do all things through Christ which strengtheneth me.",
     "es": "Todo lo puedo en Cristo que me fortalece."
@@ -13,68 +21,116 @@
       "en": "Paul wrote this letter around 61-62 AD while imprisoned in Rome, awaiting trial before Caesar. Despite chains and uncertainty about his fate, Paul wrote one of the most joy-filled letters in the New Testament. The Philippian church had sent him financial support through Epaphroditus, and this verse comes in Paul's thank-you section where he reflects on contentment through all circumstances.",
       "es": "Pablo escribió esta carta alrededor del 61-62 d.C. mientras estaba encarcelado en Roma, esperando juicio ante César. A pesar de las cadenas y la incertidumbre sobre su destino, Pablo escribió una de las cartas más llenas de gozo del Nuevo Testamento. La iglesia de Filipos le había enviado apoyo financiero a través de Epafrodito, y este versículo viene en la sección de agradecimiento donde Pablo reflexiona sobre el contentamiento en todas las circunstancias.",
       "sources": [
-        { "type": "academic", "citation": "Fee, G.D. (1995). Paul's Letter to the Philippians. NICNT. Eerdmans." },
-        { "type": "academic", "citation": "Hawthorne, G.F. (2004). Philippians. Word Biblical Commentary. Nelson." }
+        {
+          "type": "academic",
+          "citation": "Fee, G.D. (1995). Paul's Letter to the Philippians. NICNT. Eerdmans."
+        },
+        {
+          "type": "academic",
+          "citation": "Hawthorne, G.F. (2004). Philippians. Word Biblical Commentary. Nelson."
+        }
       ]
     },
     "economic": {
       "en": "The context reveals Paul discussing contentment in poverty and abundance. He had learned to live with little or plenty. This wasn't prosperity theology — it was resilience theology. The Philippians themselves were a working-class congregation who sacrificed to support Paul's ministry. Paul's 'all things' included going hungry, being in need, and facing financial ruin — realities his audience understood intimately.",
       "es": "El contexto revela a Pablo hablando de contentamiento en pobreza y abundancia. Había aprendido a vivir con poco o con mucho. Esto no era teología de la prosperidad — era teología de la resiliencia. Los filipenses mismos eran una congregación de clase trabajadora que sacrificaba para apoyar el ministerio de Pablo. El 'todo' de Pablo incluía pasar hambre, tener necesidad y enfrentar ruina financiera — realidades que su audiencia entendía íntimamente.",
       "sources": [
-        { "type": "academic", "citation": "Oakes, P. (2001). Philippians: From People to Letter. Cambridge University Press." },
-        { "type": "archaeological", "citation": "Pilhofer, P. (1995). Philippi. Band I: Die erste christliche Gemeinde Europas. Mohr Siebeck." }
+        {
+          "type": "academic",
+          "citation": "Oakes, P. (2001). Philippians: From People to Letter. Cambridge University Press."
+        },
+        {
+          "type": "archaeological",
+          "citation": "Pilhofer, P. (1995). Philippi. Band I: Die erste christliche Gemeinde Europas. Mohr Siebeck."
+        }
       ]
     },
     "social": {
       "en": "Philippi was a Roman colony with strong civic pride. Many residents were retired soldiers or their descendants. The church there included Lydia (a wealthy merchant), a slave girl, and a jailer — a remarkably diverse social mix unified by faith rather than class. Paul's message of strength through Christ cut across all social boundaries.",
       "es": "Filipos era una colonia romana con fuerte orgullo cívico. Muchos residentes eran soldados retirados o sus descendientes. La iglesia allí incluía a Lidia (una comerciante adinerada), una esclava, y un carcelero — una mezcla social notablemente diversa unificada por la fe en lugar de la clase. El mensaje de Pablo de fortaleza a través de Cristo atravesaba todas las barreras sociales.",
       "sources": [
-        { "type": "academic", "citation": "Hellerman, J.H. (2005). Reconstructing Honor in Roman Philippi. Cambridge University Press." },
-        { "type": "archaeological", "citation": "Koukouli-Chrysantaki, C. (1998). Colonia Iulia Augusta Philippensis. BCH Supplement 38." }
+        {
+          "type": "academic",
+          "citation": "Hellerman, J.H. (2005). Reconstructing Honor in Roman Philippi. Cambridge University Press."
+        },
+        {
+          "type": "archaeological",
+          "citation": "Koukouli-Chrysantaki, C. (1998). Colonia Iulia Augusta Philippensis. BCH Supplement 38."
+        }
       ]
     },
     "political": {
       "en": "Paul's imprisonment was political — he had appealed to Caesar as a Roman citizen. Writing from the heart of the Empire, he declared allegiance to a different king. The phrase 'all things' would include enduring unjust political persecution, a timely message for persecuted believers under increasing Roman suspicion of this new movement.",
       "es": "El encarcelamiento de Pablo era político — había apelado a César como ciudadano romano. Escribiendo desde el corazón del Imperio, declaró lealtad a un rey diferente. La frase 'todo' incluiría soportar persecución política injusta, un mensaje oportuno para creyentes perseguidos bajo la creciente sospecha romana hacia este nuevo movimiento.",
       "sources": [
-        { "type": "academic", "citation": "Cassidy, R.J. (2001). Paul in Chains: Roman Imprisonment and the Letters of St. Paul. Herder & Herder." },
-        { "type": "academic", "citation": "Rapske, B. (1994). Paul in Roman Custody. Eerdmans." }
+        {
+          "type": "academic",
+          "citation": "Cassidy, R.J. (2001). Paul in Chains: Roman Imprisonment and the Letters of St. Paul. Herder & Herder."
+        },
+        {
+          "type": "academic",
+          "citation": "Rapske, B. (1994). Paul in Roman Custody. Eerdmans."
+        }
       ]
     },
     "author": {
       "en": "Paul of Tarsus was a former Pharisee who persecuted Christians before his dramatic conversion on the Damascus road. He was highly educated, multilingual, and a Roman citizen — privileges he used to spread the gospel across the Mediterranean. By the time he wrote Philippians, he had endured beatings, shipwrecks, stonings, and multiple imprisonments. His claim to do 'all things' came from direct experience of extremity.",
       "es": "Pablo de Tarso era un ex fariseo que perseguía a los cristianos antes de su dramática conversión en el camino a Damasco. Era muy educado, multilingüe y ciudadano romano — privilegios que usó para difundir el evangelio por el Mediterráneo. Para cuando escribió Filipenses, había soportado golpizas, naufragios, apedreamientos y múltiples encarcelamientos. Su afirmación de poder 'todo' venía de experiencia directa de la extremidad.",
       "sources": [
-        { "type": "academic", "citation": "Murphy-O'Connor, J. (1996). Paul: A Critical Life. Oxford University Press." },
-        { "type": "academic", "citation": "Dunn, J.D.G. (1998). The Theology of Paul the Apostle. Eerdmans." }
+        {
+          "type": "academic",
+          "citation": "Murphy-O'Connor, J. (1996). Paul: A Critical Life. Oxford University Press."
+        },
+        {
+          "type": "academic",
+          "citation": "Dunn, J.D.G. (1998). The Theology of Paul the Apostle. Eerdmans."
+        }
       ]
     },
     "neuroscience": {
       "en": "You've seen this verse on gym walls and Instagram captions. But Paul didn't write it while crushing his goals — he wrote it chained to a Roman guard, unsure if he'd survive the week. 'All things' in context means hunger, loss, chains, and uncertainty. And somehow, that makes the neuroscience even more compelling. 'All things' (todo) — This totality claim activates the prefrontal cortex's executive function, expanding your brain's perceived scope of capability. When you hear 'all,' the dorsolateral prefrontal cortex broadens its goal-setting parameters rather than narrowing to specific limitations. 'Strengtheneth' (fortalece) — Here's what changes everything: the concept of being strengthened by an external source activates social baseline theory circuits. Your brain literally reduces its metabolic cost of facing threats when it perceives reliable support (Coan & Sbarra, 2015). A person facing a challenge alone burns more neural glucose than the same person facing the same challenge with perceived support. 'Through Christ' (en Cristo) — External attribution for strength reduces amygdala activation associated with performance anxiety. When success is attributed to a partnership rather than solo effort, your anterior cingulate cortex's error-monitoring intensity decreases, paradoxically improving performance. This is why athletes with strong support systems outperform lone wolves — the brain spends less energy on self-doubt and more on execution.",
       "es": "Viste este versículo en paredes de gimnasios y captions de Instagram. Pero Pablo no lo escribió mientras cumplía sus metas — lo escribió encadenado a un guardia romano, sin saber si sobreviviría la semana. 'Todo' en contexto significa hambre, pérdida, cadenas e incertidumbre. Y de alguna forma, eso hace que la neurociencia sea aún más convincente. 'Todo' — Esta afirmación de totalidad activa la función ejecutiva de tu corteza prefrontal, expandiendo el alcance percibido de capacidad de tu cerebro. Cuando escuchás 'todo,' la corteza prefrontal dorsolateral amplía sus parámetros de establecimiento de metas en lugar de estrecharse a limitaciones específicas. 'Fortalece' — Acá es donde cambia todo: el concepto de ser fortalecido por una fuente externa activa los circuitos de la teoría de línea base social. Tu cerebro literalmente reduce su costo metabólico de enfrentar amenazas cuando percibe apoyo confiable (Coan & Sbarra, 2015). Una persona enfrentando un desafío sola quema más glucosa neuronal que la misma persona enfrentando el mismo desafío con apoyo percibido. 'En Cristo' — La atribución externa de la fortaleza reduce la activación de tu amígdala asociada con la ansiedad de rendimiento. Cuando el éxito se atribuye a una asociación en vez de esfuerzo solitario, la intensidad del monitoreo de errores de tu corteza cingulada anterior disminuye, paradójicamente mejorando el rendimiento. Por eso los atletas con sistemas de apoyo fuertes superan a los lobos solitarios — el cerebro gasta menos energía en la autoduda y más en la ejecución.",
       "sources": [
-        { "type": "peer-reviewed", "citation": "Coan, J.A. & Sbarra, D.A. (2015). Social Baseline Theory: The social regulation of risk and effort. Current Opinion in Psychology, 1, 87-91." },
-        { "type": "peer-reviewed", "citation": "Bandura, A. (1997). Self-efficacy: The exercise of control. W.H. Freeman." },
-        { "type": "peer-reviewed", "citation": "McEwen, B.S. (2007). Physiology and neurobiology of stress and adaptation. Physiological Reviews, 87(3), 873-904." }
+        {
+          "type": "peer-reviewed",
+          "citation": "Coan, J.A. & Sbarra, D.A. (2015). Social Baseline Theory: The social regulation of risk and effort. Current Opinion in Psychology, 1, 87-91."
+        },
+        {
+          "type": "peer-reviewed",
+          "citation": "Bandura, A. (1997). Self-efficacy: The exercise of control. W.H. Freeman."
+        },
+        {
+          "type": "peer-reviewed",
+          "citation": "McEwen, B.S. (2007). Physiology and neurobiology of stress and adaptation. Physiological Reviews, 87(3), 873-904."
+        }
       ]
     },
     "behavioral": {
       "en": "Think about the difference between walking into a presentation alone versus knowing your mentor is in the room. Same slides, same content — but your performance changes. That's not psychology folklore; it's measurable neuroscience. This verse activates self-efficacy enhancement — Bandura's concept that belief in one's capability directly affects actual performance. The external attribution ('through Christ') paradoxically increases internal motivation by reducing performance anxiety and fear of failure. Research shows that people who attribute their performance to both personal effort and external support systems consistently outperform those who rely on either alone (Pargament, 1997). The verse creates what psychologists call an 'agency-communion balance' — personal action supported by relational connection. For your actual Monday morning, this means the verse isn't a magic spell for success. It's a neural reset: you stop white-knuckling through challenges alone, and your brain literally performs better because it's spending less energy on threat-monitoring.",
       "es": "Pensá en la diferencia entre entrar a una presentación solo versus sabiendo que tu mentor está en la sala. Mismas diapositivas, mismo contenido — pero tu rendimiento cambia. Eso no es folklore psicológico; es neurociencia medible. Este versículo activa el aumento de la autoeficacia — el concepto de Bandura de que la creencia en la propia capacidad afecta directamente el rendimiento real. La atribución externa ('en Cristo') paradójicamente aumenta la motivación interna al reducir la ansiedad de rendimiento y el miedo al fracaso. La investigación muestra que las personas que atribuyen su rendimiento tanto al esfuerzo personal como a sistemas de apoyo externos superan consistentemente a los que dependen de uno solo (Pargament, 1997). El versículo crea lo que los psicólogos llaman un 'equilibrio agencia-comunión' — acción personal sostenida por conexión relacional. Para tu lunes real, esto significa que el versículo no es un hechizo mágico para el éxito. Es un reset neuronal: dejás de aferrarte a los desafíos solo, y tu cerebro literalmente rinde mejor porque gasta menos energía en monitoreo de amenazas.",
       "sources": [
-        { "type": "peer-reviewed", "citation": "Bandura, A. (1997). Self-efficacy: The exercise of control. W.H. Freeman." },
-        { "type": "peer-reviewed", "citation": "Pargament, K.I. (1997). The Psychology of Religion and Coping. Guilford Press." }
+        {
+          "type": "peer-reviewed",
+          "citation": "Bandura, A. (1997). Self-efficacy: The exercise of control. W.H. Freeman."
+        },
+        {
+          "type": "peer-reviewed",
+          "citation": "Pargament, K.I. (1997). The Psychology of Religion and Coping. Guilford Press."
+        }
       ]
     },
     "keyPoint": {
-      "en": "Paul wrote this from prison — not from a stage. 'All things' in context means 'I can endure hunger, loss, chains, and uncertainty.' Social baseline theory (Coan & Sbarra, 2015) explains the mechanism: the brain literally reduces its metabolic expenditure when facing threats if it perceives a reliable support system. A person facing a challenge alone burns more neural glucose than the same person facing the same challenge with perceived support. 'Through Christ who strengthens me' is not a motivational poster — it's a description of how perceived divine partnership reduces the brain's cost of resilience.",
-      "es": "Pablo escribió esto desde la prisión — no desde un escenario. 'Todo' en contexto significa 'puedo soportar hambre, pérdida, cadenas e incertidumbre.' La teoría de línea base social (Coan & Sbarra, 2015) explica el mecanismo: el cerebro literalmente reduce su gasto metabólico al enfrentar amenazas si percibe un sistema de apoyo confiable. Una persona enfrentando un desafío sola consume más glucosa neuronal que la misma persona enfrentando el mismo desafío con apoyo percibido. 'En Cristo que me fortalece' no es un póster motivacional — es una descripción de cómo la asociación divina percibida reduce el costo cerebral de la resiliencia."
+      "en": "'Through Christ who strengthens me' is not a motivational poster. It's the difference between carrying the weight alone and knowing someone is carrying it with you.",
+      "es": "'En Cristo que me fortalece' no es un póster motivacional. Es la diferencia entre cargar el peso solo y saber que alguien lo carga con vos."
     },
     "nudge": {
       "en": "In the next 10 minutes, write down one challenge you're currently facing. Below it, write: 'I can do [this specific thing] through Christ who strengthens me.' Read it aloud three times. Verbal self-affirmation activates the ventrolateral prefrontal cortex, which regulates emotional responses to threat (Cascio et al., 2016). Reading aloud — rather than silently — engages auditory feedback loops that strengthen the neural encoding of the statement by 2-3x compared to silent reading.",
       "es": "En los próximos 10 minutos, escribí un desafío que estás enfrentando actualmente. Debajo, escribí: 'Puedo hacer [esta cosa específica] en Cristo que me fortalece.' Leelo en voz alta tres veces. La autoafirmación verbal activa la corteza prefrontal ventrolateral, que regula las respuestas emocionales a la amenaza (Cascio et al., 2016). Leer en voz alta — en vez de en silencio — activa bucles de retroalimentación auditiva que fortalecen la codificación neuronal de la declaración 2-3 veces más que la lectura silenciosa.",
       "sources": [
-        { "type": "peer-reviewed", "citation": "Cascio, C.N., O'Donnell, M.B., Tinney, F.J., et al. (2016). Self-affirmation activates brain systems associated with self-related processing and reward. Psychological Science, 27(4), 455-466." }
+        {
+          "type": "peer-reviewed",
+          "citation": "Cascio, C.N., O'Donnell, M.B., Tinney, F.J., et al. (2016). Self-affirmation activates brain systems associated with self-related processing and reward. Psychological Science, 27(4), 455-466."
+        }
       ]
     },
     "prayer": {
@@ -85,7 +141,10 @@
         "es": "Las oraciones que incluyen desafíos específicos ('enfrento X') activan los circuitos de resolución de problemas del cerebro en la corteza prefrontal dorsolateral simultáneamente con los circuitos de regulación emocional activados por la cualidad meditativa de la oración. Esta doble activación — especificidad cognitiva más anclaje emocional — produce respuestas de afrontamiento más integradas que la oración o la planificación solas (Newberg & Waldman, 2009)."
       },
       "sources": [
-        { "type": "peer-reviewed", "citation": "Newberg, A. & Waldman, M.R. (2009). How God Changes Your Brain. Ballantine Books." }
+        {
+          "type": "peer-reviewed",
+          "citation": "Newberg, A. & Waldman, M.R. (2009). How God Changes Your Brain. Ballantine Books."
+        }
       ]
     },
     "reflectionQuestion": {

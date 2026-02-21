@@ -4,454 +4,733 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For Founders - Berean</title>
-    <meta name="description" content="Biblical wisdom for peak-performing founders. Leadership, strategy, resilience backed by science.">
-    <link rel="stylesheet" href="css/styles.css">
+    <meta name="description" content="9 leadership protocols grounded in Scripture, validated by neuroscience, behavioral science, and management research. Ancient principles. Modern evidence.">
+    <link rel="stylesheet" href="css/styles.css?v=20260221">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 </head>
-<body class="product-page founders-page">
-    <!-- Navigation -->
-    <nav class="navigation-bar nav-dark">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">berean</a>
-            <div class="nav-links">
-                <a href="daily.html">Daily</a>
-                <a href="weekly.html">Weekly</a>
-                <a href="search.html">Search</a>
-                <a href="topics.html">Topics</a>
-                <a href="founders.html" class="active">Founders</a>
-            </div>
-            <div class="nav-actions">
-                <button class="nav-cta" id="shareBtn">Share</button>
-            </div>
-            <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </nav>
+<body class="fp-body">
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-        <a href="daily.html">Daily Verse</a>
-        <a href="weekly.html">Weekly Study</a>
-        <a href="search.html">Verse Search</a>
-        <a href="topics.html">Topics</a>
-        <a href="founders.html" class="active">For Founders</a>
+    <!-- ===============================================
+         LEVEL 1: PROTOCOL INDEX
+         =============================================== -->
+    <div id="protocolIndex">
+        <!-- Sticky Nav -->
+        <nav class="fp-nav">
+            <div class="fp-nav-inner">
+                <a href="index.html" class="fp-logo">berean</a>
+                <div class="fp-nav-right">
+                    <a href="daily.html" class="fp-nav-link" data-en="Daily Verse" data-es="Verso Diario">Daily Verse</a>
+                    <div class="lang-toggle">
+                        <button class="lang-btn active" data-lang="en">EN</button>
+                        <button class="lang-btn" data-lang="es">ES</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero -->
+        <header class="fp-header">
+            <span class="fp-eyebrow" data-en="BEREAN FOR FOUNDERS" data-es="BEREAN PARA FUNDADORES">BEREAN FOR FOUNDERS</span>
+            <h1 class="fp-headline" data-en="Ancient Principles. Modern Evidence." data-es="Principios Antiguos. Evidencia Moderna.">Ancient Principles. Modern Evidence.</h1>
+            <p class="fp-subline" data-en="9 leadership protocols grounded in Scripture, validated by neuroscience, behavioral science, and management research." data-es="9 protocolos de liderazgo fundamentados en las Escrituras, validados por neurociencia, ciencia del comportamiento e investigaci&oacute;n en gesti&oacute;n.">9 leadership protocols grounded in Scripture, validated by neuroscience, behavioral science, and management research.</p>
+            <div class="fp-disciplines">
+                <span class="fp-discipline" data-en="Biblical Exegesis" data-es="Ex&eacute;gesis B&iacute;blica">Biblical Exegesis</span>
+                <span class="fp-discipline" data-en="Neuroscience" data-es="Neurociencia">Neuroscience</span>
+                <span class="fp-discipline" data-en="Behavioral Science" data-es="Ciencia del Comportamiento">Behavioral Science</span>
+                <span class="fp-discipline" data-en="Management Research" data-es="Investigaci&oacute;n en Gesti&oacute;n">Management Research</span>
+            </div>
+            <p class="fp-credibility" id="credibilityLine"></p>
+        </header>
+
+        <!-- About This Research (collapsible) -->
+        <div class="fp-about-wrap">
+            <details class="fp-about">
+                <summary class="fp-about__toggle">
+                    <span data-en="About this research" data-es="Sobre esta investigaci&oacute;n">About this research</span>
+                    <svg class="fp-about__icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                </summary>
+                <div class="fp-about__body">
+                    <p data-en="Each protocol begins with a Scripture passage that has guided leaders for millennia. We then validate its principles through five evidence lenses: biblical scholarship, business context, neuroscience, behavioral science, and management research. Every claim is sourced." data-es="Cada protocolo comienza con un pasaje de las Escrituras que ha guiado a l&iacute;deres por milenios. Luego validamos sus principios a trav&eacute;s de cinco lentes de evidencia: erudici&oacute;n b&iacute;blica, contexto empresarial, neurociencia, ciencia del comportamiento e investigaci&oacute;n en gesti&oacute;n. Cada afirmaci&oacute;n tiene fuentes.">Each protocol begins with a Scripture passage that has guided leaders for millennia. We then validate its principles through five evidence lenses: biblical scholarship, business context, neuroscience, behavioral science, and management research. Every claim is sourced.</p>
+                    <p class="fp-about__anti-pitch" data-en="No devotionals. No motivational quotes. Primary sources. Tested frameworks. Applied leadership." data-es="Sin devocionales. Sin frases motivacionales. Fuentes primarias. Marcos probados. Liderazgo aplicado.">No devotionals. No motivational quotes. Primary sources. Tested frameworks. Applied leadership.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Category Tabs -->
+        <div class="fp-tabs-wrap">
+            <div class="fp-tabs" id="categoryTabs">
+                <button class="fp-tab fp-tab--active" data-category="all" data-en="All (9)" data-es="Todos (9)">All (9)</button>
+                <button class="fp-tab" data-category="leadership" data-en="Leadership" data-es="Liderazgo">Leadership</button>
+                <button class="fp-tab" data-category="strategy" data-en="Strategy" data-es="Estrategia">Strategy</button>
+                <button class="fp-tab" data-category="resilience" data-en="Resilience" data-es="Resiliencia">Resilience</button>
+                <button class="fp-tab" data-category="ethics" data-en="Ethics" data-es="&Eacute;tica">Ethics</button>
+            </div>
+        </div>
+
+        <!-- Protocol Cards -->
+        <main class="fp-container">
+            <div class="fp-cards" id="protocolCards"></div>
+        </main>
     </div>
 
-    <!-- Hero Header -->
-    <header class="founders-hero">
-        <div class="container">
-            <div class="founders-hero-content">
-                <div class="product-header-badge">🚀 For Founders</div>
-                <h1>Biblical Wisdom for<br>Building Unicorns</h1>
-                <p>Leadership protocols backed by Scripture, neuroscience, behavioral science, and management research. For the ambitious who want to build something meaningful.</p>
-                <div class="founders-stats">
-                    <div class="founder-stat">
-                        <span class="stat-icon">📊</span>
-                        <span class="stat-text">Peer-reviewed research</span>
-                    </div>
-                    <div class="founder-stat">
-                        <span class="stat-icon">📜</span>
-                        <span class="stat-text">Biblical exegesis</span>
-                    </div>
-                    <div class="founder-stat">
-                        <span class="stat-icon">🧠</span>
-                        <span class="stat-text">Neuroscience backed</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Main Content -->
-    <main class="product-main founders-main">
-        <div class="container">
-            <!-- Category Filter -->
-            <div class="founder-categories">
-                <button class="category-btn active" data-category="all">All Protocols</button>
-                <button class="category-btn" data-category="leadership">Leadership</button>
-                <button class="category-btn" data-category="strategy">Strategy</button>
-                <button class="category-btn" data-category="resilience">Resilience</button>
-                <button class="category-btn" data-category="ethics">Ethics</button>
-            </div>
-
-            <!-- Protocols Grid -->
-            <div class="protocols-grid" id="protocolsGrid"></div>
-
-            <!-- Protocol Detail -->
-            <div class="protocol-detail" id="protocolDetail" style="display: none;">
-                <button class="back-btn" id="backToProtocols">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
-                        <path d="M19 12H5M12 19l-7-7 7-7"/>
-                    </svg>
-                    Back to Protocols
+    <!-- ===============================================
+         LEVEL 2: PROTOCOL DETAIL
+         =============================================== -->
+    <div id="protocolDetail" style="display:none;">
+        <!-- Sticky Nav -->
+        <nav class="fp-nav">
+            <div class="fp-nav-inner">
+                <button class="fp-back-btn" id="backToIndex">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                    <span data-en="All Protocols" data-es="Todos los Protocolos">All Protocols</span>
                 </button>
-
-                <!-- Protocol Header -->
-                <div class="protocol-header">
-                    <span class="protocol-icon" id="protocolIcon"></span>
-                    <div class="protocol-info">
-                        <span class="protocol-category-badge" id="protocolCategoryBadge"></span>
-                        <h1 id="protocolTitle"></h1>
-                    </div>
-                </div>
-
-                <!-- Scripture Foundation -->
-                <div class="scripture-foundation">
-                    <h3>Scripture Foundation</h3>
-                    <blockquote id="scriptureText"></blockquote>
-                    <p class="scripture-refs" id="scriptureRefs"></p>
-                </div>
-
-                <!-- Analysis Sections -->
-                <div class="founder-analysis">
-                    <details class="founder-section" open>
-                        <summary>
-                            <span class="section-icon">📜</span>
-                            <span>Biblical Context</span>
-                        </summary>
-                        <div class="section-content" id="biblicalContext"></div>
-                    </details>
-
-                    <details class="founder-section">
-                        <summary>
-                            <span class="section-icon">💼</span>
-                            <span>The Business Challenge</span>
-                        </summary>
-                        <div class="section-content" id="businessContext"></div>
-                    </details>
-
-                    <details class="founder-section">
-                        <summary>
-                            <span class="section-icon">🧠</span>
-                            <span>Neuroscience</span>
-                        </summary>
-                        <div class="section-content" id="neuroscience"></div>
-                    </details>
-
-                    <details class="founder-section">
-                        <summary>
-                            <span class="section-icon">🔬</span>
-                            <span>Behavioral Science</span>
-                        </summary>
-                        <div class="section-content" id="behavioralScience"></div>
-                    </details>
-
-                    <details class="founder-section">
-                        <summary>
-                            <span class="section-icon">📊</span>
-                            <span>Management Research</span>
-                        </summary>
-                        <div class="section-content" id="managementResearch"></div>
-                    </details>
-                </div>
-
-                <!-- Weekly Protocol -->
-                <div class="weekly-protocol-card">
-                    <div class="protocol-card-header">
-                        <span class="protocol-card-icon">🎯</span>
-                        <h3>Weekly Protocol</h3>
-                        <span class="protocol-badge">Behavioral Experiment</span>
-                    </div>
-                    <p id="weeklyProtocol"></p>
-                    <div class="protocol-commitment">
-                        <label class="commitment-checkbox">
-                            <input type="checkbox" id="protocolCommit">
-                            <span class="checkbox-custom"></span>
-                            <span>I commit to running this experiment this week</span>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- Team Exercise - Share with Your Team -->
-                <div class="team-exercise-card">
-                    <div class="team-exercise-header">
-                        <span class="team-exercise-icon">👥</span>
-                        <div>
-                            <h3>Share with Your Team</h3>
-                            <p class="team-exercise-subtitle">A ready-to-run group activity based on this principle</p>
-                        </div>
-                    </div>
-
-                    <div class="team-exercise-content">
-                        <div class="exercise-title-row">
-                            <h4 id="teamExerciseTitle"></h4>
-                            <div class="exercise-meta">
-                                <span class="exercise-time" id="exerciseTime">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
-                                        <circle cx="12" cy="12" r="10"/>
-                                        <polyline points="12 6 12 12 16 14"/>
-                                    </svg>
-                                    <span></span>
-                                </span>
-                                <span class="exercise-size" id="exerciseSize">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
-                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                                        <circle cx="9" cy="7" r="4"/>
-                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                                    </svg>
-                                    <span></span>
-                                </span>
-                            </div>
-                        </div>
-
-                        <p class="exercise-description" id="teamExerciseDescription"></p>
-
-                        <div class="exercise-steps">
-                            <h5>How to Run This Exercise:</h5>
-                            <ol id="exerciseSteps"></ol>
-                        </div>
-
-                        <div class="exercise-discussion">
-                            <h5>Discussion Questions:</h5>
-                            <ul id="discussionQuestions"></ul>
-                        </div>
-                    </div>
-
-                    <div class="exercise-actions">
-                        <button class="btn btn-secondary" id="copyExercise">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
-                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
-                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
-                            </svg>
-                            Copy Exercise
-                        </button>
-                        <button class="btn btn-primary" id="shareExercise">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
-                                <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
-                                <polyline points="16 6 12 2 8 6"/>
-                                <line x1="12" y1="2" x2="12" y2="15"/>
-                            </svg>
-                            Share with Team
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Founder Reflection -->
-                <div class="reflection-card">
-                    <div class="reflection-header">
-                        <span class="reflection-icon">🪞</span>
-                        <h3>Founder Reflection</h3>
-                    </div>
-                    <p id="founderReflection"></p>
-                </div>
-
-                <!-- Share -->
-                <div class="share-cta">
-                    <p>Share this protocol with a fellow founder</p>
-                    <div class="share-buttons">
-                        <button class="share-btn share-whatsapp" id="shareWhatsApp">
-                            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
-                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                            </svg>
-                            WhatsApp
-                        </button>
-                        <button class="share-btn share-email" id="shareEmail">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                                <polyline points="22,6 12,13 2,6"/>
-                            </svg>
-                            Email
-                        </button>
+                <span class="fp-nav-title" id="detailNavTitle"></span>
+                <div class="fp-nav-right">
+                    <div class="lang-toggle">
+                        <button class="lang-btn active" data-lang="en">EN</button>
+                        <button class="lang-btn" data-lang="es">ES</button>
                     </div>
                 </div>
             </div>
-        </div>
-    </main>
+        </nav>
 
-    <!-- Footer -->
-    <footer class="product-footer">
-        <div class="container">
-            <a href="index.html" class="footer-logo">berean</a>
-            <p>Live a Superpowered Life</p>
-        </div>
-    </footer>
+        <!-- Detail Header -->
+        <header class="fp-detail-header" id="detailHeader"></header>
 
-    <script src="js/businessProtocols.js"></script>
-    <script src="js/storage.js"></script>
+        <!-- Detail Body: TOC + Content -->
+        <div class="fp-detail-body">
+            <!-- Sticky TOC Sidebar (desktop) / Horizontal bar (mobile) -->
+            <aside class="fp-toc" id="tocSidebar">
+                <div class="fp-toc__inner">
+                    <button class="fp-toc__item fp-toc__item--active" data-target="sectionScripture">
+                        <span class="fp-toc__dot"></span>
+                        <span data-en="Scripture" data-es="Escritura">Scripture</span>
+                    </button>
+                    <button class="fp-toc__item" data-target="sectionEvidence">
+                        <span class="fp-toc__dot"></span>
+                        <span data-en="Evidence" data-es="Evidencia">Evidence</span>
+                    </button>
+                    <button class="fp-toc__item" data-target="sectionProtocol">
+                        <span class="fp-toc__dot"></span>
+                        <span data-en="Protocol" data-es="Protocolo">Protocol</span>
+                    </button>
+                    <button class="fp-toc__item" data-target="sectionTeam">
+                        <span class="fp-toc__dot"></span>
+                        <span data-en="Team" data-es="Equipo">Team</span>
+                    </button>
+                    <button class="fp-toc__item" data-target="sectionReflect">
+                        <span class="fp-toc__dot"></span>
+                        <span data-en="Reflect" data-es="Reflexionar">Reflect</span>
+                    </button>
+                    <label class="fp-complete-check" id="markCompleteLabel">
+                        <input type="checkbox" id="markCompleteCheckbox">
+                        <span class="fp-complete-check__box"></span>
+                        <span data-en="Mark Complete" data-es="Marcar Completo">Mark Complete</span>
+                    </label>
+                </div>
+            </aside>
+
+            <!-- Content -->
+            <div class="fp-content">
+                <!-- 1. Scripture -->
+                <section class="fp-section" id="sectionScripture">
+                    <span class="fp-section__eyebrow" data-en="THE SCRIPTURE" data-es="LA ESCRITURA">THE SCRIPTURE</span>
+                    <div class="fp-scripture" id="scriptureCard"></div>
+                </section>
+
+                <!-- 2. The Evidence -->
+                <section class="fp-section" id="sectionEvidence">
+                    <span class="fp-section__eyebrow" data-en="THE EVIDENCE" data-es="LA EVIDENCIA">THE EVIDENCE</span>
+                    <p class="fp-section__intro" data-en="Ancient wisdom validated by modern research." data-es="Sabidur&iacute;a antigua validada por investigaci&oacute;n moderna.">Ancient wisdom validated by modern research.</p>
+                    <div class="fp-evidence" id="evidenceAccordions"></div>
+                </section>
+
+                <!-- 3. Your Protocol -->
+                <section class="fp-section" id="sectionProtocol">
+                    <span class="fp-section__eyebrow" data-en="YOUR PROTOCOL" data-es="TU PROTOCOLO">YOUR PROTOCOL</span>
+                    <p class="fp-section__intro" data-en="Your weekly behavioral experiment." data-es="Tu experimento conductual semanal.">Your weekly behavioral experiment.</p>
+                    <div class="fp-action-card" id="actionCard"></div>
+                </section>
+
+                <!-- 4. Team Exercise -->
+                <section class="fp-section" id="sectionTeam">
+                    <span class="fp-section__eyebrow" data-en="TEAM EXERCISE" data-es="EJERCICIO DE EQUIPO">TEAM EXERCISE</span>
+                    <div class="fp-team-card" id="teamCard"></div>
+                </section>
+
+                <!-- 5. Reflect (scrolls to reflection card) -->
+                <section class="fp-section" id="sectionReflect">
+                    <span class="fp-section__eyebrow" data-en="FOUNDER REFLECTION" data-es="REFLEXI&Oacute;N DEL FUNDADOR">FOUNDER REFLECTION</span>
+                    <div class="fp-reflect-card" id="reflectCard"></div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Share Modal -->
+    <div class="modal-overlay" id="shareModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeShare">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            </button>
+            <p class="modal-eyebrow" data-en="SHARE" data-es="COMPARTIR">SHARE</p>
+            <h3 data-en="Share this exercise" data-es="Compartir este ejercicio">Share this exercise</h3>
+            <div class="share-preview" id="sharePreview"></div>
+            <div class="share-options">
+                <button class="share-option" id="shareWA"><span>WhatsApp</span></button>
+                <button class="share-option" id="shareEM"><span>Email</span></button>
+                <button class="share-option" id="copyLink"><span data-en="Copy" data-es="Copiar">Copy</span></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="fp-toast" id="fpToast"></div>
+
+    <script src="js/businessProtocols.js?v=20260221"></script>
+    <script src="js/storage.js?v=20260221"></script>
     <script>
+        // =====================================================
+        // STATE
+        // =====================================================
         let currentProtocol = null;
+        let currentLang = localStorage.getItem('berean_lang') || 'en';
         let currentCategory = 'all';
-        const lang = 'en';
+        let scrollSpyObserver = null;
+        let indexScrollY = 0;
 
+        // =====================================================
+        // INIT
+        // =====================================================
         document.addEventListener('DOMContentLoaded', () => {
-            renderProtocols();
+            initLanguage();
+            renderProtocolIndex();
             setupEventListeners();
+            updateCredibilityLine();
         });
 
-        function setupEventListeners() {
-            // Mobile menu
-            document.getElementById('navHamburger').addEventListener('click', () => {
-                document.getElementById('mobileMenu').classList.toggle('active');
+        // =====================================================
+        // LANGUAGE
+        // =====================================================
+        function initLanguage() {
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === currentLang);
             });
-
-            // Category filter
-            document.querySelectorAll('.category-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                    currentCategory = btn.dataset.category;
-                    renderProtocols();
-                });
-            });
-
-            // Back button
-            document.getElementById('backToProtocols').addEventListener('click', () => {
-                document.getElementById('protocolDetail').style.display = 'none';
-                document.getElementById('protocolsGrid').style.display = 'grid';
-                document.querySelector('.founder-categories').style.display = 'flex';
-            });
-
-            // Share
-            document.getElementById('shareWhatsApp').addEventListener('click', shareToWhatsApp);
-            document.getElementById('shareEmail').addEventListener('click', shareToEmail);
-
-            // Commitment
-            document.getElementById('protocolCommit').addEventListener('change', (e) => {
-                if (e.target.checked && currentProtocol) {
-                    StorageManager.saveBusinessProgress(currentProtocol.id, ['committed']);
-                }
-            });
+            translatePage(currentLang);
         }
 
-        function renderProtocols() {
-            const grid = document.getElementById('protocolsGrid');
+        function translatePage(lang) {
+            document.querySelectorAll('[data-en]').forEach(el => {
+                const text = el.getAttribute('data-' + lang);
+                if (text) {
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        el.placeholder = text;
+                    } else {
+                        el.innerHTML = text;
+                    }
+                }
+            });
+            if (currentProtocol) renderProtocolDetail();
+            else renderProtocolIndex();
+            updateCredibilityLine();
+        }
+
+        // =====================================================
+        // CREDIBILITY LINE
+        // =====================================================
+        function updateCredibilityLine() {
+            let totalSources = 0;
+            const evidenceKeys = ['biblicalContext', 'businessContext', 'neuroscience', 'behavioralScience', 'managementResearch'];
+            BusinessProtocols.forEach(p => {
+                evidenceKeys.forEach(key => {
+                    const data = p.analysis[key];
+                    if (data && data.sources) totalSources += data.sources.length;
+                });
+            });
+            const el = document.getElementById('credibilityLine');
+            if (el) {
+                el.textContent = totalSources + (currentLang === 'en'
+                    ? ' peer-reviewed and academic sources across 9 protocols.'
+                    : ' fuentes acad\u00e9micas y revisadas por pares en 9 protocolos.');
+            }
+        }
+
+        // =====================================================
+        // LEVEL 1: PROTOCOL INDEX
+        // =====================================================
+        function renderProtocolIndex() {
+            const container = document.getElementById('protocolCards');
             const protocols = currentCategory === 'all'
                 ? BusinessProtocols
                 : BusinessProtocols.filter(p => p.category === currentCategory);
 
-            grid.innerHTML = protocols.map(protocol => {
-                const isCompleted = StorageManager.isProtocolCompleted(protocol.id);
-                return `
-                    <div class="protocol-card ${isCompleted ? 'completed' : ''}" data-id="${protocol.id}">
-                        <div class="protocol-card-icon">${protocol.icon}</div>
-                        <span class="protocol-card-category">${getCategoryLabel(protocol.category)}</span>
-                        <h3 class="protocol-card-title">${protocol.title[lang]}</h3>
-                        <p class="protocol-card-scripture">${protocol.scriptures[0].reference}</p>
-                        ${isCompleted ? '<span class="completed-badge">✓ Completed</span>' : ''}
-                    </div>
-                `;
+            // Update tab counts
+            updateTabCounts();
+
+            // Get completed protocols
+            let completedMap = {};
+            try {
+                const stored = localStorage.getItem('berean_business_progress');
+                if (stored) completedMap = JSON.parse(stored);
+            } catch (e) {}
+
+            container.innerHTML = protocols.map((p, i) => {
+                const globalIndex = BusinessProtocols.indexOf(p);
+                const num = String(globalIndex + 1).padStart(2, '0');
+                const keyRef = p.scriptures.filter(s => s.key).map(s => s.reference).join('; ');
+                const title = p.title[currentLang];
+                const categoryLabels = {
+                    leadership: currentLang === 'en' ? 'Leadership' : 'Liderazgo',
+                    strategy: currentLang === 'en' ? 'Strategy' : 'Estrategia',
+                    resilience: currentLang === 'en' ? 'Resilience' : 'Resiliencia',
+                    ethics: currentLang === 'en' ? 'Ethics' : 'Etica'
+                };
+                const categoryLabel = categoryLabels[p.category] || p.category;
+                const isCompleted = completedMap[p.id] && completedMap[p.id].includes('completed');
+
+                return '<div class="fp-card' + (isCompleted ? ' fp-card--completed' : '') + '" data-id="' + p.id + '">' +
+                    '<span class="fp-card__number">' + num + '</span>' +
+                    '<div class="fp-card__body">' +
+                        '<span class="fp-card__category">' + categoryLabel + '</span>' +
+                        '<h3 class="fp-card__title">' + title + '</h3>' +
+                        '<span class="fp-card__ref">' + keyRef + '</span>' +
+                    '</div>' +
+                    '<div class="fp-card__right">' +
+                        (isCompleted ? '<svg class="fp-card__check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>' : '') +
+                        '<span class="fp-card__arrow">&rarr;</span>' +
+                    '</div>' +
+                '</div>';
             }).join('');
 
-            // Add click handlers
-            grid.querySelectorAll('.protocol-card').forEach(card => {
+            // Staggered fade-in
+            container.querySelectorAll('.fp-card').forEach((card, i) => {
+                card.style.animationDelay = (i * 60) + 'ms';
+                card.classList.add('fp-card--animate');
+            });
+
+            // Click handlers
+            container.querySelectorAll('.fp-card').forEach(card => {
                 card.addEventListener('click', () => {
                     const protocol = BusinessProtocols.find(p => p.id === card.dataset.id);
-                    if (protocol) showProtocolDetail(protocol);
+                    if (protocol) openProtocol(protocol);
                 });
             });
         }
 
-        function getCategoryLabel(cat) {
-            const labels = {
-                leadership: 'Leadership',
-                strategy: 'Strategy',
-                resilience: 'Resilience',
-                ethics: 'Ethics'
-            };
-            return labels[cat] || cat;
+        function updateTabCounts() {
+            const counts = { all: BusinessProtocols.length };
+            BusinessProtocols.forEach(p => {
+                counts[p.category] = (counts[p.category] || 0) + 1;
+            });
+            document.querySelectorAll('.fp-tab').forEach(tab => {
+                const cat = tab.dataset.category;
+                if (cat === 'all') {
+                    tab.setAttribute('data-en', 'All (' + counts.all + ')');
+                    tab.setAttribute('data-es', 'Todos (' + counts.all + ')');
+                }
+            });
         }
 
-        function showProtocolDetail(protocol) {
+        // =====================================================
+        // LEVEL 2: PROTOCOL DETAIL
+        // =====================================================
+        function openProtocol(protocol) {
             currentProtocol = protocol;
+            indexScrollY = window.scrollY;
 
-            document.getElementById('protocolsGrid').style.display = 'none';
-            document.querySelector('.founder-categories').style.display = 'none';
+            document.getElementById('protocolIndex').style.display = 'none';
             document.getElementById('protocolDetail').style.display = 'block';
 
-            // Populate content
-            document.getElementById('protocolIcon').textContent = protocol.icon;
-            document.getElementById('protocolCategoryBadge').textContent = getCategoryLabel(protocol.category);
-            document.getElementById('protocolTitle').textContent = protocol.title[lang];
+            renderProtocolDetail();
+            window.scrollTo({ top: 0 });
 
-            // Scripture
-            document.getElementById('scriptureText').textContent = protocol.analysis.scriptureText[lang];
-            document.getElementById('scriptureRefs').textContent =
-                protocol.scriptures.map(s => s.reference).join(' | ');
+            // Load saved state
+            loadProtocolState(protocol.id);
 
-            // Analysis sections
-            if (protocol.analysis.biblicalContext) {
-                document.getElementById('biblicalContext').textContent = protocol.analysis.biblicalContext[lang];
-            }
-            if (protocol.analysis.businessContext) {
-                document.getElementById('businessContext').textContent = protocol.analysis.businessContext[lang];
-            }
-            if (protocol.analysis.neuroscience) {
-                document.getElementById('neuroscience').textContent = protocol.analysis.neuroscience[lang];
-            }
-            if (protocol.analysis.behavioralScience) {
-                document.getElementById('behavioralScience').textContent = protocol.analysis.behavioralScience[lang];
-            }
-            if (protocol.analysis.managementResearch) {
-                document.getElementById('managementResearch').textContent = protocol.analysis.managementResearch[lang];
-            }
-
-            // Protocol and reflection
-            document.getElementById('weeklyProtocol').textContent = protocol.analysis.weeklyProtocol[lang];
-            document.getElementById('founderReflection').textContent = protocol.analysis.founderReflection[lang];
-
-            // Team Exercise
-            if (protocol.analysis.teamExercise) {
-                const te = protocol.analysis.teamExercise;
-                document.getElementById('teamExerciseTitle').textContent = te.title[lang];
-                document.getElementById('exerciseTime').querySelector('span:last-child').textContent = te.duration[lang];
-                document.getElementById('exerciseSize').querySelector('span:last-child').textContent = te.teamSize[lang];
-                document.getElementById('teamExerciseDescription').textContent = te.description[lang];
-
-                // Steps
-                document.getElementById('exerciseSteps').innerHTML = te.steps[lang]
-                    .map(step => `<li>${step}</li>`).join('');
-
-                // Discussion Questions
-                document.getElementById('discussionQuestions').innerHTML = te.discussionQuestions[lang]
-                    .map(q => `<li>${q}</li>`).join('');
-
-                document.querySelector('.team-exercise-card').style.display = 'block';
-            } else {
-                document.querySelector('.team-exercise-card').style.display = 'none';
-            }
-
-            // Scroll to top
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            // Setup scroll spy
+            setTimeout(() => setupScrollSpy(), 100);
         }
 
-        // Copy Exercise to clipboard
-        document.getElementById('copyExercise').addEventListener('click', () => {
-            if (!currentProtocol || !currentProtocol.analysis.teamExercise) return;
-            const te = currentProtocol.analysis.teamExercise;
-            const text = `TEAM EXERCISE: ${te.title[lang]}\n\nDuration: ${te.duration[lang]} | Team Size: ${te.teamSize[lang]}\n\n${te.description[lang]}\n\nSTEPS:\n${te.steps[lang].map((s, i) => `${i + 1}. ${s}`).join('\n')}\n\nDISCUSSION QUESTIONS:\n${te.discussionQuestions[lang].map(q => `• ${q}`).join('\n')}\n\n— via Berean for Founders`;
-            navigator.clipboard.writeText(text);
-            document.getElementById('copyExercise').innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M20 6L9 17l-5-5"/></svg> Copied!';
-            setTimeout(() => {
-                document.getElementById('copyExercise').innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy Exercise';
-            }, 2000);
-        });
+        function renderProtocolDetail() {
+            if (!currentProtocol) return;
+            const p = currentProtocol;
+            const a = p.analysis;
+            const lang = currentLang;
+            const globalIndex = BusinessProtocols.indexOf(p);
+            const num = String(globalIndex + 1).padStart(2, '0');
 
-        // Share Exercise
-        document.getElementById('shareExercise').addEventListener('click', () => {
-            if (!currentProtocol || !currentProtocol.analysis.teamExercise) return;
+            // Nav title
+            document.getElementById('detailNavTitle').textContent = p.title[lang];
+
+            // Header
+            const categoryLabels = {
+                leadership: lang === 'en' ? 'Leadership' : 'Liderazgo',
+                strategy: lang === 'en' ? 'Strategy' : 'Estrategia',
+                resilience: lang === 'en' ? 'Resilience' : 'Resiliencia',
+                ethics: lang === 'en' ? 'Ethics' : 'Etica'
+            };
+            document.getElementById('detailHeader').innerHTML =
+                '<div class="fp-detail-header__meta">' +
+                    '<span class="fp-card__category">' + (categoryLabels[p.category] || p.category) + '</span>' +
+                    '<span class="fp-detail-header__num">' + (lang === 'en' ? 'Protocol ' : 'Protocolo ') + num + '</span>' +
+                '</div>' +
+                '<h1 class="fp-detail-header__title">' + p.title[lang] + '</h1>' +
+                '<p class="fp-detail-header__refs">' + p.scriptures.map(s => s.reference).join(' &middot; ') + '</p>' +
+                '<div class="fp-disciplines fp-disciplines--detail">' +
+                    '<span class="fp-discipline">' + (lang === 'en' ? 'Biblical Exegesis' : 'Exegesis Biblica') + '</span>' +
+                    '<span class="fp-discipline">' + (lang === 'en' ? 'Neuroscience' : 'Neurociencia') + '</span>' +
+                    '<span class="fp-discipline">' + (lang === 'en' ? 'Behavioral Science' : 'Ciencia del Comportamiento') + '</span>' +
+                    '<span class="fp-discipline">' + (lang === 'en' ? 'Management Research' : 'Investigacion en Gestion') + '</span>' +
+                '</div>';
+
+            // Scripture card
+            document.getElementById('scriptureCard').innerHTML =
+                '<blockquote class="fp-scripture__quote">' + a.scriptureText[lang] + '</blockquote>' +
+                '<span class="fp-scripture__ref">' + p.scriptures.filter(s => s.key).map(s => s.reference).join('; ') + '</span>';
+
+            // Evidence accordions
+            const evidenceItems = [
+                { key: 'biblicalContext', label: { en: 'Biblical Context', es: 'Contexto Biblico' } },
+                { key: 'businessContext', label: { en: 'Business Context', es: 'Contexto Empresarial' } },
+                { key: 'neuroscience', label: { en: 'Neuroscience', es: 'Neurociencia' } },
+                { key: 'behavioralScience', label: { en: 'Behavioral Science', es: 'Ciencia del Comportamiento' } },
+                { key: 'managementResearch', label: { en: 'Management Research', es: 'Investigacion en Gestion' } }
+            ];
+
+            document.getElementById('evidenceAccordions').innerHTML = evidenceItems.map(item => {
+                const data = a[item.key];
+                if (!data) return '';
+                const text = typeof data === 'string' ? data : (data[lang] || '');
+                const sources = data.sources || [];
+                const sourceField = lang === 'es' ? 'citationEs' : 'citation';
+                const sourceCount = sources.length;
+                const badge = sourceCount > 0 ? ' <span class="fp-accordion__badge">(' + sourceCount + ' ' + (sourceCount === 1 ? (lang === 'en' ? 'source' : 'fuente') : (lang === 'en' ? 'sources' : 'fuentes')) + ')</span>' : '';
+
+                let sourcesHTML = '';
+                if (sourceCount > 0) {
+                    sourcesHTML = '<div class="fp-accordion__sources">' +
+                        sources.map(s => {
+                            const typeLabel = s.type === 'peer-reviewed' ? 'PEER-REVIEWED' : (s.type === 'academic' ? 'ACADEMIC' : 'INDUSTRY');
+                            const typeClass = s.type === 'peer-reviewed' ? 'fp-source--peer' : (s.type === 'academic' ? 'fp-source--academic' : 'fp-source--industry');
+                            return '<p class="fp-source"><span class="fp-source__type ' + typeClass + '">' + typeLabel + '</span> ' + (s[sourceField] || s.citation) + '</p>';
+                        }).join('') +
+                    '</div>';
+                }
+
+                return '<details class="fp-accordion">' +
+                    '<summary class="fp-accordion__header">' +
+                        '<span class="fp-accordion__title">' + item.label[lang] + badge + '</span>' +
+                        '<svg class="fp-accordion__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>' +
+                    '</summary>' +
+                    '<div class="fp-accordion__body">' +
+                        '<p>' + text + '</p>' +
+                        sourcesHTML +
+                    '</div>' +
+                '</details>';
+            }).join('');
+
+            // Setup one-at-a-time accordion behavior
+            setupAccordionBehavior();
+
+            // Action card (protocol + commitment)
+            document.getElementById('actionCard').innerHTML =
+                '<div class="fp-action-card__experiment">' +
+                    '<p>' + a.weeklyProtocol[lang] + '</p>' +
+                    '<label class="fp-action-card__commit">' +
+                        '<input type="checkbox" id="commitCheckbox">' +
+                        '<span class="fp-action-card__checkbox"></span>' +
+                        '<span data-en="I commit to this experiment" data-es="Me comprometo con este experimento">' + (lang === 'en' ? 'I commit to this experiment' : 'Me comprometo con este experimento') + '</span>' +
+                    '</label>' +
+                '</div>';
+
+            // Team card
+            const te = a.teamExercise;
+            document.getElementById('teamCard').innerHTML =
+                '<h3 class="fp-team-card__title">' + te.title[lang] + '</h3>' +
+                '<div class="fp-team-meta">' +
+                    '<span class="fp-meta-pill">' + te.duration[lang] + '</span>' +
+                    '<span class="fp-meta-pill">' + te.teamSize[lang] + '</span>' +
+                '</div>' +
+                '<p class="fp-team-card__desc">' + te.description[lang] + '</p>' +
+                '<ol class="fp-team-steps">' + te.steps[lang].map(s => '<li>' + s + '</li>').join('') + '</ol>' +
+                '<div class="fp-team-questions">' +
+                    '<h4>' + (lang === 'en' ? 'Discussion Questions' : 'Preguntas de Discusion') + '</h4>' +
+                    '<ul>' + te.discussionQuestions[lang].map(q => '<li>' + q + '</li>').join('') + '</ul>' +
+                '</div>' +
+                '<div class="fp-team-actions">' +
+                    '<button class="fp-team-actions__btn" id="copyExercise">' +
+                        '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>' +
+                        '<span>' + (lang === 'en' ? 'Copy' : 'Copiar') + '</span>' +
+                    '</button>' +
+                    '<button class="fp-team-actions__btn" id="shareExercise">' +
+                        '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>' +
+                        '<span>' + (lang === 'en' ? 'Share' : 'Compartir') + '</span>' +
+                    '</button>' +
+                '</div>';
+
+            // Reflect card
+            document.getElementById('reflectCard').innerHTML =
+                '<p class="fp-reflect-card__question">' + a.founderReflection[lang] + '</p>' +
+                '<textarea class="fp-reflect-card__textarea" id="reflectionTextarea" placeholder="' + (lang === 'en' ? 'What came up for you?' : 'Que te surgio?') + '"></textarea>';
+
+            // Rebind dynamic event listeners
+            bindDetailEvents();
+        }
+
+        function loadProtocolState(protocolId) {
+            // Load journal
+            const saved = localStorage.getItem('berean-journal-' + protocolId);
+            setTimeout(() => {
+                const textarea = document.getElementById('reflectionTextarea');
+                if (textarea && saved) textarea.value = saved;
+            }, 50);
+
+            // Load commitment
+            const committed = localStorage.getItem('berean-commit-' + protocolId);
+            setTimeout(() => {
+                const cb = document.getElementById('commitCheckbox');
+                if (cb && committed === 'true') cb.checked = true;
+            }, 50);
+
+            // Load completion state
+            let progress = {};
+            try {
+                const stored = localStorage.getItem('berean_business_progress');
+                if (stored) progress = JSON.parse(stored);
+            } catch (e) {}
+            const isCompleted = progress[protocolId] && progress[protocolId].includes('completed');
+            setTimeout(() => {
+                const mc = document.getElementById('markCompleteCheckbox');
+                if (mc) mc.checked = isCompleted;
+            }, 50);
+        }
+
+        function setupAccordionBehavior() {
+            const container = document.getElementById('evidenceAccordions');
+            container.querySelectorAll('details').forEach(detail => {
+                detail.addEventListener('toggle', () => {
+                    if (detail.open) {
+                        container.querySelectorAll('details').forEach(sibling => {
+                            if (sibling !== detail && sibling.open) sibling.open = false;
+                        });
+                    }
+                });
+            });
+        }
+
+        // =====================================================
+        // SCROLL SPY
+        // =====================================================
+        function setupScrollSpy() {
+            if (scrollSpyObserver) scrollSpyObserver.disconnect();
+
+            const sections = document.querySelectorAll('#protocolDetail .fp-section');
+            const tocItems = document.querySelectorAll('.fp-toc__item');
+
+            scrollSpyObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.id;
+                        tocItems.forEach(item => {
+                            item.classList.toggle('fp-toc__item--active', item.dataset.target === id);
+                        });
+                    }
+                });
+            }, { threshold: 0.2, rootMargin: '-80px 0px -60% 0px' });
+
+            sections.forEach(section => scrollSpyObserver.observe(section));
+        }
+
+        // =====================================================
+        // BACK TO INDEX
+        // =====================================================
+        function backToIndex() {
+            if (scrollSpyObserver) scrollSpyObserver.disconnect();
+            document.getElementById('protocolDetail').style.display = 'none';
+            document.getElementById('protocolIndex').style.display = 'block';
+            currentProtocol = null;
+            renderProtocolIndex();
+            window.scrollTo({ top: indexScrollY });
+        }
+
+        // =====================================================
+        // TOAST
+        // =====================================================
+        function showToast(message) {
+            const toast = document.getElementById('fpToast');
+            toast.textContent = message;
+            toast.classList.add('fp-toast--visible');
+            setTimeout(() => toast.classList.remove('fp-toast--visible'), 2000);
+        }
+
+        // =====================================================
+        // EVENT LISTENERS
+        // =====================================================
+        function setupEventListeners() {
+            // Language toggle
+            document.addEventListener('click', (e) => {
+                if (e.target.classList.contains('lang-btn')) {
+                    currentLang = e.target.dataset.lang;
+                    localStorage.setItem('berean_lang', currentLang);
+                    document.querySelectorAll('.lang-btn').forEach(b => {
+                        b.classList.toggle('active', b.dataset.lang === currentLang);
+                    });
+                    translatePage(currentLang);
+                }
+            });
+
+            // Category tabs
+            document.getElementById('categoryTabs').addEventListener('click', (e) => {
+                const tab = e.target.closest('.fp-tab');
+                if (!tab) return;
+                document.querySelectorAll('.fp-tab').forEach(t => t.classList.remove('fp-tab--active'));
+                tab.classList.add('fp-tab--active');
+                currentCategory = tab.dataset.category;
+                renderProtocolIndex();
+            });
+
+            // Back to index
+            document.getElementById('backToIndex').addEventListener('click', backToIndex);
+
+            // TOC clicks
+            document.querySelectorAll('.fp-toc__item').forEach(item => {
+                item.addEventListener('click', () => {
+                    const target = document.getElementById(item.dataset.target);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+
+            // Mark complete
+            document.getElementById('markCompleteCheckbox').addEventListener('change', (e) => {
+                if (!currentProtocol) return;
+                if (e.target.checked) {
+                    StorageManager.saveBusinessProgress(currentProtocol.id, ['completed']);
+                    showToast(currentLang === 'en' ? 'Protocol marked complete' : 'Protocolo marcado como completo');
+                } else {
+                    // Unmark
+                    StorageManager.saveBusinessProgress(currentProtocol.id, []);
+                }
+            });
+
+            // Share modal
+            document.getElementById('closeShare').addEventListener('click', () => {
+                document.getElementById('shareModal').classList.remove('active');
+            });
+            document.getElementById('shareWA').addEventListener('click', shareToWhatsApp);
+            document.getElementById('shareEM').addEventListener('click', shareToEmail);
+            document.getElementById('copyLink').addEventListener('click', copyToClipboard);
+        }
+
+        function bindDetailEvents() {
+            // Commitment checkbox
+            const commitCb = document.getElementById('commitCheckbox');
+            if (commitCb) {
+                commitCb.addEventListener('change', (e) => {
+                    if (!currentProtocol) return;
+                    localStorage.setItem('berean-commit-' + currentProtocol.id, e.target.checked ? 'true' : 'false');
+                    if (e.target.checked) {
+                        StorageManager.saveBusinessProgress(currentProtocol.id, ['committed']);
+                    }
+                });
+            }
+
+            // Journal auto-save
+            const textarea = document.getElementById('reflectionTextarea');
+            if (textarea) {
+                textarea.addEventListener('input', (e) => {
+                    if (!currentProtocol) return;
+                    if (e.target.value) {
+                        localStorage.setItem('berean-journal-' + currentProtocol.id, e.target.value);
+                    } else {
+                        localStorage.removeItem('berean-journal-' + currentProtocol.id);
+                    }
+                });
+            }
+
+            // Copy exercise
+            const copyBtn = document.getElementById('copyExercise');
+            if (copyBtn) {
+                copyBtn.addEventListener('click', copyExerciseToClipboard);
+            }
+
+            // Share exercise
+            const shareBtn = document.getElementById('shareExercise');
+            if (shareBtn) {
+                shareBtn.addEventListener('click', () => {
+                    document.getElementById('shareModal').classList.add('active');
+                    updateSharePreview();
+                });
+            }
+        }
+
+        // =====================================================
+        // COPY / SHARE
+        // =====================================================
+        function copyExerciseToClipboard() {
+            if (!currentProtocol) return;
             const te = currentProtocol.analysis.teamExercise;
-            const msg = `*TEAM EXERCISE: ${te.title[lang]}*\n\n⏱ ${te.duration[lang]} | 👥 ${te.teamSize[lang]}\n\n${te.description[lang]}\n\n*Steps:*\n${te.steps[lang].map((s, i) => `${i + 1}. ${s}`).join('\n')}\n\n— via Berean for Founders`;
-            window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
-        });
+            const lang = currentLang;
+            const text = te.title[lang] + '\n' +
+                te.duration[lang] + ' | ' + te.teamSize[lang] + '\n\n' +
+                te.description[lang] + '\n\n' +
+                (lang === 'en' ? 'Steps:' : 'Pasos:') + '\n' +
+                te.steps[lang].map((s, i) => (i + 1) + '. ' + s).join('\n') + '\n\n' +
+                (lang === 'en' ? 'Discussion Questions:' : 'Preguntas de Discusion:') + '\n' +
+                te.discussionQuestions[lang].map(q => '- ' + q).join('\n') +
+                '\n\n-- via Berean for Founders';
+
+            navigator.clipboard.writeText(text).then(() => {
+                const btn = document.getElementById('copyExercise');
+                const origText = btn.querySelector('span').textContent;
+                btn.querySelector('span').textContent = currentLang === 'en' ? 'Copied!' : 'Copiado!';
+                setTimeout(() => btn.querySelector('span').textContent = origText, 2000);
+            });
+        }
 
         function shareToWhatsApp() {
             if (!currentProtocol) return;
-            const msg = `*${currentProtocol.title[lang]}*\n\n📜 ${currentProtocol.scriptures[0].reference}\n\n"${currentProtocol.analysis.scriptureText[lang].substring(0, 150)}..."\n\n🎯 *This Week's Protocol:*\n${currentProtocol.analysis.weeklyProtocol[lang]}\n\n— via Berean for Founders | berean.app`;
-            window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
+            const p = currentProtocol;
+            const ref = p.scriptures.filter(s => s.key).map(s => s.reference).join('; ');
+            const text = '*' + p.title[currentLang] + '*\n' + ref + '\n\n"' +
+                p.analysis.scriptureText[currentLang].slice(0, 200) + '..."\n\n-- via Berean for Founders';
+            window.open('https://wa.me/?text=' + encodeURIComponent(text), '_blank');
         }
 
         function shareToEmail() {
             if (!currentProtocol) return;
-            const subject = `Founder Protocol: ${currentProtocol.title[lang]}`;
-            const body = `${currentProtocol.title[lang]}\n\nScripture: ${currentProtocol.scriptures[0].reference}\n\n"${currentProtocol.analysis.scriptureText[lang]}"\n\nThis Week's Protocol:\n${currentProtocol.analysis.weeklyProtocol[lang]}\n\n— via Berean for Founders | berean.app`;
-            window.open(`mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`, '_blank');
+            const p = currentProtocol;
+            const subject = p.title[currentLang] + ' - Berean for Founders';
+            const body = p.title[currentLang] + '\n\n' + p.analysis.scriptureText[currentLang].slice(0, 300) + '...';
+            window.open('mailto:?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body), '_blank');
+        }
+
+        function copyToClipboard() {
+            if (!currentProtocol) return;
+            const p = currentProtocol;
+            const text = p.title[currentLang] + '\n' +
+                p.scriptures.filter(s => s.key).map(s => s.reference).join('; ') + '\n\n' +
+                p.analysis.weeklyProtocol[currentLang] + '\n\n-- via Berean for Founders';
+            navigator.clipboard.writeText(text).then(() => {
+                const btn = document.getElementById('copyLink');
+                const origHTML = btn.innerHTML;
+                btn.innerHTML = '<span>' + (currentLang === 'en' ? 'Copied!' : 'Copiado!') + '</span>';
+                setTimeout(() => btn.innerHTML = origHTML, 2000);
+            });
+        }
+
+        function updateSharePreview() {
+            if (!currentProtocol) return;
+            const ref = currentProtocol.scriptures.filter(s => s.key).map(s => s.reference).join('; ');
+            document.getElementById('sharePreview').innerHTML =
+                '<strong>' + currentProtocol.title[currentLang] + '</strong>' +
+                '<p>' + ref + '</p>';
         }
     </script>
+<script defer src="/_vercel/insights/script.js"></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
 </body>
 </html>
