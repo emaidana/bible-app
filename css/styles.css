@@ -4699,8 +4699,8 @@ section {
 
 /* Prayer Card */
 .prayer-card {
-    background: linear-gradient(135deg, #F3E8FF 0%, #FAF5FF 100%);
-    border: 2px solid rgba(147, 51, 234, 0.2);
+    background: linear-gradient(135deg, #FFF7ED 0%, #FFFBF5 100%);
+    border: 2px solid rgba(255, 99, 66, 0.15);
     border-radius: var(--radius-lg);
     padding: var(--space-4);
 }
@@ -4718,7 +4718,7 @@ section {
 
 .prayer-science-details {
     background: var(--color-white);
-    border: 1px solid rgba(147, 51, 234, 0.15);
+    border: 1px solid rgba(255, 99, 66, 0.15);
     border-radius: var(--radius-md);
     overflow: hidden;
     margin-top: var(--space-2);
@@ -4772,8 +4772,8 @@ section {
 
 /* Reflection Card */
 .reflection-card {
-    background: linear-gradient(135deg, #ECFDF5 0%, #F0FDF4 100%);
-    border: 2px solid rgba(16, 185, 129, 0.2);
+    background: linear-gradient(135deg, #FFF7ED 0%, #FFFBF5 100%);
+    border: 2px solid rgba(255, 99, 66, 0.15);
     border-radius: var(--radius-lg);
     padding: var(--space-4);
 }
@@ -4790,7 +4790,7 @@ section {
     width: 100%;
     min-height: 120px;
     padding: var(--space-3);
-    border: 1px solid rgba(16, 185, 129, 0.3);
+    border: 1px solid rgba(255, 99, 66, 0.2);
     border-radius: var(--radius-md);
     font-family: var(--font-primary);
     font-size: 15px;
@@ -4803,8 +4803,8 @@ section {
 
 .reflection-card textarea:focus {
     outline: none;
-    border-color: rgba(16, 185, 129, 0.6);
-    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+    border-color: rgba(255, 99, 66, 0.5);
+    box-shadow: 0 0 0 3px rgba(255, 99, 66, 0.08);
 }
 
 .reflection-card textarea::placeholder {
@@ -4816,7 +4816,7 @@ section {
     align-items: center;
     justify-content: center;
     padding: 12px 24px;
-    background: #10B981;
+    background: var(--color-orange-primary);
     color: var(--color-white);
     border: none;
     border-radius: var(--radius-full);
@@ -4827,7 +4827,7 @@ section {
 }
 
 .save-reflection-btn:hover {
-    background: #059669;
+    background: var(--color-orange-dark);
     transform: translateY(-1px);
 }
 
@@ -8168,6 +8168,7 @@ section {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
 }
 
 .journey-logo {
@@ -8179,6 +8180,9 @@ section {
 }
 
 .journey-nav-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     align-items: center;
     gap: 12px;
