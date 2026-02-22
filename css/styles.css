@@ -2087,11 +2087,15 @@ section {
 
 .sources-dropdown {
     cursor: pointer;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(0,0,0,0.06);
 }
 
 .sources-dropdown summary {
-    font-weight: var(--weight-medium);
-    color: var(--color-gray-medium);
+    font-weight: 600;
+    color: var(--color-charcoal-dark);
+    font-size: 13px;
     list-style: none;
     display: flex;
     align-items: center;

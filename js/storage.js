@@ -3,7 +3,7 @@
  */
 
 const StorageManager = {
-    CACHE_VERSION: '20260221',
+    CACHE_VERSION: '20260222',
 
     KEYS: {
         VIEWED_VERSES: 'bibleApp_viewedVerses',
