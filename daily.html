@@ -716,12 +716,12 @@
                 }
             });
 
-            // Accordion auto-close: only one open per group
+            // Accordion auto-close: only one open per group (direct children only)
             document.querySelectorAll('.context-cards').forEach(container => {
-                container.querySelectorAll('details').forEach(detail => {
+                container.querySelectorAll(':scope > details').forEach(detail => {
                     detail.addEventListener('toggle', () => {
                         if (detail.open) {
-                            container.querySelectorAll('details').forEach(sibling => {
+                            container.querySelectorAll(':scope > details').forEach(sibling => {
                                 if (sibling !== detail && sibling.open) sibling.open = false;
                             });
                         }

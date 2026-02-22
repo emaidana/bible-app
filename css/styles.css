@@ -8189,6 +8189,13 @@ section {
     justify-content: center;
     gap: 12px;
     min-width: 0;
+    overflow: hidden;
+}
+
+.journey-nav-center .journey-date {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .journey-date {
@@ -9226,6 +9233,10 @@ section {
 
     .journey-nav-inner {
         padding: 10px 16px;
+    }
+
+    .journey-nav-center .founders-nav-link {
+        display: none;
     }
 
     .journey-main {
