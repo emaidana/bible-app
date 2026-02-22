@@ -2079,65 +2079,85 @@ section {
 .card-sources {
     font-size: 13px;
     color: var(--color-gray-medium);
-    padding: var(--space-2);
-    background: var(--color-gray-lightest);
-    border-radius: var(--radius-sm);
-    margin-bottom: var(--space-2);
 }
 
 .sources-dropdown {
     cursor: pointer;
-    margin-top: 12px;
-    padding-top: 12px;
+    margin-top: 14px;
+    padding-top: 14px;
     border-top: 1px solid rgba(0,0,0,0.06);
 }
 
 .sources-dropdown summary {
+    font-family: var(--font-primary);
     font-weight: 600;
-    color: var(--color-charcoal-dark);
-    font-size: 13px;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-gray-medium);
     list-style: none;
     display: flex;
     align-items: center;
-    gap: var(--space-1);
+    gap: 6px;
+    transition: color 0.15s ease;
+}
+
+.sources-dropdown summary:hover {
+    color: var(--color-charcoal-dark);
 }
 
 .sources-dropdown summary::-webkit-details-marker {
     display: none;
 }
 
-.sources-dropdown summary::before {
-    content: '▶';
-    font-size: 10px;
-    transition: transform var(--transition-fast);
+.sources-dropdown summary::after {
+    content: '';
+    width: 14px;
+    height: 14px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
 }
 
-.sources-dropdown[open] summary::before {
-    transform: rotate(90deg);
+.sources-dropdown[open] summary::after {
+    transform: rotate(180deg);
 }
 
 .sources-list {
-    margin-top: var(--space-1);
-    padding-left: var(--space-2);
+    margin-top: 10px;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 .source-item {
-    font-size: 12px;
-    color: var(--color-gray-medium);
-    margin-bottom: 4px;
-    line-height: 1.4;
+    font-family: var(--font-secondary);
+    font-size: 12.5px;
+    line-height: 1.5;
+    color: #555;
+    padding: 8px 12px;
+    background: #F8F8F6;
+    border-radius: 8px;
+    border-left: 2px solid #DDD;
 }
 
 .source-item[data-type="academic"] {
-    color: var(--color-charcoal-dark);
+    color: #333;
+    border-left-color: var(--color-orange-primary);
 }
 
 .source-item[data-type="peer-reviewed"] {
-    color: var(--color-charcoal-dark);
+    color: #333;
+    border-left-color: #5B8A6E;
 }
 
 .source-item[data-type="scripture"] {
     font-style: italic;
+    border-left-color: #C4A35A;
 }
 
 /* Section Complete Checkbox */
@@ -8510,11 +8530,11 @@ section {
 }
 
 .context-card .card-sources {
-    padding: 0 16px 16px;
+    padding: 0 18px 18px;
 }
 
 .science-card .card-sources {
-    padding: 0 16px 16px;
+    padding: 0 18px 18px;
 }
 
 /* Science Cards */

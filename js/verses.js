@@ -9,7 +9,7 @@ const VerseLoader = {
     index: null,
     cache: new Map(),
     _indexPromise: null,
-    CONTENT_VERSION: '20260222',
+    CONTENT_VERSION: '20260223',
 
     /**
      * Load the verse index (lightweight list of all verses with metadata).
