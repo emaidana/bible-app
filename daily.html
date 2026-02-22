@@ -725,6 +725,10 @@
                             container.querySelectorAll(':scope > details').forEach(sibling => {
                                 if (sibling !== detail && sibling.open) sibling.open = false;
                             });
+                            // Gently scroll the opened card into view after content renders
+                            setTimeout(() => {
+                                detail.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                            }, 50);
                         }
                     });
                 });

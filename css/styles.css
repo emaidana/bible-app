@@ -8486,6 +8486,7 @@ section {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
     overflow: visible;
     transition: box-shadow 0.2s ease;
+    scroll-margin-top: 160px;
 }
 
 .context-card:hover {
@@ -8645,34 +8646,38 @@ section {
 
 /* Reflection Card */
 .reflection-card {
-    background: #fff;
+    background: #FAFAF8;
     border-radius: 16px;
     padding: 24px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    border: 1px solid #EEEDE9;
     margin-bottom: 20px;
 }
 
 .reflection-header {
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-bottom: 12px;
+    gap: 8px;
+    margin-bottom: 14px;
 }
 
 .reflection-header .card-title {
     font-size: 11px;
-    font-weight: 700;
+    font-weight: 600;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: #999;
 }
 
 .reflection-question {
-    font-size: 16px;
-    line-height: 1.6;
+    font-family: 'Crimson Pro', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.5;
     color: #1A1A1A;
-    font-weight: 500;
-    margin: 0 0 16px 0;
+    font-weight: 400;
+    font-style: italic;
+    margin: 0 0 18px 0;
+    padding-left: 14px;
+    border-left: 2px solid rgba(255, 99, 66, 0.3);
 }
 
 .reflection-input {
@@ -8681,6 +8686,7 @@ section {
     padding: 16px;
     border: 1px solid #E5E5E5;
     border-radius: 12px;
+    background: #fff;
     font-family: inherit;
     font-size: 15px;
     line-height: 1.6;
@@ -8695,38 +8701,56 @@ section {
 
 /* Prayer Card */
 .prayer-card {
-    background: #fff;
+    background: linear-gradient(160deg, #FDFCFA 0%, #F8F6F2 100%);
     border-radius: 16px;
     padding: 32px;
     margin-bottom: 20px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
-    border-left: 3px solid #FF6342;
+    border: 1px solid #EEEDE9;
+    position: relative;
+}
+
+.prayer-card::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    bottom: 20px;
+    left: 0;
+    width: 3px;
+    background: linear-gradient(180deg, #FF6342, rgba(255, 99, 66, 0.2));
+    border-radius: 0 2px 2px 0;
 }
 
 .prayer-text {
     font-family: 'Crimson Pro', Georgia, serif;
-    font-size: 17px;
-    line-height: 1.8;
+    font-size: 18px;
+    line-height: 1.75;
     color: #1A1A1A;
-    font-style: normal;
+    font-style: italic;
     margin: 0 0 20px 0;
     padding: 0;
     border: none;
 }
 
 .prayer-science {
-    border-top: 1px solid #F0F0F0;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
     margin-top: 20px;
-    padding-top: 4px;
+    padding: 0;
+    border: 1px solid #EEEDE9;
 }
 
 .prayer-science summary {
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 12px 0;
+    padding: 12px 16px;
     cursor: pointer;
     list-style: none;
+    transition: background 0.15s ease;
+}
+
+.prayer-science summary:hover {
+    background: rgba(0, 0, 0, 0.02);
 }
 
 .prayer-science summary::-webkit-details-marker {
@@ -8739,15 +8763,15 @@ section {
 
 .prayer-science .card-title {
     flex: 1;
-    font-size: 12px;
-    font-weight: 500;
+    font-size: 11px;
+    font-weight: 600;
     color: #999;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
 }
 
 .prayer-science .card-toggle {
-    font-size: 18px;
+    font-size: 16px;
     color: #CCC;
     transition: transform 0.2s ease;
     line-height: 1;
@@ -8758,10 +8782,10 @@ section {
 }
 
 .prayer-science .card-body {
-    padding: 0 0 4px;
-    font-size: 13px;
+    padding: 0 16px 14px;
+    font-size: 14px;
     line-height: 1.7;
-    color: #888;
+    color: #666;
 }
 
 /* Complete Button */
