@@ -8172,7 +8172,6 @@ section {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: relative;
 }
 
 .journey-logo {
@@ -8184,12 +8183,12 @@ section {
 }
 
 .journey-nav-center {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    flex: 1;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 12px;
+    min-width: 0;
 }
 
 .journey-date {
@@ -8458,7 +8457,7 @@ section {
     background: #fff;
     border-radius: 12px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
-    overflow: hidden;
+    overflow: visible;
     transition: box-shadow 0.2s ease;
 }
 
